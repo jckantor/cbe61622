@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-| <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Remote_Operation_of_a_Laboratory_Experiment.html">2.2 Remote Operation of a Laboratory Experiment via MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.01-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html">2.0 Proof of Concept</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Remote_Operation_of_a_Laboratory_Experiment.html">2.2 Remote Operation of a Laboratory Experiment via MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.01-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13121,48 +13121,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.1.1-Background">2.1.1 Background<a class="anchor-link" href="#2.1.1-Background">&#182;</a></h2>
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.1.1.1-MQTT">2.1.1.1 MQTT<a class="anchor-link" href="#2.1.1.1-MQTT">&#182;</a></h3><p>Descriptions</p>
-<ul>
-<li><a href="MQTT.org">MQTT.org</a></li>
-</ul>
-<p>Primers and Tutorials</p>
-<ul>
-<li>mqtt primer: <a href="https://www.youtube.com/watch?v=AxC_ykketIg&amp;ab_channel=wcltalkstech">https://www.youtube.com/watch?v=AxC_ykketIg&amp;ab_channel=wcltalkstech</a></li>
-<li><p>HiveMQ MQTT Essentials: <a href="https://www.hivemq.com/tags/mqtt-essentials/">https://www.hivemq.com/tags/mqtt-essentials/</a></p>
-</li>
-<li><p><a href="https://opensource.com/article/18/6/mqtt">Using MQTT to send and receive data for your next project</a></p>
-</li>
-</ul>
-<p>MQTT for Process Applications</p>
-<ul>
-<li><p><a href="https://www.flowcontrolnetwork.com/process-control-automation/article/21122615/how-mqtt-is-advancing-automation-and-control">How MQTT is advancing automation and control</a></p>
-</li>
-<li><p><a href="https://www.controlglobal.com/articles/2019/mqtt-open-scada-publishsubscribe-protocol-is-getting-what-it-needs-to-go-industrial/">MQTT, open SCADA publish/subscribe protocol is getting what it needs to go industrial</a></p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.1.2-Installations">2.1.2 Installations<a class="anchor-link" href="#2.1.2-Installations">&#182;</a></h2><p>The following installations are required for use on Google Colab.</p>
+<h2 id="2.1.1-Installations">2.1.1 Installations<a class="anchor-link" href="#2.1.1-Installations">&#182;</a></h2><p>The following installations are required for use on Google Colab.</p>
 
 </div>
 </div>
@@ -13196,7 +13155,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Collecting paho-mqtt
   Downloading https://files.pythonhosted.org/packages/32/d3/6dcb8fd14746fcde6a556f932b5de8bea8fedcb85b3a092e0e986372c0e7/paho-mqtt-1.5.1.tar.gz (101kB)
-     |████████████████████████████████| 102kB 5.0MB/s 
+     |████████████████████████████████| 102kB 5.0MB/s ta 0:00:011
 Building wheels for collected packages: paho-mqtt
   Building wheel for paho-mqtt (setup.py) ... done
   Created wheel for paho-mqtt: filename=paho_mqtt-1.5.1-cp36-none-any.whl size=61544 sha256=e1c78ce2e63e037c45f8aff66b8e2a46e045b79449c8b7f1f20746a5f394f4cd
@@ -13223,7 +13182,7 @@ Successfully installed simpy-4.0.1
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.1.3-Publishing-a-real-time-simulation-via-MQTT">2.1.3 Publishing a real-time simulation via MQTT<a class="anchor-link" href="#2.1.3-Publishing-a-real-time-simulation-via-MQTT">&#182;</a></h2><p>Topics:</p>
+<h2 id="2.1.2-Publishing-a-real-time-simulation-via-MQTT">2.1.2 Publishing a real-time simulation via MQTT<a class="anchor-link" href="#2.1.2-Publishing-a-real-time-simulation-via-MQTT">&#182;</a></h2><p>Topics:</p>
 <table>
 <thead><tr>
 <th style="text-align:left">topic</th>
@@ -13252,7 +13211,7 @@ Successfully installed simpy-4.0.1
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.1.3.1-Proof-of-Concept">2.1.3.1 Proof of Concept<a class="anchor-link" href="#2.1.3.1-Proof-of-Concept">&#182;</a></h3><p>Here we experiment with encapsulating the experiment as a standalone class. This is set up so that upon receiving an appropriate message from the remote user, a new instance of the experiment is created and run.</p>
+<h3 id="2.1.2.1-Proof-of-Concept">2.1.2.1 Proof of Concept<a class="anchor-link" href="#2.1.2.1-Proof-of-Concept">&#182;</a></h3><p>Here we experiment with encapsulating the experiment as a standalone class. This is set up so that upon receiving an appropriate message from the remote user, a new instance of the experiment is created and run.</p>
 
 </div>
 </div>
@@ -13439,7 +13398,7 @@ End experiment.
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-| <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Remote_Operation_of_a_Laboratory_Experiment.html">2.2 Remote Operation of a Laboratory Experiment via MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.01-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html">2.0 Proof of Concept</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Remote_Operation_of_a_Laboratory_Experiment.html">2.2 Remote Operation of a Laboratory Experiment via MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.01-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

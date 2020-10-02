@@ -4,5 +4,10 @@
 
 ### [Table of Contents](https://jckantor.github.io/cbe-virtual-laboratory/toc.html)
 ### [Python Module Index](https://jckantor.github.io/cbe-virtual-laboratory/python_index.html)
+
+### [Chapter 1.0 CBE Virtual Laboratory](https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.html)
+- [1.2 MQTT](https://jckantor.github.io/cbe-virtual-laboratory/01.02-MQTT.html)
+
+### [Chapter 2.0 Proof of Concept](https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html)
 - [2.1 Simulation of a Remote Laboratory Experiment Published via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.01-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.html)
 - [2.2 Remote Operation of a Laboratory Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Remote_Operation_of_a_Laboratory_Experiment.html)
