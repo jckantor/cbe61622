@@ -13107,7 +13107,9 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.2-MQTT">1.2 MQTT<a class="anchor-link" href="#1.2-MQTT">&#182;</a></h1>
+<h1 id="1.2-MQTT">1.2 MQTT<a class="anchor-link" href="#1.2-MQTT">&#182;</a></h1><p>MQTT is a lightweight protocol for delivering messages between devices through an intermediate broker. Senders declare a 'topic' and 'publish' messages to the broker. Receivers 'subscribe' to particular topics on the broker to receive a copy of all messages pertaining to that topic. Connections between a device and broker are typically over a TCP/IP network, but other transport mediums are in common use. This robust and flexible 'hub-and-spoke' architecture has been widely adopted for 'Internet of Things' (IoT) applications.</p>
+<p>The MQTT acronym was orginally an abbreviation for Message Queuing Telemetry Transport that was developed by individuals at IBM and Cirrus Link (later Eurotech) for monitoring pipeline by satellite in remote locations. IBM later submitted the protocol to the global standards body, OASIS and ISO, where they are now maintained as open standards.</p>
+
 </div>
 </div>
 </div>
@@ -13137,6 +13139,46 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <li><p><a href="https://www.controlglobal.com/articles/2019/mqtt-open-scada-publishsubscribe-protocol-is-getting-what-it-needs-to-go-industrial/">MQTT, open SCADA publish/subscribe protocol is getting what it needs to go industrial</a></p>
 </li>
 </ul>
+<p>Bidirectional Messaging</p>
+<ul>
+<li><a href="http://www.steves-internet-guide.com/two-way-communication-mqtt-python/">Two Way communication Using MQTT and Python</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.2.2-Implementation-for-CBE-Virtual-Laboratory">1.2.2 Implementation for CBE-Virtual-Laboratory<a class="anchor-link" href="#1.2.2-Implementation-for-CBE-Virtual-Laboratory">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the purposes of the CBE-Virtual-Laboratory, we propose a topic naming scheme that will enable bidirectional communication between devices, and provide for the setup and tear down of applications and connections.</p>
+<ul>
+<li>The highest level to the topic is assigned <code>cbe-virtual-laboratory</code>.  </li>
+<li>The second level designates the laboratory application. This may consist of one or more topic strings designating, for example, a location and application.</li>
+<li>The third level designates a device</li>
+<li>The fourth level designates a channel<ul>
+<li>command</li>
+<li>send</li>
+<li>receive</li>
+</ul>
+</li>
+</ul>
+
+<pre><code>cbe-virtual-laboratory/APPLICATION/DEVICE/CHANNEL</code></pre>
 
 </div>
 </div>
