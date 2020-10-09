@@ -13164,7 +13164,57 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.1.2-Receiving-data-from-Particle-Argon-device">3.1.2 Receiving data from Particle Argon device<a class="anchor-link" href="#3.1.2-Receiving-data-from-Particle-Argon-device">&#182;</a></h2>
+<h2 id="3.1.2-Particle-Argon">3.1.2 Particle Argon<a class="anchor-link" href="#3.1.2-Particle-Argon">&#182;</a></h2><p>The following code is flashed to the Particle Argon using the Particle Web IDE.</p>
+
+<pre><code>// Report temperature and humidity sensor. Provide a short blink of D7
+// to indicate an temperture/humidity update.
+
+#include &lt;Grove_Temperature_And_Humidity_Sensor.h&gt;
+#include &lt;MQTT.h&gt;
+
+int led = D7;
+DHT dht(D2);
+
+float temp, humidity;
+
+void callback(char* topic, byte* payload, unsigned int length);
+MQTT client("mqtt.eclipse.org", 1883, callback);
+
+// receive message
+void callback(char* topic, byte* payload, unsigned int length) {
+}
+
+void setup() {
+
+    dht.begin();
+    pinMode(led, OUTPUT);
+    client.connect("argon_" + String(Time.now()));
+}
+
+void loop() {
+
+    temp = dht.getTempFarenheit();
+    humidity = dht.getHumidity();
+
+    client.publish("cbe-virtual-laboratory/devices/argon", Time.timeStr() + ", " + String(temp, 1) + ", " + String(humidity, 1));
+
+    digitalWrite(led, HIGH);
+    delay(200);
+    digitalWrite(led, LOW);
+    delay(4800);
+}</code></pre>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.1.3-Receiving-data-from-Particle-Argon-device">3.1.3 Receiving data from Particle Argon device<a class="anchor-link" href="#3.1.3-Receiving-data-from-Particle-Argon-device">&#182;</a></h2>
 </div>
 </div>
 </div>
