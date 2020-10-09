@@ -13,4 +13,4 @@
 - [2.2 Accessing a Remote Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Accessing_a_Remote_Experiment_via_MQTT.html)
 
 ### [Chapter 3.0 Working with Particle](https://jckantor.github.io/cbe-virtual-laboratory/03.00-Working_with_Particle.html)
-- [None](https://jckantor.github.io/cbe-virtual-laboratory/03.01-Accessing_MQTT_Devices.html)
+- [3.1 Accessing MQTT Devices](https://jckantor.github.io/cbe-virtual-laboratory/03.01-Accessing_MQTT_Devices.html)
