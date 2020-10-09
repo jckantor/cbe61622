@@ -11,4 +11,6 @@
 ### [Chapter 2.0 Proof of Concept](https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html)
 - [2.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.01-Publishing_an_Experiment_via_MQTT.html)
 - [2.2 Accessing a Remote Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Accessing_a_Remote_Experiment_via_MQTT.html)
+
+### [Chapter 3.0 Working with Particle](https://jckantor.github.io/cbe-virtual-laboratory/03.00-Working_with_Particle.html)
 - [None](https://jckantor.github.io/cbe-virtual-laboratory/03.01-Accessing_MQTT_Devices.html)
