@@ -9,5 +9,6 @@
 - [1.2 MQTT](https://jckantor.github.io/cbe-virtual-laboratory/01.02-MQTT.html)
 
 ### [Chapter 2.0 Proof of Concept](https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html)
-- [2.2 Remote Operation of a Laboratory Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Remote_Operation_of_a_Laboratory_Experiment.html)
-- [2.3 Simulation of a Remote Laboratory Experiment Published via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.03-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.html)
+- [2.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.01-Publishing_an_Experiment_via_MQTT.html)
+- [2.2 Accessing a Remote Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Accessing_a_Remote_Experiment_via_MQTT.html)
+- [None](https://jckantor.github.io/cbe-virtual-laboratory/03.01-Accessing_MQTT_Devices.html)

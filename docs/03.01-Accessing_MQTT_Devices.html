@@ -13095,30 +13095,8 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html">2.0 Proof of Concept</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.html">2.3 Simulation of a Remote Laboratory Experiment Published via MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.02-Remote_Operation_of_a_Laboratory_Experiment.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Remote_Operation_of_a_Laboratory_Experiment.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Accessing_a_Remote_Experiment_via_MQTT.html">2.2 Accessing a Remote Experiment via MQTT</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/03.01-Accessing_MQTT_Devices.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/03.01-Accessing_MQTT_Devices.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.2-Remote-Operation-of-a-Laboratory-Experiment-via-MQTT">2.2 Remote Operation of a Laboratory Experiment via MQTT<a class="anchor-link" href="#2.2-Remote-Operation-of-a-Laboratory-Experiment-via-MQTT">&#182;</a></h1>
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.2.1-Installations">2.2.1 Installations<a class="anchor-link" href="#2.2.1-Installations">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13128,7 +13106,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install paho-mqtt
@@ -13148,16 +13126,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Collecting paho-mqtt
-  Downloading https://files.pythonhosted.org/packages/32/d3/6dcb8fd14746fcde6a556f932b5de8bea8fedcb85b3a092e0e986372c0e7/paho-mqtt-1.5.1.tar.gz (101kB)
-     |████████████████████████████████| 102kB 3.4MB/s ta 0:00:011
-Building wheels for collected packages: paho-mqtt
-  Building wheel for paho-mqtt (setup.py) ... done
-  Created wheel for paho-mqtt: filename=paho_mqtt-1.5.1-cp36-none-any.whl size=61544 sha256=bad3dd55857d971ccfcb4938c41297a53f86ade7baeeee91d82dc4a1973f9629
-  Stored in directory: /root/.cache/pip/wheels/75/e2/f5/78942b19b4d135605e58dfe85fba52253b14d636aabf76904b
-Successfully built paho-mqtt
-Installing collected packages: paho-mqtt
-Successfully installed paho-mqtt-1.5.1
+<pre>Requirement already satisfied: paho-mqtt in /usr/local/lib/python3.6/dist-packages (1.5.1)
 </pre>
 </div>
 </div>
@@ -13170,95 +13139,39 @@ Successfully installed paho-mqtt-1.5.1
 
 
     
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.2.2-Remote-Operation-of-a-Laboratory-Experiment">2.2.2 Remote Operation of a Laboratory Experiment<a class="anchor-link" href="#2.2.2-Remote-Operation-of-a-Laboratory-Experiment">&#182;</a></h2><p>This cell establishes a connection to two topics on an MQTT server. The 'command' channel is used to publish a message to start a remote experiment for a duration given in seconds. A client is opened to listen to a 'measurement' channel.</p>
-<p>Before running this channel, start up up the companion notebook that simulates a remote experiment <a href="https://colab.research.google.com/drive/1cj9Y8IlVX2-ZMEMoVWi8G5WDKNr3gkr9?usp=sharing">https://colab.research.google.com/drive/1cj9Y8IlVX2-ZMEMoVWi8G5WDKNr3gkr9?usp=sharing</a></p>
-
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.2.3-Version-1">2.2.3 Version 1<a class="anchor-link" href="#2.2.3-Version-1">&#182;</a></h2>
-</div>
-</div>
-</div>
-
-
-
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="k">as</span> <span class="nn">mqtt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="k">as</span> <span class="nn">mqtt</span>
 <span class="kn">import</span> <span class="nn">paho.mqtt.publish</span> <span class="k">as</span> <span class="nn">publish</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">IPython</span> <span class="kn">import</span> <span class="n">display</span>
 
 <span class="c1"># select experiment duration</span>
-<span class="n">duration</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">topic</span> <span class="o">=</span> <span class="s2">&quot;cbe-virtual-laboratory/tank-level-experiment&quot;</span>
-<span class="n">client</span> <span class="o">=</span> <span class="s2">&quot;plotter&quot;</span>
+<span class="n">broker</span> <span class="o">=</span> <span class="s2">&quot;mqtt.eclipse.org&quot;</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="s2">&quot;cbe-virtual-laboratory/devices/#&quot;</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="mi">30</span>
 
-<span class="c1"># setup a plotting window</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time / seconds&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
-<span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-
-<span class="c1"># callbacks</span>
+<span class="c1"># callback after completing connection</span>
 <span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected with result code </span><span class="si">{rc}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected to </span><span class="si">{broker}</span><span class="s2"> with result code </span><span class="si">{rc}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
 
-<span class="c1"># call back to process message from remote experiment</span>
+<span class="c1"># callback after receiving a message</span>
 <span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-    <span class="c1">#print(msg.topic + &quot; &quot; + msg.payload.decode(&quot;utf-8&quot;))</span>
-    <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xdata</span><span class="p">)</span>
-    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span>
-    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{msg.topic}</span><span class="s2">: {msg.payload.decode(&#39;utf-8&#39;)}&quot;</span><span class="p">)</span>
 
-<span class="c1"># setup client</span>
+<span class="c1"># create and setup MQTT client</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
 <span class="n">client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
 <span class="n">client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span>
-
-<span class="c1"># connect to measurement channel</span>
-<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;mqtt.eclipse.org&quot;</span><span class="p">,</span> <span class="mi">1883</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-
-<span class="c1"># tell experiment to start</span>
-<span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;{{&quot;client&quot;: &quot;plotter&quot;, &quot;duration&quot;: </span><span class="si">{duration}</span><span class="s1">}}&#39;</span>
-<span class="n">publish</span><span class="o">.</span><span class="n">single</span><span class="p">(</span><span class="n">topic</span> <span class="o">+</span> <span class="s2">&quot;/command&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="s2">&quot;mqtt.eclipse.org&quot;</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker</span><span class="p">,</span> <span class="mi">1883</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
 
 <span class="c1"># listen for measurement information</span>
 <span class="n">client</span><span class="o">.</span><span class="n">loop_start</span><span class="p">()</span>
 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
 <span class="n">client</span><span class="o">.</span><span class="n">loop_stop</span><span class="p">()</span>
-
-<span class="c1"># prevent the plot showing again after completion</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13274,57 +13187,14 @@ Successfully installed paho-mqtt-1.5.1
     <div class="prompt"></div>
 
 
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Connected with result code 0
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Exception in thread Thread-4:
-Traceback (most recent call last):
-  File &#34;/Users/jeff/opt/anaconda3/lib/python3.7/threading.py&#34;, line 926, in _bootstrap_inner
-    self.run()
-  File &#34;/Users/jeff/opt/anaconda3/lib/python3.7/threading.py&#34;, line 870, in run
-    self._target(*self._args, **self._kwargs)
-  File &#34;/Users/jeff/opt/anaconda3/lib/python3.7/site-packages/paho/mqtt/client.py&#34;, line 3452, in _thread_main
-    self.loop_forever(retry_first_connection=True)
-  File &#34;/Users/jeff/opt/anaconda3/lib/python3.7/site-packages/paho/mqtt/client.py&#34;, line 1779, in loop_forever
-    rc = self.loop(timeout, max_packets)
-  File &#34;/Users/jeff/opt/anaconda3/lib/python3.7/site-packages/paho/mqtt/client.py&#34;, line 1181, in loop
-    rc = self.loop_read(max_packets)
-  File &#34;/Users/jeff/opt/anaconda3/lib/python3.7/site-packages/paho/mqtt/client.py&#34;, line 1572, in loop_read
-    rc = self._packet_read()
-  File &#34;/Users/jeff/opt/anaconda3/lib/python3.7/site-packages/paho/mqtt/client.py&#34;, line 2310, in _packet_read
-    rc = self._packet_handle()
-  File &#34;/Users/jeff/opt/anaconda3/lib/python3.7/site-packages/paho/mqtt/client.py&#34;, line 2942, in _packet_handle
-    return self._handle_connack()
-  File &#34;/Users/jeff/opt/anaconda3/lib/python3.7/site-packages/paho/mqtt/client.py&#34;, line 3030, in _handle_connack
-    self, self._userdata, flags_dict, result)
-  File &#34;&lt;ipython-input-4-175b4c8aa3cc&gt;&#34;, line 29, in on_connect
-    client.subscribe(expt_topic)
-NameError: name &#39;expt_topic&#39; is not defined
-
+<pre>Connected to mqtt.eclipse.org with result code 0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:50:42 2020, 71.6, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:50:47 2020, 0.0, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:50:52 2020, 71.6, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:50:58 2020, 0.0, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:51:03 2020, 71.6, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:51:08 2020, 71.6, 47.0
 </pre>
 </div>
 </div>
@@ -13358,7 +13228,7 @@ NameError: name &#39;expt_topic&#39; is not defined
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html">2.0 Proof of Concept</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-SImulation_of_a_Laboratory_Experiment_Published_via_MQTT.html">2.3 Simulation of a Remote Laboratory Experiment Published via MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.02-Remote_Operation_of_a_Laboratory_Experiment.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Remote_Operation_of_a_Laboratory_Experiment.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Accessing_a_Remote_Experiment_via_MQTT.html">2.2 Accessing a Remote Experiment via MQTT</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/03.01-Accessing_MQTT_Devices.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/03.01-Accessing_MQTT_Devices.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
