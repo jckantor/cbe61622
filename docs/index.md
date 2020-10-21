@@ -6,11 +6,13 @@
 ### [Python Module Index](https://jckantor.github.io/cbe-virtual-laboratory/python_index.html)
 
 ### [Chapter 1.0 CBE Virtual Laboratory](https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.html)
-- [1.2 MQTT](https://jckantor.github.io/cbe-virtual-laboratory/01.02-MQTT.html)
 
-### [Chapter 2.0 Proof of Concept](https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html)
-- [2.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.01-Publishing_an_Experiment_via_MQTT.html)
-- [2.2 Accessing a Remote Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Accessing_a_Remote_Experiment_via_MQTT.html)
+### [Chapter 2.0 Working with Particle](https://jckantor.github.io/cbe-virtual-laboratory/02.00-Working_with_Particle.html)
+- [2.1 Particle-cli](https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle-cli.html)
+- [2.2 Coding for Particle](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Particle_Coding.html)
+- [2.3 Particle Command Line Interface (CLI)](https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html)
 
-### [Chapter 3.0 Working with Particle](https://jckantor.github.io/cbe-virtual-laboratory/03.00-Working_with_Particle.html)
-- [3.1 Accessing MQTT Devices](https://jckantor.github.io/cbe-virtual-laboratory/03.01-Accessing_MQTT_Devices.html)
+### [Chapter 3.0 MQTT](https://jckantor.github.io/cbe-virtual-laboratory/03.00-MQTT.html)
+- [3.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/03.01-Publishing_an_Experiment_via_MQTT.html)
+- [3.2 Accessing a Remote Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/03.02-Accessing_a_Remote_Experiment_via_MQTT.html)
+- [3.3 Accessing MQTT Devices](https://jckantor.github.io/cbe-virtual-laboratory/03.03-Miscellaneous_Notes.html)

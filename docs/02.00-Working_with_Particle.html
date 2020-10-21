@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.html">1.0 CBE Virtual Laboratory</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html">2.0 Proof of Concept</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/01.02-MQTT.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/01.02-MQTT.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.html">1.0 CBE Virtual Laboratory</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle-cli.html">2.1 Particle-cli</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.00-Working_with_Particle.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Working_with_Particle.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13107,94 +13107,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.2-MQTT">1.2 MQTT<a class="anchor-link" href="#1.2-MQTT">&#182;</a></h1><p>MQTT is a lightweight protocol for delivering messages between devices through an intermediate broker. Senders declare a 'topic' and 'publish' messages to the broker. Receivers 'subscribe' to particular topics on the broker to receive a copy of all messages pertaining to that topic. Connections between a device and broker are typically over a TCP/IP network, but other transport mediums are in common use. This robust and flexible 'hub-and-spoke' architecture has been widely adopted for 'Internet of Things' (IoT) applications.</p>
-<p>The MQTT acronym was orginally an abbreviation for Message Queuing Telemetry Transport that was developed by individuals at IBM and Cirrus Link (later Eurotech) for monitoring pipeline by satellite in remote locations. IBM later submitted the protocol to the global standards body, OASIS and ISO, where they are now maintained as open standards.</p>
-
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.2.1-Background">1.2.1 Background<a class="anchor-link" href="#1.2.1-Background">&#182;</a></h2><p>Descriptions</p>
-<ul>
-<li><a href="MQTT.org">MQTT.org</a></li>
-</ul>
-<p>Primers and Tutorials</p>
-<ul>
-<li>mqtt primer: <a href="https://www.youtube.com/watch?v=AxC_ykketIg&amp;ab_channel=wcltalkstech">https://www.youtube.com/watch?v=AxC_ykketIg&amp;ab_channel=wcltalkstech</a></li>
-<li><p>HiveMQ MQTT Essentials: <a href="https://www.hivemq.com/tags/mqtt-essentials/">https://www.hivemq.com/tags/mqtt-essentials/</a></p>
-</li>
-<li><p><a href="https://opensource.com/article/18/6/mqtt">Using MQTT to send and receive data for your next project</a></p>
-</li>
-</ul>
-<p>MQTT for Process Applications</p>
-<ul>
-<li><p><a href="https://www.flowcontrolnetwork.com/process-control-automation/article/21122615/how-mqtt-is-advancing-automation-and-control">How MQTT is advancing automation and control</a></p>
-</li>
-<li><p><a href="https://www.controlglobal.com/articles/2019/mqtt-open-scada-publishsubscribe-protocol-is-getting-what-it-needs-to-go-industrial/">MQTT, open SCADA publish/subscribe protocol is getting what it needs to go industrial</a></p>
-</li>
-</ul>
-<p>Bidirectional Messaging</p>
-<ul>
-<li><a href="http://www.steves-internet-guide.com/two-way-communication-mqtt-python/">Two Way communication Using MQTT and Python</a></li>
-</ul>
-
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.2.2-Implementation-for-CBE-Virtual-Laboratory">1.2.2 Implementation for CBE-Virtual-Laboratory<a class="anchor-link" href="#1.2.2-Implementation-for-CBE-Virtual-Laboratory">&#182;</a></h2>
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For the purposes of the CBE-Virtual-Laboratory, we propose a topic naming scheme that will enable bidirectional communication between devices, and provide for the setup and tear down of applications and connections.</p>
-<ul>
-<li>The highest level to the topic is assigned <code>cbe-virtual-laboratory</code>.  </li>
-<li>The second level designates the laboratory application. This may consist of one or more topic strings designating, for example, a location and application.</li>
-<li>The third level designates a device</li>
-<li>The fourth level designates a channel<ul>
-<li>command</li>
-<li>send</li>
-<li>receive</li>
-</ul>
-</li>
-</ul>
-
-<pre><code>cbe-virtual-laboratory/APPLICATION/DEVICE/CHANNEL</code></pre>
-
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.2.3-Useful-Apps-and-Links">1.2.3 Useful Apps and Links<a class="anchor-link" href="#1.2.3-Useful-Apps-and-Links">&#182;</a></h2><ul>
-<li><strong>MQTTBox</strong> A Windows/Linux/Mac App to create MTQQ clients and monitor the broker.</li>
-<li><a href="https://www.youtube.com/watch?v=AxC_ykketIg&amp;ab_channel=wcltalkstech">Reporting temperature using our Particle Argon through MQTT and the TICK stack</a></li>
-</ul>
-
+<h1 id="2.0-Working-with-Particle">2.0 Working with Particle<a class="anchor-link" href="#2.0-Working-with-Particle">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13223,7 +13136,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.html">1.0 CBE Virtual Laboratory</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.html">2.0 Proof of Concept</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/01.02-MQTT.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/01.02-MQTT.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.html">1.0 CBE Virtual Laboratory</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle-cli.html">2.1 Particle-cli</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.00-Working_with_Particle.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Working_with_Particle.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

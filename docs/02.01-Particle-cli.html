@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-| <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Working_with_Particle.html">2.0 Working with Particle</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/01.00-CBE_Virtual_Laboratory.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Working_with_Particle.html">2.0 Working with Particle</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Particle_Coding.html">2.2 Coding for Particle</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.01-Particle-cli.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle-cli.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13107,7 +13107,21 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.0-CBE-Virtual-Laboratory">1.0 CBE Virtual Laboratory<a class="anchor-link" href="#1.0-CBE-Virtual-Laboratory">&#182;</a></h1>
+<h1 id="2.1-Particle-cli">2.1 Particle-cli<a class="anchor-link" href="#2.1-Particle-cli">&#182;</a></h1><p>The Particle Argon is a microcontroller board similar to an Arduino in concept but with extended wifi and cloud support.</p>
+<p><img src="https://images.ctfassets.net/ity165ek7v1z/5x0EeKXhRxrgA2Ebgnqnik/654abeb410afd7f10fd3f99b5d871599/prototype.jpeg?w=510&amp;h=340&amp;q=80&amp;fm=webp" alt="Particle Argon"></p>
+<p>The <a href="https://docs.particle.io/tutorials/developer-tools/cli/">Particle command line interface</a> provides is a javascript based library exposing much of the Particle device functionality. This notebook demonstrates use of the command line interface through a Google Colab notebook.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.1.1-Installation-of-the-Particle-command-line-interface">2.1.1 Installation of the Particle command line interface<a class="anchor-link" href="#2.1.1-Installation-of-the-Particle-command-line-interface">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13117,10 +13131,11 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
+<span class="err">!</span><span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">particle</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">cli</span> <span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13135,8 +13150,286 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.1.2-Login-to-Particle">2.1.2 Login to Particle<a class="anchor-link" href="#2.1.2-Login-to-Particle">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">particle_cli</span> <span class="o">=</span> <span class="s2">&quot;/root/bin/particle&quot;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Username: &quot;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Password: &quot;</span><span class="p">)</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">,</span> <span class="s2">&quot;login&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;--username&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span>
+                          <span class="s2">&quot;--password&quot;</span><span class="p">,</span> <span class="n">password</span><span class="p">],</span>
+                         <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> 
+                         <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">process</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully logged in to Particle Device Cloud as </span><span class="si">{username}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">,</span> <span class="s2">&quot;list&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Username: ··········
+Password: ··········
+Successfully logged in to Particle Device Cloud as kantor.1@nd.edu
+jck_argon_01 [e00fce68eaceb1faa7cf7193] (Argon) is online
+  Functions:
+    int digitalread (String args) 
+    int digitalwrite (String args) 
+    int analogread (String args) 
+    int analogwrite (String args) 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.1.3-Demonstrations">2.1.3 Demonstrations<a class="anchor-link" href="#2.1.3-Demonstrations">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.1.3.1-Flashing-Tinker-firmware">2.1.3.1 Flashing Tinker firmware<a class="anchor-link" href="#2.1.3.1-Flashing-Tinker-firmware">&#182;</a></h3><p><a href="https://docs.particle.io/tutorials/developer-tools/tinker/photon/">Tinker</a> is the default firmware that ships with Particle devices. The following cell restores the device to the factory default by flashing tinker.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">device_name</span> <span class="o">=</span> <span class="s2">&quot;jck_argon_01&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">,</span> <span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;tinker&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>attempting to flash firmware to your device jck_argon_01
+Flash device OK: Update started
+
+Flash success!
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.1.3.2-Toggle-on-board-led">2.1.3.2 Toggle on-board led<a class="anchor-link" href="#2.1.3.2-Toggle-on-board-led">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="s2">&quot;D7&quot;</span>
+
+<span class="c1"># digital write</span>
+<span class="k">def</span> <span class="nf">digitalwrite</span><span class="p">(</span><span class="n">device_name</span><span class="p">,</span> <span class="n">pin</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">,</span> <span class="s2">&quot;call&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;digitalwrite&quot;</span><span class="p">,</span>
+                              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{pin}</span><span class="s2">,</span><span class="si">{value}</span><span class="s2">&quot;</span><span class="p">],</span> 
+                             <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> 
+                             <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="c1"># loop and toggle</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">digitalwrite</span><span class="p">(</span><span class="n">device_name</span><span class="p">,</span> <span class="n">led</span><span class="p">,</span> <span class="s2">&quot;HIGH&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">digitalwrite</span><span class="p">(</span><span class="n">device_name</span><span class="p">,</span> <span class="n">led</span><span class="p">,</span> <span class="s2">&quot;LOW&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.1.3.3-Reading-Grove-Light-Sensor-V1.2">2.1.3.3 Reading Grove Light Sensor V1.2<a class="anchor-link" href="#2.1.3.3-Reading-Grove-Light-Sensor-V1.2">&#182;</a></h3><p>The Grove Light Sensor V1.2 to pin</p>
+<p><img src="https://static-cdn.seeedstudio.site/media/catalog/product/cache/9d0ce51a71ce6a79dfa2a98d65a0f0bd/h/t/httpsstatics3.seeedstudio.comseeedimg2016-10po8b7qd0xnlnchgogziq9g3d.jpg" alt=""></p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">device_name</span> <span class="o">=</span> <span class="s2">&quot;jck_argon_01&quot;</span>
+<span class="n">light_sensor</span> <span class="o">=</span> <span class="s2">&quot;A2&quot;</span>
+
+<span class="k">def</span> <span class="nf">read_ansi</span><span class="p">(</span><span class="n">byte_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Decode a byte string and remove any ANSI control codes.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\x1B(?:[@-Z</span><span class="se">\\</span><span class="s1">-_]|\[[0-?]*[ -/]*[@-~])&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">byte_str</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+
+<span class="c1"># analog read</span>
+<span class="k">def</span> <span class="nf">analogread</span><span class="p">(</span><span class="n">device_name</span><span class="p">,</span> <span class="n">pin</span><span class="p">):</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">,</span> <span class="s2">&quot;call&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;analogread&quot;</span><span class="p">,</span>  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{pin}</span><span class="s2">&quot;</span><span class="p">],</span> 
+                         <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">read_ansi</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="p">))</span>
+
+<span class="n">analogread</span><span class="p">(</span><span class="n">device_name</span><span class="p">,</span> <span class="n">light_sensor</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[52]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3895</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-| <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Working_with_Particle.html">2.0 Working with Particle</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/01.00-CBE_Virtual_Laboratory.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Working_with_Particle.html">2.0 Working with Particle</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Particle_Coding.html">2.2 Coding for Particle</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.01-Particle-cli.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle-cli.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

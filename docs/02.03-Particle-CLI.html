@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Accessing_a_Remote_Experiment_via_MQTT.html">2.2 Accessing a Remote Experiment via MQTT</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.01-Accessing_MQTT_Devices.html">3.1 Accessing MQTT Devices</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/03.00-Working_with_Particle.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/03.00-Working_with_Particle.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Particle_Coding.html">2.2 Coding for Particle</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.00-MQTT.html">3.0 MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.03-Particle-CLI.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13107,7 +13107,39 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3.0-Working-with-Particle">3.0 Working with Particle<a class="anchor-link" href="#3.0-Working-with-Particle">&#182;</a></h1>
+<h1 id="2.3-Particle-Command-Line-Interface-(CLI)">2.3 Particle Command Line Interface (CLI)<a class="anchor-link" href="#2.3-Particle-Command-Line-Interface-(CLI)">&#182;</a></h1><p>This notebook demonstrates the use of the <a href="https://docs.particle.io/reference/developer-tools/cli/">Particle command line interface</a> to</p>
+<ul>
+<li>login and access a device,</li>
+<li>create a project,</li>
+<li>add a library,</li>
+<li>prepare and save code,</li>
+<li>compile the code to firmware, and</li>
+<li>flash the firmware over the air.</li>
+</ul>
+<p>This notebook is designed to be opened and run on Google Colab. Several modifications will be needed to run in another environment.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.3.1-Particle-CLI">2.3.1 Particle CLI<a class="anchor-link" href="#2.3.1-Particle-CLI">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.1.1-Installation">2.3.1.1 Installation<a class="anchor-link" href="#2.3.1.1-Installation">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13117,10 +13149,14 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
+<span class="err">!</span><span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">particle</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">cli</span> <span class="p">)</span>
+
+<span class="c1"># path to the particle cli. May be environment dependent.</span>
+<span class="n">particle_cli</span> <span class="o">=</span> <span class="s2">&quot;/root/bin/particle&quot;</span>
 </pre></div>
 
     </div>
@@ -13135,8 +13171,647 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.1.2-Utility-functions">2.3.1.2 Utility functions<a class="anchor-link" href="#2.3.1.2-Utility-functions">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="c1"># regular expression to strip ansi control characters</span>
+<span class="n">ansi</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\x1B(?:[@-Z</span><span class="se">\\</span><span class="s1">-_]|\[[0-?]*[ -/]*[@-~])&#39;</span><span class="p">)</span>
+
+<span class="c1"># decode byte string and strip ansi control characters</span>
+<span class="k">def</span> <span class="nf">decode_bytes</span><span class="p">(</span><span class="n">byte_string</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">byte_string</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">byte_string</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ansi</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+
+<span class="c1"># streamline call to the particle-cli</span>
+<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
+                             <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                             <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">process</span>
+
+<span class="c1"># print the default help message</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;help&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Welcome to the Particle Command Line Interface!
+Version 2.8.1
+https://github.com/particle-iot/particle-cli
+
+Usage: particle &lt;command&gt;
+Help:  particle help &lt;command&gt;
+
+Commands:
+  binary      Inspect binaries
+  call        Call a particular function on a device
+  cloud       Access Particle cloud functionality
+  compile     Compile a source file, or directory using the cloud compiler
+  config      Configure and switch between multiple accounts
+  device      Manipulate a device
+  doctor      Put your device back into a healthy state
+  flash       Send firmware to your device
+  function    Call functions on your device
+  get         Retrieve a value from your device
+  identify    Ask for and display device ID via serial
+  keys        Manage your device&#39;s key pair and server public key
+  library     Manage firmware libraries
+  list        Display a list of your devices, as well as their variables and functions
+  login       Login to the cloud and store an access token locally
+  logout      Log out of your session and clear your saved access token
+  mesh        Manage mesh networks
+  monitor     Connect and display messages from a device
+  nyan        Make your device shout rainbows
+  preprocess  Preprocess a Wiring file (ino) into a C++ file (cpp)
+  product     Access Particle Product functionality [BETA]
+  project     Manage application projects
+  publish     Publish an event to the cloud
+  serial      Simple serial interface to your devices
+  setup       Do the initial setup &amp; claiming of your device
+  subscribe   Listen to device event stream
+  token       Manage access tokens (require username/password)
+  udp         Talk UDP to repair devices, run patches, check Wi-Fi, and more!
+  update      Update the system firmware of a device via USB
+  update-cli  Update the Particle CLI to the latest version
+  usb         Control USB devices
+  variable    Retrieve and monitor variables on your device
+  webhook     Manage webhooks that react to device event streams
+  whoami      prints signed-in username
+
+Global Options:
+  -v, --verbose  Increases how much logging to display  [count]
+  -q, --quiet    Decreases how much logging to display  [count]
+
+Options:
+  --version  Show the version of particle-cli installed.  [boolean]
+
+Examples:
+  particle setup                                     Set up your Particle account and your device
+  particle list                                      Show all your devices and their functions and variables
+  particle flash my_device tinker                    Remotely update your device to run the default Tinker app
+  particle call my_device_name digitalwrite D7=HIGH  Call a function on your device running Tinker to toggle the onboard LED
+
+For more information, visit our documentation at https://docs.particle.io
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.1.3-Login-to-Particle">2.3.1.3 Login to Particle<a class="anchor-link" href="#2.3.1.3-Login-to-Particle">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
+
+<span class="c1"># prompt for username and password</span>
+<span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Username: &quot;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Password: &quot;</span><span class="p">)</span>
+
+<span class="c1"># attempt login</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;login&quot;</span><span class="p">,</span> <span class="s2">&quot;--username&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="s2">&quot;--password&quot;</span><span class="p">,</span> <span class="n">password</span><span class="p">])</span>
+
+<span class="c1"># report results</span>
+<span class="k">if</span> <span class="n">output</span><span class="o">.</span><span class="n">returncode</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Return code = </span><span class="si">{output.returncode}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Username: ··········
+Password: ··········
+&gt; Successfully completed login!
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.1.4-Select-a-device">2.3.1.4 Select a device<a class="anchor-link" href="#2.3.1.4-Select-a-device">&#182;</a></h3><p>The following cell downloads a list of all user devices and creates a list of device names. Here we choose the first name in the list for the rest of this notebook. If this is not the device to be used, then modify this cell accordingly.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
+<span class="n">device_name</span> <span class="o">=</span> <span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>jck_argon_01 [e00fce68eaceb1faa7cf7193] (Argon) is online
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.3.2-Project:-Timer-display">2.3.2 Project: Timer display<a class="anchor-link" href="#2.3.2-Project:-Timer-display">&#182;</a></h2><p>To demonstrate use of the Paricle CLI, for this project we will create a simple timer display using the <a href="https://wiki.seeedstudio.com/Grove-4-Digit_Display/">Grove 4-Digit Display</a> that is shipped with the <a href="https://store.particle.io/collections/prototyping-hardware/products/iot-starter-kit">Argon Starter Kit</a> available from Particle.io. The goal of the project is to display time since start device startup measure in seconds. The display will show seconds to two decimal digits for up to 100 seconds. The timer and display will roll over after 100 seconds.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.2.1-Particle-Argon">2.3.2.1 Particle Argon<a class="anchor-link" href="#2.3.2.1-Particle-Argon">&#182;</a></h3><p><img src="https://docs.particle.io/assets/images/argon/argon-pin-markings.png" alt=""></p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.2.2-Grove-4-Digit-Display">2.3.2.2 Grove 4-Digit Display<a class="anchor-link" href="#2.3.2.2-Grove-4-Digit-Display">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-4-Digit_Display/">Grove 4-Digit Display</a></p>
+<p><a href="https://github.com/Seeed-Studio/Grove_4Digital_Display">Documentation</a></p>
+<p><img src="https://files.seeedstudio.com/wiki/Grove-4-Digit_Display/img/Grove-4_digit_display.jpg" alt=""></p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.2.3-Grove-Shield-FeeatherWing">2.3.2.3 Grove Shield FeeatherWing<a class="anchor-link" href="#2.3.2.3-Grove-Shield-FeeatherWing">&#182;</a></h3><p>Connect the Grove 4-digit display to connector D2 on the Grove Shield FeatherWing adapater.</p>
+<p><img src="https://cdn-shop.adafruit.com/1200x900/4309-05.jpg" alt=""></p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.2.4-Create-Project">2.3.2.4 Create Project<a class="anchor-link" href="#2.3.2.4-Create-Project">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;display4&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Initializing project in directory display4...
+&gt; A new project has been initialized in directory display4
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.2.5-Change-working-directory">2.3.2.5 Change working directory<a class="anchor-link" href="#2.3.2.5-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> display4
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/content/display4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.2.6-Add-relevant-libraries">2.3.2.6 Add relevant libraries<a class="anchor-link" href="#2.3.2.6-Add-relevant-libraries">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">library</span> <span class="o">=</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="n">library</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; Library Grove_4Digit_Display 1.0.2 has been added to the project.
+&gt; To get started using this library, run particle library view Grove_4Digit_Display to view the library documentation and sources.
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.2.7-Create-source-file">2.3.2.7 Create source file<a class="anchor-link" href="#2.3.2.7-Create-source-file">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/display4.ino
+
+<span class="c1">#define CLK D2     /* display clock pin */</span>
+<span class="c1">#define DIO D3     /* display data pin */</span>
+<span class="c1">#define DIGITS 4   /* number of display digits */</span>
+
+<span class="c1">#include &quot;Grove_4Digit_Display.h&quot;</span>
+
+<span class="n">TM1637</span> <span class="n">tm1637</span><span class="p">(</span><span class="n">CLK</span><span class="p">,</span> <span class="n">DIO</span><span class="p">);</span>
+<span class="n">unsigned</span> <span class="n">long</span> <span class="n">start</span><span class="p">;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">tm1637</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
+    <span class="n">tm1637</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">BRIGHT_TYPICAL</span><span class="p">);</span>
+    <span class="n">tm1637</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">POINT_ON</span><span class="p">);</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">unsigned</span> <span class="n">long</span> <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">%</span> <span class="mi">100000</span><span class="p">;</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">time</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span> <span class="o">/*</span> <span class="n">displaying</span> <span class="mi">100</span><span class="n">th</span><span class="s1">&#39;s of seconds */</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">display</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">int</span> <span class="n">digit</span> <span class="o">=</span> <span class="n">DIGITS</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="mh">0x7f</span><span class="p">);</span> <span class="o">/*</span> <span class="n">display</span> <span class="n">blank</span> <span class="o">*/</span>
+        <span class="p">}</span>
+        <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Overwriting src/display4.ino
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.2.8-Compiling">2.3.2.8 Compiling<a class="anchor-link" href="#2.3.2.8-Compiling">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;display4.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Compiling code for argon
+
+Including:
+    src/display4.ino
+    project.properties
+
+attempting to compile firmware
+downloading binary from: /v1/binaries/5f90989f305a91469e6df9ec
+saving to: display4.bin
+Memory use:
+   text	   data	    bss	    dec	    hex	filename
+   6316	    108	   1072	   7496	   1d48	/workspace/target/workspace.elf
+
+Compile succeeded.
+Saved firmware to: /content/display4/display4.bin
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.2.9-Flash-firmware">2.3.2.9 Flash firmware<a class="anchor-link" href="#2.3.2.9-Flash-firmware">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;display4.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Including:
+    display4.bin
+
+attempting to flash firmware to your device jck_argon_01
+Flash device OK: Update started
+
+Flash success!
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Accessing_a_Remote_Experiment_via_MQTT.html">2.2 Accessing a Remote Experiment via MQTT</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.01-Accessing_MQTT_Devices.html">3.1 Accessing MQTT Devices</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/03.00-Working_with_Particle.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/03.00-Working_with_Particle.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.02-Particle_Coding.html">2.2 Coding for Particle</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.00-MQTT.html">3.0 MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.03-Particle-CLI.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

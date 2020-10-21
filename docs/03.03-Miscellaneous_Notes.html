@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/01.02-MQTT.html">1.2 MQTT</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-Publishing_an_Experiment_via_MQTT.html">2.1 Publishing an Experiment via MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.00-Proof_of_Concept.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.02-Accessing_a_Remote_Experiment_via_MQTT.html">3.2 Accessing a Remote Experiment via MQTT</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/03.03-Miscellaneous_Notes.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/03.03-Miscellaneous_Notes.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13107,9 +13107,184 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.0-Proof-of-Concept">2.0 Proof of Concept<a class="anchor-link" href="#2.0-Proof-of-Concept">&#182;</a></h1>
+<h1 id="3.3-Accessing-MQTT-Devices">3.3 Accessing MQTT Devices<a class="anchor-link" href="#3.3-Accessing-MQTT-Devices">&#182;</a></h1>
 </div>
 </div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.3.1-Installing-paho-mqtt-library">3.3.1 Installing paho-mqtt library<a class="anchor-link" href="#3.3.1-Installing-paho-mqtt-library">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install paho-mqtt
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Requirement already satisfied: paho-mqtt in /usr/local/lib/python3.6/dist-packages (1.5.1)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.3.2-Particle-Argon">3.3.2 Particle Argon<a class="anchor-link" href="#3.3.2-Particle-Argon">&#182;</a></h2><p>The following code is flashed to the Particle Argon using the Particle Web IDE.</p>
+
+<pre><code>// Report temperature and humidity sensor. Provide a short blink of D7
+// to indicate an temperture/humidity update.
+
+#include &lt;Grove_Temperature_And_Humidity_Sensor.h&gt;
+#include &lt;MQTT.h&gt;
+
+int led = D7;
+DHT dht(D2);
+
+float temp, humidity;
+
+void callback(char* topic, byte* payload, unsigned int length);
+MQTT client("mqtt.eclipse.org", 1883, callback);
+
+// receive message
+void callback(char* topic, byte* payload, unsigned int length) {
+}
+
+void setup() {
+
+    dht.begin();
+    pinMode(led, OUTPUT);
+    client.connect("argon_" + String(Time.now()));
+}
+
+void loop() {
+
+    temp = dht.getTempFarenheit();
+    humidity = dht.getHumidity();
+
+    client.publish("cbe-virtual-laboratory/devices/argon", Time.timeStr() + ", " + String(temp, 1) + ", " + String(humidity, 1));
+
+    digitalWrite(led, HIGH);
+    delay(200);
+    digitalWrite(led, LOW);
+    delay(4800);
+}</code></pre>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.3.3-Receiving-data-from-Particle-Argon-device">3.3.3 Receiving data from Particle Argon device<a class="anchor-link" href="#3.3.3-Receiving-data-from-Particle-Argon-device">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="k">as</span> <span class="nn">mqtt</span>
+<span class="kn">import</span> <span class="nn">paho.mqtt.publish</span> <span class="k">as</span> <span class="nn">publish</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># select experiment duration</span>
+<span class="n">broker</span> <span class="o">=</span> <span class="s2">&quot;mqtt.eclipse.org&quot;</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="s2">&quot;cbe-virtual-laboratory/devices/#&quot;</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="c1"># callback after completing connection</span>
+<span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected to </span><span class="si">{broker}</span><span class="s2"> with result code </span><span class="si">{rc}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+
+<span class="c1"># callback after receiving a message</span>
+<span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{msg.topic}</span><span class="s2">: {msg.payload.decode(&#39;utf-8&#39;)}&quot;</span><span class="p">)</span>
+
+<span class="c1"># create and setup MQTT client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
+<span class="n">client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker</span><span class="p">,</span> <span class="mi">1883</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># listen for measurement information</span>
+<span class="n">client</span><span class="o">.</span><span class="n">loop_start</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">loop_stop</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Connected to mqtt.eclipse.org with result code 0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:50:42 2020, 71.6, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:50:47 2020, 0.0, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:50:52 2020, 71.6, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:50:58 2020, 0.0, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:51:03 2020, 71.6, 47.0
+cbe-virtual-laboratory/devices/argon: Fri Oct  9 12:51:08 2020, 71.6, 47.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 
 
@@ -13136,7 +13311,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/01.02-MQTT.html">1.2 MQTT</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.01-Publishing_an_Experiment_via_MQTT.html">2.1 Publishing an Experiment via MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.00-Proof_of_Concept.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.00-Proof_of_Concept.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.02-Accessing_a_Remote_Experiment_via_MQTT.html">3.2 Accessing a Remote Experiment via MQTT</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/03.03-Miscellaneous_Notes.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/03.03-Miscellaneous_Notes.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
