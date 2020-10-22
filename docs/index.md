@@ -11,7 +11,7 @@
 - [2.1 Particle-cli](https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle-cli.html)
 - [2.2 Coding for Particle](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Particle_Coding.html)
 - [2.3 Particle Command Line Interface (CLI)](https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html)
-- [2.4 Particle Command Line Interface (CLI)](https://jckantor.github.io/cbe-virtual-laboratory/02.04-Simple-Stop-Watch.html)
+- [2.4 Simple Stop Watch using Interrupts](https://jckantor.github.io/cbe-virtual-laboratory/02.04-Simple_Stop_Watch_using_Interrupts.html)
 
 ### [Chapter 3.0 MQTT](https://jckantor.github.io/cbe-virtual-laboratory/03.00-MQTT.html)
 - [3.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/03.01-Publishing_an_Experiment_via_MQTT.html)

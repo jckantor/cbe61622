@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.00-MQTT.html">3.0 MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.04-Simple-Stop-Watch.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.04-Simple-Stop-Watch.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.00-MQTT.html">3.0 MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.04-Simple_Stop_Watch_using_Interrupts.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.04-Simple_Stop_Watch_using_Interrupts.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13107,17 +13107,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.4-Particle-Command-Line-Interface-(CLI)">2.4 Particle Command Line Interface (CLI)<a class="anchor-link" href="#2.4-Particle-Command-Line-Interface-(CLI)">&#182;</a></h1><p>This notebook demonstrates the use of the <a href="https://docs.particle.io/reference/developer-tools/cli/">Particle command line interface</a> to</p>
-<ul>
-<li>login and access a device,</li>
-<li>create a project,</li>
-<li>add a library,</li>
-<li>prepare and save code,</li>
-<li>compile the code to firmware, and</li>
-<li>flash the firmware over the air.</li>
-</ul>
-<p>This notebook is designed to be opened and run on Google Colab. Several modifications will be needed to run in another environment.</p>
-
+<h1 id="2.4-Simple-Stop-Watch-using-Interrupts">2.4 Simple Stop Watch using Interrupts<a class="anchor-link" href="#2.4-Simple-Stop-Watch-using-Interrupts">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13149,7 +13139,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
@@ -13181,7 +13171,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -13204,88 +13194,9 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     <span class="n">process</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
     <span class="n">process</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">process</span>
-
-<span class="c1"># print the default help message</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;help&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Welcome to the Particle Command Line Interface!
-Version 2.8.1
-https://github.com/particle-iot/particle-cli
-
-Usage: particle &lt;command&gt;
-Help:  particle help &lt;command&gt;
-
-Commands:
-  binary      Inspect binaries
-  call        Call a particular function on a device
-  cloud       Access Particle cloud functionality
-  compile     Compile a source file, or directory using the cloud compiler
-  config      Configure and switch between multiple accounts
-  device      Manipulate a device
-  doctor      Put your device back into a healthy state
-  flash       Send firmware to your device
-  function    Call functions on your device
-  get         Retrieve a value from your device
-  identify    Ask for and display device ID via serial
-  keys        Manage your device&#39;s key pair and server public key
-  library     Manage firmware libraries
-  list        Display a list of your devices, as well as their variables and functions
-  login       Login to the cloud and store an access token locally
-  logout      Log out of your session and clear your saved access token
-  mesh        Manage mesh networks
-  monitor     Connect and display messages from a device
-  nyan        Make your device shout rainbows
-  preprocess  Preprocess a Wiring file (ino) into a C++ file (cpp)
-  product     Access Particle Product functionality [BETA]
-  project     Manage application projects
-  publish     Publish an event to the cloud
-  serial      Simple serial interface to your devices
-  setup       Do the initial setup &amp; claiming of your device
-  subscribe   Listen to device event stream
-  token       Manage access tokens (require username/password)
-  udp         Talk UDP to repair devices, run patches, check Wi-Fi, and more!
-  update      Update the system firmware of a device via USB
-  update-cli  Update the Particle CLI to the latest version
-  usb         Control USB devices
-  variable    Retrieve and monitor variables on your device
-  webhook     Manage webhooks that react to device event streams
-  whoami      prints signed-in username
-
-Global Options:
-  -v, --verbose  Increases how much logging to display  [count]
-  -q, --quiet    Decreases how much logging to display  [count]
-
-Options:
-  --version  Show the version of particle-cli installed.  [boolean]
-
-Examples:
-  particle setup                                     Set up your Particle account and your device
-  particle list                                      Show all your devices and their functions and variables
-  particle flash my_device tinker                    Remotely update your device to run the default Tinker app
-  particle call my_device_name digitalwrite D7=HIGH  Call a function on your device running Tinker to toggle the onboard LED
-
-For more information, visit our documentation at https://docs.particle.io
-
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13307,7 +13218,7 @@ For more information, visit our documentation at https://docs.particle.io
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
@@ -13371,7 +13282,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
@@ -13410,7 +13321,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.2-Project:-Timer-display">2.4.2 Project: Timer display<a class="anchor-link" href="#2.4.2-Project:-Timer-display">&#182;</a></h2><p>To demonstrate use of the Paricle CLI, for this project we will create a simple timer display using the <a href="https://wiki.seeedstudio.com/Grove-4-Digit_Display/">Grove 4-Digit Display</a> that is shipped with the <a href="https://store.particle.io/collections/prototyping-hardware/products/iot-starter-kit">Argon Starter Kit</a> available from Particle.io. The goal of the project is to display time since start device startup measure in seconds. The display will show seconds to two decimal digits for up to 100 seconds. The timer and display will roll over after 100 seconds.</p>
+<h2 id="2.4.2-Project:-Simple-Stop-Watch">2.4.2 Project: Simple Stop Watch<a class="anchor-link" href="#2.4.2-Project:-Simple-Stop-Watch">&#182;</a></h2><p>The goal of this project is to build a simple stop watch. The project will use code previously developed for the Grove 4 digit display, and add a Grove button to control operation of the stop watch. The stop watch will start and stop with a short click of the button, and reset to zero with a long button press.</p>
 
 </div>
 </div>
@@ -13422,7 +13333,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.1-Particle-Argon">2.4.2.1 Particle Argon<a class="anchor-link" href="#2.4.2.1-Particle-Argon">&#182;</a></h3><p><img src="https://docs.particle.io/assets/images/argon/argon-pin-markings.png" alt=""></p>
+<h3 id="2.4.2.1-Grove-Button">2.4.2.1 Grove Button<a class="anchor-link" href="#2.4.2.1-Grove-Button">&#182;</a></h3><p>The Grove Button is a momentary contact with a <a href="https://www.seeedstudio.com/blog/2020/02/21/pull-up-resistor-vs-pull-down-differences-arduino-guide/">pull-down resistor</a>. With a pull-down resistor, the pin value is LOW when the button is not pressed, and become HIGH when the button is depressed.</p>
 
 </div>
 </div>
@@ -13434,10 +13345,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.2-Grove-4-Digit-Display">2.4.2.2 Grove 4-Digit Display<a class="anchor-link" href="#2.4.2.2-Grove-4-Digit-Display">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-4-Digit_Display/">Grove 4-Digit Display</a></p>
-<p><a href="https://github.com/Seeed-Studio/Grove_4Digital_Display">Documentation</a></p>
-<p><img src="https://files.seeedstudio.com/wiki/Grove-4-Digit_Display/img/Grove-4_digit_display.jpg" alt=""></p>
-
+<h2 id="2.4.3-Solution-1:-Using-clickButton-library">2.4.3 Solution 1: Using clickButton library<a class="anchor-link" href="#2.4.3-Solution-1:-Using-clickButton-library">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13448,20 +13356,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.3-Grove-Shield-FeeatherWing">2.4.2.3 Grove Shield FeeatherWing<a class="anchor-link" href="#2.4.2.3-Grove-Shield-FeeatherWing">&#182;</a></h3><p>Connect the Grove 4-digit display to connector D2 on the Grove Shield FeatherWing adapater.</p>
-<p><img src="https://cdn-shop.adafruit.com/1200x900/4309-05.jpg" alt=""></p>
-
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.4-Create-Project">2.4.2.4 Create Project<a class="anchor-link" href="#2.4.2.4-Create-Project">&#182;</a></h3>
+<h3 id="2.4.3.1-Create-Project">2.4.3.1 Create Project<a class="anchor-link" href="#2.4.3.1-Create-Project">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13471,10 +13366,10 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;display4&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13491,8 +13386,8 @@ Password: ··········
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Initializing project in directory display4...
-&gt; A new project has been initialized in directory display4
+<pre>Initializing project in directory myproject...
+&gt; A new project has been initialized in directory myproject
 
 </pre>
 </div>
@@ -13509,7 +13404,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.5-Change-working-directory">2.4.2.5 Change working directory<a class="anchor-link" href="#2.4.2.5-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
+<h3 id="2.4.3.2-Change-working-directory">2.4.3.2 Change working directory<a class="anchor-link" href="#2.4.3.2-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
 
 </div>
 </div>
@@ -13520,10 +13415,10 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> display4
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> myproject
 </pre></div>
 
     </div>
@@ -13540,7 +13435,7 @@ Password: ··········
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>/content/display4
+<pre>/content/myproject
 </pre>
 </div>
 </div>
@@ -13556,7 +13451,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.6-Add-relevant-libraries">2.4.2.6 Add relevant libraries<a class="anchor-link" href="#2.4.2.6-Add-relevant-libraries">&#182;</a></h3>
+<h3 id="2.4.3.3-Add-relevant-libraries">2.4.3.3 Add relevant libraries<a class="anchor-link" href="#2.4.3.3-Add-relevant-libraries">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13566,11 +13461,11 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">library</span> <span class="o">=</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="n">library</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;clickButton&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13590,6 +13485,9 @@ Password: ··········
 <pre>&gt; Library Grove_4Digit_Display 1.0.2 has been added to the project.
 &gt; To get started using this library, run particle library view Grove_4Digit_Display to view the library documentation and sources.
 
+&gt; Library clickButton 1.0.9 has been added to the project.
+&gt; To get started using this library, run particle library view clickButton to view the library documentation and sources.
+
 </pre>
 </div>
 </div>
@@ -13605,7 +13503,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.7-Create-source-file">2.4.2.7 Create source file<a class="anchor-link" href="#2.4.2.7-Create-source-file">&#182;</a></h3>
+<h3 id="2.4.3.4-Create-source-file">2.4.3.4 Create source file<a class="anchor-link" href="#2.4.3.4-Create-source-file">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13615,40 +13513,73 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/display4.ino
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
 
-<span class="c1">#define CLK D2     /* display clock pin */</span>
-<span class="c1">#define DIO D3     /* display data pin */</span>
-<span class="c1">#define DIGITS 4   /* number of display digits */</span>
+<span class="o">/*</span> <span class="n">pin</span> <span class="n">assignments</span> <span class="o">*/</span>
+<span class="c1">#define PIN_CLK D2     /* display clock */</span>
+<span class="c1">#define PIN_DIO D3     /* display data */</span>
+<span class="c1">#define PIN_BTN D4     /* button */</span>
+
+<span class="o">/*</span> <span class="n">display</span> <span class="n">parameters</span> <span class="o">*/</span>
+<span class="c1">#define DIGITS 4   /* display digits */</span>
 
 <span class="c1">#include &quot;Grove_4Digit_Display.h&quot;</span>
+<span class="c1">#include &quot;clickButton.h&quot;</span>
 
-<span class="n">TM1637</span> <span class="n">tm1637</span><span class="p">(</span><span class="n">CLK</span><span class="p">,</span> <span class="n">DIO</span><span class="p">);</span>
-<span class="n">unsigned</span> <span class="n">long</span> <span class="n">start</span><span class="p">;</span>
+<span class="o">/*</span> <span class="n">display</span> <span class="nb">object</span> <span class="o">*/</span>
+<span class="n">TM1637</span> <span class="n">tm1637</span><span class="p">(</span><span class="n">PIN_CLK</span><span class="p">,</span> <span class="n">PIN_DIO</span><span class="p">);</span>
+
+<span class="o">/*</span> <span class="n">button</span> <span class="nb">object</span> <span class="o">*/</span>
+<span class="n">ClickButton</span> <span class="n">button</span><span class="p">(</span><span class="n">PIN_BTN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+
+<span class="o">/*</span> <span class="n">stopwatch</span> <span class="n">state</span> <span class="o">*/</span>
+<span class="n">unsigned</span> <span class="n">long</span> <span class="n">curr_time</span><span class="p">;</span>
+<span class="n">unsigned</span> <span class="n">long</span> <span class="n">prev_time</span><span class="p">;</span>
+<span class="n">unsigned</span> <span class="n">long</span> <span class="n">display_time</span><span class="p">;</span>
+<span class="nb">bool</span> <span class="n">running</span><span class="p">;</span>
 
 <span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">setup</span> <span class="n">display</span> <span class="o">*/</span>
     <span class="n">tm1637</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
     <span class="n">tm1637</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">BRIGHT_TYPICAL</span><span class="p">);</span>
     <span class="n">tm1637</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">POINT_ON</span><span class="p">);</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+
+    <span class="o">/*</span> <span class="n">setup</span> <span class="n">button</span> <span class="o">*/</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">PIN_BTN</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+    <span class="n">button</span><span class="o">.</span><span class="n">debounceTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">button</span><span class="o">.</span><span class="n">multiclickTime</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+    <span class="n">button</span><span class="o">.</span><span class="n">longClickTime</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+
+    <span class="o">/*</span> <span class="n">setup</span> <span class="n">stopwatch</span> <span class="o">*/</span>
+    <span class="n">prev_time</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+    <span class="n">display_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">unsigned</span> <span class="n">long</span> <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">%</span> <span class="mi">100000</span><span class="p">;</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">time</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span> <span class="o">/*</span> <span class="n">displaying</span> <span class="mi">100</span><span class="n">th</span><span class="s1">&#39;s of seconds */</span>
+    <span class="n">button</span><span class="o">.</span><span class="n">Update</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">clicks</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">running</span> <span class="o">=</span> <span class="err">!</span><span class="n">running</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">clicks</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">display_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">running</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">curr_time</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+        <span class="n">display_time</span> <span class="o">+=</span> <span class="n">curr_time</span> <span class="o">-</span> <span class="n">prev_time</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">curr_time</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">prev_time</span> <span class="o">=</span> <span class="n">curr_time</span><span class="p">;</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">display_time</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span> <span class="o">/*</span> <span class="n">displaying</span> <span class="mi">100</span><span class="n">th</span><span class="s1">&#39;s of seconds */</span>
 <span class="p">}</span>
 
 <span class="n">void</span> <span class="n">display</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="nb">int</span> <span class="n">digit</span> <span class="o">=</span> <span class="n">DIGITS</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="mh">0x7f</span><span class="p">);</span> <span class="o">/*</span> <span class="n">display</span> <span class="n">blank</span> <span class="o">*/</span>
-        <span class="p">}</span>
+        <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">);</span>
         <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -13668,7 +13599,7 @@ Password: ··········
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Overwriting src/display4.ino
+<pre>Overwriting src/myproject.ino
 </pre>
 </div>
 </div>
@@ -13684,7 +13615,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.8-Compiling">2.4.2.8 Compiling<a class="anchor-link" href="#2.4.2.8-Compiling">&#182;</a></h3>
+<h3 id="2.4.3.5-Compiling">2.4.3.5 Compiling<a class="anchor-link" href="#2.4.3.5-Compiling">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13694,10 +13625,10 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;display4.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13718,18 +13649,18 @@ Password: ··········
 Compiling code for argon
 
 Including:
-    src/display4.ino
+    src/myproject.ino
     project.properties
 
 attempting to compile firmware
-downloading binary from: /v1/binaries/5f90989f305a91469e6df9ec
-saving to: display4.bin
+downloading binary from: /v1/binaries/5f91c30f9c09c651a428aa51
+saving to: myproject.bin
 Memory use:
    text	   data	    bss	    dec	    hex	filename
-   6316	    108	   1072	   7496	   1d48	/workspace/target/workspace.elf
+   6588	    108	   1112	   7808	   1e80	/workspace/target/workspace.elf
 
 Compile succeeded.
-Saved firmware to: /content/display4/display4.bin
+Saved firmware to: /content/myproject/myproject.bin
 
 </pre>
 </div>
@@ -13746,7 +13677,7 @@ Saved firmware to: /content/display4/display4.bin
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.9-Flash-firmware">2.4.2.9 Flash firmware<a class="anchor-link" href="#2.4.2.9-Flash-firmware">&#182;</a></h3>
+<h3 id="2.4.3.6-Flash-firmware">2.4.3.6 Flash firmware<a class="anchor-link" href="#2.4.3.6-Flash-firmware">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13756,10 +13687,10 @@ Saved firmware to: /content/display4/display4.bin
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;display4.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13777,7 +13708,7 @@ Saved firmware to: /content/display4/display4.bin
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Including:
-    display4.bin
+    myproject.bin
 
 attempting to flash firmware to your device jck_argon_01
 Flash device OK: Update started
@@ -13799,9 +13730,228 @@ Flash success!
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.4.4-Solution-2:-Interrupt-Service-Routine-(ISR)">2.4.4 Solution 2: Interrupt Service Routine (ISR)<a class="anchor-link" href="#2.4.4-Solution-2:-Interrupt-Service-Routine-(ISR)">&#182;</a></h2><p>The <code>clickButton</code> library provides an easy-to-use method of managing the button actions, with provisions for debouncing, multiple clicks, and long clicks, but testing shows the button updates when the button is released, not when it is pressed. This is not consistent with a user's expectation that the clock should stop and start on the press of the button, not on the release.</p>
+<p>The following cell demonstrates the use of an Interrupt Service Routine to manage the button interface. The key insight here is to respond to both the press and release of the button by specifying <code>CHANGE</code> in the <code>attachInterrupt</code> function. This makes is possible to detect a long button press to reset the stop watch display to zero.</p>
 
 </div>
 </div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
+
+<span class="o">/*</span> <span class="n">pin</span> <span class="n">assignments</span> <span class="o">*/</span>
+<span class="c1">#define PIN_CLK D2     /* display clock */</span>
+<span class="c1">#define PIN_DIO D3     /* display data */</span>
+<span class="c1">#define PIN_BTN D4     /* button */</span>
+
+<span class="o">/*</span> <span class="n">display</span> <span class="n">parameters</span> <span class="o">*/</span>
+<span class="c1">#define DIGITS 4   /* display digits */</span>
+
+<span class="c1">#include &quot;Grove_4Digit_Display.h&quot;</span>
+<span class="c1">#include &quot;clickButton.h&quot;</span>
+
+<span class="o">/*</span> <span class="n">display</span> <span class="nb">object</span> <span class="o">*/</span>
+<span class="n">TM1637</span> <span class="n">tm1637</span><span class="p">(</span><span class="n">PIN_CLK</span><span class="p">,</span> <span class="n">PIN_DIO</span><span class="p">);</span>
+
+<span class="o">/*</span> <span class="n">stopwatch</span> <span class="n">state</span> <span class="o">*/</span>
+<span class="n">unsigned</span> <span class="n">long</span> <span class="n">curr_time</span><span class="p">;</span>
+<span class="n">unsigned</span> <span class="n">long</span> <span class="n">prev_time</span><span class="p">;</span>
+<span class="n">unsigned</span> <span class="n">long</span> <span class="n">display_time</span><span class="p">;</span>
+<span class="n">volatile</span> <span class="n">unsigned</span> <span class="n">long</span> <span class="n">btn_press_time</span><span class="p">;</span>
+<span class="n">volatile</span> <span class="nb">bool</span> <span class="n">btn_is_pressed</span><span class="p">;</span>
+<span class="n">volatile</span> <span class="nb">bool</span> <span class="n">running</span><span class="p">;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">setup</span> <span class="n">display</span> <span class="o">*/</span>
+    <span class="n">tm1637</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
+    <span class="n">tm1637</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">BRIGHT_TYPICAL</span><span class="p">);</span>
+    <span class="n">tm1637</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">POINT_ON</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">setup</span> <span class="n">button</span> <span class="o">*/</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">PIN_BTN</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+    <span class="n">btn_press_time</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+    <span class="n">attachInterrupt</span><span class="p">(</span><span class="n">PIN_BTN</span><span class="p">,</span> <span class="n">on_btn_change</span><span class="p">,</span> <span class="n">CHANGE</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">setup</span> <span class="n">stopwatch</span> <span class="o">*/</span>
+    <span class="n">prev_time</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+    <span class="n">display_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">curr_time</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">running</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">display_time</span> <span class="o">+=</span> <span class="n">curr_time</span> <span class="o">-</span> <span class="n">prev_time</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">btn_is_pressed</span> <span class="o">&amp;&amp;</span> <span class="p">((</span><span class="n">curr_time</span> <span class="o">-</span> <span class="n">btn_press_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">running</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>
+            <span class="n">display_time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">prev_time</span> <span class="o">=</span> <span class="n">curr_time</span><span class="p">;</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">display_time</span> <span class="o">/</span> <span class="mi">10</span><span class="p">);</span> <span class="o">/*</span> <span class="n">displaying</span> <span class="mi">100</span><span class="n">th</span><span class="s1">&#39;s of seconds */</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">on_btn_change</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">PIN_BTN</span><span class="p">)</span><span class="o">==</span><span class="n">HIGH</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">btn_press_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">running</span> <span class="o">=</span> <span class="err">!</span><span class="n">running</span><span class="p">;</span>
+            <span class="n">btn_press_time</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+            <span class="n">btn_is_pressed</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">btn_is_pressed</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">;</span>   
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">display</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">int</span> <span class="n">digit</span> <span class="o">=</span> <span class="n">DIGITS</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
+        <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">);</span>
+        <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Overwriting src/myproject.ino
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Compiling code for argon
+
+Including:
+    src/myproject.ino
+    project.properties
+
+attempting to compile firmware
+downloading binary from: /v1/binaries/5f91c394d59546684d4c092a
+saving to: myproject.bin
+Memory use:
+   text	   data	    bss	    dec	    hex	filename
+   6604	    108	   1088	   7800	   1e78	/workspace/target/workspace.elf
+
+Compile succeeded.
+Saved firmware to: /content/myproject/myproject.bin
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Including:
+    myproject.bin
+
+attempting to flash firmware to your device jck_argon_01
+Flash device OK: Update started
+
+Flash success!
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 
 
@@ -13811,7 +13961,7 @@ Flash success!
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.00-MQTT.html">3.0 MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.04-Simple-Stop-Watch.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.04-Simple-Stop-Watch.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/03.00-MQTT.html">3.0 MQTT</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.04-Simple_Stop_Watch_using_Interrupts.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.04-Simple_Stop_Watch_using_Interrupts.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
