@@ -19,3 +19,6 @@
 - [4.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/04.01-Publishing_an_Experiment_via_MQTT.html)
 - [4.2 Accessing a Remote Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/04.02-Accessing_a_Remote_Experiment_via_MQTT.html)
 - [4.3 Accessing MQTT Devices](https://jckantor.github.io/cbe-virtual-laboratory/04.03-Miscellaneous_Notes.html)
+
+### [Chapter 9.0 Interfacing with Laboratory Equipment](https://jckantor.github.io/cbe-virtual-laboratory/09.00-Interfacing_with_Laboratory_Equipment.html)
+- [9.1 Stepper Motor Control via I2C](https://jckantor.github.io/cbe-virtual-laboratory/09.01-Stepper_Motor_Control_via_I2C.html)
