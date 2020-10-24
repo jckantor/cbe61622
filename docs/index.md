@@ -13,9 +13,10 @@
 - [2.1 Particle-cli](https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle-cli.html)
 - [2.2 Coding for Particle](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Particle_Coding.html)
 - [2.3 Particle Command Line Interface (CLI)](https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html)
-- [2.4 Simple Stop Watch using Interrupts](https://jckantor.github.io/cbe-virtual-laboratory/02.04-Simple_Stop_Watch_using_Interrupts.html)
+- [2.4 Ultrasonic Distance Ranger](https://jckantor.github.io/cbe-virtual-laboratory/02.04-Ultrasonic_Distance_Ranger.html)
+- [2.5 Simple Stop Watch using Interrupts](https://jckantor.github.io/cbe-virtual-laboratory/02.05-Simple_Stop_Watch_using_Interrupts.html)
 
-### [Chapter 4.0 Enabling the Internet of Things](https://jckantor.github.io/cbe-virtual-laboratory/04.00-Enabling-the-Internet-of-Things.html)
+### [Chapter 4.0 Enabling the Internet of Things](https://jckantor.github.io/cbe-virtual-laboratory/04.00-Enabling_the_Internet_of_Things.html)
 - [4.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/04.01-Publishing_an_Experiment_via_MQTT.html)
 - [4.2 Accessing a Remote Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/04.02-Accessing_a_Remote_Experiment_via_MQTT.html)
 - [4.3 Accessing MQTT Devices](https://jckantor.github.io/cbe-virtual-laboratory/04.03-Miscellaneous_Notes.html)
