@@ -13355,7 +13355,9 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.3.1-Grove-Ultrasonic-Ranger">2.4.3.1 Grove Ultrasonic Ranger<a class="anchor-link" href="#2.4.3.1-Grove-Ultrasonic-Ranger">&#182;</a></h3><p><a href="https://github.com/Seeed-Studio/Seeed_Arduino_UltrasonicRanger">Github</a></p>
+<h3 id="2.4.3.1-Grove-Ultrasonic-Ranger">2.4.3.1 Grove Ultrasonic Ranger<a class="anchor-link" href="#2.4.3.1-Grove-Ultrasonic-Ranger">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/">SeeedStudio description</a></p>
+<p><a href="https://github.com/Seeed-Studio/Seeed_Arduino_UltrasonicRanger">Github</a></p>
+<p><img src="https://files.seeedstudio.com/wiki/Grove_Ultrasonic_Ranger/img/Ultrasonic.jpg" alt=""></p>
 
 </div>
 </div>
@@ -13535,7 +13537,7 @@ PatriotUltrasonic 2.0.0 128 Extend Patriot IoT to support ultrasonic proximity d
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;copy&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove-Ultrasonic-Ranger&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove-Ultrasonic-Ranger&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 </pre></div>
 
@@ -13585,7 +13587,7 @@ Library Grove-Ultrasonic-Ranger 1.0.2 installed.
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
@@ -13615,9 +13617,7 @@ Library Grove-Ultrasonic-Ranger 1.0.2 installed.
 <span class="p">}</span>
 
 <span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">long</span> <span class="n">RangeInCentimeters</span><span class="p">;</span>
-    <span class="n">RangeInCentimeters</span> <span class="o">=</span> <span class="n">ultrasonic</span><span class="o">.</span><span class="n">MeasureInCentimeters</span><span class="p">();</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">RangeInCentimeters</span><span class="p">);</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">ultrasonic</span><span class="o">.</span><span class="n">MeasureInCentimeters</span><span class="p">());</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -13670,7 +13670,7 @@ Library Grove-Ultrasonic-Ranger 1.0.2 installed.
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13702,7 +13702,7 @@ Including:
     project.properties
 
 attempting to compile firmware
-downloading binary from: /v1/binaries/5f946a98d4bd443642666eab
+downloading binary from: /v1/binaries/5f946cd8186082895481df8a
 saving to: myproject.bin
 Memory use:
    text	   data	    bss	    dec	    hex	filename
