@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.05-Simple_Stop_Watch_using_Interrupts.html">2.5 Simple Stop Watch using Interrupts</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/09.01-Communicating _via_TCP.html">9.1 Communicating via TCP</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/10.00-Projects.html">10.0 Projects</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/09.02-Stepper_Motor_Control_via_I2C.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/09.02-Stepper_Motor_Control_via_I2C.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13107,8 +13107,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.4-Ultrasonic-Distance-Ranger">2.4 Ultrasonic Distance Ranger<a class="anchor-link" href="#2.4-Ultrasonic-Distance-Ranger">&#182;</a></h1><p>Create a simple rangefinder that reports distance, measured in millimeters, to a real-time display.</p>
-
+<h1 id="9.2-Stepper-Motor-Control-via-I2C">9.2 Stepper Motor Control via I2C<a class="anchor-link" href="#9.2-Stepper-Motor-Control-via-I2C">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13119,7 +13118,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.1-Particle-CLI">2.4.1 Particle CLI<a class="anchor-link" href="#2.4.1-Particle-CLI">&#182;</a></h2>
+<h2 id="9.2.1-Particle-CLI">9.2.1 Particle CLI<a class="anchor-link" href="#9.2.1-Particle-CLI">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13130,7 +13129,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.1.1-Installation">2.4.1.1 Installation<a class="anchor-link" href="#2.4.1.1-Installation">&#182;</a></h3>
+<h3 id="9.2.1.1-Installation">9.2.1.1 Installation<a class="anchor-link" href="#9.2.1.1-Installation">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13140,11 +13139,14 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
 <span class="err">!</span><span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">particle</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">cli</span> <span class="p">)</span>
+
+<span class="c1"># path to the particle cli. May be environment dependent.</span>
+<span class="n">particle_cli</span> <span class="o">=</span> <span class="s2">&quot;/root/bin/particle&quot;</span>
 </pre></div>
 
     </div>
@@ -13159,7 +13161,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.1.2-Utility-functions">2.4.1.2 Utility functions<a class="anchor-link" href="#2.4.1.2-Utility-functions">&#182;</a></h3>
+<h3 id="9.2.1.2-Utility-functions">9.2.1.2 Utility functions<a class="anchor-link" href="#9.2.1.2-Utility-functions">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13169,7 +13171,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -13185,8 +13187,8 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     <span class="k">return</span> <span class="n">ansi</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 
 <span class="c1"># streamline call to the particle-cli</span>
-<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">particle_cli</span><span class="o">=</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">):</span>
-    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
+<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
                              <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
                              <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
     <span class="n">process</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13206,7 +13208,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.1.3-Login-to-Particle">2.4.1.3 Login to Particle<a class="anchor-link" href="#2.4.1.3-Login-to-Particle">&#182;</a></h3>
+<h3 id="9.2.1.3-Login-to-Particle">9.2.1.3 Login to Particle<a class="anchor-link" href="#9.2.1.3-Login-to-Particle">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13216,7 +13218,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
@@ -13269,7 +13271,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.1.4-Select-a-device">2.4.1.4 Select a device<a class="anchor-link" href="#2.4.1.4-Select-a-device">&#182;</a></h3><p>The following cell downloads a list of all user devices and creates a list of device names. Here we choose the first name in the list for the rest of this notebook. If this is not the device to be used, then modify this cell accordingly.</p>
+<h3 id="9.2.1.4-Select-a-device">9.2.1.4 Select a device<a class="anchor-link" href="#9.2.1.4-Select-a-device">&#182;</a></h3><p>The following cell downloads a list of all user devices and creates a list of device names. Here we choose the first name in the list for the rest of this notebook. If this is not the device to be used, then modify this cell accordingly.</p>
 
 </div>
 </div>
@@ -13280,7 +13282,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
@@ -13319,7 +13321,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.2-Project-Hardware">2.4.2 Project Hardware<a class="anchor-link" href="#2.4.2-Project-Hardware">&#182;</a></h2>
+<h2 id="9.2.2-Project:-Motor-Control">9.2.2 Project: Motor Control<a class="anchor-link" href="#9.2.2-Project:-Motor-Control">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13330,9 +13332,12 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.1-Grove-Ultrasonic-Ranger">2.4.2.1 Grove Ultrasonic Ranger<a class="anchor-link" href="#2.4.2.1-Grove-Ultrasonic-Ranger">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/">SeeedStudio description</a></p>
-<p><img src="https://files.seeedstudio.com/wiki/Grove_Ultrasonic_Ranger/img/Ultrasonic.jpg" alt=""></p>
-<p>The Grove Ultrasonic Ranger emits a sequence of eight short bursts of 40 kHz sonic signals, then measures duration until an echo is detected. The sonic signals are triggered by applying a 10 microsecond pulse to the GPIO pin connecting to the device. The duration until echo detection is returned as a pulse on the same GPIO pin. The pulse duration can be measured using the <a href="https://docs.particle.io/reference/device-os/firmware/argon/#pulsein-">pulseIn()</a> function of the standard Arduino or Particle API.</p>
+<h3 id="9.2.2.1-Grove-I2C-Motor-Driver-V1.3">9.2.2.1 Grove I2C Motor Driver V1.3<a class="anchor-link" href="#9.2.2.1-Grove-I2C-Motor-Driver-V1.3">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-I2C_Motor_Driver_V1.3/">SeeedStudio Documentation</a></p>
+<p><a href="https://github.com/Seeed-Studio/Grove_I2C_Motor_Driver_v1_3">Github repository</a></p>
+<p><img src="https://files.seeedstudio.com/wiki/Grove-I2C_Motor_Driver_V1.3/img/I2CMotorDriver-1.jpg" alt=""></p>
+<p>Note the default address <code>0x0f</code>.</p>
+<p><strong> It turns out this motor driver requires a 5 volt logic. The Particle Argon is capable of 3.3v only, thus not electrically compatible. This is confirmed by the absence of a code library supporting this motor driver on Particle Argon.</strong></p>
+<p><strong>New motor drivers are on order.</strong></p>
 
 </div>
 </div>
@@ -13344,7 +13349,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.2.2-Grove-4-Digit-Display">2.4.2.2 Grove 4 Digit Display<a class="anchor-link" href="#2.4.2.2-Grove-4-Digit-Display">&#182;</a></h3>
+<h2 id="9.2.3-Prototype">9.2.3 Prototype<a class="anchor-link" href="#9.2.3-Prototype">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13355,18 +13360,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.3-Implementation">2.4.3 Implementation<a class="anchor-link" href="#2.4.3-Implementation">&#182;</a></h2>
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.3.1-Create-Project">2.4.3.1 Create Project<a class="anchor-link" href="#2.4.3.1-Create-Project">&#182;</a></h3>
+<h3 id="9.2.3.1-Create-Project">9.2.3.1 Create Project<a class="anchor-link" href="#9.2.3.1-Create-Project">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13376,7 +13370,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13414,7 +13408,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.3.2-Change-working-directory">2.4.3.2 Change working directory<a class="anchor-link" href="#2.4.3.2-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
+<h3 id="9.2.3.2-Change-working-directory">9.2.3.2 Change working directory<a class="anchor-link" href="#9.2.3.2-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
 
 </div>
 </div>
@@ -13425,10 +13419,10 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/myproject
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> myproject
 </pre></div>
 
     </div>
@@ -13461,7 +13455,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.3.3-Add-relevant-libraries">2.4.3.3 Add relevant libraries<a class="anchor-link" href="#2.4.3.3-Add-relevant-libraries">&#182;</a></h3>
+<h3 id="9.2.3.3-Add-relevant-libraries">9.2.3.3 Add relevant libraries<a class="anchor-link" href="#9.2.3.3-Add-relevant-libraries">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13471,10 +13465,10 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="s2">&quot;motor&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13491,8 +13485,49 @@ Password: ··········
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&gt; Library Grove_4Digit_Display 1.0.2 has been added to the project.
-&gt; To get started using this library, run particle library view Grove_4Digit_Display to view the library documentation and sources.
+<pre>&gt; Found 6 libraries matching motor
+Adafruit-MotorShield-V2 1.0.0 12330 A library for the Adafruit Motor Shield V2 for Particle devices
+Serial_Controlled_Motor_Driver 1.0.3 814 Use this to command the SCMD and connected chain.
+SeeedMotorShield 0.0.1 572 Library for controling the DC Motor shield by Seeed
+StepMotorController 0.0.32 479 Step Motor Controller Interface     
+DualMotor 0.0.2 215 Custom DualMotor Library
+PatriotMotorized 2.0.0 16 Extend Patriot IoT to support motorized devices.
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_I2C_Motor_Driver_v1_3&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Library Grove_I2C_Motor_Driver_v1_3 not found
 
 </pre>
 </div>
@@ -13509,7 +13544,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.3.4-Create-source-file">2.4.3.4 Create source file<a class="anchor-link" href="#2.4.3.4-Create-source-file">&#182;</a></h3>
+<h3 id="9.2.3.4-Create-source-file">9.2.3.4 Create source file<a class="anchor-link" href="#9.2.3.4-Create-source-file">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13519,58 +13554,10 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
-
-<span class="o">/*</span> <span class="n">Grove</span> <span class="mi">4</span> <span class="n">digit</span> <span class="n">display</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">pinCLK</span> <span class="o">=</span> <span class="n">D2</span><span class="p">;</span>         <span class="o">/*</span> <span class="n">display</span> <span class="n">clock</span> <span class="n">pin</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">pinDIO</span> <span class="o">=</span> <span class="n">D3</span><span class="p">;</span>         <span class="o">/*</span> <span class="n">display</span> <span class="n">data</span> <span class="n">pin</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>          <span class="o">/*</span> <span class="n">display</span> <span class="n">digits</span> <span class="o">*/</span>
-
-<span class="c1">#include &quot;Grove_4Digit_Display.h&quot;</span>
-<span class="n">TM1637</span> <span class="n">tm1637</span><span class="p">(</span><span class="n">pinCLK</span><span class="p">,</span> <span class="n">pinDIO</span><span class="p">);</span>
-
-<span class="o">/*</span> <span class="n">Grove</span> <span class="n">ultrasonic</span> <span class="n">ranger</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">pinULTRASONIC</span> <span class="o">=</span> <span class="n">D4</span><span class="p">;</span>  <span class="o">/*</span> <span class="n">ultrasonic</span> <span class="n">ranger</span> <span class="n">pin</span> <span class="o">*/</span>
-
-<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">/*</span> <span class="n">setup</span> <span class="n">display</span> <span class="o">*/</span>
-    <span class="n">tm1637</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
-    <span class="n">tm1637</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">BRIGHT_TYPICAL</span><span class="p">);</span>
-    <span class="n">tm1637</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">POINT_OFF</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">measureDistance</span><span class="p">(</span><span class="n">pinULTRASONIC</span><span class="p">));</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="n">void</span> <span class="n">display</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">int</span> <span class="n">digit</span> <span class="o">=</span> <span class="n">digits</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
-        <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">);</span>
-        <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nb">int</span> <span class="n">measureDistance</span><span class="p">(</span><span class="nb">int</span> <span class="n">pin</span><span class="p">)</span> <span class="p">{</span>
-    <span class="o">/*</span> <span class="n">send</span> <span class="n">a</span> <span class="n">pulse</span> <span class="o">*/</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-
-    <span class="o">/*</span> <span class="n">measure</span> <span class="n">duration</span> <span class="n">of</span> <span class="n">response</span> <span class="n">pulse</span> <span class="ow">in</span> <span class="n">microseconds</span> <span class="o">*/</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
-    <span class="n">unsigned</span> <span class="n">long</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">pulseIn</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-
-    <span class="o">/*</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">mm</span> <span class="o">=</span> <span class="mf">0.344</span> <span class="n">mm</span><span class="o">/</span><span class="n">micro</span><span class="o">-</span><span class="n">sec</span><span class="err">`</span> <span class="o">*</span> <span class="n">duration</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*/</span>
-    <span class="k">return</span><span class="p">(</span><span class="mf">0.172</span><span class="o">*</span><span class="n">duration</span><span class="p">);</span>
-<span class="p">}</span>
 </pre></div>
 
     </div>
@@ -13603,7 +13590,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.3.5-Compiling">2.4.3.5 Compiling<a class="anchor-link" href="#2.4.3.5-Compiling">&#182;</a></h3>
+<h3 id="9.2.3.5-Compiling">9.2.3.5 Compiling<a class="anchor-link" href="#9.2.3.5-Compiling">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13613,7 +13600,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13641,11 +13628,11 @@ Including:
     project.properties
 
 attempting to compile firmware
-downloading binary from: /v1/binaries/5f95722fabefb30aacbc7337
+downloading binary from: /v1/binaries/5f91c30f9c09c651a428aa51
 saving to: myproject.bin
 Memory use:
    text	   data	    bss	    dec	    hex	filename
-   8440	    108	   1068	   9616	   2590	/workspace/target/workspace.elf
+   6588	    108	   1112	   7808	   1e80	/workspace/target/workspace.elf
 
 Compile succeeded.
 Saved firmware to: /content/myproject/myproject.bin
@@ -13665,7 +13652,7 @@ Saved firmware to: /content/myproject/myproject.bin
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.3.6-Flash-firmware">2.4.3.6 Flash firmware<a class="anchor-link" href="#2.4.3.6-Flash-firmware">&#182;</a></h3>
+<h3 id="9.2.3.6-Flash-firmware">9.2.3.6 Flash firmware<a class="anchor-link" href="#9.2.3.6-Flash-firmware">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13675,7 +13662,7 @@ Saved firmware to: /content/myproject/myproject.bin
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13715,28 +13702,11 @@ Flash success!
 
 
     
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-
-
-    
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/02.05-Simple_Stop_Watch_using_Interrupts.html">2.5 Simple Stop Watch using Interrupts</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/09.01-Communicating _via_TCP.html">9.1 Communicating via TCP</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe-virtual-laboratory/10.00-Projects.html">10.0 Projects</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/09.02-Stepper_Motor_Control_via_I2C.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/09.02-Stepper_Motor_Control_via_I2C.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

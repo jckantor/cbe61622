@@ -34,6 +34,7 @@ This is a start on a collection of notebooks being developed in support of hands
 ### [Chapter 8.0 Feedback Control](https://jckantor.github.io/cbe-virtual-laboratory/08.00-Feedback_Control.html)
 
 ### [Chapter 9.0 Interfacing with Laboratory Equipment](https://jckantor.github.io/cbe-virtual-laboratory/09.00-Interfacing_with_Laboratory_Equipment.html)
-- [9.1 Stepper Motor Control via I2C](https://jckantor.github.io/cbe-virtual-laboratory/09.01-Stepper_Motor_Control_via_I2C.html)
+- [9.1 Communicating via TCP](https://jckantor.github.io/cbe-virtual-laboratory/09.01-Communicating _via_TCP.html)
+- [9.2 Stepper Motor Control via I2C](https://jckantor.github.io/cbe-virtual-laboratory/09.02-Stepper_Motor_Control_via_I2C.html)
 
 ### [Chapter 10.0 Projects](https://jckantor.github.io/cbe-virtual-laboratory/10.00-Projects.html)
