@@ -13139,31 +13139,17 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
 <span class="err">!</span><span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">particle</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">cli</span> <span class="p">)</span>
-
-<span class="c1"># path to the particle cli. May be environment dependent.</span>
-<span class="n">particle_cli</span> <span class="o">=</span> <span class="s2">&quot;/root/bin/particle&quot;</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-</div>
-</div>
 </div>
 
 
@@ -13182,7 +13168,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -13198,8 +13184,8 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     <span class="k">return</span> <span class="n">ansi</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 
 <span class="c1"># streamline call to the particle-cli</span>
-<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
+<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">particle_cli</span><span class="o">=</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">):</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
                              <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
                              <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
     <span class="n">process</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13229,7 +13215,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
@@ -13293,7 +13279,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
@@ -13332,7 +13318,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.2-Project-Requirements">2.4.2 Project Requirements<a class="anchor-link" href="#2.4.2-Project-Requirements">&#182;</a></h2><p>Create a simple rangefinder that reports distance, measured in centimeters, to a real-time display.</p>
+<h2 id="2.4.2-Project-Requirements">2.4.2 Project Requirements<a class="anchor-link" href="#2.4.2-Project-Requirements">&#182;</a></h2><p>Create a simple rangefinder that reports distance, measured in millimeters, to a real-time display.</p>
 
 </div>
 </div>
@@ -13401,7 +13387,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13450,7 +13436,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/myproject
@@ -13496,10 +13482,10 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="s2">&quot;Ultrasonic&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13516,48 +13502,8 @@ Password: ··········
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&gt; Found 2 libraries matching Ultrasonic
-Grove-Ultrasonic-Ranger 1.0.2 16133 Particle Xenon library for controlling Grove Ultrasonic Ranger, using gennal I/O communication.
-PatriotUltrasonic 2.0.0 128 Extend Patriot IoT to support ultrasonic proximity detectors.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove-Ultrasonic-Ranger&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Checking library Grove-Ultrasonic-Ranger...
-Installing library Grove-Ultrasonic-Ranger 1.0.2 to /content/myproject/lib/Grove-Ultrasonic-Ranger ...
-Library Grove-Ultrasonic-Ranger 1.0.2 installed.
+<pre>&gt; Library Grove-Ultrasonic-Ranger 1.0.2 has been added to the project.
+&gt; To get started using this library, run particle library view Grove-Ultrasonic-Ranger to view the library documentation and sources.
 
 &gt; Library Grove_4Digit_Display 1.0.2 has been added to the project.
 &gt; To get started using this library, run particle library view Grove_4Digit_Display to view the library documentation and sources.
@@ -13587,7 +13533,7 @@ Library Grove-Ultrasonic-Ranger 1.0.2 installed.
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
@@ -13600,14 +13546,10 @@ Library Grove-Ultrasonic-Ranger 1.0.2 installed.
 <span class="o">/*</span> <span class="n">display</span> <span class="n">parameters</span> <span class="o">*/</span>
 <span class="c1">#define DIGITS 4   /* display digits */</span>
 
-<span class="c1">#include &quot;Grove-Ultrasonic-Ranger.h&quot;</span>
 <span class="c1">#include &quot;Grove_4Digit_Display.h&quot;</span>
 
-<span class="o">/*</span> <span class="n">hardware</span> <span class="n">objects</span> <span class="o">*/</span>
-<span class="n">Ultrasonic</span> <span class="n">ultrasonic</span><span class="p">(</span><span class="n">PIN_ULTRASONIC</span><span class="p">);</span>
+<span class="o">/*</span> <span class="n">display</span> <span class="n">objects</span> <span class="o">*/</span>
 <span class="n">TM1637</span> <span class="n">tm1637</span><span class="p">(</span><span class="n">PIN_CLK</span><span class="p">,</span> <span class="n">PIN_DIO</span><span class="p">);</span>
-
-<span class="n">long</span> <span class="nb">int</span> <span class="n">count</span> <span class="o">=</span>  <span class="mi">0</span><span class="p">;</span>
 
 <span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="o">/*</span> <span class="n">setup</span> <span class="n">display</span> <span class="o">*/</span>
@@ -13617,7 +13559,7 @@ Library Grove-Ultrasonic-Ranger 1.0.2 installed.
 <span class="p">}</span>
 
 <span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">ultrasonic</span><span class="o">.</span><span class="n">MeasureInCentimeters</span><span class="p">());</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">measureDistance</span><span class="p">(</span><span class="n">PIN_ULTRASONIC</span><span class="p">));</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -13627,6 +13569,32 @@ Library Grove-Ultrasonic-Ranger 1.0.2 installed.
         <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">);</span>
         <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
     <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">measureDistance</span><span class="p">(</span><span class="nb">int</span> <span class="n">pin</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">/*</span> <span class="n">send</span> <span class="n">a</span> <span class="n">pulse</span> <span class="o">*/</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">previous</span> <span class="n">pulse</span> <span class="n">to</span> <span class="n">end</span> <span class="o">*/</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+    <span class="n">long</span> <span class="nb">int</span> <span class="n">begin</span> <span class="o">=</span> <span class="n">micros</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">pin</span><span class="p">))</span> <span class="k">if</span> <span class="p">((</span><span class="n">micros</span><span class="p">()</span> <span class="o">-</span> <span class="n">begin</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1000000</span><span class="n">L</span><span class="p">)</span> <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">wait</span> <span class="k">for</span> <span class="nb">next</span> <span class="n">pulse</span> <span class="n">to</span> <span class="n">start</span> <span class="o">*/</span>
+    <span class="n">begin</span> <span class="o">=</span> <span class="n">micros</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="err">!</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">pin</span><span class="p">))</span> <span class="k">if</span> <span class="p">((</span><span class="n">micros</span><span class="p">()</span> <span class="o">-</span> <span class="n">begin</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1000000</span><span class="n">L</span><span class="p">)</span> <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">measure</span> <span class="n">length</span> <span class="n">of</span> <span class="n">pulse</span> <span class="o">*/</span>
+    <span class="n">begin</span> <span class="o">=</span> <span class="n">micros</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">pin</span><span class="p">))</span> <span class="k">if</span> <span class="p">((</span><span class="n">micros</span><span class="p">()</span> <span class="o">-</span> <span class="n">begin</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1000000</span><span class="n">L</span><span class="p">)</span> <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="o">/*</span> <span class="n">convert</span> <span class="n">to</span> <span class="n">millimeters</span> <span class="o">*/</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="n">micros</span><span class="p">()</span><span class="o">-</span><span class="n">begin</span><span class="p">)</span><span class="o">/</span><span class="mi">58</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -13670,7 +13638,7 @@ Library Grove-Ultrasonic-Ranger 1.0.2 installed.
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13702,11 +13670,11 @@ Including:
     project.properties
 
 attempting to compile firmware
-downloading binary from: /v1/binaries/5f946cd8186082895481df8a
+downloading binary from: /v1/binaries/5f94c09aa85d0975f6132978
 saving to: myproject.bin
 Memory use:
    text	   data	    bss	    dec	    hex	filename
-   6412	    108	   1072	   7592	   1da8	/workspace/target/workspace.elf
+   6492	    108	   1068	   7668	   1df4	/workspace/target/workspace.elf
 
 Compile succeeded.
 Saved firmware to: /content/myproject/myproject.bin
@@ -13736,7 +13704,7 @@ Saved firmware to: /content/myproject/myproject.bin
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13778,7 +13746,7 @@ Flash success!
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 
