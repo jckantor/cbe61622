@@ -13107,7 +13107,8 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.4-Ultrasonic-Distance-Ranger">2.4 Ultrasonic Distance Ranger<a class="anchor-link" href="#2.4-Ultrasonic-Distance-Ranger">&#182;</a></h1>
+<h1 id="2.4-Ultrasonic-Distance-Ranger">2.4 Ultrasonic Distance Ranger<a class="anchor-link" href="#2.4-Ultrasonic-Distance-Ranger">&#182;</a></h1><p>Create a simple rangefinder that reports distance, measured in millimeters, to a real-time display.</p>
+
 </div>
 </div>
 </div>
@@ -13139,7 +13140,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
@@ -13168,7 +13169,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -13215,7 +13216,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
@@ -13279,7 +13280,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
@@ -13318,8 +13319,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.2-Project-Requirements">2.4.2 Project Requirements<a class="anchor-link" href="#2.4.2-Project-Requirements">&#182;</a></h2><p>Create a simple rangefinder that reports distance, measured in millimeters, to a real-time display.</p>
-
+<h2 id="2.4.2-Project-Hardware">2.4.2 Project Hardware<a class="anchor-link" href="#2.4.2-Project-Hardware">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13330,20 +13330,10 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.3-Project-Hardware">2.4.3 Project Hardware<a class="anchor-link" href="#2.4.3-Project-Hardware">&#182;</a></h2>
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.3.1-Grove-Ultrasonic-Ranger">2.4.3.1 Grove Ultrasonic Ranger<a class="anchor-link" href="#2.4.3.1-Grove-Ultrasonic-Ranger">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/">SeeedStudio description</a></p>
+<h3 id="2.4.2.1-Grove-Ultrasonic-Ranger">2.4.2.1 Grove Ultrasonic Ranger<a class="anchor-link" href="#2.4.2.1-Grove-Ultrasonic-Ranger">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/">SeeedStudio description</a></p>
 <p><a href="https://github.com/Seeed-Studio/Seeed_Arduino_UltrasonicRanger">Github</a></p>
 <p><img src="https://files.seeedstudio.com/wiki/Grove_Ultrasonic_Ranger/img/Ultrasonic.jpg" alt=""></p>
+<p><a href="http://web.eece.maine.edu/~zhu/book/lab/HC-SR04%20User%20Manual.pdf">datasheet</a></p>
 
 </div>
 </div>
@@ -13355,7 +13345,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.3.2-Grove-4-Digit-Display">2.4.3.2 Grove 4 Digit Display<a class="anchor-link" href="#2.4.3.2-Grove-4-Digit-Display">&#182;</a></h3>
+<h3 id="2.4.2.2-Grove-4-Digit-Display">2.4.2.2 Grove 4 Digit Display<a class="anchor-link" href="#2.4.2.2-Grove-4-Digit-Display">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13366,7 +13356,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.4.4-Implementation">2.4.4 Implementation<a class="anchor-link" href="#2.4.4-Implementation">&#182;</a></h2>
+<h2 id="2.4.3-Implementation">2.4.3 Implementation<a class="anchor-link" href="#2.4.3-Implementation">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13377,7 +13367,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.4.1-Create-Project">2.4.4.1 Create Project<a class="anchor-link" href="#2.4.4.1-Create-Project">&#182;</a></h3>
+<h3 id="2.4.3.1-Create-Project">2.4.3.1 Create Project<a class="anchor-link" href="#2.4.3.1-Create-Project">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13387,7 +13377,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13425,7 +13415,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.4.2-Change-working-directory">2.4.4.2 Change working directory<a class="anchor-link" href="#2.4.4.2-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
+<h3 id="2.4.3.2-Change-working-directory">2.4.3.2 Change working directory<a class="anchor-link" href="#2.4.3.2-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
 
 </div>
 </div>
@@ -13436,7 +13426,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/myproject
@@ -13472,7 +13462,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.4.3-Add-relevant-libraries">2.4.4.3 Add relevant libraries<a class="anchor-link" href="#2.4.4.3-Add-relevant-libraries">&#182;</a></h3>
+<h3 id="2.4.3.3-Add-relevant-libraries">2.4.3.3 Add relevant libraries<a class="anchor-link" href="#2.4.3.3-Add-relevant-libraries">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13482,7 +13472,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13523,7 +13513,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.4.4-Create-source-file">2.4.4.4 Create source file<a class="anchor-link" href="#2.4.4.4-Create-source-file">&#182;</a></h3>
+<h3 id="2.4.3.4-Create-source-file">2.4.3.4 Create source file<a class="anchor-link" href="#2.4.3.4-Create-source-file">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13533,7 +13523,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
@@ -13577,7 +13567,7 @@ Password: ··········
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
     <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
 
     <span class="o">/*</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">previous</span> <span class="n">pulse</span> <span class="n">to</span> <span class="n">end</span> <span class="o">*/</span>
@@ -13628,7 +13618,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.4.5-Compiling">2.4.4.5 Compiling<a class="anchor-link" href="#2.4.4.5-Compiling">&#182;</a></h3>
+<h3 id="2.4.3.5-Compiling">2.4.3.5 Compiling<a class="anchor-link" href="#2.4.3.5-Compiling">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13638,7 +13628,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13670,7 +13660,7 @@ Including:
     project.properties
 
 attempting to compile firmware
-downloading binary from: /v1/binaries/5f94c09aa85d0975f6132978
+downloading binary from: /v1/binaries/5f94c74704873b15447402cc
 saving to: myproject.bin
 Memory use:
    text	   data	    bss	    dec	    hex	filename
@@ -13694,7 +13684,7 @@ Saved firmware to: /content/myproject/myproject.bin
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.4.4.6-Flash-firmware">2.4.4.6 Flash firmware<a class="anchor-link" href="#2.4.4.6-Flash-firmware">&#182;</a></h3>
+<h3 id="2.4.3.6-Flash-firmware">2.4.3.6 Flash firmware<a class="anchor-link" href="#2.4.3.6-Flash-firmware">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13704,7 +13694,7 @@ Saved firmware to: /content/myproject/myproject.bin
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13746,7 +13736,7 @@ Flash success!
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 
