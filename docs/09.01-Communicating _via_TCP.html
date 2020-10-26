@@ -13107,7 +13107,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="9.1-Communicating-via-TCP">9.1 Communicating via TCP<a class="anchor-link" href="#9.1-Communicating-via-TCP">&#182;</a></h1><p>Show how to set up Particle Argon as a TCP Server.</p>
+<h1 id="9.1-Communicating-via-TCP">9.1 Communicating via TCP<a class="anchor-link" href="#9.1-Communicating-via-TCP">&#182;</a></h1><p>This notebook shows how to implement a TCP Server on Particle Argon and communicate with the server from a laptop using a <code>netcat</code> utility.</p>
 
 </div>
 </div>
@@ -13140,7 +13140,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
@@ -13169,7 +13169,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -13216,7 +13216,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
@@ -13280,7 +13280,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
@@ -13319,8 +13319,7 @@ Password: ··········
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="9.1.2-Project-Considerations">9.1.2 Project Considerations<a class="anchor-link" href="#9.1.2-Project-Considerations">&#182;</a></h2><p>Using the Particle Device OS, it is straightforward to setup a TCP server which a user can access via standard Windows, MacOS, or Linux utilities.</p>
-
+<h2 id="9.1.2-Project-Considerations">9.1.2 Project Considerations<a class="anchor-link" href="#9.1.2-Project-Considerations">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13355,7 +13354,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13404,7 +13403,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/myproject
@@ -13450,7 +13449,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
@@ -13469,25 +13468,34 @@ Password: ··········
 <span class="n">TCPClient</span> <span class="n">client</span><span class="p">;</span>
 
 <span class="n">const</span> <span class="nb">int</span> <span class="n">led</span> <span class="o">=</span> <span class="n">D7</span><span class="p">;</span>
+<span class="n">long</span> <span class="nb">int</span> <span class="n">timeout</span><span class="p">;</span>
 <span class="n">char</span> <span class="n">c</span><span class="p">;</span>
 
 <span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">server</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
     <span class="n">Particle</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;Server IP&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">localIP</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">PRIVATE</span><span class="p">);</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">long</span> <span class="nb">int</span> <span class="n">begin</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">timeout</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="p">}</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
         <span class="k">while</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
             <span class="o">/*</span> <span class="n">get</span> <span class="nb">next</span> <span class="n">char</span> <span class="o">*/</span>
             <span class="n">c</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">read</span><span class="p">();</span>
             <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;H&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Turn LED on.&quot;</span><span class="p">);</span>
-                <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+                <span class="n">timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5000</span><span class="p">;</span>
             <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;L&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Turn LED off.&quot;</span><span class="p">);</span>
-                <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+                <span class="n">timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
             <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;S&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">led</span><span class="p">))</span> <span class="p">{</span>
                     <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;LED is on.&quot;</span><span class="p">);</span>
@@ -13506,7 +13514,7 @@ Password: ··········
         <span class="n">client</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">available</span><span class="p">();</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
             <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Enter: &quot;</span><span class="p">);</span>
-            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   H to turn LED on&quot;</span><span class="p">);</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   H to turn LED on for 5 seconds&quot;</span><span class="p">);</span>
             <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   L to turn LED off&quot;</span><span class="p">);</span>
             <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   S for LED status&quot;</span><span class="p">);</span>
             <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   X to close client connection&quot;</span><span class="p">);</span>
@@ -13555,7 +13563,7 @@ Password: ··········
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13583,11 +13591,11 @@ Including:
     project.properties
 
 attempting to compile firmware
-downloading binary from: /v1/binaries/5f95ca4704393a21fcca5c6c
+downloading binary from: /v1/binaries/5f96320dabefb3f6e1cb1a33
 saving to: myproject.bin
 Memory use:
    text	   data	    bss	    dec	    hex	filename
-  11692	    108	   1144	  12944	   3290	/workspace/target/workspace.elf
+  11724	    108	   1148	  12980	   32b4	/workspace/target/workspace.elf
 
 Compile succeeded.
 Saved firmware to: /content/myproject/myproject.bin
@@ -13617,7 +13625,7 @@ Saved firmware to: /content/myproject/myproject.bin
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -13659,7 +13667,7 @@ Flash success!
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 
