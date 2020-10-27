@@ -12,7 +12,7 @@ This is a start on a collection of notebooks being developed in support of hands
 ### [Chapter 1.0 CBE Virtual Laboratory](https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.html)
 
 ### [Chapter 2.0 Working with Particle](https://jckantor.github.io/cbe-virtual-laboratory/02.00-Working_with_Particle.html)
-- [2.1 Particle-cli](https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle-cli.html)
+- [2.1 Particle Command Line Interface](https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle_CLI.html)
 - [2.2 Coding for Particle](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Particle_Coding.html)
 - [2.3 Particle Command Line Interface (CLI)](https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html)
 - [2.4 Ultrasonic Distance Ranger](https://jckantor.github.io/cbe-virtual-laboratory/02.04-Ultrasonic_Distance_Ranger.html)
@@ -38,3 +38,5 @@ This is a start on a collection of notebooks being developed in support of hands
 - [9.2 Stepper Motor Control via I2C](https://jckantor.github.io/cbe-virtual-laboratory/09.02-Stepper_Motor_Control_via_I2C.html)
 
 ### [Chapter 10.0 Projects](https://jckantor.github.io/cbe-virtual-laboratory/10.00-Projects.html)
+
+### [Appendix A. A.0 Resources](https://jckantor.github.io/cbe-virtual-laboratory/A.00-Resources.html)
