@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/10.00-Projects.html">10.0 Projects</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/A.00-Resources.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/A.00-Resources.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/A.01-Resources.html">A.1 Resources</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/A.02-Python_Source_LIbrary.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/A.02-Python_Source_LIbrary.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13107,7 +13107,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="A.0-Resources">A.0 Resources<a class="anchor-link" href="#A.0-Resources">&#182;</a></h1>
+<h1 id="A.2-Python-Source-Library">A.2 Python Source Library<a class="anchor-link" href="#A.2-Python-Source-Library">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13115,61 +13115,76 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 
 
     
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A.0.1-Vendors">A.0.1 Vendors<a class="anchor-link" href="#A.0.1-Vendors">&#182;</a></h2><ul>
-<li><a href="https://www.ni.com/en-us.html">National Instruments</a>. Full line vendor of industrial and laboratory grade instruments and software, including LabView.</li>
-</ul>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> ../src/hello.py
 
-</div>
-</div>
-</div>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">)</span>
+</pre></div>
 
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A.0.2-IoT-Devices-and-Services">A.0.2 IoT Devices and Services<a class="anchor-link" href="#A.0.2-IoT-Devices-and-Services">&#182;</a></h2><ul>
-<li><p><a href="https://ncd.io/">National Control Devices</a>. A producer of IoT devices, software, and services for industrial and military applications. Includes feather boards for 5 volt expansion of I2C communications.</p>
-</li>
-<li><p><a href="particle.io">Particle.io</a>. A producer of IoT devices and services with a larger developer community.</p>
-</li>
-</ul>
-
-</div>
+    </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
 
 
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A.0.3-Sensors">A.0.3 Sensors<a class="anchor-link" href="#A.0.3-Sensors">&#182;</a></h2><ul>
-<li><a href="https://www.adafruit.com/about">Adafruit</a>. Full range of devices, sensors, and software (including CircuitPython).</li>
-<li><a href="dfrobot.com">DFRobot</a>. Producer of open source hardware and software products, including a full range of sensors, with a strong focus on developers and STEM education.</li>
-</ul>
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Writing ../src/hello.py
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-8445d1bd235f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_cell_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;writefile&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;../src/hello.py&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;\nprint(&#34;Hello, World&#34;)&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.6/dist-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">run_cell_magic</span><span class="ansi-blue-fg">(self, magic_name, line, cell)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2115</span>             magic_arg_s <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>var_expand<span class="ansi-blue-fg">(</span>line<span class="ansi-blue-fg">,</span> stack_depth<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2116</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>builtin_trap<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 2117</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> fn<span class="ansi-blue-fg">(</span>magic_arg_s<span class="ansi-blue-fg">,</span> cell<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2118</span>             <span class="ansi-green-fg">return</span> result
+<span class="ansi-green-intense-fg ansi-bold">   2119</span> 
+
+<span class="ansi-green-fg">&lt;decorator-gen-104&gt;</span> in <span class="ansi-cyan-fg">writefile</span><span class="ansi-blue-fg">(self, line, cell)</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.6/dist-packages/IPython/core/magic.py</span> in <span class="ansi-cyan-fg">&lt;lambda&gt;</span><span class="ansi-blue-fg">(f, *a, **k)</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-red-fg"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="ansi-green-intense-fg ansi-bold">    187</span>     <span class="ansi-green-fg">def</span> magic_deco<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 188</span><span class="ansi-red-fg">         </span>call <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">lambda</span> f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">:</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    189</span> 
+<span class="ansi-green-intense-fg ansi-bold">    190</span>         <span class="ansi-green-fg">if</span> callable<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.6/dist-packages/IPython/core/magics/osm.py</span> in <span class="ansi-cyan-fg">writefile</span><span class="ansi-blue-fg">(self, line, cell)</span>
+<span class="ansi-green-intense-fg ansi-bold">    787</span> 
+<span class="ansi-green-intense-fg ansi-bold">    788</span>         mode <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;a&#39;</span> <span class="ansi-green-fg">if</span> args<span class="ansi-blue-fg">.</span>append <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">&#39;w&#39;</span>
+<span class="ansi-green-fg">--&gt; 789</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">with</span> io<span class="ansi-blue-fg">.</span>open<span class="ansi-blue-fg">(</span>filename<span class="ansi-blue-fg">,</span> mode<span class="ansi-blue-fg">,</span> encoding<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;utf-8&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    790</span>             f<span class="ansi-blue-fg">.</span>write<span class="ansi-blue-fg">(</span>cell<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../src/hello.py&#39;</pre>
+</div>
+</div>
 
 </div>
 </div>
-</div>
 
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A.0.4-Software-Platforms">A.0.4 Software Platforms<a class="anchor-link" href="#A.0.4-Software-Platforms">&#182;</a></h2><ul>
-<li><a href="https://blynk.io/">Blynk</a>.  Hardware agnostic platform for creating mobile IoT applications.</li>
-</ul>
-
-</div>
-</div>
 </div>
 
 
@@ -13196,7 +13211,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/10.00-Projects.html">10.0 Projects</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/A.00-Resources.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/A.00-Resources.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/A.01-Resources.html">A.1 Resources</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/A.02-Python_Source_LIbrary.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/A.02-Python_Source_LIbrary.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

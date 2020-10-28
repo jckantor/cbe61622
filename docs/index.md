@@ -39,4 +39,6 @@ This is a start on a collection of notebooks being developed in support of hands
 
 ### [Chapter 10.0 Projects](https://jckantor.github.io/cbe-virtual-laboratory/10.00-Projects.html)
 
-### [Appendix A. A.0 Resources](https://jckantor.github.io/cbe-virtual-laboratory/A.00-Resources.html)
+### [Appendix A. A.0 Python Source Library](https://jckantor.github.io/cbe-virtual-laboratory/A.00-Appendices.html)
+- [A.1 Resources](https://jckantor.github.io/cbe-virtual-laboratory/A.01-Resources.html)
+- [A.2 Python Source Library](https://jckantor.github.io/cbe-virtual-laboratory/A.02-Python_Source_LIbrary.html)
