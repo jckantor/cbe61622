@@ -1,6 +1,7 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name = 'cbelaboratory',
-    packages = find_packages(include=['src']),
+    packages = ['cbelaboratory'],
+    package_dir = {'cbelaboratory': 'src'}
 )
