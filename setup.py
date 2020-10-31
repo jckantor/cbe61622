@@ -1,6 +1,6 @@
 from distutils.core import setup
 
 setup(
-    name = 'cbe_laboratory',
+    name = 'cbelaboratory',
     py_modules = ['src'],
 )
