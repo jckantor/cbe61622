@@ -41,4 +41,4 @@ This is a start on a collection of notebooks being developed in support of hands
 
 ### [Appendix A. A.0 Python Source Library](https://jckantor.github.io/cbe-virtual-laboratory/A.00-Appendices.html)
 - [A.1 Resources](https://jckantor.github.io/cbe-virtual-laboratory/A.01-Resources.html)
-- [A.2 Python Source Library](https://jckantor.github.io/cbe-virtual-laboratory/A.02-Python_Source_LIbrary.html)
+- [A.2 Downloading Python source files from github](https://jckantor.github.io/cbe-virtual-laboratory/A.02-Downloading_Python_source_files_from_github.html)

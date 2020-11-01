@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/A.01-Resources.html">A.1 Resources</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/A.02-Python_Source_LIbrary.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/A.02-Python_Source_LIbrary.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/A.01-Resources.html">A.1 Resources</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/A.02-Downloading_Python_source_files_from_github.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/A.02-Downloading_Python_source_files_from_github.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13107,7 +13107,28 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="A.2-Python-Source-Library">A.2 Python Source Library<a class="anchor-link" href="#A.2-Python-Source-Library">&#182;</a></h1>
+<h1 id="A.2-Downloading-Python-source-files-from-github">A.2 Downloading Python source files from github<a class="anchor-link" href="#A.2-Downloading-Python-source-files-from-github">&#182;</a></h1><p>This project incorporates Python modules and functions that are used in multiple notebooks. Most of these are  simple convenience for accessing device hardware. Repeating the same source code in multiple notebooks complicates maintenance and has little value for the reader. For these reasons, it is much better to maintain code in the project's repository and import as needed for use in the notebooks.</p>
+<p>Unfortunately, Github stores code files in an a database for which the standard API does not provide direct access to whole directories. There are libraries circulating in the Python community designed to circumvent this limitation.</p>
+<p>Here we demonstrate three techniques:</p>
+<ol>
+<li>Use of <code>wget</code> to selectively download individual Python source files to the current working directory.</li>
+<li>The use of <code>git clone</code> to download the entire repository and then add a Python source directory to the import path. Changes to the code can be committed and pushed back to the git repository.</li>
+<li>Use of <code>pip  install</code> to install python packages from a githb repository. This is convenient for the notebook user, but requires a properly configured <code>setup.py</code> in the repository. </li>
+</ol>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A.2.1-Method-1.-Downloading-individual-Python-files-with-wget">A.2.1 Method 1. Downloading individual Python files with wget<a class="anchor-link" href="#A.2.1-Method-1.-Downloading-individual-Python-files-with-wget">&#182;</a></h2><p>The file <code>hello_world.py</code> is located in the top-level <code>src</code> directory of a github repository. To access the file, use the shell command <code>wget</code> with an <code>https</code> link to the raw content of the main branch. The prefix exclamation/bang symbol <code>!</code> causes the following line to be executed by the system command line rather than the Python kernal. The <code>--no-cache</code> option ensures the latest version is downloaded.</p>
+<p>The <code>--backups=1</code> option saves any prior version of the same code file to a backup.</p>
+
 </div>
 </div>
 </div>
@@ -13117,12 +13138,16 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> ../src/hello.py
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;jckantor&quot;</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="s2">&quot;cbe-virtual-laboratory&quot;</span>
+<span class="n">src_dir</span> <span class="o">=</span> <span class="s2">&quot;src&quot;</span>
+<span class="n">pyfile</span> <span class="o">=</span> <span class="s2">&quot;hello_world.py&quot;</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://raw.githubusercontent.com/</span><span class="si">{user}</span><span class="s2">/</span><span class="si">{repo}</span><span class="s2">/main/</span><span class="si">{src_dir}</span><span class="s2">/</span><span class="si">{pyfile}</span><span class="s2">&quot;</span>
+<span class="o">!</span>wget --no-cache --backups<span class="o">=</span><span class="m">1</span> <span class="o">{</span>url<span class="o">}</span>
 </pre></div>
 
     </div>
@@ -13139,46 +13164,18 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Writing ../src/hello.py
+<pre>--2020-11-01 19:11:46--  https://raw.githubusercontent.com/jckantor/cbe-virtual-laboratory/main/src/hello_world.py
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 123 [text/plain]
+Saving to: ‘hello_world.py’
+
+hello_world.py      100%[===================&gt;]     123  --.-KB/s    in 0s      
+
+2020-11-01 19:11:46 (8.21 MB/s) - ‘hello_world.py’ saved [123/123]
+
 </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-2-8445d1bd235f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_cell_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;writefile&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;../src/hello.py&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;\nprint(&#34;Hello, World&#34;)&#39;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.6/dist-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">run_cell_magic</span><span class="ansi-blue-fg">(self, magic_name, line, cell)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2115</span>             magic_arg_s <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>var_expand<span class="ansi-blue-fg">(</span>line<span class="ansi-blue-fg">,</span> stack_depth<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2116</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>builtin_trap<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2117</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> fn<span class="ansi-blue-fg">(</span>magic_arg_s<span class="ansi-blue-fg">,</span> cell<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2118</span>             <span class="ansi-green-fg">return</span> result
-<span class="ansi-green-intense-fg ansi-bold">   2119</span> 
-
-<span class="ansi-green-fg">&lt;decorator-gen-104&gt;</span> in <span class="ansi-cyan-fg">writefile</span><span class="ansi-blue-fg">(self, line, cell)</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.6/dist-packages/IPython/core/magic.py</span> in <span class="ansi-cyan-fg">&lt;lambda&gt;</span><span class="ansi-blue-fg">(f, *a, **k)</span>
-<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-red-fg"># but it&#39;s overkill for just that one bit of state.</span>
-<span class="ansi-green-intense-fg ansi-bold">    187</span>     <span class="ansi-green-fg">def</span> magic_deco<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 188</span><span class="ansi-red-fg">         </span>call <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">lambda</span> f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">:</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    189</span> 
-<span class="ansi-green-intense-fg ansi-bold">    190</span>         <span class="ansi-green-fg">if</span> callable<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.6/dist-packages/IPython/core/magics/osm.py</span> in <span class="ansi-cyan-fg">writefile</span><span class="ansi-blue-fg">(self, line, cell)</span>
-<span class="ansi-green-intense-fg ansi-bold">    787</span> 
-<span class="ansi-green-intense-fg ansi-bold">    788</span>         mode <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;a&#39;</span> <span class="ansi-green-fg">if</span> args<span class="ansi-blue-fg">.</span>append <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">&#39;w&#39;</span>
-<span class="ansi-green-fg">--&gt; 789</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">with</span> io<span class="ansi-blue-fg">.</span>open<span class="ansi-blue-fg">(</span>filename<span class="ansi-blue-fg">,</span> mode<span class="ansi-blue-fg">,</span> encoding<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;utf-8&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    790</span>             f<span class="ansi-blue-fg">.</span>write<span class="ansi-blue-fg">(</span>cell<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../src/hello.py&#39;</pre>
 </div>
 </div>
 
@@ -13192,10 +13189,538 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;wget&quot;</span><span class="p">,</span> <span class="s2">&quot;--no-cache&quot;</span><span class="p">,</span> <span class="s2">&quot;--backups=1&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">],</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>--2020-11-01 19:11:46--  https://raw.githubusercontent.com/jckantor/cbe-virtual-laboratory/main/src/hello_world.py
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 123 [text/plain]
+Saving to: ‘hello_world.py’
+
+     0K                                                       100% 7.32M=0s
+
+2020-11-01 19:11:46 (7.32 MB/s) - ‘hello_world.py’ saved [123/123]
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's make a listing of the file's content.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pyfile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>def hello():
+    &#34;&#34;&#34;Print hello, world to demonstrate use of the source library.&#34;&#34;&#34;
+    print(&#34;Hello, World&#34;)
+    return
+  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's import the file as a Python module and use the embedded functions. If the name of the file is fixed and known, then the usual Python <code>import</code> statement will do the job.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">hello_world</span>
+<span class="n">help</span><span class="p">(</span><span class="n">hello_world</span><span class="p">)</span>
+<span class="n">hello_world</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Help on module hello_world:
+
+NAME
+    hello_world
+
+FUNCTIONS
+    hello()
+        Print hello, world to demonstrate use of the source library.
+
+FILE
+    /content/hello_world.py
+
+
+Hello, World
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If the name of the python file is given as the value of a Python string variable then the standard library <code>importlib</code> may be used. Note the need to strip any suffix from a file name.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
+<span class="n">mymodule</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">pyfile</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">))</span>
+<span class="n">help</span><span class="p">(</span><span class="n">mymodule</span><span class="p">)</span>
+<span class="n">mymodule</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Help on module hello_world:
+
+NAME
+    hello_world
+
+FUNCTIONS
+    hello()
+        Print hello, world to demonstrate use of the source library.
+
+FILE
+    /content/hello_world.py
+
+
+Hello, World
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For platforms where the shell escape <code>!</code> might fail, an alternative is to use the standard Python <code>subprocess</code> library.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A.2.2-Method-2.-Cloning-a-git-repository">A.2.2 Method 2. Cloning a git repository<a class="anchor-link" href="#A.2.2-Method-2.-Cloning-a-git-repository">&#182;</a></h2><p>Downloading a collection of files from a git repository with <code>wget</code> (or <code>curl</code>) can be cumbersome, particularly if the names of the individual files are unknown or subject to change. And, unfortunately, Github does not provide an API for accessing a folder of files.</p>
+<p>For these situations, an alternative is to simply clone the git repository to to a local directory.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;jckantor&quot;</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="s2">&quot;cbe-virtual-laboratory&quot;</span>
+
+<span class="c1"># remove local directory if it already exists</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">repo</span><span class="p">):</span>
+    <span class="o">!</span>rm -rf <span class="o">{</span>repo<span class="o">}</span>
+
+<span class="o">!</span>git clone https://github.com/<span class="o">{</span>user<span class="o">}</span>/<span class="o">{</span>repo<span class="o">}</span>.git
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cloning into &#39;cbe-virtual-laboratory&#39;...
+remote: Enumerating objects: 518, done.
+remote: Counting objects: 100% (518/518), done.
+remote: Compressing objects: 100% (286/286), done.
+remote: Total 518 (delta 407), reused 318 (delta 221), pack-reused 0
+Receiving objects: 100% (518/518), 406.64 KiB | 2.01 MiB/s, done.
+Resolving deltas: 100% (407/407), done.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With the repository cloned to a local subdirectory of the same name, there are several useful strategies for importing from the source directory. The following cell demonstrates how to insert a repository source directory in Python path (if it doesn't appear already).</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">src_dir</span> <span class="o">=</span> <span class="s2">&quot;src&quot;</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{repo}</span><span class="s2">/</span><span class="si">{src_dir}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># list all directories in the Python path</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&#39;&#39;
+&#39;cbe-virtual-laboratory/src&#39;
+&#39;/env/python&#39;
+&#39;/usr/lib/python36.zip&#39;
+&#39;/usr/lib/python3.6&#39;
+&#39;/usr/lib/python3.6/lib-dynload&#39;
+&#39;/usr/local/lib/python3.6/dist-packages&#39;
+&#39;/usr/lib/python3/dist-packages&#39;
+&#39;/usr/local/lib/python3.6/dist-packages/IPython/extensions&#39;
+&#39;/root/.ipython&#39;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The next stop is to import a python module from inside the library</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">src_dir</span> <span class="o">=</span> <span class="s2">&quot;src&quot;</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{repo}</span><span class="s2">/</span><span class="si">{src_dir}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">hello_world</span>
+<span class="n">hello_world</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hello, World
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following cell summaries these steps into a single cell that can be copied into a new notebook.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">importlib</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;jckantor&quot;</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="s2">&quot;cbe-virtual-laboratory&quot;</span>
+<span class="n">src_dir</span> <span class="o">=</span> <span class="s2">&quot;src&quot;</span>
+<span class="n">pyfile</span> <span class="o">=</span> <span class="s2">&quot;hello_world.py&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">repo</span><span class="p">):</span>
+    <span class="o">!</span>rm -rf <span class="o">{</span>repo<span class="o">}</span>
+
+<span class="o">!</span>git clone https://github.com/<span class="o">{</span>user<span class="o">}</span>/<span class="o">{</span>repo<span class="o">}</span>.git
+
+<span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{repo}</span><span class="s2">/</span><span class="si">{src_dir}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="n">mymodule</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">pyfile</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">))</span>
+<span class="n">help</span><span class="p">(</span><span class="n">mymodule</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cloning into &#39;cbe-virtual-laboratory&#39;...
+remote: Enumerating objects: 518, done.
+remote: Counting objects: 100% (518/518), done.
+remote: Compressing objects: 100% (286/286), done.
+remote: Total 518 (delta 407), reused 318 (delta 221), pack-reused 0
+Receiving objects: 100% (518/518), 406.64 KiB | 2.15 MiB/s, done.
+Resolving deltas: 100% (407/407), done.
+Help on module hello_world:
+
+NAME
+    hello_world
+
+FUNCTIONS
+    hello()
+        Print hello, world to demonstrate use of the source library.
+
+FILE
+    /content/hello_world.py
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="A.2.2.1-Commit-and-push-changes">A.2.2.1 Commit and push changes<a class="anchor-link" href="#A.2.2.1-Commit-and-push-changes">&#182;</a></h3><p>A potential use case for cloning a repository is to allow for editing the source code directly from a Jupyter notebook. In this case, the code can be committed and pushed back to the reposity using standard <code>git</code> commands.</p>
+<p>Be sure you know what you're doing before attempting this. This code has been commented out to avoid inadvertent changes to this repository's source code.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+
+<span class="c1">#password = getpass(&#39;Password: &#39;)</span>
+<span class="c1">#password = urllib.parse.quote(password)</span>
+
+<span class="c1">#cmd_str = f&quot;git -C https://{user}:{password}@github.com/{user}/{repo} push&quot;</span>
+<span class="c1">#os.system(cmd_string)</span>
+
+<span class="c1">#!git -C /content/cbe-virtual-laboratory commit -m &quot;update&quot;</span>
+<span class="c1">#!git -C /content/cbe-virtual-laboratory push</span>
+
+<span class="c1">#cmd_str, password = &quot;&quot;, &quot;&quot; # removing the password from the variable</span>
 </pre></div>
 
     </div>
@@ -13210,8 +13735,129 @@ content is available <a href="https://github.com/jckantor/cbe-virtual-laboratory
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A.2.3-Method-3.-Using-pip-to-install-from-a-github-repository">A.2.3 Method 3. Using pip to install from a github repository<a class="anchor-link" href="#A.2.3-Method-3.-Using-pip-to-install-from-a-github-repository">&#182;</a></h2><p>The methods presented above assume the user has detailed knowledge of how functions have been organized into modules in the repository's source directory. For simple applications, that may be satisfactory and those methods are fast and can work well. For more complex applications, however, it will be helpful to use common methods for creating Python software packages.</p>
+<p>For this case we assume a file <code>setup.py</code> has been included in the top-level directory of the repository that specifies how packages have been organized into source directories following using the <a href="https://setuptools.readthedocs.io/en/latest/">setuptools</a> library.</p>
+<p>Assuming <code>setup.py</code> is present and that the usual conventions for creating Python packages have been followed, the packages can be loaded directory from github as shown in the following cell.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;jckantor&#39;</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="s1">&#39;cbe-virtual-laboratory&#39;</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;git+https://github.com/</span><span class="si">{user}</span><span class="s2">/</span><span class="si">{repo}</span><span class="s2">.git&quot;</span>
+<span class="o">!</span>pip install --upgrade <span class="o">{</span>url<span class="o">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Collecting git+https://github.com/jckantor/cbe-virtual-laboratory.git
+  Cloning https://github.com/jckantor/cbe-virtual-laboratory.git to /tmp/pip-req-build-4g0kdhj4
+  Running command git clone -q https://github.com/jckantor/cbe-virtual-laboratory.git /tmp/pip-req-build-4g0kdhj4
+Building wheels for collected packages: cbelaboratory
+  Building wheel for cbelaboratory (setup.py) ... done
+  Created wheel for cbelaboratory: filename=cbelaboratory-0.0.0-cp36-none-any.whl size=2347 sha256=0246cdb88b2feb591c7b95ccdbb82e1a043f9fa7cfba4a03a8a4950c91028554
+  Stored in directory: /tmp/pip-ephem-wheel-cache-jbbfspkb/wheels/c9/9d/5c/f86f44683b875e91e4843a17cfa5b3f69cbf419d35ca09f247
+Successfully built cbelaboratory
+Installing collected packages: cbelaboratory
+  Found existing installation: cbelaboratory 0.0.0
+    Uninstalling cbelaboratory-0.0.0:
+      Successfully uninstalled cbelaboratory-0.0.0
+Successfully installed cbelaboratory-0.0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">cbelaboratory.hello_world</span> <span class="kn">import</span> <span class="n">hello</span>
+<span class="n">hello</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hello, World
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A.2.4-Summary-and-recommended-practices">A.2.4 Summary and recommended practices<a class="anchor-link" href="#A.2.4-Summary-and-recommended-practices">&#182;</a></h2><p>Which of these methods should one use? While there is overlap in the functionality, there are some recommendations that can be make.</p>
+<ul>
+<li><p>If you need to import just a few python files, the <code>wget</code> methd is easy to use and minimizes the amount of transmitted data.</p>
+</li>
+<li><p>If you wish to import a whole folders of source code, creating a local clone of the repository is easy to code with <code>git</code>. Moveover, it is possible to edit, commit, and push code back to the repository directory from a notebook.</p>
+</li>
+<li><p>For more complex projects where organization of the source code should decoupled from it's use, the conventional packaging methods of Python should be used. The packages can be install from the github repository using <code>pip</code>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/A.01-Resources.html">A.1 Resources</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/A.02-Python_Source_LIbrary.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/A.02-Python_Source_LIbrary.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe-virtual-laboratory/A.01-Resources.html">A.1 Resources</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe-virtual-laboratory/blob/master/docs/A.02-Downloading_Python_source_files_from_github.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe-virtual-laboratory/A.02-Downloading_Python_source_files_from_github.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
