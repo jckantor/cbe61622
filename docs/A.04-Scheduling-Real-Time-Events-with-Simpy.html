@@ -14275,7 +14275,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/02.05-Simple_Stop_Watch_using_Interrupts.html">2.5 Simple Stop Watch using Interrupts</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/A.03-Getting-Started-with-Pymata4.html">A.3 Getting Started with Pymata4</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/A.04-Scheduling-Real-Time-Events-with-Simpy.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/A.04-Scheduling-Real-Time-Events-with-Simpy.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -14285,100 +14285,9 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="2.4-Ultrasonic-Distance-Ranger">2.4 Ultrasonic Distance Ranger<a class="anchor-link" href="#2.4-Ultrasonic-Distance-Ranger">&#182;</a></h1><p>Create a simple rangefinder that reports distance, measured in millimeters, to a real-time display.</p>
+<h1 id="A.4-Scheduling-Real-Time-Events-with-Simpy">A.4 Scheduling Real-Time Events with Simpy<a class="anchor-link" href="#A.4-Scheduling-Real-Time-Events-with-Simpy">&#182;</a></h1><p><a href="https://simpy.readthedocs.io/en/latest/index.html">Simpy</a> is a Python package for discrete-event simulation in Python. Simpy includes a provision for <a href="https://simpy.readthedocs.io/en/latest/topical_guides/real-time-simulations.html">real-time simulation</a> which provides an potentially useful tool for coding laboratory experiments with complex scheduling requirements.</p>
+<p>Keep in mind that Python is not a designed for real-time use, and Simpy should not be trusted for applications requiring time accuracy tighter than, say, 100ms. Futher, it is not an asynchronous implementation, so your interpreter will be blocked during the course of the experiment. But for quick-and-dirty applications with modest performance requirements, Simpy real-time may be a simple solution.</p>
 
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="2.4.1-Particle-CLI">2.4.1 Particle CLI<a class="anchor-link" href="#2.4.1-Particle-CLI">&#182;</a></h2>
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.1.1-Installation">2.4.1.1 Installation<a class="anchor-link" href="#2.4.1.1-Installation">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
-<span class="err">!</span><span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">particle</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">cli</span> <span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.1.2-Utility-functions">2.4.1.2 Utility functions<a class="anchor-link" href="#2.4.1.2-Utility-functions">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-
-<span class="c1"># regular expression to strip ansi control characters</span>
-<span class="n">ansi</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\x1B(?:[@-Z</span><span class="se">\\</span><span class="s1">-_]|\[[0-?]*[ -/]*[@-~])&#39;</span><span class="p">)</span>
-
-<span class="c1"># decode byte string and strip ansi control characters</span>
-<span class="k">def</span> <span class="nf">decode_bytes</span><span class="p">(</span><span class="n">byte_string</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">byte_string</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">byte_string</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ansi</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-
-<span class="c1"># streamline call to the particle-cli</span>
-<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">particle_cli</span><span class="o">=</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">):</span>
-    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
-                             <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-                             <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
-    <span class="n">process</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-    <span class="n">process</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">process</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.1.3-Login-to-Particle">2.4.1.3 Login to Particle<a class="anchor-link" href="#2.4.1.3-Login-to-Particle">&#182;</a></h3>
 </div>
 </div>
 
@@ -14390,21 +14299,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
-
-<span class="c1"># prompt for username and password</span>
-<span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Username: &quot;</span><span class="p">)</span>
-<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Password: &quot;</span><span class="p">)</span>
-
-<span class="c1"># attempt login</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;login&quot;</span><span class="p">,</span> <span class="s2">&quot;--username&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="s2">&quot;--password&quot;</span><span class="p">,</span> <span class="n">password</span><span class="p">])</span>
-
-<span class="c1"># report results</span>
-<span class="k">if</span> <span class="n">output</span><span class="o">.</span><span class="n">returncode</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Return code = </span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install simpy
 </pre></div>
 
      </div>
@@ -14424,10 +14319,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Username: ··········
-Password: ··········
-&gt; Successfully completed login!
-
+<pre>Requirement already satisfied: simpy in /Users/jeff/opt/anaconda3/lib/python3.8/site-packages (4.0.1)
 </pre>
 </div>
 </div>
@@ -14443,8 +14335,7 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.1.4-Select-a-device">2.4.1.4 Select a device<a class="anchor-link" href="#2.4.1.4-Select-a-device">&#182;</a></h3><p>The following cell downloads a list of all user devices and creates a list of device names. Here we choose the first name in the list for the rest of this notebook. If this is not the device to be used, then modify this cell accordingly.</p>
-
+<h2 id="A.4.1-Blinkers">A.4.1 Blinkers<a class="anchor-link" href="#A.4.1-Blinkers">&#182;</a></h2>
 </div>
 </div>
 
@@ -14456,9 +14347,33 @@ Password: ··········
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
-<span class="n">device_name</span> <span class="o">=</span> <span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">simpy.rt</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">led0</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">led1</span> <span class="o">=</span> <span class="mi">9</span>
+
+<span class="k">def</span> <span class="nf">blinker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">pin</span><span class="p">,</span> <span class="n">period</span><span class="p">):</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_digital_output</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;led </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">  on at </span><span class="si">{</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="si">:</span><span class="s2">5.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">period</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;led </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2"> off at </span><span class="si">{</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="si">:</span><span class="s2">5.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">period</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">rt</span><span class="o">.</span><span class="n">RealtimeEnvironment</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">blinker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">led0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">blinker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">led1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14478,8 +14393,65 @@ Password: ··········
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>jck_argon_01 [e00fce68eaceb1faa7cf7193] (Argon) is online
+<pre>pymata4:  Version 1.10
 
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
+
+led 13  on at 0.001
+led  9  on at 0.001
+led 13 off at 1.203
+led  9 off at 1.405
+led 13  on at 2.001
+led  9  on at 2.002
+led 13 off at 3.204
+led  9 off at 3.407
+led 13  on at 4.004
+led  9  on at 4.004
+led 13 off at 5.206
+led  9 off at 5.410
+led 13  on at 6.002
+led  9  on at 6.002
+led 13 off at 7.207
+led  9 off at 7.411
+led 13  on at 8.002
+led  9  on at 8.002
+led 13 off at 9.200
+led  9 off at 9.402
+led 13  on at 10.000
+led  9  on at 10.000
+led 13 off at 11.202
+led  9 off at 11.407
+led 13  on at 12.004
+led  9  on at 12.004
+led 13 off at 13.203
+led  9 off at 13.403
+led 13  on at 14.003
+led  9  on at 14.003
+led 13 off at 15.200
+led  9 off at 15.402
+led 13  on at 16.003
+led  9  on at 16.004
+led 13 off at 17.204
+led  9 off at 17.407
+led 13  on at 18.001
+led  9  on at 18.001
+led 13 off at 19.205
+led  9 off at 19.407
 </pre>
 </div>
 </div>
@@ -14495,46 +14467,7 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="2.4.2-Project-Hardware">2.4.2 Project Hardware<a class="anchor-link" href="#2.4.2-Project-Hardware">&#182;</a></h2>
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.2.1-Grove-Ultrasonic-Ranger">2.4.2.1 Grove Ultrasonic Ranger<a class="anchor-link" href="#2.4.2.1-Grove-Ultrasonic-Ranger">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/">SeeedStudio description</a></p>
-<p><img src="https://files.seeedstudio.com/wiki/Grove_Ultrasonic_Ranger/img/Ultrasonic.jpg" alt=""></p>
-<p>The Grove Ultrasonic Ranger emits a sequence of eight short bursts of 40 kHz sonic signals, then measures duration until an echo is detected. The sonic signals are triggered by applying a 10 microsecond pulse to the GPIO pin connecting to the device. The duration until echo detection is returned as a pulse on the same GPIO pin. The pulse duration can be measured using the <a href="https://docs.particle.io/reference/device-os/firmware/argon/#pulsein-">pulseIn()</a> function of the standard Arduino or Particle API.</p>
-
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.2.2-Grove-4-Digit-Display">2.4.2.2 Grove 4 Digit Display<a class="anchor-link" href="#2.4.2.2-Grove-4-Digit-Display">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="2.4.3-Implementation">2.4.3 Implementation<a class="anchor-link" href="#2.4.3-Implementation">&#182;</a></h2>
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.1-Create-Project">2.4.3.1 Create Project<a class="anchor-link" href="#2.4.3.1-Create-Project">&#182;</a></h3>
+<h2 id="A.4.2-Asyncio">A.4.2 Asyncio<a class="anchor-link" href="#A.4.2-Asyncio">&#182;</a></h2>
 </div>
 </div>
 
@@ -14543,10 +14476,42 @@ Password: ··········
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">led0</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">led1</span> <span class="o">=</span> <span class="mi">9</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">blinker</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">pin</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_digital_output</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;led </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">  on at </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="o">-</span><span class="n">start</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">period</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">period</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">dt</span><span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;led </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2"> off at </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="o">-</span><span class="n">start</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">period</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">period</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">dt</span><span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">expt</span><span class="p">():</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">coroutines</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">blinker</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">led0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">start</span><span class="p">),</span>
+        <span class="n">blinker</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">led1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">coroutines</span><span class="p">)</span>
+    
+<span class="k">await</span> <span class="n">expt</span><span class="p">()</span>
+<span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14566,323 +14531,67 @@ Password: ··········
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Initializing project in directory myproject...
-&gt; A new project has been initialized in directory myproject
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.2-Change-working-directory">2.4.3.2 Change working directory<a class="anchor-link" href="#2.4.3.2-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
-
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/myproject
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>/content/myproject
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.3-Add-relevant-libraries">2.4.3.3 Add relevant libraries<a class="anchor-link" href="#2.4.3.3-Add-relevant-libraries">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&gt; Library Grove_4Digit_Display 1.0.2 has been added to the project.
-&gt; To get started using this library, run particle library view Grove_4Digit_Display to view the library documentation and sources.
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.4-Create-source-file">2.4.3.4 Create source file<a class="anchor-link" href="#2.4.3.4-Create-source-file">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
-
-<span class="o">/*</span> <span class="n">Grove</span> <span class="mi">4</span> <span class="n">digit</span> <span class="n">display</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">pinCLK</span> <span class="o">=</span> <span class="n">D2</span><span class="p">;</span>         <span class="o">/*</span> <span class="n">display</span> <span class="n">clock</span> <span class="n">pin</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">pinDIO</span> <span class="o">=</span> <span class="n">D3</span><span class="p">;</span>         <span class="o">/*</span> <span class="n">display</span> <span class="n">data</span> <span class="n">pin</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>          <span class="o">/*</span> <span class="n">display</span> <span class="n">digits</span> <span class="o">*/</span>
-
-<span class="c1">#include &quot;Grove_4Digit_Display.h&quot;</span>
-<span class="n">TM1637</span> <span class="n">tm1637</span><span class="p">(</span><span class="n">pinCLK</span><span class="p">,</span> <span class="n">pinDIO</span><span class="p">);</span>
-
-<span class="o">/*</span> <span class="n">Grove</span> <span class="n">ultrasonic</span> <span class="n">ranger</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">pinULTRASONIC</span> <span class="o">=</span> <span class="n">D4</span><span class="p">;</span>  <span class="o">/*</span> <span class="n">ultrasonic</span> <span class="n">ranger</span> <span class="n">pin</span> <span class="o">*/</span>
-
-<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">/*</span> <span class="n">setup</span> <span class="n">display</span> <span class="o">*/</span>
-    <span class="n">tm1637</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
-    <span class="n">tm1637</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">BRIGHT_TYPICAL</span><span class="p">);</span>
-    <span class="n">tm1637</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">POINT_OFF</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">measureDistance</span><span class="p">(</span><span class="n">pinULTRASONIC</span><span class="p">));</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="n">void</span> <span class="n">display</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">int</span> <span class="n">digit</span> <span class="o">=</span> <span class="n">digits</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
-        <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">);</span>
-        <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nb">int</span> <span class="n">measureDistance</span><span class="p">(</span><span class="nb">int</span> <span class="n">pin</span><span class="p">)</span> <span class="p">{</span>
-    <span class="o">/*</span> <span class="n">send</span> <span class="n">a</span> <span class="n">pulse</span> <span class="o">*/</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-
-    <span class="o">/*</span> <span class="n">measure</span> <span class="n">duration</span> <span class="n">of</span> <span class="n">response</span> <span class="n">pulse</span> <span class="ow">in</span> <span class="n">microseconds</span> <span class="o">*/</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
-    <span class="n">unsigned</span> <span class="n">long</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">pulseIn</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-
-    <span class="o">/*</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">mm</span> <span class="o">=</span> <span class="mf">0.344</span> <span class="n">mm</span><span class="o">/</span><span class="n">micro</span><span class="o">-</span><span class="n">sec</span><span class="err">`</span> <span class="o">*</span> <span class="n">duration</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*/</span>
-    <span class="k">return</span><span class="p">(</span><span class="mf">0.172</span><span class="o">*</span><span class="n">duration</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Overwriting src/myproject.ino
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.5-Compiling">2.4.3.5 Compiling<a class="anchor-link" href="#2.4.3.5-Compiling">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-Compiling code for argon
-
-Including:
-    src/myproject.ino
-    project.properties
-
-attempting to compile firmware
-downloading binary from: /v1/binaries/5f95722fabefb30aacbc7337
-saving to: myproject.bin
-Memory use:
-   text	   data	    bss	    dec	    hex	filename
-   8440	    108	   1068	   9616	   2590	/workspace/target/workspace.elf
-
-Compile succeeded.
-Saved firmware to: /content/myproject/myproject.bin
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.6-Flash-firmware">2.4.3.6 Flash firmware<a class="anchor-link" href="#2.4.3.6-Flash-firmware">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Including:
-    myproject.bin
-
-attempting to flash firmware to your device jck_argon_01
-Flash device OK: Update started
-
-Flash success!
-
+<pre>pymata4:  Version 1.10
+
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
+
+led 13  on at 0.04
+led  9  on at 0.05
+led  9 off at 0.98
+led 13 off at 1.03
+led  9  on at 1.97
+led 13  on at 2.02
+led 13 off at 3.05
+led  9 off at 3.09
+led  9  on at 4.05
+led 13  on at 4.11
+led 13 off at 5.0
+led  9 off at 5.06
+led  9  on at 6.03
+led 13  on at 6.1
+led 13 off at 7.0
+led  9 off at 7.08
+led  9  on at 8.0
+led 13  on at 8.08
+led 13 off at 8.97
+led  9 off at 9.01
+led  9  on at 10.01
+led 13  on at 10.11
+led 13 off at 11.01
+led  9 off at 11.1
+led  9  on at 11.95
+led 13  on at 12.03
+led 13 off at 12.99
+led  9 off at 13.12
+led  9  on at 13.98
+led 13  on at 13.99
+led  9 off at 15.01
+led 13 off at 15.06
+led 13  on at 16.02
+led  9  on at 16.1
+led  9 off at 16.98
+led 13 off at 17.0
+led 13  on at 17.99
+led  9  on at 18.04
+led  9 off at 19.01
+led 13 off at 19.08
+led 13  on at 19.99
+led 13 off at 20.99
 </pre>
 </div>
 </div>
@@ -14917,7 +14626,7 @@ Flash success!
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/02.05-Simple_Stop_Watch_using_Interrupts.html">2.5 Simple Stop Watch using Interrupts</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/A.03-Getting-Started-with-Pymata4.html">A.3 Getting Started with Pymata4</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/A.04-Scheduling-Real-Time-Events-with-Simpy.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/A.04-Scheduling-Real-Time-Events-with-Simpy.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

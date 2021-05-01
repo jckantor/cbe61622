@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name = 'cbelaboratory',
-    packages = ['cbelaboratory'],
-    package_dir = {'cbelaboratory': 'src'}
+    name = 'cbe61622',
+    packages = ['cbe61622'],
+    package_dir = {'cbe61622': 'src'}
 )

@@ -6,39 +6,41 @@ This is a start on a collection of notebooks being developed in support of hands
 
 [Tentative syllabus](https://docs.google.com/document/d/1AJdhi-GMqnxdtvPga-AJwrmEDYIetyOMTaHNoAA5tPY/edit?usp=sharing)
 
-### [Table of Contents](https://jckantor.github.io/cbe-virtual-laboratory/toc.html)
-### [Python Module Index](https://jckantor.github.io/cbe-virtual-laboratory/python_index.html)
+### [Table of Contents](https://jckantor.github.io/cbe61622/toc.html)
+### [Python Module Index](https://jckantor.github.io/cbe61622/python_index.html)
 
-### [Chapter 1.0 CBE Virtual Laboratory](https://jckantor.github.io/cbe-virtual-laboratory/01.00-CBE_Virtual_Laboratory.html)
+### [Chapter 1.0 CBE 61622](https://jckantor.github.io/cbe61622/01.00-CBE_Virtual_Laboratory.html)
 
-### [Chapter 2.0 Working with Particle](https://jckantor.github.io/cbe-virtual-laboratory/02.00-Working_with_Particle.html)
-- [2.1 Particle Command Line Interface](https://jckantor.github.io/cbe-virtual-laboratory/02.01-Particle_CLI.html)
-- [2.2 Coding for Particle](https://jckantor.github.io/cbe-virtual-laboratory/02.02-Particle_Coding.html)
-- [2.3 Particle Command Line Interface (CLI)](https://jckantor.github.io/cbe-virtual-laboratory/02.03-Particle-CLI.html)
-- [2.4 Ultrasonic Distance Ranger](https://jckantor.github.io/cbe-virtual-laboratory/02.04-Ultrasonic_Distance_Ranger.html)
-- [2.5 Simple Stop Watch using Interrupts](https://jckantor.github.io/cbe-virtual-laboratory/02.05-Simple_Stop_Watch_using_Interrupts.html)
+### [Chapter 2.0 Working with Particle](https://jckantor.github.io/cbe61622/02.00-Working_with_Particle.html)
+- [2.1 Particle Command Line Interface](https://jckantor.github.io/cbe61622/02.01-Particle_CLI.html)
+- [2.2 Coding for Particle](https://jckantor.github.io/cbe61622/02.02-Particle_Coding.html)
+- [2.3 Particle Command Line Interface (CLI)](https://jckantor.github.io/cbe61622/02.03-Particle-CLI.html)
+- [2.4 Ultrasonic Distance Ranger](https://jckantor.github.io/cbe61622/02.04-Ultrasonic_Distance_Ranger.html)
+- [2.5 Simple Stop Watch using Interrupts](https://jckantor.github.io/cbe61622/02.05-Simple_Stop_Watch_using_Interrupts.html)
 
-### [Chapter 3.0 Enabling the Internet of Things](https://jckantor.github.io/cbe-virtual-laboratory/03.00-Enabling_the_Internet_of_Things.html)
-- [3.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/03.01-Publishing_an_Experiment_via_MQTT.html)
-- [3.2 Accessing a Remote Experiment via MQTT](https://jckantor.github.io/cbe-virtual-laboratory/03.02-Accessing_a_Remote_Experiment_via_MQTT.html)
-- [3.3 Accessing MQTT Devices](https://jckantor.github.io/cbe-virtual-laboratory/03.03-Miscellaneous_Notes.html)
+### [Chapter 3.0 Enabling the Internet of Things](https://jckantor.github.io/cbe61622/03.00-Enabling_the_Internet_of_Things.html)
+- [3.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe61622/03.01-Publishing_an_Experiment_via_MQTT.html)
+- [3.2 Accessing a Remote Experiment via MQTT](https://jckantor.github.io/cbe61622/03.02-Accessing_a_Remote_Experiment_via_MQTT.html)
+- [3.3 Accessing MQTT Devices](https://jckantor.github.io/cbe61622/03.03-Miscellaneous_Notes.html)
 
-### [Chapter 4.0 Signal Conditioning](https://jckantor.github.io/cbe-virtual-laboratory/04.00-Signal_Conditioning.html)
+### [Chapter 4.0 Signal Conditioning](https://jckantor.github.io/cbe61622/04.00-Signal_Conditioning.html)
 
-### [Chapter 5.0 Anomaly Detection](https://jckantor.github.io/cbe-virtual-laboratory/05.00-Anomaly_Detection.html)
+### [Chapter 5.0 Anomaly Detection](https://jckantor.github.io/cbe61622/05.00-Anomaly_Detection.html)
 
-### [Chapter 6.0 Images and Vision](https://jckantor.github.io/cbe-virtual-laboratory/06.00-Images_and_Vision.html)
+### [Chapter 6.0 Images and Vision](https://jckantor.github.io/cbe61622/06.00-Images_and_Vision.html)
 
-### [Chapter 7.0 Chemical Instrumentation](https://jckantor.github.io/cbe-virtual-laboratory/07.00-Chemical_Instrumentation.html)
+### [Chapter 7.0 Chemical Instrumentation](https://jckantor.github.io/cbe61622/07.00-Chemical_Instrumentation.html)
 
-### [Chapter 8.0 Feedback Control](https://jckantor.github.io/cbe-virtual-laboratory/08.00-Feedback_Control.html)
+### [Chapter 8.0 Feedback Control](https://jckantor.github.io/cbe61622/08.00-Feedback_Control.html)
 
-### [Chapter 9.0 Interfacing with Laboratory Equipment](https://jckantor.github.io/cbe-virtual-laboratory/09.00-Interfacing_with_Laboratory_Equipment.html)
-- [9.1 Communicating via TCP](https://jckantor.github.io/cbe-virtual-laboratory/09.01-Communicating _via_TCP.html)
-- [9.2 Stepper Motor Control via I2C](https://jckantor.github.io/cbe-virtual-laboratory/09.02-Stepper_Motor_Control_via_I2C.html)
+### [Chapter 9.0 Interfacing with Laboratory Equipment](https://jckantor.github.io/cbe61622/09.00-Interfacing_with_Laboratory_Equipment.html)
+- [9.1 Communicating via TCP](https://jckantor.github.io/cbe61622/09.01-Communicating _via_TCP.html)
+- [9.2 Stepper Motor Control via I2C](https://jckantor.github.io/cbe61622/09.02-Stepper_Motor_Control_via_I2C.html)
 
-### [Chapter 10.0 Projects](https://jckantor.github.io/cbe-virtual-laboratory/10.00-Projects.html)
+### [Chapter 10.0 Projects](https://jckantor.github.io/cbe61622/10.00-Projects.html)
 
-### [Appendix A. A.0 Python Source Library](https://jckantor.github.io/cbe-virtual-laboratory/A.00-Appendices.html)
-- [A.1 Resources](https://jckantor.github.io/cbe-virtual-laboratory/A.01-Resources.html)
-- [A.2 Downloading Python source files from github](https://jckantor.github.io/cbe-virtual-laboratory/A.02-Downloading_Python_source_files_from_github.html)
+### [Appendix A. A.0 Python Source Library](https://jckantor.github.io/cbe61622/A.00-Appendices.html)
+- [A.1 Resources](https://jckantor.github.io/cbe61622/A.01-Resources.html)
+- [A.2 Downloading Python source files from github](https://jckantor.github.io/cbe61622/A.02-Downloading_Python_source_files_from_github.html)
+- [A.3 Getting Started with Pymata4](https://jckantor.github.io/cbe61622/A.03-Getting-Started-with-Pymata4.html)
+- [A.4 Scheduling Real-Time Events with Simpy](https://jckantor.github.io/cbe61622/A.04-Scheduling-Real-Time-Events-with-Simpy.html)

@@ -14275,7 +14275,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/02.05-Simple_Stop_Watch_using_Interrupts.html">2.5 Simple Stop Watch using Interrupts</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/A.02-Downloading_Python_source_files_from_github.html">A.2 Downloading Python source files from github</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/A.04-Scheduling-Real-Time-Events-with-Simpy.html">A.4 Scheduling Real-Time Events with Simpy</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/A.03-Getting-Started-with-Pymata4.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/A.03-Getting-Started-with-Pymata4.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -14285,7 +14285,13 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="2.4-Ultrasonic-Distance-Ranger">2.4 Ultrasonic Distance Ranger<a class="anchor-link" href="#2.4-Ultrasonic-Distance-Ranger">&#182;</a></h1><p>Create a simple rangefinder that reports distance, measured in millimeters, to a real-time display.</p>
+<h1 id="A.3-Getting-Started-with-Pymata4">A.3 Getting Started with Pymata4<a class="anchor-link" href="#A.3-Getting-Started-with-Pymata4">&#182;</a></h1><p><a href="https://github.com/MrYsLab/pymata4">Pymata4</a> is a Python library that allows you to monitor and control Arduino hardware from a host computer. The library uses the Firmata protocol for communicating with the Arduino hardware. Pymata4 supports the StandardFirmata server included with the Arduino IDE, and also StandardFirmataWiFi, and an enhanced server FirmataExpress distributed with Pymata4.</p>
+<p>Pymata4 uses <a href="https://mryslab.github.io/pymata4/concurrency/">concurrent Python threads</a> to manage interaction with the Arduino. The concurrency model enables development of performant and interactive Arduino applications using Python on a host computer. Changes in the status of an Arduino pin can be processed with callbacks. It's sibling, <a href="https://github.com/MrYsLab/pymata-express">pymata-express</a>, is available using the <a href="https://docs.python.org/3/library/asyncio.html">Python asyncio package</a>.</p>
+<p>Support for common $I^2C$ devices, including stepper motors, is included in FirmataExpress. Applications using unsupported $I^2C$ devices may require <a href="https://www.instructables.com/Going-Beyond-StandardFirmata-Adding-New-Device-Sup/">modifications to the Firmata server sketch</a>.</p>
+<p>Useful links:</p>
+<ul>
+<li><a href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/MrYsLab/pymata4/master/html/pymata4/index.html">Pymata4 API documentation</a></li>
+</ul>
 
 </div>
 </div>
@@ -14295,90 +14301,9 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="2.4.1-Particle-CLI">2.4.1 Particle CLI<a class="anchor-link" href="#2.4.1-Particle-CLI">&#182;</a></h2>
-</div>
-</div>
+<h2 id="A.3.1-Hardware-Setup-and-Software-Installations">A.3.1 Hardware Setup and Software Installations<a class="anchor-link" href="#A.3.1-Hardware-Setup-and-Software-Installations">&#182;</a></h2><p>The Arduino must be attached to the host by USB with either the StandardFirmata or Firmata-express sketch installed using the Arduino IDE. For use with WiFi, install StandardFirmataWiFi.</p>
+<p>The Python pymata4 package can be installed with pip.</p>
 
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.1.1-Installation">2.4.1.1 Installation<a class="anchor-link" href="#2.4.1.1-Installation">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
-<span class="err">!</span><span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">particle</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">cli</span> <span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.1.2-Utility-functions">2.4.1.2 Utility functions<a class="anchor-link" href="#2.4.1.2-Utility-functions">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-
-<span class="c1"># regular expression to strip ansi control characters</span>
-<span class="n">ansi</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\x1B(?:[@-Z</span><span class="se">\\</span><span class="s1">-_]|\[[0-?]*[ -/]*[@-~])&#39;</span><span class="p">)</span>
-
-<span class="c1"># decode byte string and strip ansi control characters</span>
-<span class="k">def</span> <span class="nf">decode_bytes</span><span class="p">(</span><span class="n">byte_string</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">byte_string</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">byte_string</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ansi</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-
-<span class="c1"># streamline call to the particle-cli</span>
-<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">particle_cli</span><span class="o">=</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">):</span>
-    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
-                             <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-                             <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
-    <span class="n">process</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-    <span class="n">process</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">process</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.1.3-Login-to-Particle">2.4.1.3 Login to Particle<a class="anchor-link" href="#2.4.1.3-Login-to-Particle">&#182;</a></h3>
 </div>
 </div>
 
@@ -14387,24 +14312,10 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
-
-<span class="c1"># prompt for username and password</span>
-<span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Username: &quot;</span><span class="p">)</span>
-<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Password: &quot;</span><span class="p">)</span>
-
-<span class="c1"># attempt login</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;login&quot;</span><span class="p">,</span> <span class="s2">&quot;--username&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="s2">&quot;--password&quot;</span><span class="p">,</span> <span class="n">password</span><span class="p">])</span>
-
-<span class="c1"># report results</span>
-<span class="k">if</span> <span class="n">output</span><span class="o">.</span><span class="n">returncode</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Return code = </span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install pymata4
 </pre></div>
 
      </div>
@@ -14424,9 +14335,82 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Username: ··········
-Password: ··········
-&gt; Successfully completed login!
+<pre>Requirement already satisfied: pymata4 in /Users/jeff/opt/anaconda3/lib/python3.8/site-packages (1.10)
+Requirement already satisfied: pyserial in /Users/jeff/opt/anaconda3/lib/python3.8/site-packages (from pymata4) (3.5)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="A.3.2-Basic-Usage">A.3.2 Basic Usage<a class="anchor-link" href="#A.3.2-Basic-Usage">&#182;</a></h2>
+<pre><code>pymata4.Pymata()
+board.shutdown()</code></pre>
+
+</div>
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+
+<span class="c1"># create a board instance</span>
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
+
+<span class="c1"># remember to shutdown</span>
+<span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>pymata4:  Version 1.10
+
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
 
 </pre>
 </div>
@@ -14443,7 +14427,11 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.1.4-Select-a-device">2.4.1.4 Select a device<a class="anchor-link" href="#2.4.1.4-Select-a-device">&#182;</a></h3><p>The following cell downloads a list of all user devices and creates a list of device names. Here we choose the first name in the list for the rest of this notebook. If this is not the device to be used, then modify this cell accordingly.</p>
+<h2 id="A.3.3-Blinker">A.3.3 Blinker<a class="anchor-link" href="#A.3.3-Blinker">&#182;</a></h2>
+<pre><code>board.digital_write(pin, value)
+
+</code></pre>
+<p>Pymata4 has two methods for writing a 1 or a 0 to a digital output.  <code>digital_write(pin, value)</code> hides details of the Firmata protocol from the user. The user can refer to digital pins just as they would in standard Arduino coding. A second method, <code>digital_pin_write(pin, value)</code> allows writing to multiples at the same time, but requires the user to understand further details of the Firmata protocol.</p>
 
 </div>
 </div>
@@ -14456,9 +14444,26 @@ Password: ··········
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
-<span class="n">device_name</span> <span class="o">=</span> <span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">13</span>
+
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
+
+<span class="c1"># set the pin mode</span>
+<span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_digital_output</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LED ON&quot;</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LED OFF&quot;</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14478,8 +14483,35 @@ Password: ··········
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>jck_argon_01 [e00fce68eaceb1faa7cf7193] (Argon) is online
+<pre>pymata4:  Version 1.10
 
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
+
+LED ON
+LED OFF
+LED ON
+LED OFF
+LED ON
+LED OFF
+LED ON
+LED OFF
+LED ON
+LED OFF
 </pre>
 </div>
 </div>
@@ -14495,46 +14527,8 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="2.4.2-Project-Hardware">2.4.2 Project Hardware<a class="anchor-link" href="#2.4.2-Project-Hardware">&#182;</a></h2>
-</div>
-</div>
+<h2 id="A.3.4-Handling-a-Keyboard-Interrupt">A.3.4 Handling a Keyboard Interrupt<a class="anchor-link" href="#A.3.4-Handling-a-Keyboard-Interrupt">&#182;</a></h2><p>Pymata4 sets up multiple concurrent processes upon opening connection to the Arduino hardware. If Python execution is interrupted, it isimportant to catch the interrupt and shutdown the board before exiting the code. Otherwise the Arduino may continue to stream data requiring the Arduino to be reset.</p>
 
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.2.1-Grove-Ultrasonic-Ranger">2.4.2.1 Grove Ultrasonic Ranger<a class="anchor-link" href="#2.4.2.1-Grove-Ultrasonic-Ranger">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/">SeeedStudio description</a></p>
-<p><img src="https://files.seeedstudio.com/wiki/Grove_Ultrasonic_Ranger/img/Ultrasonic.jpg" alt=""></p>
-<p>The Grove Ultrasonic Ranger emits a sequence of eight short bursts of 40 kHz sonic signals, then measures duration until an echo is detected. The sonic signals are triggered by applying a 10 microsecond pulse to the GPIO pin connecting to the device. The duration until echo detection is returned as a pulse on the same GPIO pin. The pulse duration can be measured using the <a href="https://docs.particle.io/reference/device-os/firmware/argon/#pulsein-">pulseIn()</a> function of the standard Arduino or Particle API.</p>
-
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.2.2-Grove-4-Digit-Display">2.4.2.2 Grove 4 Digit Display<a class="anchor-link" href="#2.4.2.2-Grove-4-Digit-Display">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="2.4.3-Implementation">2.4.3 Implementation<a class="anchor-link" href="#2.4.3-Implementation">&#182;</a></h2>
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.1-Create-Project">2.4.3.1 Create Project<a class="anchor-link" href="#2.4.3.1-Create-Project">&#182;</a></h3>
 </div>
 </div>
 
@@ -14543,10 +14537,29 @@ Password: ··········
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">blink</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">pin</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_digital_output</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+    
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span> 
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">blink</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">LED_PIN</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operation interrupted. Shutting down board.&quot;</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14566,9 +14579,26 @@ Password: ··········
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Initializing project in directory myproject...
-&gt; A new project has been initialized in directory myproject
+<pre>pymata4:  Version 1.10
 
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14201
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14201
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
+
+Operation interrupted. Shutting down board.
 </pre>
 </div>
 </div>
@@ -14584,7 +14614,7 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.2-Change-working-directory">2.4.3.2 Change working directory<a class="anchor-link" href="#2.4.3.2-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
+<h2 id="A.3.5-Getting-Information-about-the-Arduino">A.3.5 Getting Information about the Arduino<a class="anchor-link" href="#A.3.5-Getting-Information-about-the-Arduino">&#182;</a></h2><p><a href="https://github.com/firmata/protocol/blob/master/protocol.md">Firmata protocol</a></p>
 
 </div>
 </div>
@@ -14594,156 +14624,87 @@ Password: ··········
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/myproject
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-     </div>
-</div>
-</div>
-</div>
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
 
-<div class="jp-Cell-outputWrapper">
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Board Report&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Firmware version: </span><span class="si">{</span><span class="n">board</span><span class="o">.</span><span class="n">get_firmware_version</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Protocol version: </span><span class="si">{</span><span class="n">board</span><span class="o">.</span><span class="n">get_protocol_version</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pymata version: </span><span class="si">{</span><span class="n">board</span><span class="o">.</span><span class="n">get_pymata_version</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="k">def</span> <span class="nf">print_analog_map</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
+    <span class="n">analog_map</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_analog_map</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">pin</span><span class="p">,</span> <span class="n">apin</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">analog_map</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">apin</span> <span class="o">&lt;</span> <span class="mi">127</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pin </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">: analog channel = </span><span class="si">{</span><span class="n">apin</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>/content/myproject
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.3-Add-relevant-libraries">2.4.3.3 Add relevant libraries<a class="anchor-link" href="#2.4.3.3-Add-relevant-libraries">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&gt; Library Grove_4Digit_Display 1.0.2 has been added to the project.
-&gt; To get started using this library, run particle library view Grove_4Digit_Display to view the library documentation and sources.
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.4-Create-source-file">2.4.3.4 Create source file<a class="anchor-link" href="#2.4.3.4-Create-source-file">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
-
-<span class="o">/*</span> <span class="n">Grove</span> <span class="mi">4</span> <span class="n">digit</span> <span class="n">display</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">pinCLK</span> <span class="o">=</span> <span class="n">D2</span><span class="p">;</span>         <span class="o">/*</span> <span class="n">display</span> <span class="n">clock</span> <span class="n">pin</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">pinDIO</span> <span class="o">=</span> <span class="n">D3</span><span class="p">;</span>         <span class="o">/*</span> <span class="n">display</span> <span class="n">data</span> <span class="n">pin</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>          <span class="o">/*</span> <span class="n">display</span> <span class="n">digits</span> <span class="o">*/</span>
-
-<span class="c1">#include &quot;Grove_4Digit_Display.h&quot;</span>
-<span class="n">TM1637</span> <span class="n">tm1637</span><span class="p">(</span><span class="n">pinCLK</span><span class="p">,</span> <span class="n">pinDIO</span><span class="p">);</span>
-
-<span class="o">/*</span> <span class="n">Grove</span> <span class="n">ultrasonic</span> <span class="n">ranger</span> <span class="o">*/</span>
-<span class="n">const</span> <span class="nb">int</span> <span class="n">pinULTRASONIC</span> <span class="o">=</span> <span class="n">D4</span><span class="p">;</span>  <span class="o">/*</span> <span class="n">ultrasonic</span> <span class="n">ranger</span> <span class="n">pin</span> <span class="o">*/</span>
-
-<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">/*</span> <span class="n">setup</span> <span class="n">display</span> <span class="o">*/</span>
-    <span class="n">tm1637</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
-    <span class="n">tm1637</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">BRIGHT_TYPICAL</span><span class="p">);</span>
-    <span class="n">tm1637</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">POINT_OFF</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">measureDistance</span><span class="p">(</span><span class="n">pinULTRASONIC</span><span class="p">));</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="n">void</span> <span class="n">display</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">int</span> <span class="n">digit</span> <span class="o">=</span> <span class="n">digits</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
-        <span class="n">tm1637</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">);</span>
-        <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="k">def</span> <span class="nf">print_pin_state_report</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
+    <span class="n">pin_modes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mh">0x00</span><span class="p">:</span> <span class="s2">&quot;INPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x01</span><span class="p">:</span> <span class="s2">&quot;OUTPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x02</span><span class="p">:</span> <span class="s2">&quot;ANALOG INPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x03</span><span class="p">:</span> <span class="s2">&quot;PWM OUTPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x04</span><span class="p">:</span> <span class="s2">&quot;SERVO OUTPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x06</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span>
+        <span class="mh">0x08</span><span class="p">:</span> <span class="s2">&quot;STEPPER&quot;</span><span class="p">,</span>
+        <span class="mh">0x0b</span><span class="p">:</span> <span class="s2">&quot;PULLUP&quot;</span><span class="p">,</span>
+        <span class="mh">0x0c</span><span class="p">:</span> <span class="s2">&quot;SONAR&quot;</span><span class="p">,</span>
+        <span class="mh">0x0d</span><span class="p">:</span> <span class="s2">&quot;TONE&quot;</span><span class="p">,</span>
     <span class="p">}</span>
+    <span class="n">analog_map</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_analog_map</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">analog_map</span><span class="p">)):</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_pin_state</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pin </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">pin_modes</span><span class="p">[</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="si">:</span><span class="s2">&gt;15s</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="n">print_pin_state_report</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+<span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">print_pin_state_report</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+<span class="n">print_analog_map</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+
+<span class="n">capability_report</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_capability_report</span><span class="p">()</span>
+
+<span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+<span class="c1"># get capability report</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Capability Report&quot;</span><span class="p">)</span>
+<span class="n">modes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mh">0x00</span><span class="p">:</span> <span class="s2">&quot;DIN&quot;</span><span class="p">,</span>  <span class="c1"># digital input</span>
+    <span class="mh">0x01</span><span class="p">:</span> <span class="s2">&quot;DO&quot;</span><span class="p">,</span>   <span class="c1"># digital output</span>
+    <span class="mh">0x02</span><span class="p">:</span> <span class="s2">&quot;AIN&quot;</span><span class="p">,</span>  <span class="c1"># analog input</span>
+    <span class="mh">0x03</span><span class="p">:</span> <span class="s2">&quot;PWM&quot;</span><span class="p">,</span>  <span class="c1"># pwm output</span>
+    <span class="mh">0x04</span><span class="p">:</span> <span class="s2">&quot;SRV&quot;</span><span class="p">,</span>  <span class="c1"># servo output</span>
+    <span class="mh">0x05</span><span class="p">:</span> <span class="s2">&quot;SFT&quot;</span><span class="p">,</span>  <span class="c1"># shift</span>
+    <span class="mh">0x06</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span>  <span class="c1"># I2C</span>
+    <span class="mh">0x07</span><span class="p">:</span> <span class="s2">&quot;WIR&quot;</span><span class="p">,</span>  <span class="c1"># ONEWIRE</span>
+    <span class="mh">0x08</span><span class="p">:</span> <span class="s2">&quot;STP&quot;</span><span class="p">,</span>  <span class="c1"># STEPPER</span>
+    <span class="mh">0x09</span><span class="p">:</span> <span class="s2">&quot;ENC&quot;</span><span class="p">,</span>  <span class="c1"># ENCODER</span>
+    <span class="mh">0x0A</span><span class="p">:</span> <span class="s2">&quot;SRL&quot;</span><span class="p">,</span>  <span class="c1"># SERIAL</span>
+    <span class="mh">0x0B</span><span class="p">:</span> <span class="s2">&quot;INP&quot;</span><span class="p">,</span>  <span class="c1"># INPUT_PULLUP</span>
 <span class="p">}</span>
 
-<span class="nb">int</span> <span class="n">measureDistance</span><span class="p">(</span><span class="nb">int</span> <span class="n">pin</span><span class="p">)</span> <span class="p">{</span>
-    <span class="o">/*</span> <span class="n">send</span> <span class="n">a</span> <span class="n">pulse</span> <span class="o">*/</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+<span class="n">pin_report</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">pin</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">capability_report</span><span class="p">):</span>
+    <span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">while</span> <span class="n">capability_report</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">127</span><span class="p">:</span>
+        <span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">][</span><span class="n">modes</span><span class="p">[</span><span class="n">capability_report</span><span class="p">[</span><span class="n">k</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">capability_report</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">k</span> <span class="o">+=</span> <span class="mi">2</span>
+    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">pin</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="o">/*</span> <span class="n">measure</span> <span class="n">duration</span> <span class="n">of</span> <span class="n">response</span> <span class="n">pulse</span> <span class="ow">in</span> <span class="n">microseconds</span> <span class="o">*/</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
-    <span class="n">unsigned</span> <span class="n">long</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">pulseIn</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-
-    <span class="o">/*</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">mm</span> <span class="o">=</span> <span class="mf">0.344</span> <span class="n">mm</span><span class="o">/</span><span class="n">micro</span><span class="o">-</span><span class="n">sec</span><span class="err">`</span> <span class="o">*</span> <span class="n">duration</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*/</span>
-    <span class="k">return</span><span class="p">(</span><span class="mf">0.172</span><span class="o">*</span><span class="n">duration</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="n">mode_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">mode</span> <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">pin_report</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;        &quot;</span> <span class="o">+</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">mode</span><span class="si">:</span><span class="s2">&gt;3s</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">mode_set</span><span class="p">)]))</span>
+<span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">pin_report</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Pin </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">:&quot;</span>
+    <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">mode_set</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">][</span><span class="n">mode</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;3d</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="mi">5</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14763,7 +14724,165 @@ Password: ··········
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Overwriting src/myproject.ino
+<pre>pymata4:  Version 1.10
+
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
+
+Board Report
+Firmware version: 2.5 StandardFirmata.ino
+Protocol version: 2.5
+Pymata version: 1.10
+Pin  0:          OUTPUT = 0
+Pin  1:          OUTPUT = 0
+Pin  2:          OUTPUT = 0
+Pin  3:          OUTPUT = 0
+Pin  4:          OUTPUT = 0
+Pin  5:          OUTPUT = 0
+Pin  6:          OUTPUT = 0
+Pin  7:          OUTPUT = 0
+Pin  8:          OUTPUT = 0
+Pin  9:          OUTPUT = 0
+Pin 10:          OUTPUT = 0
+Pin 11:          OUTPUT = 0
+Pin 12:          OUTPUT = 0
+Pin 13:          OUTPUT = 0
+Pin 14:          OUTPUT = 0
+Pin 15:          OUTPUT = 0
+Pin 16:          OUTPUT = 0
+Pin 17:          OUTPUT = 0
+Pin 18:    ANALOG INPUT = 0
+Pin 19:    ANALOG INPUT = 0
+Pin 20:    ANALOG INPUT = 0
+Pin 21:    ANALOG INPUT = 0
+Pin 22:    ANALOG INPUT = 0
+Pin 23:    ANALOG INPUT = 0
+Pin 24:    ANALOG INPUT = 0
+Pin 25:    ANALOG INPUT = 0
+Pin 26:    ANALOG INPUT = 0
+Pin 27:    ANALOG INPUT = 0
+Pin 28:    ANALOG INPUT = 0
+Pin 29:    ANALOG INPUT = 0
+Pin  0:          OUTPUT = 0
+Pin  1:          OUTPUT = 0
+Pin  2:          OUTPUT = 0
+Pin  3:          OUTPUT = 0
+Pin  4:          OUTPUT = 0
+Pin  5:          OUTPUT = 0
+Pin  6:          OUTPUT = 0
+Pin  7:          OUTPUT = 0
+Pin  8:          OUTPUT = 0
+Pin  9:          OUTPUT = 0
+Pin 10:          OUTPUT = 0
+Pin 11:          OUTPUT = 0
+Pin 12:          OUTPUT = 0
+Pin 13:          OUTPUT = 1
+Pin 14:          OUTPUT = 0
+Pin 15:          OUTPUT = 0
+Pin 16:          OUTPUT = 0
+Pin 17:          OUTPUT = 0
+Pin 18:    ANALOG INPUT = 0
+Pin 19:    ANALOG INPUT = 0
+Pin 20:    ANALOG INPUT = 0
+Pin 21:    ANALOG INPUT = 0
+Pin 22:    ANALOG INPUT = 0
+Pin 23:    ANALOG INPUT = 0
+Pin 24:    ANALOG INPUT = 0
+Pin 25:    ANALOG INPUT = 0
+Pin 26:    ANALOG INPUT = 0
+Pin 27:    ANALOG INPUT = 0
+Pin 28:    ANALOG INPUT = 0
+Pin 29:    ANALOG INPUT = 0
+Pin 18: analog channel = 0
+Pin 19: analog channel = 1
+Pin 20: analog channel = 2
+Pin 21: analog channel = 3
+Pin 22: analog channel = 4
+Pin 23: analog channel = 5
+Pin 24: analog channel = 6
+Pin 25: analog channel = 7
+Pin 26: analog channel = 8
+Pin 27: analog channel = 9
+Pin 28: analog channel = 10
+Pin 29: analog channel = 11
+
+Capability Report
+Pin   :AINDINDOI2CINPPWMSRV
+Pin  0:                1        1                 1                14 
+Pin  1:                1        1                 1                14 
+Pin  2:                1        1        1        1                14 
+Pin  3:                1        1        1        1        8       14 
+Pin  4:                1        1                 1                14 
+Pin  5:                1        1                 1        8       14 
+Pin  6:                1        1                 1        8       14 
+Pin  7:                1        1                 1                14 
+Pin  8:                1        1                 1                14 
+Pin  9:                1        1                 1        8       14 
+Pin 10:                1        1                 1        8       14 
+Pin 11:                1        1                 1        8       14 
+Pin 12:                1        1                 1                14 
+Pin 13:                1        1                 1        8       14 
+Pin 14:                1        1                 1                14 
+Pin 15:                1        1                 1                14 
+Pin 16:                1        1                 1                14 
+Pin 17:                1        1                 1                14 
+Pin 18:      10        1        1                 1                14 
+Pin 19:      10        1        1                 1                14 
+Pin 20:      10        1        1                 1                14 
+Pin 21:      10        1        1                 1                14 
+Pin 22:      10        1        1                 1                14 
+Pin 23:      10        1        1                 1                14 
+Pin 24:      10        1        1                 1                14 
+Pin 25:      10        1        1                 1                14 
+Pin 26:      10        1        1                 1                14 
+Pin 27:      10        1        1                 1                14 
+Pin 28:      10        1        1                 1                14 
+Pin 29:      10        1        1                 1                14 
+         AIN  DIN   DO  I2C  INP  PWM  SRV 
+Pin  0:        1    1         1        14 
+Pin  1:        1    1         1        14 
+Pin  2:        1    1    1    1        14 
+Pin  3:        1    1    1    1    8   14 
+Pin  4:        1    1         1        14 
+Pin  5:        1    1         1    8   14 
+Pin  6:        1    1         1    8   14 
+Pin  7:        1    1         1        14 
+Pin  8:        1    1         1        14 
+Pin  9:        1    1         1    8   14 
+Pin 10:        1    1         1    8   14 
+Pin 11:        1    1         1    8   14 
+Pin 12:        1    1         1        14 
+Pin 13:        1    1         1    8   14 
+Pin 14:        1    1         1        14 
+Pin 15:        1    1         1        14 
+Pin 16:        1    1         1        14 
+Pin 17:        1    1         1        14 
+Pin 18:  10    1    1         1        14 
+Pin 19:  10    1    1         1        14 
+Pin 20:  10    1    1         1        14 
+Pin 21:  10    1    1         1        14 
+Pin 22:  10    1    1         1        14 
+Pin 23:  10    1    1         1        14 
+Pin 24:  10    1    1         1        14 
+Pin 25:  10    1    1         1        14 
+Pin 26:  10    1    1         1        14 
+Pin 27:  10    1    1         1        14 
+Pin 28:  10    1    1         1        14 
+Pin 29:  10    1    1         1        14 
 </pre>
 </div>
 </div>
@@ -14779,7 +14898,7 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.5-Compiling">2.4.3.5 Compiling<a class="anchor-link" href="#2.4.3.5-Compiling">&#182;</a></h3>
+<h2 id="A.3.6-Temperature-Control-Lab-Shield">A.3.6 Temperature Control Lab Shield<a class="anchor-link" href="#A.3.6-Temperature-Control-Lab-Shield">&#182;</a></h2>
 </div>
 </div>
 
@@ -14788,10 +14907,75 @@ Password: ··········
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">tclab</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">9</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q1_PIN</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q2_PIN</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T1_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T2_PIN</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_pwm_output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LED_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_pwm_output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q1_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_pwm_output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q2_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_analog_input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T1_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_analog_input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T2_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Q1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+    
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">read_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pin</span><span class="p">):</span>
+        <span class="c1"># firmata doesn&#39;t provide a means to use the 3.3 volt reference</span>
+        <span class="n">adc</span><span class="p">,</span> <span class="n">ts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">analog_read</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">adc</span><span class="o">*</span><span class="mi">513</span><span class="o">/</span><span class="mi">1024</span> <span class="o">-</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">Q1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">pwm_write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q1_PIN</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">Q2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">pwm_write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q2_PIN</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">T1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_temperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T1_PIN</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">T2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_temperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T2_PIN</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">LED</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="n">val</span><span class="o">/</span><span class="mi">100</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">pwm_write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        
+<span class="k">with</span> <span class="n">tclab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">(),</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">())</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14811,78 +14995,55 @@ Password: ··········
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-Compiling code for argon
+<pre>pymata4:  Version 1.10
 
-Including:
-    src/myproject.ino
-    project.properties
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
 
-attempting to compile firmware
-downloading binary from: /v1/binaries/5f95722fabefb30aacbc7337
-saving to: myproject.bin
-Memory use:
-   text	   data	    bss	    dec	    hex	filename
-   8440	    108	   1068	   9616	   2590	/workspace/target/workspace.elf
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
 
-Compile succeeded.
-Saved firmware to: /content/myproject/myproject.bin
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
 
-</pre>
-</div>
-</div>
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
 
-</div>
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
 
-</div>
-
-</div>
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
 
 
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.4.3.6-Flash-firmware">2.4.3.6 Flash firmware<a class="anchor-link" href="#2.4.3.6-Flash-firmware">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Including:
-    myproject.bin
-
-attempting to flash firmware to your device jck_argon_01
-Flash device OK: Update started
-
-Flash success!
-
+22.6 22.1
+23.1 22.6
+23.1 22.1
+23.1 22.1
+23.1 22.6
+23.1 22.6
+22.6 22.6
+23.1 22.1
+23.1 22.6
+23.1 22.1
+22.6 22.6
+23.1 22.6
+23.1 22.6
+22.6 22.1
+23.1 22.6
+23.1 22.6
+22.6 22.6
+23.1 22.1
+22.6 22.6
+22.6 22.1
+23.1 22.6
+23.1 22.6
+22.6 22.1
+23.1 22.1
+23.1 22.6
+22.6 22.6
+23.1 22.1
+23.1 22.6
+23.1 22.1
+23.1 22.6
 </pre>
 </div>
 </div>
@@ -14917,7 +15078,7 @@ Flash success!
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/02.03-Particle-CLI.html">2.3 Particle Command Line Interface (CLI)</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/02.05-Simple_Stop_Watch_using_Interrupts.html">2.5 Simple Stop Watch using Interrupts</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/02.04-Ultrasonic_Distance_Ranger.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/A.02-Downloading_Python_source_files_from_github.html">A.2 Downloading Python source files from github</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/A.04-Scheduling-Real-Time-Events-with-Simpy.html">A.4 Scheduling Real-Time Events with Simpy</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/A.03-Getting-Started-with-Pymata4.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/A.03-Getting-Started-with-Pymata4.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

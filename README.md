@@ -1,4 +1,4 @@
-# CBE Virtual Laboratory
+# CBE 61622 Laboratory Measurement and Instrumentation
 
 A proof of concept study of a virtual laboratory for engineering education using embedded systems and the Internet of Things.
 
