@@ -2,14 +2,15 @@
 
 import machine
 import time
-from lcd1602 import LCD1602
+from lcd1602 import LCD1602_RGB
 
 
 class LCD16x2():
     
     def __init__(self, i2c):
         self.i2c = i2c
-        self.d = LCD1602(i2c, 2, 16)
+        self.d = LCD1602_RGB(i2c, 2, 16)
+        self.d.set_rgb(128, 128, 128)
         self.d.clear()
         self.lines = [" "*16, " "*16]
         
