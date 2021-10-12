@@ -8,13 +8,13 @@ scl = Pin(9, Pin.OUT)
 i2c = I2C(0, sda=sda, scl=scl)
 
 # create instance of display with lines and columns
-d = LCD(i2c, 2, 16)
-d.clear()
+dsp = LCD(i2c, 2, 16)
+dsp.clear()
 
 # Welcome display
-d.setCursor(0, 0)
-d.print("Hello, World")
-d.setCursor(0, 1)
-d.print("GO IRISH!")
+dsp.setCursor(0, 0)
+dsp.print("Hello, World")
+dsp.setCursor(0, 1)
+dsp.print("GO IRISH!")
 
 
