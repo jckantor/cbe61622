@@ -13987,7 +13987,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/07.00-Chemical_Instrumentation.html">7.0 Chemical Instrumentation</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/09.00-Interfacing_with_Laboratory_Equipment.html">9.0 Interfacing with Laboratory Equipment</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/08.00-Feedback_Control.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/08.00-Feedback_Control.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/B.01-Configuring-a-Workstation.html">B.1 Configuring a Workstation</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/B.02-Workstation-Learning-Exercises.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/B.02-Workstation-Learning-Exercises.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13997,7 +13997,35 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="8.0-Feedback-Control">8.0 Feedback Control<a class="anchor-link" href="#8.0-Feedback-Control">&#182;</a></h1>
+<h2 id="B.2.1-Workstation-Learning-Exercises">B.2.1 Workstation Learning Exercises<a class="anchor-link" href="#B.2.1-Workstation-Learning-Exercises">&#182;</a></h2>
+</div>
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="B.2.2-Understanding-PWM">B.2.2 Understanding PWM<a class="anchor-link" href="#B.2.2-Understanding-PWM">&#182;</a></h2><ol>
+<li><p>Using the pins on an MCU, use the oscilloscope to observe PWM signals and how they respond to Python commands.</p>
+</li>
+<li><p>Attach a servo, and observe the response of the servo to a PWM command.</p>
+</li>
+</ol>
+
+</div>
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="B.2.3-Characterizing-noise-in-a-MEMS-device.">B.2.3 Characterizing noise in a MEMS device.<a class="anchor-link" href="#B.2.3-Characterizing-noise-in-a-MEMS-device.">&#182;</a></h2><p>Accelerometers are MEMS devices with inherent noise characteristics. This exercise explores the noise characteristics of this device. The learning goals are to understand typical types of noise encountered in sensors.</p>
+<p>Mount the ADXL327 3-axis accelerometer on ADS breadboard. Apply 3.3v power supply and ground. Using the datasheet, select capacitors to provide maximum bandwidth on each axis. Using the spectrum analyzer, identify the noise characteristics of the sensor.</p>
+<p>Assume for each axis,</p>
+$$a_x = \bar{a_x} + e_x$$$$a_y = \bar{a_y} + e_y$$$$a_z = \bar{a_z} + e_z$$<p>What is frequency spectrum for $e_x$, $e_y$, and $e_z$? Are we seeing 1/f noise, broadband noise,</p>
+
 </div>
 </div>
 
@@ -14025,7 +14053,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/07.00-Chemical_Instrumentation.html">7.0 Chemical Instrumentation</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/09.00-Interfacing_with_Laboratory_Equipment.html">9.0 Interfacing with Laboratory Equipment</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/08.00-Feedback_Control.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/08.00-Feedback_Control.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/B.01-Configuring-a-Workstation.html">B.1 Configuring a Workstation</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/B.02-Workstation-Learning-Exercises.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/B.02-Workstation-Learning-Exercises.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

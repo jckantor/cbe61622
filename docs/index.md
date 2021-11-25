@@ -9,7 +9,7 @@ This is a start on a collection of notebooks being developed in support of hands
 ### [Table of Contents](https://jckantor.github.io/cbe61622/toc.html)
 ### [Python Module Index](https://jckantor.github.io/cbe61622/python_index.html)
 
-### [Chapter 1.0 CBE 61622](https://jckantor.github.io/cbe61622/01.00-CBE_Virtual_Laboratory.html)
+### [Chapter 1.0 CBE 61622](https://jckantor.github.io/cbe61622/01.00-CBE_61622.html)
 
 ### [Chapter 2.0 Working with Particle](https://jckantor.github.io/cbe61622/02.00-Working_with_Particle.html)
 - [2.1 Particle Command Line Interface](https://jckantor.github.io/cbe61622/02.01-Particle_CLI.html)
@@ -24,6 +24,8 @@ This is a start on a collection of notebooks being developed in support of hands
 - [3.3 Accessing MQTT Devices](https://jckantor.github.io/cbe61622/03.03-Miscellaneous_Notes.html)
 
 ### [Chapter 4.0 Signal Conditioning](https://jckantor.github.io/cbe61622/04.00-Signal_Conditioning.html)
+- [4.1 Basics of Linear DC Circuits](https://jckantor.github.io/cbe61622/04.01-Linear-DC-Circuits.html)
+- [4.10 Operational Amplifiers](https://jckantor.github.io/cbe61622/04.10-Operational-Amplifiers.html)
 
 ### [Chapter 5.0 Anomaly Detection](https://jckantor.github.io/cbe61622/05.00-Anomaly_Detection.html)
 
@@ -38,9 +40,14 @@ This is a start on a collection of notebooks being developed in support of hands
 - [9.2 Stepper Motor Control via I2C](https://jckantor.github.io/cbe61622/09.02-Stepper_Motor_Control_via_I2C.html)
 
 ### [Chapter 10.0 Projects](https://jckantor.github.io/cbe61622/10.00-Projects.html)
+- [10.10 Particle Labeling](https://jckantor.github.io/cbe61622/10.10-Image-Analysis.html)
 
 ### [Appendix A. A.0 Python Source Library](https://jckantor.github.io/cbe61622/A.00-Appendices.html)
 - [A.1 Resources](https://jckantor.github.io/cbe61622/A.01-Resources.html)
 - [A.2 Downloading Python source files from github](https://jckantor.github.io/cbe61622/A.02-Downloading_Python_source_files_from_github.html)
 - [A.3 Getting Started with Pymata4](https://jckantor.github.io/cbe61622/A.03-Getting-Started-with-Pymata4.html)
 - [A.4 Scheduling Real-Time Events with Simpy](https://jckantor.github.io/cbe61622/A.04-Scheduling-Real-Time-Events-with-Simpy.html)
+
+### [Appendix B. B.0 Setup Procedures](https://jckantor.github.io/cbe61622/B.00-Setup-Procedures.html)
+- [B.1 Configuring a Workstation](https://jckantor.github.io/cbe61622/B.01-Configuring-a-Workstation.html)
+- [None](https://jckantor.github.io/cbe61622/B.02-Workstation-Learning-Exercises.html)

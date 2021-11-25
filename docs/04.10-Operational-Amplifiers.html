@@ -13987,7 +13987,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/07.00-Chemical_Instrumentation.html">7.0 Chemical Instrumentation</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/09.00-Interfacing_with_Laboratory_Equipment.html">9.0 Interfacing with Laboratory Equipment</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/08.00-Feedback_Control.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/08.00-Feedback_Control.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/04.01-Linear-DC-Circuits.html">4.1 Basics of Linear DC Circuits</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/05.00-Anomaly_Detection.html">5.0 Anomaly Detection</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/04.10-Operational-Amplifiers.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/04.10-Operational-Amplifiers.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13997,7 +13997,34 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="8.0-Feedback-Control">8.0 Feedback Control<a class="anchor-link" href="#8.0-Feedback-Control">&#182;</a></h1>
+<h1 id="4.10-Operational-Amplifiers">4.10 Operational Amplifiers<a class="anchor-link" href="#4.10-Operational-Amplifiers">&#182;</a></h1>
+</div>
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>(Harvey Mudd) <img src="http://fourier.eng.hmc.edu/e84/lectures/figures/OpAmp0.gif" alt=""></p>
+<ul>
+<li>[Input impedance]</li>
+<li>[Output impedance]</li>
+<li>[Open-circuit gain]</li>
+</ul>
+<p>An approximate equation for the output voltage is</p>
+$$V_{out} = A_d (V_+ - V_-) + A_c(V_+ + V_-)$$<p>where $A_d$ is the differential gain and $A_c$ is the common-mode gain. Normally we seek very high values for $A_d$ and very low values for $A_c$. The common-mode rejection ratio is</p>
+$$CMRR = 20 \log_{10}\frac{A_d}{A_c}$$<p>Typical values of $CCMR$ are 100db or greater indicating $A_d &gt; 10^5A_c$</p>
+
+</div>
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="4.10.1-Feedback">4.10.1 Feedback<a class="anchor-link" href="#4.10.1-Feedback">&#182;</a></h2>
 </div>
 </div>
 
@@ -14025,7 +14052,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/07.00-Chemical_Instrumentation.html">7.0 Chemical Instrumentation</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/09.00-Interfacing_with_Laboratory_Equipment.html">9.0 Interfacing with Laboratory Equipment</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/08.00-Feedback_Control.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/08.00-Feedback_Control.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/04.01-Linear-DC-Circuits.html">4.1 Basics of Linear DC Circuits</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/05.00-Anomaly_Detection.html">5.0 Anomaly Detection</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/04.10-Operational-Amplifiers.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/04.10-Operational-Amplifiers.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
