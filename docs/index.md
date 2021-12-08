@@ -32,6 +32,7 @@ This is a start on a collection of notebooks being developed in support of hands
 ### [Chapter 6.0 Images and Vision](https://jckantor.github.io/cbe61622/06.00-Images_and_Vision.html)
 
 ### [Chapter 7.0 Chemical Instrumentation](https://jckantor.github.io/cbe61622/07.00-Chemical_Instrumentation.html)
+- [7.10 Potentiostats and Galvanostats](https://jckantor.github.io/cbe61622/07.10-Potentiostats-and-Galvanostats.html)
 
 ### [Chapter 8.0 Feedback Control](https://jckantor.github.io/cbe61622/08.00-Feedback_Control.html)
 
