@@ -54,6 +54,8 @@ This is a start on a collection of notebooks being developed in support of hands
 ### [Appendix B. B.0 Setup Procedures](https://jckantor.github.io/cbe61622/B.00-Setup-Procedures.html)
 - [B.1 Configuring a Workstation](https://jckantor.github.io/cbe61622/B.01-Configuring-a-Workstation.html)
 - [None](https://jckantor.github.io/cbe61622/B.02-Workstation-Learning-Exercises.html)
+
+### [Appendix C. C.0 Raspberry Pi Pico](https://jckantor.github.io/cbe61622/C.00-Raspberry-Pi-Pico.html)
 - [C.1 Interfacing with Micropython on the Raspberry Pi Pico](https://jckantor.github.io/cbe61622/C.01-Getting_Started.html)
 - [C.2 Grove Starter Kit for Raspberry Pi Pico](https://jckantor.github.io/cbe61622/C.02-Seeed_Grove_Pico_Starter_Kit.html)
 - [C.3 LCD1602](https://jckantor.github.io/cbe61622/C.03-LCD1602.html)
