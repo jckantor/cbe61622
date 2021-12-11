@@ -42,8 +42,9 @@ This is a start on a collection of notebooks being developed in support of hands
 
 ### [Chapter 10.0 Projects](https://jckantor.github.io/cbe61622/10.00-Projects.html)
 - [10.10 Computer Vision Case Study: Introduction](https://jckantor.github.io/cbe61622/10.10-Computer-Vision-Introduction.html)
-- [10.11 Computer Vision Case Study: Finding Particles in Images](https://jckantor.github.io/cbe61622/10.11-Computer-Vision-Development.html)
-- [10.12 Computer Vision Case Study: Creating an Application](https://jckantor.github.io/cbe61622/10.12-Computer-Vision-Application.html)
+- [10.11 Computer Vision Case Study: Finding Particles in Images](https://jckantor.github.io/cbe61622/10.11-Computer-Vision-Experiments.html)
+- [10.12 Computer Vision Case Study: Creating an Application](https://jckantor.github.io/cbe61622/10.12-Computer-Vision-Development.html)
+- [10.13 Computer Vision Case Study: Creating an Application](https://jckantor.github.io/cbe61622/10.13-Computer-Vision-Application.html)
 
 ### [Appendix A. A.0 Python Source Library](https://jckantor.github.io/cbe61622/A.00-Appendices.html)
 - [A.1 Resources](https://jckantor.github.io/cbe61622/A.01-Resources.html)
