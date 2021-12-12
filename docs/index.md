@@ -30,8 +30,6 @@ This is a start on a collection of notebooks being developed in support of hands
 - [3.8 Stepper Motors](https://jckantor.github.io/cbe61622/03.08-Stepper-Motors.html)
 - [3.9 PIO Programming](https://jckantor.github.io/cbe61622/03.09-PIO-Programming.html)
 - [3.10 Wifi](https://jckantor.github.io/cbe61622/03.10-Wifi-with-ESP-01.html)
-- [3.11 Low-Level Measurement](https://jckantor.github.io/cbe61622/03.11-Low-Level-Measurment.html)
-- [3.12 Sampling Continuous Time Signals](https://jckantor.github.io/cbe61622/03.12-Sampling-Continuous-Time-Signals.html)
 
 ### [Chapter 4.0 Raspberry Pi](https://jckantor.github.io/cbe61622/04.00-Raspberry-Pi.html)
 - [4.1 Setting up the Raspberry Pi for Lab Use](https://jckantor.github.io/cbe61622/04.01-Raspberry-Pi.html)
@@ -46,7 +44,9 @@ This is a start on a collection of notebooks being developed in support of hands
 - [6.3 Accessing MQTT Devices](https://jckantor.github.io/cbe61622/06.03-Miscellaneous_Notes.html)
 
 ### [Chapter 7.0 Signal Conditioning](https://jckantor.github.io/cbe61622/07.00-Signal_Conditioning.html)
-- [7.1 Basics of Linear DC Circuits](https://jckantor.github.io/cbe61622/07.01-Linear-DC-Circuits.html)
+- [7.1 Low-Level Measurement](https://jckantor.github.io/cbe61622/07.01-Low-Level-Measurment.html)
+- [7.2 Sampling Continuous Time Signals](https://jckantor.github.io/cbe61622/07.02-Sampling-Continuous-Time-Signals.html)
+- [7.8 Basics of Linear DC Circuits](https://jckantor.github.io/cbe61622/07.08-Linear-DC-Circuits.html)
 - [7.10 Operational Amplifiers](https://jckantor.github.io/cbe61622/07.10-Operational-Amplifiers.html)
 
 ### [Chapter 8.0 Chemical Instrumentation](https://jckantor.github.io/cbe61622/08.00-Chemical_Instrumentation.html)

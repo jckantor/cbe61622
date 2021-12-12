@@ -13987,7 +13987,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/03.11-Low-Level-Measurment.html">3.11 Low-Level Measurement</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/04.00-Raspberry-Pi.html">4.0 Raspberry Pi</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/03.12-Sampling-Continuous-Time-Signals.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/03.12-Sampling-Continuous-Time-Signals.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/07.01-Low-Level-Measurment.html">7.1 Low-Level Measurement</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/07.08-Linear-DC-Circuits.html">7.8 Basics of Linear DC Circuits</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/07.02-Sampling-Continuous-Time-Signals.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/07.02-Sampling-Continuous-Time-Signals.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13997,7 +13997,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="3.12-Sampling-Continuous-Time-Signals">3.12 Sampling Continuous Time Signals<a class="anchor-link" href="#3.12-Sampling-Continuous-Time-Signals">&#182;</a></h1>
+<h1 id="7.2-Sampling-Continuous-Time-Signals">7.2 Sampling Continuous Time Signals<a class="anchor-link" href="#7.2-Sampling-Continuous-Time-Signals">&#182;</a></h1>
 </div>
 </div>
 
@@ -14024,7 +14024,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.12.1-Sampling-signals">3.12.1 Sampling signals<a class="anchor-link" href="#3.12.1-Sampling-signals">&#182;</a></h2><p>Suppose we have a continuous time signal $y(t)$ on an interval $[0, T]$ that we regularly sample at $t_n = n \delta$. where $n = 0, 1, 2, \ldots, N$ where $\delta = T/N$.</p>
+<h2 id="7.2.1-Sampling-signals">7.2.1 Sampling signals<a class="anchor-link" href="#7.2.1-Sampling-signals">&#182;</a></h2><p>Suppose we have a continuous time signal $y(t)$ on an interval $[0, T]$ that we regularly sample at $t_n = n \delta$. where $n = 0, 1, 2, \ldots, N$ where $\delta = T/N$.</p>
 <p>Let's look at a particular example. $T=300$ and we try increasingly large values of $N$.</p>
 
 </div>
@@ -14130,7 +14130,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.12.2-Reconstruction">3.12.2 Reconstruction<a class="anchor-link" href="#3.12.2-Reconstruction">&#182;</a></h2><p>Given a series of N samples $y[n] = y(n\delta)$, $n = 0, 1, \ldots N-1$, reconstruct a continuous function.</p>
+<h2 id="7.2.2-Reconstruction">7.2.2 Reconstruction<a class="anchor-link" href="#7.2.2-Reconstruction">&#182;</a></h2><p>Given a series of N samples $y[n] = y(n\delta)$, $n = 0, 1, \ldots N-1$, reconstruct a continuous function.</p>
 
 </div>
 </div>
@@ -14216,7 +14216,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.12.2.1-Anti-aliasing">3.12.2.1 Anti-aliasing<a class="anchor-link" href="#3.12.2.1-Anti-aliasing">&#182;</a></h3><p>What we have to do is eliminate that part of the signal that gets aliased <strong>before</strong> the sampling. Because if don't, the aliasing corrupts the signal in ways that can't be fixed afterwards.</p>
+<h3 id="7.2.2.1-Anti-aliasing">7.2.2.1 Anti-aliasing<a class="anchor-link" href="#7.2.2.1-Anti-aliasing">&#182;</a></h3><p>What we have to do is eliminate that part of the signal that gets aliased <strong>before</strong> the sampling. Because if don't, the aliasing corrupts the signal in ways that can't be fixed afterwards.</p>
 
 </div>
 </div>
@@ -14226,7 +14226,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.12.3-Fourier-Analysis">3.12.3 Fourier Analysis<a class="anchor-link" href="#3.12.3-Fourier-Analysis">&#182;</a></h2>
+<h2 id="7.2.3-Fourier-Analysis">7.2.3 Fourier Analysis<a class="anchor-link" href="#7.2.3-Fourier-Analysis">&#182;</a></h2>
 </div>
 </div>
 
@@ -14235,7 +14235,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.12.3.1-Complex-sinusoids-as-an-Orthonormal-Basis">3.12.3.1 Complex sinusoids as an Orthonormal Basis<a class="anchor-link" href="#3.12.3.1-Complex-sinusoids-as-an-Orthonormal-Basis">&#182;</a></h3><p>Fourier analysis begins with specification of a set of countably infinite set of complex valued basis functions for the interval $[0, T]$</p>
+<h3 id="7.2.3.1-Complex-sinusoids-as-an-Orthonormal-Basis">7.2.3.1 Complex sinusoids as an Orthonormal Basis<a class="anchor-link" href="#7.2.3.1-Complex-sinusoids-as-an-Orthonormal-Basis">&#182;</a></h3><p>Fourier analysis begins with specification of a set of countably infinite set of complex valued basis functions for the interval $[0, T]$</p>
 $$\phi_k(t) = e^{2\pi i k t/T}$$<p>for integer $k \in (-\infty, \infty)$. Letting $\bar{phi}_k$ denote the complex conjugate of $\phi_k$, note that $\bar{\phi}_k = \phi_{-k}$</p>
 <p>For functions $f$ and $g$ defined on the same interval, define the inner product</p>
 $$\langle f, g \rangle = \frac{1}{T}\int_0^T \bar{f}(t) g(t)\ dt$$<p>where $\bar{f}(t)$ denotes the complex conjugate of $f(t)$. It's easy to show the set $\phi_k(t)$ forms an orthonormal basis under this inner product. First</p>
@@ -14264,7 +14264,7 @@ $$Y_k = \frac{1}{T} \int_0^T e^{-2\pi i k t/T} y(t)\ dt$$<p>which computes the <
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.12.3.2-Application-to-Real-functions">3.12.3.2 Application to Real functions<a class="anchor-link" href="#3.12.3.2-Application-to-Real-functions">&#182;</a></h3><p>For real functions $\bar{y}(t) = y(t)$. As a consequence</p>
+<h3 id="7.2.3.2-Application-to-Real-functions">7.2.3.2 Application to Real functions<a class="anchor-link" href="#7.2.3.2-Application-to-Real-functions">&#182;</a></h3><p>For real functions $\bar{y}(t) = y(t)$. As a consequence</p>
 \begin{align*}
 \sum_k \overline{Y_k \phi_k} &amp; = \sum_{k'} Y_{k'} \phi_{k'} \\
 \sum_k \bar{Y}_k \bar{\phi}_k &amp; = \sum_{k'} Y_{k'} \phi_{k'} \\
@@ -14280,7 +14280,7 @@ $$Y_k = \frac{1}{T} \int_0^T e^{-2\pi i k t/T} y(t)\ dt$$<p>which computes the <
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.12.3.3-Frequency-domain-interpretation">3.12.3.3 Frequency domain interpretation<a class="anchor-link" href="#3.12.3.3-Frequency-domain-interpretation">&#182;</a></h3><p>The indices $k$ can be associated with a frequency $f_k$ where</p>
+<h3 id="7.2.3.3-Frequency-domain-interpretation">7.2.3.3 Frequency domain interpretation<a class="anchor-link" href="#7.2.3.3-Frequency-domain-interpretation">&#182;</a></h3><p>The indices $k$ can be associated with a frequency $f_k$ where</p>
 $$f_k  = \frac{k}{T}$$<p>has units of cycles per unit time. The Fourier coefficients can then be associated with a frequency</p>
 $$Y(w_k) = Y_k = \frac{1}{T} \int_0^T e^{-2\pi i f_k t} y(t)\ dt$$<p>where $f_k = \frac{k}{T}$ for $k = 0, \pm 1, \pm 2, \ldots$</p>
 
@@ -14292,7 +14292,7 @@ $$Y(w_k) = Y_k = \frac{1}{T} \int_0^T e^{-2\pi i f_k t} y(t)\ dt$$<p>where $f_k 
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.12.3.4-Application-to-Sampled-data">3.12.3.4 Application to Sampled data<a class="anchor-link" href="#3.12.3.4-Application-to-Sampled-data">&#182;</a></h3><p>In most applications the function $f(t)$ is evaluated at regular intervals of time $t_n = n\delta$. For $k = 0, \pm 1, \pm 2, \ldots$</p>
+<h3 id="7.2.3.4-Application-to-Sampled-data">7.2.3.4 Application to Sampled data<a class="anchor-link" href="#7.2.3.4-Application-to-Sampled-data">&#182;</a></h3><p>In most applications the function $f(t)$ is evaluated at regular intervals of time $t_n = n\delta$. For $k = 0, \pm 1, \pm 2, \ldots$</p>
 \begin{align*}
 Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \\
 &amp; \approx \frac{1}{N\delta} \sum_{n=0}^{N-1} e^{-2\pi i k n  \delta / (N\delta)} y_n\delta \\
@@ -14306,7 +14306,7 @@ Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \\
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.12.4-numpy.fft">3.12.4 numpy.fft<a class="anchor-link" href="#3.12.4-numpy.fft">&#182;</a></h2><p>The Numpy library provides a collection of functions to enable use of the Fourier tranform.</p>
+<h2 id="7.2.4-numpy.fft">7.2.4 numpy.fft<a class="anchor-link" href="#7.2.4-numpy.fft">&#182;</a></h2><p>The Numpy library provides a collection of functions to enable use of the Fourier tranform.</p>
 
 </div>
 </div>
@@ -14381,7 +14381,7 @@ Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \\
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.12.5-Examples-of-Fourier-Transforms">3.12.5 Examples of Fourier Transforms<a class="anchor-link" href="#3.12.5-Examples-of-Fourier-Transforms">&#182;</a></h2>
+<h2 id="7.2.5-Examples-of-Fourier-Transforms">7.2.5 Examples of Fourier Transforms<a class="anchor-link" href="#7.2.5-Examples-of-Fourier-Transforms">&#182;</a></h2>
 </div>
 </div>
 
@@ -14511,7 +14511,7 @@ Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \\
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.12.6-Euler's-Formula">3.12.6 Euler's Formula<a class="anchor-link" href="#3.12.6-Euler's-Formula">&#182;</a></h2>$$e^{2\pi ix} = \cos\left(2\pi x\right) + i \sin\left(2\pi x\right)$$
+<h2 id="7.2.6-Euler's-Formula">7.2.6 Euler's Formula<a class="anchor-link" href="#7.2.6-Euler's-Formula">&#182;</a></h2>$$e^{2\pi ix} = \cos\left(2\pi x\right) + i \sin\left(2\pi x\right)$$
 </div>
 </div>
 
@@ -14520,7 +14520,7 @@ Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \\
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.12.7-Sinusoidal-signals">3.12.7 Sinusoidal signals<a class="anchor-link" href="#3.12.7-Sinusoidal-signals">&#182;</a></h2><p>The complex function</p>
+<h2 id="7.2.7-Sinusoidal-signals">7.2.7 Sinusoidal signals<a class="anchor-link" href="#7.2.7-Sinusoidal-signals">&#182;</a></h2><p>The complex function</p>
 <p>$$</p>
 
 </div>
@@ -14531,7 +14531,7 @@ Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \\
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.12.8-Discrete-Fourier-Transform">3.12.8 Discrete Fourier Transform<a class="anchor-link" href="#3.12.8-Discrete-Fourier-Transform">&#182;</a></h2><p>The Fourier transform is a linear operation $y = \cal{F}(x)$ where</p>
+<h2 id="7.2.8-Discrete-Fourier-Transform">7.2.8 Discrete Fourier Transform<a class="anchor-link" href="#7.2.8-Discrete-Fourier-Transform">&#182;</a></h2><p>The Fourier transform is a linear operation $y = \cal{F}(x)$ where</p>
 \begin{align*}
 y[k] &amp; = \sum_{n=0}^{N-1}e^{-\frac{2\pi}{N} i k n} x[n] \\
 \text{or} \\
@@ -14608,7 +14608,7 @@ y[k] &amp; = \sum_{n=0}^{N-1}\left[\cos\left(\frac{2\pi}{N}kn\right) - i \sin\le
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3.12.9-Inverse-Discrete-Fourier-Transform">3.12.9 Inverse Discrete Fourier Transform<a class="anchor-link" href="#3.12.9-Inverse-Discrete-Fourier-Transform">&#182;</a></h2><p>The inverse transform is given by</p>
+<h2 id="7.2.9-Inverse-Discrete-Fourier-Transform">7.2.9 Inverse Discrete Fourier Transform<a class="anchor-link" href="#7.2.9-Inverse-Discrete-Fourier-Transform">&#182;</a></h2><p>The inverse transform is given by</p>
 $$x[n] = \frac{1}{N}\sum_{k=0}^{N-1}e^{2\pi i k n/N} y[k]$$
 </div>
 </div>
@@ -14759,7 +14759,7 @@ $$x[n] = \frac{1}{N}\sum_{k=0}^{N-1}e^{2\pi i k n/N} y[k]$$
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/03.11-Low-Level-Measurment.html">3.11 Low-Level Measurement</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/04.00-Raspberry-Pi.html">4.0 Raspberry Pi</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/03.12-Sampling-Continuous-Time-Signals.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/03.12-Sampling-Continuous-Time-Signals.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/07.01-Low-Level-Measurment.html">7.1 Low-Level Measurement</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/07.08-Linear-DC-Circuits.html">7.8 Basics of Linear DC Circuits</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/07.02-Sampling-Continuous-Time-Signals.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/07.02-Sampling-Continuous-Time-Signals.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
