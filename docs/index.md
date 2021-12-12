@@ -14,11 +14,13 @@ This is a start on a collection of notebooks being developed in support of hands
 - [None](https://jckantor.github.io/cbe61622/01.02-Workstation-Learning-Exercises.html)
 - [1.10 Projects](https://jckantor.github.io/cbe61622/01.10-Projects.html)
 
-### [Chapter 2.0 Signal Conditioning](https://jckantor.github.io/cbe61622/02.00-Analog-Circuits-and-Signals.html)
-- [2.1 Low-Level Measurement](https://jckantor.github.io/cbe61622/02.01-Low-Level-Measurment.html)
-- [2.2 Sampling Continuous Time Signals](https://jckantor.github.io/cbe61622/02.02-Sampling-Continuous-Time-Signals.html)
+### [Chapter 2.0 Analog Circuits and Signals](https://jckantor.github.io/cbe61622/02.00-Analog-Circuits-and-Signals.html)
 - [2.8 Basics of Linear DC Circuits](https://jckantor.github.io/cbe61622/02.08-Linear-DC-Circuits.html)
 - [2.10 Operational Amplifiers](https://jckantor.github.io/cbe61622/02.10-Operational-Amplifiers.html)
+
+### [Chapter None](https://jckantor.github.io/cbe61622/03.00-Analog-Measurement.html)
+- [3.1 Low-Level Measurement](https://jckantor.github.io/cbe61622/03.01-Low-Level-Measurment.html)
+- [3.2 Sampling Continuous Time Signals](https://jckantor.github.io/cbe61622/03.02-Sampling-Continuous-Time-Signals.html)
 
 ### [Chapter 4.0 Chemical Instrumentation](https://jckantor.github.io/cbe61622/04.00-Chemical_Instrumentation.html)
 - [4.10 Potentiostats and Galvanostats](https://jckantor.github.io/cbe61622/04.10-Potentiostats-and-Galvanostats.html)
@@ -27,17 +29,19 @@ This is a start on a collection of notebooks being developed in support of hands
 - [5.1 Interfacing with Micropython on the Raspberry Pi Pico](https://jckantor.github.io/cbe61622/05.01-Getting_Started.html)
 - [5.2 Grove Starter Kit for Raspberry Pi Pico](https://jckantor.github.io/cbe61622/05.02-Seeed_Grove_Pico_Starter_Kit.html)
 - [5.3 LCD1602](https://jckantor.github.io/cbe61622/05.03-LCD1602.html)
-- [5.4 Managing Multiple Devices with an Event Loop](https://jckantor.github.io/cbe61622/05.04-Simple_Event_Loop.html)
-- [5.5 Coding for Device Control](https://jckantor.github.io/cbe61622/05.05-Coding-Paradigms.html)
-- [5.6 Coding Paradigms for Device Control](https://jckantor.github.io/cbe61622/05.06-Coding-Paradigms.html)
-- [5.7 Event Driven Programming](https://jckantor.github.io/cbe61622/05.07-Event-Driven-Programming.html)
-- [5.8 Stepper Motors](https://jckantor.github.io/cbe61622/05.08-Stepper-Motors.html)
-- [5.9 PIO Programming](https://jckantor.github.io/cbe61622/05.09-PIO-Programming.html)
-- [5.10 Wifi](https://jckantor.github.io/cbe61622/05.10-Wifi-with-ESP-01.html)
+
+### [Chapter None](https://jckantor.github.io/cbe61622/06.00-Coding-for-Device-Control.html)
+- [6.1 Managing Multiple Devices with an Event Loop](https://jckantor.github.io/cbe61622/06.01-Simple_Event_Loop.html)
+- [6.2 Coding for Device Control](https://jckantor.github.io/cbe61622/06.02-Coding-Paradigms.html)
+- [6.3 Coding Paradigms for Device Control](https://jckantor.github.io/cbe61622/06.03-Coding-Paradigms.html)
+- [6.4 Event Driven Programming](https://jckantor.github.io/cbe61622/06.04-Event-Driven-Programming.html)
+- [6.5 PIO Programming](https://jckantor.github.io/cbe61622/06.05-PIO-Programming.html)
 
 ### [Chapter 7.0 Interfacing with Laboratory Equipment](https://jckantor.github.io/cbe61622/07.00-Interfacing_with_Laboratory_Equipment.html)
 - [7.1 Communicating via TCP](https://jckantor.github.io/cbe61622/07.01-Communicating _via_TCP.html)
 - [7.2 Stepper Motor Control via I2C](https://jckantor.github.io/cbe61622/07.02-Stepper_Motor_Control_via_I2C.html)
+- [7.3 Stepper Motors](https://jckantor.github.io/cbe61622/07.03-Stepper-Motors.html)
+- [7.10 Wifi](https://jckantor.github.io/cbe61622/07.10-Wifi-with-ESP-01.html)
 
 ### [Chapter 8.0 Raspberry Pi](https://jckantor.github.io/cbe61622/08.00-Raspberry-Pi.html)
 - [8.1 Setting up the Raspberry Pi for Lab Use](https://jckantor.github.io/cbe61622/08.01-Raspberry-Pi.html)
