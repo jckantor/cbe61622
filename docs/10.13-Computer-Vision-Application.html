@@ -14087,7 +14087,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
         <span class="c1"># get slices containting particles</span>
         <span class="n">slices</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">find_objects</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
         
-        <span class="c1"># get raster points for each particles</span>
+        <span class="c1"># get raster points for each particle</span>
         <span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">centers_of_mass</span><span class="p">)):</span>
