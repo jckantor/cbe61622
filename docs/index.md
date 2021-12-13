@@ -11,14 +11,14 @@ This is a start on a collection of notebooks being developed in support of hands
 
 ### [Chapter 1.0 CBE 61622](https://jckantor.github.io/cbe61622/01.00-CBE_61622.html)
 - [1.1 Configuring a Workstation](https://jckantor.github.io/cbe61622/01.01-Configuring-a-Workstation.html)
-- [None](https://jckantor.github.io/cbe61622/01.02-Workstation-Learning-Exercises.html)
 - [1.10 Projects](https://jckantor.github.io/cbe61622/01.10-Projects.html)
+- [1.20 Workstation Learning Exercises](https://jckantor.github.io/cbe61622/01.20-Workstation-Learning-Exercises.html)
 
 ### [Chapter 2.0 Analog Circuits and Signals](https://jckantor.github.io/cbe61622/02.00-Analog-Circuits-and-Signals.html)
 - [2.8 Basics of Linear DC Circuits](https://jckantor.github.io/cbe61622/02.08-Linear-DC-Circuits.html)
 - [2.10 Operational Amplifiers](https://jckantor.github.io/cbe61622/02.10-Operational-Amplifiers.html)
 
-### [Chapter None](https://jckantor.github.io/cbe61622/03.00-Analog-Measurement.html)
+### [Chapter 3.0 Analog Measurement](https://jckantor.github.io/cbe61622/03.00-Analog-Measurement.html)
 - [3.1 Low-Level Measurement](https://jckantor.github.io/cbe61622/03.01-Low-Level-Measurment.html)
 - [3.2 Sampling Continuous Time Signals](https://jckantor.github.io/cbe61622/03.02-Sampling-Continuous-Time-Signals.html)
 
@@ -30,7 +30,7 @@ This is a start on a collection of notebooks being developed in support of hands
 - [5.2 Grove Starter Kit for Raspberry Pi Pico](https://jckantor.github.io/cbe61622/05.02-Seeed_Grove_Pico_Starter_Kit.html)
 - [5.3 LCD1602](https://jckantor.github.io/cbe61622/05.03-LCD1602.html)
 
-### [Chapter None](https://jckantor.github.io/cbe61622/06.00-Coding-for-Device-Control.html)
+### [Chapter 6.0 Device Coding](https://jckantor.github.io/cbe61622/06.00-Coding-for-Device-Control.html)
 - [6.1 Managing Multiple Devices with an Event Loop](https://jckantor.github.io/cbe61622/06.01-Simple_Event_Loop.html)
 - [6.2 Coding for Device Control](https://jckantor.github.io/cbe61622/06.02-Coding-Paradigms.html)
 - [6.3 Coding Paradigms for Device Control](https://jckantor.github.io/cbe61622/06.03-Coding-Paradigms.html)
@@ -39,8 +39,8 @@ This is a start on a collection of notebooks being developed in support of hands
 
 ### [Chapter 7.0 Interfacing with Laboratory Equipment](https://jckantor.github.io/cbe61622/07.00-Interfacing_with_Laboratory_Equipment.html)
 - [7.1 Communicating via TCP](https://jckantor.github.io/cbe61622/07.01-Communicating _via_TCP.html)
-- [7.2 Stepper Motor Control via I2C](https://jckantor.github.io/cbe61622/07.02-Stepper_Motor_Control_via_I2C.html)
 - [7.3 Stepper Motors](https://jckantor.github.io/cbe61622/07.03-Stepper-Motors.html)
+- [7.4 Stepper Motor Control via I2C](https://jckantor.github.io/cbe61622/07.04-Stepper_Motor_Control_via_I2C.html)
 - [7.10 Wifi](https://jckantor.github.io/cbe61622/07.10-Wifi-with-ESP-01.html)
 
 ### [Chapter 8.0 Raspberry Pi](https://jckantor.github.io/cbe61622/08.00-Raspberry-Pi.html)
@@ -56,9 +56,9 @@ This is a start on a collection of notebooks being developed in support of hands
 - [9.3 Accessing MQTT Devices](https://jckantor.github.io/cbe61622/09.03-Miscellaneous_Notes.html)
 
 ### [Chapter 10.0 Computer Vision](https://jckantor.github.io/cbe61622/10.00-Computer-Vision.html)
-- [10.10 Computer Vision Case Study: Introduction](https://jckantor.github.io/cbe61622/10.10-Computer-Vision-Introduction.html)
-- [10.11 Computer Vision Case Study: Finding Particles in Images](https://jckantor.github.io/cbe61622/10.11-Computer-Vision-Experiments.html)
-- [10.12 Computer Vision Case Study: Creating an Application](https://jckantor.github.io/cbe61622/10.12-Computer-Vision-Development.html)
+- [10.10 Case Study: Particle Counting](https://jckantor.github.io/cbe61622/10.10-Case-Study-Particle-Counting.html)
+- [10.11 Experiments with Computer Vision](https://jckantor.github.io/cbe61622/10.11-Experiments-with-Computer-Vision.html)
+- [10.12 Test Driven Development](https://jckantor.github.io/cbe61622/10.12-Test-Driven-Development.html)
 - [10.13 Computer Vision Case Study: Creating an Application](https://jckantor.github.io/cbe61622/10.13-Computer-Vision-Application.html)
 
 ### [Appendix A. A.0 Python Source Library](https://jckantor.github.io/cbe61622/A.00-Appendices.html)
