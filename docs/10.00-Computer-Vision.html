@@ -13987,7 +13987,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/09.03-Miscellaneous_Notes.html">9.3 Accessing MQTT Devices</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/10.02-Image-Capture.html">10.2 Image Capture</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/10.00-Computer-Vision.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/10.00-Computer-Vision.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/09.03-Miscellaneous_Notes.html">9.3 Accessing MQTT Devices</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/10.01-rpi-image-capture.html">10.1 Image Capture</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/10.00-Computer-Vision.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/10.00-Computer-Vision.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13998,6 +13998,90 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="10.0-Computer-Vision">10.0 Computer Vision<a class="anchor-link" href="#10.0-Computer-Vision">&#182;</a></h1>
+</div>
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="10.0.1-Light,-Perception,-and-Color">10.0.1 Light, Perception, and Color<a class="anchor-link" href="#10.0.1-Light,-Perception,-and-Color">&#182;</a></h2><p>Light, color, and human perception.</p>
+
+</div>
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="10.0.2-Lenses-and-Image-Formation">10.0.2 Lenses and Image Formation<a class="anchor-link" href="#10.0.2-Lenses-and-Image-Formation">&#182;</a></h2><p>Introduction to imaging and lenses</p>
+<ul>
+<li><a href="https://coinimaging.com/photo_articles.html">https://coinimaging.com/photo_articles.html</a></li>
+</ul>
+<p>Finite versus Infinite Conjugation</p>
+<p>Fourier Optics</p>
+
+</div>
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="10.0.3-Image-Sensors">10.0.3 Image Sensors<a class="anchor-link" href="#10.0.3-Image-Sensors">&#182;</a></h2><p>Raspberry Pi Cameras</p>
+<ul>
+<li><a href="https://www.raspberrypi.com/products/camera-module-v2/">Raspberry Pi Camera Module 2</a> A fixed focus color camera baased on the 8 MP <a href="https://github.com/rellimmot/Sony-IMX219-Raspberry-Pi-V2-CMOS">Sony IMX219 sensor</a>. Ships with fixed focus lens and CSI cable.</li>
+<li><a href="">Raspberry Pi HQ Camera</a></li>
+</ul>
+<p>Third Party Devices</p>
+<ul>
+<li><a href="https://www.amazon.com/Pieces-Megapixels-Sensor-Compatible-Raspberry/dp/B08M9RY3DQ/">Weewoday OV5647 1080p</a> Similar to Raspberry Pi Version 1 camera.</li>
+</ul>
+<p>Thermal Imaging</p>
+<ul>
+<li><a href="https://www.seeedstudio.com/Grove-Thermal-Imaging-Camera-MLX90641-BCB-16x12-IR-Array-with-55-FOV-p-5265.html">Grove - Thermal Imaging Camera - MLX90641 BCB 16x12 IR Array with 55° FOV</a></li>
+</ul>
+
+</div>
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="10.0.4-Macro/Micro-Photography">10.0.4 Macro/Micro Photography<a class="anchor-link" href="#10.0.4-Macro/Micro-Photography">&#182;</a></h2><p>Concepts</p>
+<ul>
+<li>Magnification</li>
+</ul>
+<p>Conventional Macro</p>
+<ul>
+<li><p>Triplet achromats. Infinite conjugation achromatic triplets are available as commercial at low-cost from Raynox.</p>
+</li>
+<li><p><a href="https://www.bhphotovideo.com/c/product/1307521-REG/mitakon_zhongyi_mtk20mf2ai_20mm_f_2_4_5x_super.html">Mitakon Zhongyi 20mm f/2 4.5x Super Macro Lens</a></p>
+</li>
+<li><p><a href="https://www.bhphotovideo.com/c/product/1526143-REG/venus_optics_ve2528nz_laowa_25mm_f_2_8_2_5_5x.html">Venus Optics Laowa 25mm f/2.8 2.5-5X Ultra Macro Lens</a></p>
+</li>
+<li><p><a href="https://www.bhphotovideo.com/c/product/852859-REG/YASUHARA_YA24_NAN5M_Nanoha_Macro_Lens_5_1.html">Yasuhara Nanoha Macro Lens 5:1</a></p>
+</li>
+<li><p><a href="https://www.bhphotovideo.com/c/product/1430596-REG/venus_optics_laowa_24mm_f_14_probe.html">Venus Optics Laowa 24mm f/14 Probe Lens</a></p>
+</li>
+</ul>
+<p>Microscope Objectives</p>
+<ul>
+<li><p><a href="https://www.edmundoptics.com/knowledge-center/application-notes/microscopy/understanding-microscopes-and-objectives/">Edmund Scientific. Understanding Microscopes and Objectives</a></p>
+</li>
+<li><p><a href="https://www.mjkzz.com/single-post/2016/08/10/Using-Microscope-Objectives-For-Beginners">MJKZZ. Using Microscope Objectives For Beginners</a></p>
+</li>
+<li><p>MJKZZ Microscope to Filter Thread adapters (<a href="https://www.mjkzz.com/product-page/4x-plan-infinite-microscope-objective-with-rms-adapter">https://www.mjkzz.com/product-page/4x-plan-infinite-microscope-objective-with-rms-adapter</a>)</p>
+</li>
+<li><p><a href="https://www.amazon.com/stores/page/B8FE1052-BA43-4FA2-99E8-3AC4A9A05A29">Hayear Lenses and Accessories</a></p>
+</li>
+</ul>
+
 </div>
 </div>
 
@@ -14025,7 +14109,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/09.03-Miscellaneous_Notes.html">9.3 Accessing MQTT Devices</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/10.02-Image-Capture.html">10.2 Image Capture</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/10.00-Computer-Vision.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/10.00-Computer-Vision.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/09.03-Miscellaneous_Notes.html">9.3 Accessing MQTT Devices</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/10.01-rpi-image-capture.html">10.1 Image Capture</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/10.00-Computer-Vision.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/10.00-Computer-Vision.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

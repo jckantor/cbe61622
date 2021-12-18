@@ -45,10 +45,8 @@ This is a start on a collection of notebooks being developed in support of hands
 
 ### [Chapter 8.0 Raspberry Pi](https://jckantor.github.io/cbe61622/08.00-Raspberry-Pi.html)
 - [8.1 Setting up the Raspberry Pi for Lab Use](https://jckantor.github.io/cbe61622/08.01-Raspberry-Pi.html)
-- [8.2 Image Capture](https://jckantor.github.io/cbe61622/08.02-rpi-image-capture.html)
-- [8.3 Machine Vision Applications](https://jckantor.github.io/cbe61622/08.03-Machine-Vision.html)
-- [8.4 RPI Library tests](https://jckantor.github.io/cbe61622/08.04-rpi-test-libraries.html)
-- [8.5 RPI Camera Module](https://jckantor.github.io/cbe61622/08.05-rpi-picamera_test.html)
+- [8.2 RPI Library tests](https://jckantor.github.io/cbe61622/08.02-rpi-test-libraries.html)
+- [8.3 RPI Camera Module](https://jckantor.github.io/cbe61622/08.03-rpi-picamera_test.html)
 
 ### [Chapter 9.0 Enabling the Internet of Things](https://jckantor.github.io/cbe61622/09.00-Enabling_the_Internet_of_Things.html)
 - [9.1 Publishing an Experiment via MQTT](https://jckantor.github.io/cbe61622/09.01-Publishing_an_Experiment_via_MQTT.html)
@@ -56,7 +54,8 @@ This is a start on a collection of notebooks being developed in support of hands
 - [9.3 Accessing MQTT Devices](https://jckantor.github.io/cbe61622/09.03-Miscellaneous_Notes.html)
 
 ### [Chapter 10.0 Computer Vision](https://jckantor.github.io/cbe61622/10.00-Computer-Vision.html)
-- [10.2 Image Capture](https://jckantor.github.io/cbe61622/10.02-Image-Capture.html)
+- [10.1 Image Capture](https://jckantor.github.io/cbe61622/10.01-rpi-image-capture.html)
+- [10.2 Machine Vision Applications](https://jckantor.github.io/cbe61622/10.02-Machine-Vision.html)
 - [10.10 Case Study: Particle Counting](https://jckantor.github.io/cbe61622/10.10-Case-Study-Particle-Counting.html)
 - [10.11 Experiments with Computer Vision](https://jckantor.github.io/cbe61622/10.11-Experiments-with-Computer-Vision.html)
 - [10.12 Test Driven Development](https://jckantor.github.io/cbe61622/10.12-Test-Driven-Development.html)
