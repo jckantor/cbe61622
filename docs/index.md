@@ -11,8 +11,8 @@ This is a start on a collection of notebooks being developed in support of hands
 
 ### [Chapter 1.0 CBE 61622](https://jckantor.github.io/cbe61622/01.00-CBE_61622.html)
 - [1.1 Configuring a Workstation](https://jckantor.github.io/cbe61622/01.01-Configuring-a-Workstation.html)
-- [1.10 Projects](https://jckantor.github.io/cbe61622/01.10-Projects.html)
-- [1.20 Workstation Learning Exercises](https://jckantor.github.io/cbe61622/01.20-Workstation-Learning-Exercises.html)
+- [1.10 Workstation Learning Exercises](https://jckantor.github.io/cbe61622/01.10-Workstation-Learning-Exercises.html)
+- [1.20 Semester Projects](https://jckantor.github.io/cbe61622/01.20-Projects.html)
 
 ### [Chapter 2.0 Analog Circuits and Signals](https://jckantor.github.io/cbe61622/02.00-Analog-Circuits-and-Signals.html)
 - [2.8 Basics of Linear DC Circuits](https://jckantor.github.io/cbe61622/02.08-Linear-DC-Circuits.html)
@@ -56,6 +56,7 @@ This is a start on a collection of notebooks being developed in support of hands
 - [9.3 Accessing MQTT Devices](https://jckantor.github.io/cbe61622/09.03-Miscellaneous_Notes.html)
 
 ### [Chapter 10.0 Computer Vision](https://jckantor.github.io/cbe61622/10.00-Computer-Vision.html)
+- [10.2 Image Capture](https://jckantor.github.io/cbe61622/10.02-Image-Capture.html)
 - [10.10 Case Study: Particle Counting](https://jckantor.github.io/cbe61622/10.10-Case-Study-Particle-Counting.html)
 - [10.11 Experiments with Computer Vision](https://jckantor.github.io/cbe61622/10.11-Experiments-with-Computer-Vision.html)
 - [10.12 Test Driven Development](https://jckantor.github.io/cbe61622/10.12-Test-Driven-Development.html)
