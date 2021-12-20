@@ -38,13 +38,12 @@ This is a start on a collection of notebooks being developed in support of hands
 - [6.5 PIO Programming](https://jckantor.github.io/cbe61622/06.05-PIO-Programming.html)
 
 ### [Chapter 7.0 Interfacing with Laboratory Equipment](https://jckantor.github.io/cbe61622/07.00-Interfacing_with_Laboratory_Equipment.html)
-- [7.1 Communicating via TCP](https://jckantor.github.io/cbe61622/07.01-Communicating _via_TCP.html)
-- [7.3 Stepper Motors](https://jckantor.github.io/cbe61622/07.03-Stepper-Motors.html)
-- [7.4 Stepper Motor Control via I2C](https://jckantor.github.io/cbe61622/07.04-Stepper_Motor_Control_via_I2C.html)
-- [7.10 Wifi](https://jckantor.github.io/cbe61622/07.10-Wifi-with-ESP-01.html)
+- [7.1 Stepper Motors](https://jckantor.github.io/cbe61622/07.01-Stepper-Motors.html)
+- [7.2 Stepper Motor Control via I2C](https://jckantor.github.io/cbe61622/07.02-Stepper_Motor_Control_via_I2C.html)
+- [7.3 Wifi](https://jckantor.github.io/cbe61622/07.03-Wifi-with-ESP-01.html)
 
 ### [Chapter 8.0 Raspberry Pi](https://jckantor.github.io/cbe61622/08.00-Raspberry-Pi.html)
-- [8.1 Setting up the Raspberry Pi for Lab Use](https://jckantor.github.io/cbe61622/08.01-Raspberry-Pi.html)
+- [8.1 Setting up the Raspberry Pi for Lab Use](https://jckantor.github.io/cbe61622/08.01-Raspberry-Pi-Setup.html)
 - [8.2 RPI Library tests](https://jckantor.github.io/cbe61622/08.02-rpi-test-libraries.html)
 - [8.3 RPI Camera Module](https://jckantor.github.io/cbe61622/08.03-rpi-picamera_test.html)
 
@@ -73,3 +72,4 @@ This is a start on a collection of notebooks being developed in support of hands
 - [B.3 Particle Command Line Interface (CLI)](https://jckantor.github.io/cbe61622/B.03-Particle-CLI.html)
 - [B.4 Ultrasonic Distance Ranger](https://jckantor.github.io/cbe61622/B.04-Ultrasonic_Distance_Ranger.html)
 - [B.5 Simple Stop Watch using Interrupts](https://jckantor.github.io/cbe61622/B.05-Simple_Stop_Watch_using_Interrupts.html)
+- [B.6 Communicating via TCP](https://jckantor.github.io/cbe61622/B.06-Communicating _via_TCP.html)

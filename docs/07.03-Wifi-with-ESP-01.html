@@ -13987,7 +13987,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/08.00-Raspberry-Pi.html">8.0 Raspberry Pi</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/08.02-rpi-test-libraries.html">8.2 RPI Library tests</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/08.01-Raspberry-Pi.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/08.01-Raspberry-Pi.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/07.02-Stepper_Motor_Control_via_I2C.html">7.2 Stepper Motor Control via I2C</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/08.00-Raspberry-Pi.html">8.0 Raspberry Pi</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/07.03-Wifi-with-ESP-01.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/07.03-Wifi-with-ESP-01.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13997,7 +13997,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="8.1-Setting-up-the-Raspberry-Pi-for-Lab-Use">8.1 Setting up the Raspberry Pi for Lab Use<a class="anchor-link" href="#8.1-Setting-up-the-Raspberry-Pi-for-Lab-Use">&#182;</a></h1>
+<h1 id="7.3-Wifi">7.3 Wifi<a class="anchor-link" href="#7.3-Wifi">&#182;</a></h1>
 </div>
 </div>
 
@@ -14006,129 +14006,39 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="8.1.1-Hardware">8.1.1 Hardware<a class="anchor-link" href="#8.1.1-Hardware">&#182;</a></h2><ul>
-<li>Raspberry Pi 4B</li>
-<li><p>32GB microSD card</p>
-</li>
-<li><p>Raspberry Pi Power Supply</p>
-</li>
-<li>Raspberry Pi 7" Touch Screen</li>
-<li>Raspberry Pi Keyboard and Mouse</li>
-<li>SmartiPi Touch Pro</li>
-</ul>
-<p>Follow setup instructions. Use default configurations of Raspbian for user name <code>pi</code>. Choose password carefully and keep it on file for use in the laboratory.</p>
-
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="8.1.2-Setup-Procedures">8.1.2 Setup Procedures<a class="anchor-link" href="#8.1.2-Setup-Procedures">&#182;</a></h2>
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.1.2.1-Step-0.-Learn-some-Simple-Linux-Commands">8.1.2.1 Step 0. Learn some Simple Linux Commands<a class="anchor-link" href="#8.1.2.1-Step-0.-Learn-some-Simple-Linux-Commands">&#182;</a></h3><p>The Raspberry Pi OS is a version of Linux maintained by the Raspberry Pi Foundation for use on the systems they produce. <a href="https://en.wikipedia.org/wiki/Linux">Linux</a> is open-source family of Unix-like operating systems that has been ported to a wide variety of systems, ranging from Android phones, personal computers, on up to large server clusters.</p>
-<p>Linux systems share a common set of simple commands that can be run from a terminal window. While these commands may seem terse and cryptic at first, if you learn to use them you will find them to be quick, powerful productivity tools. The following steps, for example, make use of these commands to set up a Raspberry Pi for use. If you are not already familiar the basic Linux commands, a short summary of the most useful commands is <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">Basic Linux Commands for Beginners</a>.</p>
-
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.1.2.2-Step-1.-Create-an-OS-Image">8.1.2.2 Step 1. Create an OS Image<a class="anchor-link" href="#8.1.2.2-Step-1.-Create-an-OS-Image">&#182;</a></h3><p>The download and imaging of the microSD card takes a while, up to an hour or two. So start this step and let it proceed while you move on to other things.</p>
-<ol>
-<li>Download and install <a href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> on your laptop.</li>
-<li>Mount the microSD card onto your laptop (typically using a USB microSD card reader).</li>
-<li>Select a Raspberry Pi OS and write the image to the microSD card. </li>
-</ol>
-
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.1.2.3-Step-2.-Assemble-Case-Hardware">8.1.2.3 Step 2. Assemble Case Hardware<a class="anchor-link" href="#8.1.2.3-Step-2.-Assemble-Case-Hardware">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.1.2.4-Step-3.-Initial-Configuration">8.1.2.4 Step 3. Initial Configuration<a class="anchor-link" href="#8.1.2.4-Step-3.-Initial-Configuration">&#182;</a></h3><p>The initial bootup sequence will include a number of configuration steps. You will need to attach a USB keyboard and mouse to complete these steps.</p>
+<p>Raspberry Pi Pico</p>
 <ul>
-<li>Country: United States</li>
-<li>Language: American English</li>
-<li>Timezone: Eastern</li>
-<li>Check "Use English Language"</li>
-<li>Check "Use US keyboard"</li>
+<li><a href="https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf">Raspberry Pi Pico Pinout Diagram</a></li>
 </ul>
-<p>The default user is "pi".  We will provide you with a class specific password to use with these devices.</p>
-<p>If the setup process doesn't successfully connect to the local wifi, skip those steps. After the boot process is complete, you can try to connect to wifi again through the taskbar.</p>
-
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.1.2.5-Step-4.-Update-Installed-Packages">8.1.2.5 Step 4. Update Installed Packages<a class="anchor-link" href="#8.1.2.5-Step-4.-Update-Installed-Packages">&#182;</a></h3><p>It's important to keep your device updated with the latest release of software updates. Open a terminal window and update all installed packages.</p>
-
-<pre><code>sudo apt update
-sudo apt full-upgrade
-sudo reboot
-sudo apt autoremove
-sudo apt clean</code></pre>
-
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="8.1.3-Step-5.-Configure-Options">8.1.3 Step 5. Configure Options<a class="anchor-link" href="#8.1.3-Step-5.-Configure-Options">&#182;</a></h2><p>In a terminal window, run the command</p>
-
-<pre><code>sudo raspi-config
-
-</code></pre>
-<p>Options to change:</p>
+<p>ESP-01 and ESP8266</p>
 <ul>
-<li>Display Options<ul>
-<li>D5: Set VNC resolution to 1024x768 or higher</li>
-</ul>
+<li><p><a href="https://en.wikipedia.org/wiki/ESP8266">ESP8266 Wikipedia article</a></p>
 </li>
-<li>Interface Options<ul>
-<li>P1: Enable RPI camera</li>
-<li>P2: Enable SSH</li>
-<li>P3: Enable VNC</li>
-<li>Consider enabling other options as needed for laboratory interfacing</li>
-</ul>
+<li><p><a href="https://www.espressif.com/sites/default/files/documentation/4a-esp8266_at_instruction_set_en.pdf">ESP8266 Non-OS AT Instruction Set</a> Espressif's documentation of the AT command set.</p>
 </li>
-<li>Performance Options<ul>
-<li>P2: Increase GPU memory to 256 MB</li>
-</ul>
+<li><p><a href="https://www.electronicshub.org/esp8266-at-commands/">ESP8266 AT Commands from Electronics Hub</a> A tutorial summary of the AT command set.</p>
+</li>
+<li><p><a href="http://room-15.github.io/blog/2015/03/26/esp8266-at-command-reference/">AT Command Reference</a> A blog description of all known AT commands implemented in the default firmware of the ESP8266 mcu.</p>
 </li>
 </ul>
-<p>Reboot when finished.</p>
+<p>Examples</p>
+<ul>
+<li><p><a href="https://www.instructables.com/Webserver-Using-Pi-Pico-and-ESP01/">Webserver Using Pi Pico and ESP01</a></p>
+</li>
+<li><p><a href="http://helloraspberrypi.blogspot.com/2021/02/connect-esp-01s-esp8266-to-raspberry-pi.html">Connect ESP-01S (ESP8266) to Raspberry Pi Pico/MicroPython, using AT Command</a></p>
+</li>
+<li><p><a href="https://learn.circuit.rocks/using-at-commands-on-the-esp8266">Using AT commands on the ESP8266</a></p>
+</li>
+<li><p><a href="http://helloraspberrypi.blogspot.com/2021/02/picomicropython-esp-01s-at-command-act.html">Pico/MicroPython + ESP-01S (AT Command) act as TCP Client connect to Raspberry Pi/Python TCP Server</a> A bare bones example of communicating with the ESP8266 using AT commands.</p>
+</li>
+<li><p><a href="https://github.com/noyelseth/rpi-pico-micropython-esp8266-lib">Raspberry Pi Pico Micropython ESP8266 Library</a> MicroPython classes to access ESP8266 by AT commands, and to parse HTTP response 
+after an HTTP Post/Get operation.</p>
+</li>
+</ul>
+<p>Video</p>
+<ul>
+<li><a href="https://youtu.be/02yfpA3h_w8https://youtu.be/02yfpA3h_w8">Raspberry Pi Pico gets WiFi via an ESP01 and UART</a></li>
+</ul>
 
 </div>
 </div>
@@ -14138,200 +14048,2965 @@ sudo apt clean</code></pre>
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.1.3.1-Step-6.-SSH-Connectivity">8.1.3.1 Step 6. SSH Connectivity<a class="anchor-link" href="#8.1.3.1-Step-6.-SSH-Connectivity">&#182;</a></h3><p>Remote connection from your laptop to a Raspberry Pi if often useful. To proceed you will need to be on the same network, and need the IP address of the Raspberry Pi.  You can find the IP address from the VNC icon on the task bar, or typing <code>hostname -I</code> in a terminal window, or by executing <code>ping -c 1 raspberrypi</code> on the remote device.</p>
-<p>For SSH connection, open a terminal window on your laptop and use the following command</p>
-
-<pre><code>ssh pi@xxx.xxx.xxx.xxx
-
-</code></pre>
-<p>This should open a terminal window to your Raspberry Pi.</p>
-
+<h2 id="7.3.1-ESP01-class">7.3.1 ESP01 class<a class="anchor-link" href="#7.3.1-ESP01-class">&#182;</a></h2>
 </div>
 </div>
 
 
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[165]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-micropython"><pre><span></span>%serialconnect
+
+from machine import UART, Pin
+import time
+
+UART_DELAY_MS = 500
+
+class ESP_Error(Exception):
+    &quot;&quot;&quot;Raise custom exceptions for ESP module.&quot;&quot;&quot;
+    pass
+
+
+class ESP01():
+    
+    def __init__(self, uart_port=0, tx=16, rx=17, verbose=False):
+        self.txPin = Pin(tx)
+        self.rxPin = Pin(rx)
+        self.uart = UART(0, baudrate=115200, tx=self.txPin, rx=self.rxPin, timeout=10)
+        self.verbose = verbose
+        if self.verbose:
+            self.echo_on()
+            print(self.send(&quot;AT&quot;))
+        else:
+            self.echo_off()
+
+    def send(self, cmd, timeout=UART_DELAY_MS):
+        if self.verbose:
+            print(&quot;+&quot;*20 + &quot;\n command:\t&quot;, cmd)
+            print(&quot; timeout:\t&quot;, timeout, &quot;ms&quot;)
+
+        # write AT command
+        self.uart.write(cmd + &quot;\r\n&quot;)
+        
+        # wait for data to appear in the buffer
+        toc = time.ticks_ms()
+        while time.ticks_ms() - toc &lt; timeout:
+            if self.uart.any():
+                break
+                
+        # read buffer
+        rxData = bytes()
+        toc = time.ticks_ms()
+        while True:
+            if (time.ticks_ms() - toc) &gt; timeout:
+                break
+            if self.uart.any():
+                rxData += self.uart.read(1)
+                toc = time.ticks_ms()
+                
+        # report response
+        try:
+            rxData = rxData.decode()
+        except UnicodeError:
+            if self.verbose:
+                print(&quot;Unicode error encountered, returning byte string.&quot;)
+        if self.verbose:
+            print(&quot;response:\n&quot;, rxData)
+            print(&quot;-&quot;*20)
+            
+        if &quot;OK&quot; in rxData:
+            status = &quot;OK&quot;
+        elif &quot;FAIL&quot; in rxData:
+            status = &quot;FAIL&quot;
+        elif &quot;busy p...&quot; in rxData:
+            status = &quot;BUSY&quot;
+        elif &quot;ERROR&quot; in rxData:
+            status = &quot;ERROR&quot;
+        else:
+            status = &quot;UNKNOWN&quot;
+            
+        if status != &quot;OK&quot;:
+            print(&quot;status = &quot;, status)
+            
+        return rxData
+            
+        
+    def echo_off(self):
+        &quot;&quot;&quot;Turn off the echo feature of the ESP-01.&quot;&quot;&quot;
+        return self.send(&quot;ATE0&quot;)
+    
+    def echo_on(self):
+        &quot;&quot;&quot;Turn on the echo feature of the ESP-01.&quot;&quot;&quot;
+        return self.send(&quot;ATE1&quot;)
+    
+    def restart(self):
+        &quot;&quot;&quot;Restart ESP8266 module.&quot;&quot;&quot;
+        return self.send(&quot;AT+RST&quot;, 500)
+    
+    def get_version(self):
+        &quot;&quot;&quot;Return firmware version.&quot;&quot;&quot;
+        return self.send(&quot;AT+GMR&quot;)
+    
+    def set_wifi_mode(self, mode=1):
+        return self.send(&quot;AT+CWMODE_CUR=&quot; + str(mode))
+        
+    def get_wifi_mode(self):
+        response = self.send(&quot;AT+CWMODE_CUR?&quot;)
+        if response is not None:
+            if &quot;1&quot; in response:
+                return &quot;STA&quot;
+            elif &quot;2&quot; in response:
+                return &quot;SoftAP&quot;
+            elif &quot;3&quot; in response:
+                return &quot;SoftAP +  STA&quot;
+            else:
+                raise ESP_Error(&quot;Unrecognized WiFi mode returned: \n&quot; + response)
+        return None
+        
+    def get_APs(self):
+        return self.send(&quot;AT+CWLAP&quot;, 5000)
+    
+    def connect(self, ssid, pwd):
+        cmd = &quot;AT+CWJAP=&quot; + &#39;&quot;&#39; + ssid + &#39;&quot;&#39; + &#39;,&#39; + &#39;&quot;&#39; + pwd + &#39;&quot;&#39;
+        return self.send(cmd.encode(), timeout=10000)
+    
+    def get_IP_address(self):
+        return self.send(&quot;AT+CIFSR&quot;)
+    
+    def set_connection_mode(self, mode=1):
+        return self.send(&quot;AT+CIPMUX=1&quot;)
+    
+    def webserver(self):
+        return self.send(&quot;AT+CIPSERVER=1,80&quot;, 2000)
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
 
     
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.1.3.2-Step-7.-VNC-Connectivity">8.1.3.2 Step 7. VNC Connectivity<a class="anchor-link" href="#8.1.3.2-Step-7.-VNC-Connectivity">&#182;</a></h3><p>VNC provides remote access to the full desktop of the Raspberry Pi. If you haven't already done so, install <a href="https://www.realvnc.com/en/connect/download/viewer/">RealVNC Viewer</a> on your laptop.</p>
-<p>You will need to know the IP address for the Raspberry Pi. This available by opening the VNC Viewer on the Raspberry Pi, or by executing <code>hostname -I</code> in a terminal window on the Raspberry Pi, or by executing <code>ping -c 1 raspberrypi</code> on the remote device.</p>
-<p>Then open a terminal window and setup an additional vncserver with the command</p>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
-<pre><code>vncserver -geometry 1600x900
 
-</code></pre>
-<p>using whatever resolution may be appropriate for your laptop. The command will return a new IP/port address you can use to open an additional desktop window to the Raspberry Pi.</p>
-<p>At this stage you may find it convenient to operate the Raspberry Pi in `headless' mode.</p>
-
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>serial exception on close write failed: [Errno 6] Device not configured
+Found serial ports: /dev/cu.usbmodem14401, /dev/cu.Bluetooth-Incoming-Port 
+<span class="ansi-blue-fg">Connecting to --port=/dev/cu.usbmodem14401 --baud=115200 </span>
+<span class="ansi-blue-fg">Ready.
+</span></pre>
 </div>
 </div>
 
+</div>
 
+</div>
+
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[166]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-micropython"><pre><span></span># startup
+
+esp = ESP01(verbose=True)
+esp.restart()
+esp.get_version()
+esp.set_wifi_mode(1)
+
+# connection
+#esp.connect(&quot;Wilder\u2019s Edge&quot;, &quot;FreyaWatson&quot;)
+print(esp.connect(&quot;ND-guest&quot;, &quot;&quot;))
+esp.set_connection_mode()
+esp.get_IP_address()
+
+# webserver
+
+def read_http_request():
+    req = &quot;&quot;
+    while True:
+        recv = bytes()
+        line = 0
+        if esp.uart.any():
+            recv = esp.uart.readline()
+        recv = recv.decode()
+        recv = recv.replace(&quot;\r\n&quot;, &quot;\n&quot;)
+        if len(recv) == 1:
+            break
+        else:
+            if len(recv) &gt; 0:
+                req += recv
+    
+    lines = req.split(&quot;\n&quot;)
+    if &quot;+IPD&quot; in lines[0]:
+        print(&quot;http request received&quot;)
+    else:
+        print(&quot;AT response received&quot;)
+    for k, line in enumerate(lines):
+         print(k, &quot;:&quot;, line)
+        
+        
+def send_line(msg):
+    esp.send(f&quot;AT+CIPSEND=0,{len(msg)+2}&quot;, 10)
+    esp.send(msg, 10)
+    
+def send_http_response(n):
+    send_line(&quot;HTTP/1.1 200 OK&quot;)
+    send_line(&quot;Content-type:text/html&quot;)
+    send_line(&quot;Connection: close&quot;)
+    send_line(&quot;&quot;);
+    send_line(&quot;&lt;html&gt;&lt;body&gt;&quot;)
+    send_line(&quot;&lt;h1&gt;Hello World!&lt;/h1&gt;&quot;)
+    send_line(f&quot;message {n}&quot;)
+    send_line(&quot;&lt;/body&gt;&lt;/html&gt;&quot;)
+    esp.send(&quot;AT+CIPCLOSE=0&quot;)
+    
+esp.webserver()
+recv_buf = bytes()
+toc = time.ticks_ms()
+n = 0
+while True:
+    read_http_request()
+    send_http_response(n)
+    n += 1
+    
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
 
     
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.1.3.3-Step-8.-Other-Software-Installations">8.1.3.3 Step 8. Other Software Installations<a class="anchor-link" href="#8.1.3.3-Step-8.-Other-Software-Installations">&#182;</a></h3>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>++++++++++++++++++++
+ command:	 ATE1
+ timeout:	 500 ms
+Unicode error encountered, returning byte string.
+response:
+ b&#39;\xfeATE1\r\r\n\r\nOK\r\n&#39;
+--------------------
+++++++++++++++++++++
+ command:	 AT
+ timeout:	 500 ms
+response:
+ AT
+
+OK
+
+--------------------
+AT
+
+OK
+
+++++++++++++++++++++
+ command:	 AT+RST
+ timeout:	 500 ms
+Unicode error encountered, returning byte string.
+response:
+ b&#39;AT+RST\r\r\n\r\nOK\r\nWIFI DISCONNECT\r\n\r\n ets Jan  8 2013,rst cause:2, boot mode:(3,7)\r\n\r\nload 0x40100000, len 27728, room 16 \r\ntail 0\r\nchksum 0x2a\r\nload 0x3ffe8000, len 2124, room 8 \r\ntail 4\r\nchksum 0x07\r\nload 0x3ffe8850, len 9276, room 4 \r\ntail 8\r\nchksum 0xba\r\ncsum 0xba\r\n\x8c\xe3No\x83l\x8e\x8cl\x130\xec\x0c\x88\x80\x0c\x8es\x88\x03\x8c\xe3No\x83l\x8e\x8fd\x130\xe4\x0c\x88\x80\x0c\x8es\x88\x03\x8c\xe3No\x83l\x8e\x98l\x130\xec\x0c\x88\x80l\x8es\x88\x03s\x88\x03\x8f\t\x907\xff\r\nready\r\n&#39;
+--------------------
+++++++++++++++++++++
+ command:	 AT+GMR
+ timeout:	 500 ms
+response:
+ AT+GMR
+AT version:1.1.0.0(May 11 2016 18:09:56)
+SDK version:1.5.4(baaeaebb)
+compile time:May 20 2016 15:08:19
+OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CWMODE_CUR=1
+ timeout:	 500 ms
+response:
+ AT+CWMODE_CUR=1
+
+OK
+
+--------------------
+++++++++++++++++++++
+ command:	 b&#39;AT+CWJAP=&#34;ND-guest&#34;,&#34;&#34;&#39;
+ timeout:	 10000 ms
+...response:
+ AT+CWJAP=&#34;ND-guest&#34;,&#34;&#34;
+WIFI CONNECTED
+WIFI GOT IP
+
+OK
+
+--------------------
+AT+CWJAP=&#34;ND-guest&#34;,&#34;&#34;
+WIFI CONNECTED
+WIFI GOT IP
+
+OK
+
+++++++++++++++++++++
+ command:	 AT+CIPMUX=1
+ timeout:	 500 ms
+response:
+ AT+CIPMUX=1
+
+OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIFSR
+ timeout:	 500 ms
+response:
+ AT+CIFSR
++CIFSR:STAIP,&#34;10.5.244.171&#34;
++CIFSR:STAMAC,&#34;84:cc:a8:b3:b6:f9&#34;
+
+OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSERVER=1,80
+ timeout:	 2000 ms
+response:
+ AT+CIPSERVER=1,80
+
+OK
+
+--------------------
+.............AT response received
+0 : 0,CONNECT
+1 : 
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ +IPD,0,376:GET / HTTP/1.1
+Host: 10.5.244.171
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 Mobile/15E148 Safari/604.1
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+AT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ 
+Recv 24 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ 
+Recv 19 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,14
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,14
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;html&gt;&lt;body&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 14 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,11
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,11
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 message 0
+ timeout:	 10 ms
+response:
+ 
+Recv 11 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,16
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,16
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;/body&gt;&lt;/html&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 16 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+.response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+0,CONNECT
+
++IPD,0,301:GET /favicon.ico HTTP/1.1
+Host: 10.5.244.171
+Connection: keep-alive
+DNT: 1
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 Mobile/15E148 Safari/604.1
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+
+
+--------------------
+.AT response received
+0 : 1,CONNECT
+1 : 
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ +IPD,1,376:GET / HTTP/1.1
+Host: 10.5.244.171
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 Mobile/15E148 Safari/604.1
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+AT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ Connection: close
+busy s...
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,14
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,14
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 &lt;html&gt;&lt;body&gt;
+ timeout:	 10 ms
+response:
+ &lt;html&gt;&lt;body&gt;
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ &lt;h1&gt;Hello World!&lt;/h1&gt;
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,11
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,11
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 message 1
+ timeout:	 10 ms
+response:
+ message 1
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,16
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,16
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 &lt;/body&gt;&lt;/html&gt;
+ timeout:	 10 ms
+response:
+ &lt;/body&gt;&lt;/html&gt;
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+busy s...
+
+--------------------
+status =  UNKNOWN
+AT response received
+0 : 
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ SEND OK
+AT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+status =  UNKNOWN
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ Connection: close
+ERROR
+
+--------------------
+status =  ERROR
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,14
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,14
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;html&gt;&lt;body&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 14 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,11
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,11
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 message 2
+ timeout:	 10 ms
+response:
+ 
+Recv 11 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,16
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,16
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;/body&gt;&lt;/html&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 16 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+
+--------------------
+.....AT response received
+0 : 1,CLOSED
+1 : 0,CONNECT
+2 : 
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ +IPD,0,376:GET / HTTP/1.1
+Host: 10.5.244.171
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 Mobile/15E148 Safari/604.1
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+AT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ 
+Recv 24 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ 
+Recv 19 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,14
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,14
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;html&gt;&lt;body&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 14 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,11
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,11
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 message 3
+ timeout:	 10 ms
+response:
+ 
+Recv 11 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,16
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,16
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;/body&gt;&lt;/html&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 16 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+0,CONNECT
+
++IPD,0,301:GET /favicon.ico HTTP/1.1
+Host: 10.5.244.171
+Connection: keep-alive
+DNT: 1
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 Mobile/15E148 Safari/604.1
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+
+
+--------------------
+......
+**[ys] &lt;class &#39;serial.serialutil.SerialException&#39;&gt;
+**[ys] read failed: [Errno 6] Device not configured
+
+
+**[ys] &lt;class &#39;serial.serialutil.SerialException&#39;&gt;
+**[ys] read failed: [Errno 6] Device not configured
+
+</pre>
 </div>
 </div>
 
+</div>
 
+</div>
+
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[124]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-micropython"><pre><span></span>    if esp.uart.any():
+        recv_buf += esp.uart.readline()
+    recv = recv_buf.decode()
+    if len(recv) &gt; 0:
+        print(recv)
+        recv_buf = bytes()
+        if &quot;+IPD&quot; in recv:
+            time.sleep(1)
+            sendline(&quot;HTTP/1.1 200 OK&quot;)
+            sendline(&quot;Content-type:text/html&quot;)
+            sendline(&quot;Connection: close&quot;)
+            sendline(&quot;&quot;)
+            sendline(&quot;&lt;h1&gt;Hello World!&lt;/h1&gt;&quot;)
+            sendline(f&quot;time = {(time.ticks_ms() - toc)/1000} seconds&quot;)
+            esp.send(&quot;AT+CIPCLOSE=0&quot;)
+            time.sleep(1)
+            
+            
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
 
     
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="8.1.3.3.1-WaveForms-(Digilent)">8.1.3.3.1 WaveForms (Digilent)<a class="anchor-link" href="#8.1.3.3.1-WaveForms-(Digilent)">&#182;</a></h4><p>Use the Raspberry Pi web browser to download and install the ADEPT runtime and WaveForms application.</p>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>++++++++++++++++++++
+ command:	 ATE1
+ timeout:	 500 ms
+Unicode error encountered, returning byte string.
+response:
+ b&#39;\xfeATE1\r\r\n\r\nOK\r\n&#39;
+--------------------
+++++++++++++++++++++
+ command:	 AT
+ timeout:	 500 ms
+response:
+ AT
+
+OK
+
+--------------------
+AT
+
+OK
+
+++++++++++++++++++++
+ command:	 AT+RST
+ timeout:	 500 ms
+Unicode error encountered, returning byte string.
+response:
+ b&#39;AT+RST\r\r\n\r\nOK\r\nWIFI DISCONNECT\r\n\r\n ets Jan  8 2013,rst cause:2, boot mode:(3,7)\r\n\r\nload 0x40100000, len 27728, room 16 \r\ntail 0\r\nchksum 0x2a\r\nload 0x3ffe8000, len 2124, room 8 \r\ntail 4\r\nchksum 0x07\r\nload 0x3ffe8850, len 9276, room 4 \r\ntail 8\r\nchksum 0xba\r\ncsum 0xba\r\n\x8c\xe3No\x83l\x8e\x8cd\x130\xe4\x0c\x88\x80\x0c\x8es\x88\x03\x8c\xe3No\x83d\x8e\x8fl\x130\xec\x0c\x88\x80\x0c\x8es\x88\x03\x8c\xe3No\x83l\x8e\x98l\x130\xec\x0c\x88\x80l\x8es\x88\x03s\x88\x03\x8f\t\x907\xff\r\nready\r\n&#39;
+--------------------
+++++++++++++++++++++
+ command:	 AT+GMR
+ timeout:	 500 ms
+response:
+ AT+GMR
+AT version:1.1.0.0(May 11 2016 18:09:56)
+SDK version:1.5.4(baaeaebb)
+compile time:May 20 2016 15:08:19
+OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CWMODE_CUR=1
+ timeout:	 500 ms
+response:
+ AT+CWMODE_CUR=1
+
+OK
+
+--------------------
+++++++++++++++++++++
+ command:	 b&#39;AT+CWJAP=&#34;Wilder\xe2\x80\x99s Edge&#34;,&#34;FreyaWatson&#34;&#39;
+ timeout:	 5000 ms
+.response:
+ AT+CWJAP=&#34;Wilder’s Edge&#34;,&#34;FreyaWatson&#34;
+WIFI CONNECTED
+WIFI GOT IP
+
+OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPMUX=1
+ timeout:	 500 ms
+response:
+ AT+CIPMUX=1
+
+OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIFSR
+ timeout:	 500 ms
+response:
+ AT+CIFSR
++CIFSR:STAIP,&#34;192.168.86.235&#34;
++CIFSR:STAMAC,&#34;84:cc:a8:b3:b6:f9&#34;
+
+OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSERVER=1,80
+ timeout:	 2000 ms
+.response:
+ AT+CIPSERVER=1,80
+
+OK
+
+--------------------
+.0,CONNECT
+
+
+
++IPD,0,378:GET / HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 MobiAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ Connection: close
+ERROR
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ &lt;h1&gt;Hello World!&lt;/h1&gt;
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,22
+ timeout:	 10 ms
+response:
+ 
+SEND OK
+AT+CIPSEND=0,22
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 7.459 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 22 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ 
+SEND OK
+AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+0,CONNECT
+
++IPD,0,303:GET /favicon.ico HTTP/1.1
+Host: 192.168.86.235
+Connection: keep-alive
+DNT: 1
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 Mobile/15E148 Safari/604.1
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+
+
+--------------------
+.1,CONNECT
+
+
+
++IPD,1,378:GET / HTTP/1.1
+
+.++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 MobiAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ Connection: close
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ &lt;h1&gt;Hello World!&lt;/h1&gt;
+busy s...
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 15.632 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+busy s...
+
+SEND OK
+
+--------------------
+..1,CLOSED
+
+1,CONNECT
+
+
+
++IPD,1,378:GET / HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 MobiAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ Connection: close
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ &lt;h1&gt;Hello World!&lt;/h1&gt;
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+busy s...
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 time = 27.904 seconds
+ timeout:	 10 ms
+response:
+ time = 27.904 seconds
+ERROR
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+
+--------------------
+..1,CLOSED
+
+0,CONNECT
+
+
+
++IPD,0,378:GET / HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 MobiAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ Connection: close
+busy s...
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ 
+SEND OK
+AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 41.042 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+0,CONNECT
+
++IPD,0,303:GET /favicon.ico HTTP/1.1
+Host: 192.168.86.235
+Connection: keep-alive
+DNT: 1
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 Mobile/15E148 Safari/604.1
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+
+
+--------------------
+.1,CONNECT
+
+
+
++IPD,1,378:GET / HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 MobiAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ 
+SEND OK
+Connection: close
+ERROR
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,22
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,22
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 44.12 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 22 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+
+--------------------
+....1,CLOSED
+
+0,CONNECT
+
+
+
++IPD,0,378:GET / HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 MobiAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ Connection: close
+ERROR
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 68.918 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+0,CONNECT
+
++IPD,0,303:GET /favicon.ico HTTP/1.1
+Host: 192.168.86.235
+Connection: keep-alive
+DNT: 1
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 Mobile/15E148 Safari/604.1
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+
+
+--------------------
+...1,CONNECT
+
+
+
++IPD,1,378:GET / HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/94.0.4606.76 MobiAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ 
+SEND OK
+AT+CIPSEND=0,24
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ 
+Recv 24 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ 
+Recv 19 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ 
+SEND OK
+AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,25
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,25
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 84.27401 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 25 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ 
+SEND OK
+AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+
+--------------------
+.....0,CONNECT
+
+2,CONNECT
+
+
+
++IPD,2,472:GET / HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Connection: keep-alive
+Cache-Control: max-age=0
+DNT: 1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36
+Accept: textAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ Connection: close
+busy s...
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 109.225 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 24 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+
+--------------------
+....1,CONNECT FAIL
+
+2,CLOSED
+
+..0,CONNECT
+
+
+
++IPD,0,389:GET /favicon.ico HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36
+DNT: 1
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;qAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ 
+Recv 24 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ 
+Recv 19 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 141.62 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+
+--------------------
+...0,CONNECT
+
+
+
++IPD,0,446:GET / HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Connection: keep-alive
+DNT: 1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36
+Accept: text/html,application/xhtml+xmAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ Content-type:text/html
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ Connection: close
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+busy s...
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ 
+SEND OK
+AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 156.518 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 24 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ 
+SEND OK
+AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+0,CONNECT
+
++IPD,0,389:GET /favicon.ico HTTP/1.1
+Host: 192.168.86.235
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36
+DNT: 1
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://192.168.86.235/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+
+
+--------------------
+.1,CONNECT
+
+
+
++IPD,1,472:GET / HTTP/1.1
+
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,17
+ timeout:	 10 ms
+response:
+ Host: 192.168.86.235
+Connection: keep-alive
+Cache-Control: max-age=0
+DNT: 1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36
+Accept: textAT+CIPSEND=0,17
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 HTTP/1.1 200 OK
+ timeout:	 10 ms
+response:
+ 
+Recv 17 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,24
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,24
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Content-type:text/html
+ timeout:	 10 ms
+response:
+ 
+Recv 24 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,19
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,19
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 Connection: close
+ timeout:	 10 ms
+response:
+ 
+Recv 19 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,2
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,2
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 
+ timeout:	 10 ms
+response:
+ 
+Recv 2 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 &lt;h1&gt;Hello World!&lt;/h1&gt;
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPSEND=0,23
+ timeout:	 10 ms
+response:
+ 
+SEND OK
+AT+CIPSEND=0,23
+
+OK
+&gt; 
+--------------------
+++++++++++++++++++++
+ command:	 time = 163.19 seconds
+ timeout:	 10 ms
+response:
+ 
+Recv 23 bytes
+
+SEND OK
+
+--------------------
+++++++++++++++++++++
+ command:	 AT+CIPCLOSE=0
+ timeout:	 500 ms
+response:
+ AT+CIPCLOSE=0
+0,CLOSED
+
+OK
+
+--------------------
+..1,CLOSED
+
+...................................................
+**[ys] &lt;class &#39;serial.serialutil.SerialException&#39;&gt;
+**[ys] read failed: [Errno 6] Device not configured
+
+
+**[ys] &lt;class &#39;serial.serialutil.SerialException&#39;&gt;
+**[ys] read failed: [Errno 6] Device not configured
+
+</pre>
 </div>
 </div>
 
+</div>
 
+</div>
+
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-micropython"><pre><span></span>print(esp.get_wifi_mode())
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
 
     
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="8.1.3.3.2-Python-Libraries">8.1.3.3.2 Python Libraries<a class="anchor-link" href="#8.1.3.3.2-Python-Libraries">&#182;</a></h4><p>The default distribution of Raspberry Pi OS includes the core Python libraries that are used for many routine calculations, including Numpy, SciPy, and Matplotlib. These libraries, however, do not take full advantage of the Raspberry Pi's multiple cores or the <a href="https://tttapa.github.io/Pages/Raspberry-Pi/NEON/index.html">NEON SIMD unit</a> incorporated into modern versions of the device. The following installs remove the default libraries, installs a modern BLAS to use the available hardware, and reinstalls core libraries with versions that can use the BLAS.</p>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
-<pre><code>sudo apt remove python3-numpy
-sudo apt-get install libopenblas-dev
-sudo apt-get install python3-numpy
-sudo apt-get install python3-matplotlib
-sudo apt-get install python3-scipy
 
-</code></pre>
-<p>Image processing</p>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>--------------------
+ command:	 AT+CWMODE_CUR?
+ timeout:	 500 ms
+response:	 AT+CWMODE_CUR?
++CWMODE_CUR:1
 
-<pre><code>sudo apt-get install python3-opencv
+OK
 
-</code></pre>
-<p>Qt Windowing</p>
-
-<pre><code>sudo apt-get install python3-pyqt5</code></pre>
-
+--------------------
+STA
+</pre>
 </div>
 </div>
 
+</div>
 
+</div>
+
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-micropython"><pre><span></span>      
+esp = ESP01S(verbose=True)
+#print(esp.restart())
+print(esp.version())
+print(esp.set_wifi_mode(1))
+print(esp.get_wifi_mode())
+print(esp.send(&quot;AT+CWJAP?&quot;))
+
+print(esp.connect_wifi(&quot;Wilder\u2019s Edge&quot;, &quot;FreyaWatson&quot;))
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
 
     
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="8.1.3.3.3-ImageJ-(Not-working!)">8.1.3.3.3 <a href="https://imagej.net/platforms/pi">ImageJ</a> (Not working!)<a class="anchor-link" href="#8.1.3.3.3-ImageJ-(Not-working!)">&#182;</a></h4><p>The following commands were an attempt to install ImageJ. Unfortunately, the resulting application is, at best, unresponsive and difficult to use. More work will be needed to produce a useable installation.</p>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
-<pre><code>sudo apt-get install openjdk-8-jre
-sudo update-alternatives --config java
-java -version
-cd Downloads
-wget downloads.imagej.net/fiji/latest/fiji-nojre.zip
-unzip fiji-nojre.zip
-wget raw.githubusercontent.com/imagej/imagej2/master/bin/ImageJ.sh</code></pre>
 
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Found serial ports: /dev/cu.usbmodem14101, /dev/cu.Bluetooth-Incoming-Port 
+<span class="ansi-blue-fg">Connecting to --port=/dev/cu.usbmodem14101 --baud=115200 </span>
+<span class="ansi-blue-fg">Ready.
+</span>--------------------
+ command:	 ATE1
+ timeout:	 500 ms
+response:	 b&#39;ATE1\r\r\n\r\nOK\r\n&#39;
+--------------------
+--------------------
+ command:	 AT
+ timeout:	 500 ms
+response:	 b&#39;AT\r\r\n\r\nOK\r\n&#39;
+--------------------
+AT
+
+OK
+
+--------------------
+ command:	 AT+GMR
+ timeout:	 500 ms
+response:	 b&#39;AT+GMR\r\r\nAT version:1.1.0.0(May 11 2016 18:09:56)\r\nSDK version:1.5.4(baaeaebb)\r\ncompile time:May 20 2016 15:08:19\r\nOK\r\n&#39;
+--------------------
+AT+GMR
+AT version:1.1.0.0(May 11 2016 18:09:56)
+SDK version:1.5.4(baaeaebb)
+compile time:May 20 2016 15:08:19
+OK
+
+--------------------
+ command:	 AT+CWMODE_CUR=1
+ timeout:	 500 ms
+response:	 b&#39;AT+CWMODE_CUR=1\r\r\n\r\nOK\r\n&#39;
+--------------------
+AT+CWMODE_CUR=1
+
+OK
+
+--------------------
+ command:	 AT+CWMODE_CUR?
+ timeout:	 500 ms
+response:	 b&#39;AT+CWMODE_CUR?\r\r\n+CWMODE_CUR:1\r\n\r\nOK\r\n&#39;
+--------------------
+STA
+--------------------
+ command:	 AT+CWJAP?
+ timeout:	 500 ms
+response:	 b&#39;AT+CWJAP?\r\r\n+CWJAP:&#34;Wilder\xe2\x80\x99s Edge&#34;,&#34;70:3a:cb:da:fb:ae&#34;,11,-55\r\n\r\nOK\r\n&#39;
+--------------------
+AT+CWJAP?
++CWJAP:&#34;Wilder’s Edge&#34;,&#34;70:3a:cb:da:fb:ae&#34;,11,-55
+
+OK
+
+AT+CWJAP=&#34;Wilder’s Edge&#34;,&#34;FreyaWatson&#34;
+--------------------
+ command:	 b&#39;AT+CWJAP=&#34;Wilder\xe2\x80\x99s Edge&#34;,&#34;FreyaWatson&#34;&#39;
+ timeout:	 10000 ms
+..response:	 b&#39;AT+CWJAP=&#34;Wilder\xe2\x80\x99s Edge&#34;,&#34;FreyaWatson&#34;\r\r\nWIFI DISCONNECT\r\n&#39;
+--------------------
+AT+CWJAP=&#34;Wilder’s Edge&#34;,&#34;FreyaWatson&#34;
+WIFI DISCONNECT
+
+</pre>
 </div>
 </div>
 
+</div>
 
+</div>
+
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-micropython"><pre><span></span>print(esp.send(&quot;AT+CWJAP?&quot;))
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
 
     
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.1.3.4-JupyterHub-and-JupyterLab">8.1.3.4 JupyterHub and JupyterLab<a class="anchor-link" href="#8.1.3.4-JupyterHub-and-JupyterLab">&#182;</a></h3><p>JupyterHub provides a JupyterLab environment that can be accessed locally or remotely through a web browswer. JupyterHub provides a notebook server for every user, a IPython console, and a terminal window. JupyterLab adds additional functionality corresponding to the latest notebook IDE. Together, these package provide a remarkably useful tool for accessing Raspberry Pi devices.</p>
-<p>The following installation instructions are adapted from <a href="https://towardsdatascience.com/setup-your-home-jupyterhub-on-a-raspberry-pi-7ad32e20eed">https://towardsdatascience.com/setup-your-home-jupyterhub-on-a-raspberry-pi-7ad32e20eed</a> for the latest version of Raspberry Pi OS (Bulleye).</p>
-<h4 id="Step-1.-Verify-Python-3-is-the-default-version-Python.">Step 1. Verify Python 3 is the default version Python.<a class="anchor-link" href="#Step-1.-Verify-Python-3-is-the-default-version-Python.">&#182;</a></h4><p>Verify that you have Python 3 installed as the default version of Python</p>
-
-<pre><code>python --version
-
-</code></pre>
-<p>If this is reporting a version earlier than Python 3, then go no further without first upgrading the OS to the current version of Raspberry Pi OS, Bullseye or later.</p>
-<h4 id="Step-2.-Install-packages">Step 2. Install packages<a class="anchor-link" href="#Step-2.-Install-packages">&#182;</a></h4><p>The next three commands install the services necessary to provide the JupyterHub service, and jupyterhub itself.</p>
-
-<pre><code>sudo apt-get install npm 
-sudo npm install -g configurable-http-proxy
-sudo -H pip3 install notebook jupyterhub
-
-</code></pre>
-<h4 id="Step-3.-Setup-the-configuration-file-for-JupyterHub">Step 3. Setup the configuration file for JupyterHub<a class="anchor-link" href="#Step-3.-Setup-the-configuration-file-for-JupyterHub">&#182;</a></h4><p>JupyterHub requires a configuration file. This step creates a configuration file, makes changes to the file, then moves the file to the root directory so that it can be accessed by all users.  First, be sure we're working in our own home directory.</p>
-
-<pre><code>cd ~
-
-</code></pre>
-<p>Next, create the configuration file <code>jupyterhub_config.py</code> in the home directory.</p>
-
-<pre><code>jupyterhub --generate-config
-
-</code></pre>
-<p>Two changes to this file will adapt its use for the Raspberry Pi. The first is to change the default port from 8000 to 8888 which is more commmonly used for JupyterHub services. Open the file <code>jupyterhub_config.py</code> using a text editor of your choice (for example, Thonny or nano on the Raspberry Pi).</p>
-
-<pre><code>nano jupyterhub_config.py
-
-</code></pre>
-<p>Search for a comment line containing <code># c.JupyterHub.bind_url = 'http://:8000'</code>. Change the line to read</p>
-
-<pre><code>c.JupyterHub.bind_url = 'http://:8888'
-
-</code></pre>
-<p>to enable use of the port 8888. To support JupyterLab, search for a comment line containing <code># c.Spawner.default_url = '/user/:username/lab'</code>. Change the line to read</p>
-
-<pre><code>c.Spawner.default_url = '/lab'
-
-</code></pre>
-<p>then save the file. Next, move the file to the root directory</p>
-
-<pre><code>sudo mv jupyter_config.py /root
-
-</code></pre>
-<p>That completes setup and installation of the JupyterHub configuration file.</p>
-<h4 id="Step-4.-Setup-and-start-JupyterHub-as-a-service.">Step 4. Setup and start JupyterHub as a service.<a class="anchor-link" href="#Step-4.-Setup-and-start-JupyterHub-as-a-service.">&#182;</a></h4><p>Create the jupyterhub.service file, and open for editing</p>
-
-<pre><code>sudo touch /lib/systemd/system/jupyterhub.service
-sudo nano /lib/systemd/system/jupyterhub.service
-
-</code></pre>
-<p>Add the following lines, write, and close the file.</p>
-
-<pre><code>[Unit] 
-Description=JupyterHub Service 
-After=multi-user.target
-
-[Service] 
-User=root 
-ExecStart=/usr/local/bin/jupyterhub --config=/root/jupyterhub_config.py 
-Restart=on-failure
-
-[Install] 
-WantedBy=multi-user.target
-
-</code></pre>
-<p>Next start the service and setup to restart on reboot</p>
-
-<pre><code>sudo systemctl daemon-reload 
-sudo systemctl start jupyterhub 
-sudo systemctl enable jupyterhub 
-
-</code></pre>
-<p>Confirm the JupyterHub service is active</p>
-
-<pre><code>sudo systemctl status jupyterhub.service
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-</code></pre>
-<h4 id="Step-5.-Setup-JupyterLab">Step 5. Setup JupyterLab<a class="anchor-link" href="#Step-5.-Setup-JupyterLab">&#182;</a></h4>
-<pre><code>sudo -H pip3 install jupyterlab  
-sudo jupyter serverextension enable --py jupyterlab --system
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>--------------------
+ command:	 AT+CWJAP?
+ timeout:	 500 ms
+response:	 b&#39;AT+CWJAP?\r\r\n+CWJAP:&#34;Wilder\xe2\x80\x99s Edge&#34;,&#34;70:3a:cb:db:02:db&#34;,1,-85\r\n\r\nOK\r\n&#39;
+--------------------
+AT+CWJAP?
++CWJAP:&#34;Wilder’s Edge&#34;,&#34;70:3a:cb:db:02:db&#34;,1,-85
 
+OK
 
-</code></pre>
-<h4 id="Step-6.-Test">Step 6. Test<a class="anchor-link" href="#Step-6.-Test">&#182;</a></h4><p>On Chromium browswer on Raspberry Pi, start a JupyterLab session with the link</p>
-<p><code>http://localhost:8888</code></p>
-<p>From a remote web server, first verify that the Raspberry Pi can be located on the same network. In a terminal window, <code>ping -c 1 raspberrypi</code> to locate the IP address. Given the IP address, start a JupyterLab session <code>http://xxx.xxx.xxx.xxx:8888</code>.</p>
-<p>Alternatively, a remote session can be started in a VNC session, then executing</p>
-
-<pre><code>jupyter lab
-
-</code></pre>
-<p>in a terminal window.</p>
+</pre>
+</div>
+</div>
 
 </div>
+
+</div>
+
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[71]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-micropython"><pre><span></span>resp =  esp.get_wifi_APs() 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>--------------------
+ command:	 AT+CWLAP
+ timeout:	 5000 ms
+..response:	 b&#39;AT+CWLAP\r\r\n+CWLAP:(3,&#34;Wilder\xe2\x80\x99s Edge&#34;,-66,&#34;7c:2e:bd:8a:18:61&#34;,1,13,0)\r\n+CWLAP:(3,&#34;Wilder\xe2\x80\x99s Edge&#34;,-45,&#34;70:3a:cb:db:02:db&#34;,1,18,0)\r\n+CWLAP:(3,&#34;bermuda10&#34;,-84,&#34;70:3a:cb:b4:9b:85&#34;,1,10,0)\r\n+CWLAP:(3,&#34;bermuda10&#34;,-75,&#34;70:3a:cb:b4:95:e4&#34;,1,18,0)\r\n+CWLAP:(3,&#34;bermuda10&#34;,-90,&#34;44:07:0b:0f:13:4f&#34;,1,18,0)\r\n+CWLAP:(3,&#34;Wilder\xe2\x80\x99s Edge&#34;,-50,&#34;7c:2e:bd:8a:13:d3&#34;,6,13,0)\r\n+CWLAP:(3,&#34;Wilder\xe2\x80\x99s Edge&#34;,-66,&#34;70:3a:cb:db:06:f0&#34;,6,13,0)\r\n+CWLAP:(3,&#34;ATT9ssH4wv_2GEXT&#34;,-88,&#34;8c:3b:ad:1f:2c:fc&#34;,10,0,0)\r\n+CWLAP:(3,&#34;Wilder\xe2\x80\x99s Edge&#34;,-81,&#34;7c:2e:bd:8a:21:51&#34;,11,16,0)\r\n+CWLAP:(3,&#34;Wilder\xe2\x80\x99s Edge&#34;,-82,&#34;44:07:0b:06:e8:d6&#34;,11,15,0)\r\n\r\nOK\r\n&#39;
+--------------------
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[76]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-micropython"><pre><span></span>aps = [r for r in resp.split(&quot;\r\n&quot;) if &quot;+CWLAP:&quot; in r]
+print(aps)
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[&#39;+CWLAP:(3,&#34;Wilder\u2019s Edge&#34;,-66,&#34;7c:2e:bd:8a:18:61&#34;,1,13,0)&#39;, &#39;+CWLAP:(3,&#34;Wilder\u2019s Edge&#34;,-45,&#34;70:3a:cb:db:02:db&#34;,1,18,0)&#39;, &#39;+CWLAP:(3,&#34;bermuda10&#34;,-84,&#34;70:3a:cb:b4:9b:85&#34;,1,10,0)&#39;, &#39;+CWLAP:(3,&#34;bermuda10&#34;,-75,&#34;70:3a:cb:b4:95:e4&#34;,1,18,0)&#39;, &#39;+CWLAP:(3,&#34;bermuda10&#34;,-90,&#34;44:07:0b:0f:13:4f&#34;,1,18,0)&#39;, &#39;+CWLAP:(3,&#34;Wilder\u2019s Edge&#34;,-50,&#34;7c:2e:bd:8a:13:d3&#34;,6,13,0)&#39;, &#39;+CWLAP:(3,&#34;Wilder\u2019s Edge&#34;,-66,&#34;70:3a:cb:db:06:f0&#34;,6,13,0)&#39;, &#39;+CWLAP:(3,&#34;ATT9ssH4wv_2GEXT&#34;,-88,&#34;8c:3b:ad:1f:2c:fc&#34;,10,0,0)&#39;, &#39;+CWLAP:(3,&#34;Wilder\u2019s Edge&#34;,-81,&#34;7c:2e:bd:8a:21:51&#34;,11,16,0)&#39;, &#39;+CWLAP:(3,&#34;Wilder\u2019s Edge&#34;,-82,&#34;44:07:0b:06:e8:d6&#34;,11,15,0)&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 
@@ -14342,7 +17017,7 @@ sudo jupyter serverextension enable --py jupyterlab --system
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-micropython"><pre><span></span> 
 </pre></div>
 
      </div>
@@ -14358,7 +17033,7 @@ sudo jupyter serverextension enable --py jupyterlab --system
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/08.00-Raspberry-Pi.html">8.0 Raspberry Pi</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/08.02-rpi-test-libraries.html">8.2 RPI Library tests</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/08.01-Raspberry-Pi.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/08.01-Raspberry-Pi.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/07.02-Stepper_Motor_Control_via_I2C.html">7.2 Stepper Motor Control via I2C</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/08.00-Raspberry-Pi.html">8.0 Raspberry Pi</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/07.03-Wifi-with-ESP-01.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/07.03-Wifi-with-ESP-01.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

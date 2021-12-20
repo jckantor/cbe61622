@@ -13987,7 +13987,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/07.00-Interfacing_with_Laboratory_Equipment.html">7.0 Interfacing with Laboratory Equipment</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/07.03-Stepper-Motors.html">7.3 Stepper Motors</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/07.01-Communicating _via_TCP.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/07.01-Communicating _via_TCP.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/07.01-Stepper-Motors.html">7.1 Stepper Motors</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/07.03-Wifi-with-ESP-01.html">7.3 Wifi</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/07.02-Stepper_Motor_Control_via_I2C.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/07.02-Stepper_Motor_Control_via_I2C.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13997,8 +13997,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="7.1-Communicating-via-TCP">7.1 Communicating via TCP<a class="anchor-link" href="#7.1-Communicating-via-TCP">&#182;</a></h1><p>This notebook shows how to implement a TCP Server on Particle Argon and communicate with the server from a laptop using a <code>netcat</code> utility.</p>
-
+<h1 id="7.2-Stepper-Motor-Control-via-I2C">7.2 Stepper Motor Control via I2C<a class="anchor-link" href="#7.2-Stepper-Motor-Control-via-I2C">&#182;</a></h1>
 </div>
 </div>
 
@@ -14007,7 +14006,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="7.1.1-Particle-CLI">7.1.1 Particle CLI<a class="anchor-link" href="#7.1.1-Particle-CLI">&#182;</a></h2>
+<h2 id="7.2.1-Particle-CLI">7.2.1 Particle CLI<a class="anchor-link" href="#7.2.1-Particle-CLI">&#182;</a></h2>
 </div>
 </div>
 
@@ -14016,7 +14015,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.1.1-Installation">7.1.1.1 Installation<a class="anchor-link" href="#7.1.1.1-Installation">&#182;</a></h3>
+<h3 id="7.2.1.1-Installation">7.2.1.1 Installation<a class="anchor-link" href="#7.2.1.1-Installation">&#182;</a></h3>
 </div>
 </div>
 
@@ -14030,6 +14029,9 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span>
 <span class="err">!</span><span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">particle</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">cli</span> <span class="p">)</span>
+
+<span class="c1"># path to the particle cli. May be environment dependent.</span>
+<span class="n">particle_cli</span> <span class="o">=</span> <span class="s2">&quot;/root/bin/particle&quot;</span>
 </pre></div>
 
      </div>
@@ -14044,7 +14046,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.1.2-Utility-functions">7.1.1.2 Utility functions<a class="anchor-link" href="#7.1.1.2-Utility-functions">&#182;</a></h3>
+<h3 id="7.2.1.2-Utility-functions">7.2.1.2 Utility functions<a class="anchor-link" href="#7.2.1.2-Utility-functions">&#182;</a></h3>
 </div>
 </div>
 
@@ -14069,8 +14071,8 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     <span class="k">return</span> <span class="n">ansi</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 
 <span class="c1"># streamline call to the particle-cli</span>
-<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">particle_cli</span><span class="o">=</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">):</span>
-    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
+<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
                              <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
                              <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
     <span class="n">process</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -14090,17 +14092,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.1.3-Login-to-Particle">7.1.1.3 Login to Particle<a class="anchor-link" href="#7.1.1.3-Login-to-Particle">&#182;</a></h3>
-</div>
-</div>
-
-
-
-    
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.1.4-Select-a-device">7.1.1.4 Select a device<a class="anchor-link" href="#7.1.1.4-Select-a-device">&#182;</a></h3><p>The following cell downloads a list of all user devices and creates a list of device names. Here we choose the first name in the list for the rest of this notebook. If this is not the device to be used, then modify this cell accordingly.</p>
-
+<h3 id="7.2.1.3-Login-to-Particle">7.2.1.3 Login to Particle<a class="anchor-link" href="#7.2.1.3-Login-to-Particle">&#182;</a></h3>
 </div>
 </div>
 
@@ -14109,7 +14101,7 @@ content is available <a href="https://github.com/jckantor/cbe61622.git">on Githu
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
@@ -14162,10 +14154,20 @@ Password: ··········
 
 
 
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="7.2.1.4-Select-a-device">7.2.1.4 Select a device<a class="anchor-link" href="#7.2.1.4-Select-a-device">&#182;</a></h3><p>The following cell downloads a list of all user devices and creates a list of device names. Here we choose the first name in the list for the rest of this notebook. If this is not the device to be used, then modify this cell accordingly.</p>
+
+</div>
+</div>
+
+
+
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
@@ -14207,7 +14209,7 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="7.1.2-Project-Considerations">7.1.2 Project Considerations<a class="anchor-link" href="#7.1.2-Project-Considerations">&#182;</a></h2>
+<h2 id="7.2.2-Project:-Motor-Control">7.2.2 Project: Motor Control<a class="anchor-link" href="#7.2.2-Project:-Motor-Control">&#182;</a></h2>
 </div>
 </div>
 
@@ -14216,9 +14218,12 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="7.1.3-Implementation">7.1.3 Implementation<a class="anchor-link" href="#7.1.3-Implementation">&#182;</a></h2><p>MacOS</p>
-
-<pre><code>nc -4 -n 192.168.xxx.xxx pppp</code></pre>
+<h3 id="7.2.2.1-Grove-I2C-Motor-Driver-V1.3">7.2.2.1 Grove I2C Motor Driver V1.3<a class="anchor-link" href="#7.2.2.1-Grove-I2C-Motor-Driver-V1.3">&#182;</a></h3><p><a href="https://wiki.seeedstudio.com/Grove-I2C_Motor_Driver_V1.3/">SeeedStudio Documentation</a></p>
+<p><a href="https://github.com/Seeed-Studio/Grove_I2C_Motor_Driver_v1_3">Github repository</a></p>
+<p><img src="https://files.seeedstudio.com/wiki/Grove-I2C_Motor_Driver_V1.3/img/I2CMotorDriver-1.jpg" alt=""></p>
+<p>Note the default address <code>0x0f</code>.</p>
+<p><strong> It turns out this motor driver requires a 5 volt logic. The Particle Argon is capable of 3.3v only, thus not electrically compatible. This is confirmed by the absence of a code library supporting this motor driver on Particle Argon.</strong></p>
+<p><strong>New motor drivers are on order.</strong></p>
 
 </div>
 </div>
@@ -14228,7 +14233,16 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.3.1-Create-Project">7.1.3.1 Create Project<a class="anchor-link" href="#7.1.3.1-Create-Project">&#182;</a></h3>
+<h2 id="7.2.3-Prototype">7.2.3 Prototype<a class="anchor-link" href="#7.2.3-Prototype">&#182;</a></h2>
+</div>
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="7.2.3.1-Create-Project">7.2.3.1 Create Project<a class="anchor-link" href="#7.2.3.1-Create-Project">&#182;</a></h3>
 </div>
 </div>
 
@@ -14237,7 +14251,7 @@ Password: ··········
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -14278,7 +14292,7 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.3.2-Change-working-directory">7.1.3.2 Change working directory<a class="anchor-link" href="#7.1.3.2-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
+<h3 id="7.2.3.2-Change-working-directory">7.2.3.2 Change working directory<a class="anchor-link" href="#7.2.3.2-Change-working-directory">&#182;</a></h3><p>The Particle CLI assumes one is working in the top  project directory.</p>
 
 </div>
 </div>
@@ -14288,10 +14302,10 @@ Password: ··········
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/myproject
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> myproject
 </pre></div>
 
      </div>
@@ -14327,7 +14341,7 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.3.3-Create-source-file">7.1.3.3 Create source file<a class="anchor-link" href="#7.1.3.3-Create-source-file">&#182;</a></h3>
+<h3 id="7.2.3.3-Add-relevant-libraries">7.2.3.3 Add relevant libraries<a class="anchor-link" href="#7.2.3.3-Add-relevant-libraries">&#182;</a></h3>
 </div>
 </div>
 
@@ -14336,79 +14350,105 @@ Password: ··········
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="s2">&quot;motor&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>&gt; Found 6 libraries matching motor
+Adafruit-MotorShield-V2 1.0.0 12330 A library for the Adafruit Motor Shield V2 for Particle devices
+Serial_Controlled_Motor_Driver 1.0.3 814 Use this to command the SCMD and connected chain.
+SeeedMotorShield 0.0.1 572 Library for controling the DC Motor shield by Seeed
+StepMotorController 0.0.32 479 Step Motor Controller Interface     
+DualMotor 0.0.2 215 Custom DualMotor Library
+PatriotMotorized 2.0.0 16 Extend Patriot IoT to support motorized devices.
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;library&quot;</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;Grove_I2C_Motor_Driver_v1_3&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Library Grove_I2C_Motor_Driver_v1_3 not found
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+    
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="7.2.3.4-Create-source-file">7.2.3.4 Create source file<a class="anchor-link" href="#7.2.3.4-Create-source-file">&#182;</a></h3>
+</div>
+</div>
+
+
+
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
-
-<span class="o">/*</span> 
-<span class="n">Demonstrate</span> <span class="n">bidirectional</span> <span class="n">communication</span> <span class="k">with</span> <span class="n">Particle</span> <span class="n">using</span> <span class="n">TCPServer</span> <span class="ow">and</span>
-<span class="n">client</span><span class="o">.</span> <span class="n">After</span> <span class="n">flashing</span> <span class="n">this</span> <span class="n">firmware</span><span class="p">,</span> <span class="n">check</span> <span class="n">the</span> <span class="n">Particle</span> <span class="n">console</span> <span class="k">for</span> <span class="n">the</span> <span class="n">local</span>
-<span class="n">IP</span> <span class="n">address</span><span class="o">.</span> <span class="n">Connect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">local</span> <span class="n">IP</span> <span class="n">address</span> <span class="n">using</span> <span class="n">netcat</span>
-
-    <span class="n">nc</span> <span class="o">-</span><span class="mi">4</span> <span class="o">-</span><span class="n">n</span> <span class="mf">192.168</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span> <span class="mi">23</span>
-
-<span class="n">Type</span> <span class="n">H</span> <span class="ow">and</span> <span class="n">L</span> <span class="n">will</span> <span class="n">turn</span> <span class="n">the</span> <span class="n">on</span><span class="o">-</span><span class="n">board</span> <span class="n">LED</span> <span class="n">on</span> <span class="ow">and</span> <span class="n">off</span><span class="o">.</span>
-<span class="o">*/</span>
-
-<span class="n">TCPServer</span> <span class="n">server</span> <span class="o">=</span> <span class="n">TCPServer</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
-<span class="n">TCPClient</span> <span class="n">client</span><span class="p">;</span>
-
-<span class="n">const</span> <span class="nb">int</span> <span class="n">led</span> <span class="o">=</span> <span class="n">D7</span><span class="p">;</span>
-<span class="n">long</span> <span class="nb">int</span> <span class="n">timeout</span><span class="p">;</span>
-<span class="n">char</span> <span class="n">c</span><span class="p">;</span>
-
-<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">server</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
-    <span class="n">Particle</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;Server IP&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">localIP</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">PRIVATE</span><span class="p">);</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-    <span class="n">timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">char</span> <span class="n">c</span><span class="p">;</span>
-    <span class="n">long</span> <span class="nb">int</span> <span class="n">begin</span><span class="p">;</span>
-    <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">timeout</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
-            <span class="o">/*</span> <span class="n">get</span> <span class="nb">next</span> <span class="n">char</span> <span class="o">*/</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">read</span><span class="p">();</span>
-            <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;H&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Turn LED on.&quot;</span><span class="p">);</span>
-                <span class="n">timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5000</span><span class="p">;</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;L&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Turn LED off.&quot;</span><span class="p">);</span>
-                <span class="n">timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;S&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">led</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;LED is on.&quot;</span><span class="p">);</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;LED is off.&quot;</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;X&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Close client connection.&quot;</span><span class="p">);</span>
-                <span class="n">client</span><span class="o">.</span><span class="n">stop</span><span class="p">();</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="n">server</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="o">/*</span> <span class="n">get</span> <span class="nb">next</span> <span class="n">client</span> <span class="o">*/</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">available</span><span class="p">();</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
-            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Enter: &quot;</span><span class="p">);</span>
-            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   H to turn LED on for 5 seconds&quot;</span><span class="p">);</span>
-            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   L to turn LED off&quot;</span><span class="p">);</span>
-            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   S for LED status&quot;</span><span class="p">);</span>
-            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   X to close client connection&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
 </pre></div>
 
      </div>
@@ -14444,7 +14484,7 @@ Password: ··········
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.3.4-Compiling">7.1.3.4 Compiling<a class="anchor-link" href="#7.1.3.4-Compiling">&#182;</a></h3>
+<h3 id="7.2.3.5-Compiling">7.2.3.5 Compiling<a class="anchor-link" href="#7.2.3.5-Compiling">&#182;</a></h3>
 </div>
 </div>
 
@@ -14453,7 +14493,7 @@ Password: ··········
     <div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -14484,11 +14524,11 @@ Including:
     project.properties
 
 attempting to compile firmware
-downloading binary from: /v1/binaries/5f97068ce15235e4909ac925
+downloading binary from: /v1/binaries/5f91c30f9c09c651a428aa51
 saving to: myproject.bin
 Memory use:
    text	   data	    bss	    dec	    hex	filename
-  11852	    108	   1148	  13108	   3334	/workspace/target/workspace.elf
+   6588	    108	   1112	   7808	   1e80	/workspace/target/workspace.elf
 
 Compile succeeded.
 Saved firmware to: /content/myproject/myproject.bin
@@ -14508,7 +14548,7 @@ Saved firmware to: /content/myproject/myproject.bin
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.3.5-Flash-firmware">7.1.3.5 Flash firmware<a class="anchor-link" href="#7.1.3.5-Flash-firmware">&#182;</a></h3>
+<h3 id="7.2.3.6-Flash-firmware">7.2.3.6 Flash firmware<a class="anchor-link" href="#7.2.3.6-Flash-firmware">&#182;</a></h3>
 </div>
 </div>
 
@@ -14560,29 +14600,11 @@ Flash success!
 
 
 
-    <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-
-
-
     
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/cbe61622/07.00-Interfacing_with_Laboratory_Equipment.html">7.0 Interfacing with Laboratory Equipment</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/07.03-Stepper-Motors.html">7.3 Stepper Motors</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/07.01-Communicating _via_TCP.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/07.01-Communicating _via_TCP.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/cbe61622/07.01-Stepper-Motors.html">7.1 Stepper Motors</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/cbe61622/07.03-Wifi-with-ESP-01.html">7.3 Wifi</a> &gt;<p><a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/master/docs/07.02-Stepper_Motor_Control_via_I2C.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/cbe61622/07.02-Stepper_Motor_Control_via_I2C.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
