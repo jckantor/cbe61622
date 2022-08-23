@@ -3,5 +3,5 @@
 format: jb-book
 root: README.md
 chapters:
-- file: notebooks/01/01.01-Configuring-a-Workstation.ipynb
+- file: notebooks/01.01-Configuring-a-Workstation.ipynb
 
