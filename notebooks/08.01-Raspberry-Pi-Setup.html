@@ -1,0 +1,1005 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Setting up the Raspberry Pi for Lab Use &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RPI Library tests" href="08.02-rpi-test-libraries.html" />
+    <link rel="prev" title="Raspberry Pi" href="08.00-Raspberry-Pi.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CBE 41622/61622 Laboratory Instrumentation and Measurement</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   CBE 61622 Laboratory Measurement and Instrumentation
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.01-Configuring-a-Workstation.html">
+   Configuring a Workstation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.10-Workstation-Learning-Exercises.html">
+   Workstation Learning Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.20-Projects.html">
+   Semester Projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.00-Analog-Circuits-and-Signals.html">
+   Analog Circuits and Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.08-Linear-DC-Circuits.html">
+   Basics of Linear DC Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.10-Operational-Amplifiers.html">
+   Operational Amplifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.00-Analog-Measurement.html">
+   Analog Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.01-Low-Level-Measurment.html">
+   Low-Level Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.02-Sampling-Continuous-Time-Signals.html">
+   Sampling Continuous Time Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.00-Chemical_Instrumentation.html">
+   Chemical Instrumentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.10-Potentiostats-and-Galvanostats.html">
+   Potentiostats and Galvanostats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.00-Raspberry-Pi-Pico.html">
+   Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.02-Seeed_Grove_Pico_Starter_Kit.html">
+   Grove Starter Kit for Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.03-LCD1602.html">
+   LCD1602
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.00-Coding-for-Device-Control.html">
+   Device Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.01-Simple_Event_Loop.html">
+   Managing Multiple Devices with an Event Loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.02-Coding-Paradigms.html">
+   Coding for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.03-Coding-Paradigms.html">
+   Coding Paradigms for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.04-Event-Driven-Programming.html">
+   Event Driven Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.05-PIO-Programming.html">
+   PIO Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.00-Interfacing_with_Laboratory_Equipment.html">
+   Interfacing with Laboratory Equipment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.01-Stepper-Motors.html">
+   Stepper Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.02-Stepper_Motor_Control_via_I2C.html">
+   Stepper Motor Control via I2C
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.03-Wifi-with-ESP-01.html">
+   Wifi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.00-Raspberry-Pi.html">
+   Raspberry Pi
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Setting up the Raspberry Pi for Lab Use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.02-rpi-test-libraries.html">
+   RPI Library tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.03-rpi-picamera_test.html">
+   RPI Camera Module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.00-Enabling_the_Internet_of_Things.html">
+   Enabling the Internet of Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.01-Publishing_an_Experiment_via_MQTT.html">
+   Publishing an Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.02-Accessing_a_Remote_Experiment_via_MQTT.html">
+   Accessing a Remote Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.03-Miscellaneous_Notes.html">
+   Accessing MQTT Devices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.00-Computer-Vision.html">
+   Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.01-rpi-image-capture.html">
+   Image Capture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.02-Machine-Vision.html">
+   Machine Vision Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.10-Case-Study-Particle-Counting.html">
+   Case Study: Particle Counting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.11-Experiments-with-Computer-Vision.html">
+   Experiments with Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.12-Test-Driven-Development.html">
+   Test Driven Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.13-Computer-Vision-Application.html">
+   Computer Vision Case Study: Creating an Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.00-Appendices.html">
+   Python Source Library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.01-Resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.02-Downloading_Python_source_files_from_github.html">
+   Downloading Python source files from github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.03-Getting-Started-with-Pymata4.html">
+   Getting Started with Pymata4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.04-Scheduling-Real-Time-Events-with-Simpy.html">
+   Scheduling Real-Time Events with Simpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.00-Working_with_Particle.html">
+   Working with Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.01-Particle_CLI.html">
+   Particle Command Line Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.02-Particle_Coding.html">
+   Coding for Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.03-Particle-CLI.html">
+   Particle Command Line Interface (CLI)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.04-Ultrasonic_Distance_Ranger.html">
+   Ultrasonic Distance Ranger
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.05-Simple_Stop_Watch_using_Interrupts.html">
+   Simple Stop Watch using Interrupts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.06-Communicating%20_via_TCP.html">
+   Communicating via TCP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/08.01-Raspberry-Pi-Setup.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jckantor/cbe61622"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/08.01-Raspberry-Pi-Setup.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/08.01-Raspberry-Pi-Setup.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/08.01-Raspberry-Pi-Setup.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-procedures">
+   Setup Procedures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-0-learn-some-simple-linux-commands">
+     Step 0. Learn some Simple Linux Commands
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1-create-an-os-image">
+     Step 1. Create an OS Image
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2-assemble-case-hardware">
+     Step 2. Assemble Case Hardware
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-3-initial-configuration">
+     Step 3. Initial Configuration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-4-update-installed-packages">
+     Step 4. Update Installed Packages
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-5-configure-options">
+   Step 5. Configure Options
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-6-ssh-connectivity">
+     Step 6. SSH Connectivity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-7-vnc-connectivity">
+     Step 7. VNC Connectivity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-8-other-software-installations">
+     Step 8. Other Software Installations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#waveforms-digilent">
+       WaveForms (Digilent)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-libraries">
+       Python Libraries
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#imagej-not-working">
+       ImageJ (Not working!)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyterhub-and-jupyterlab">
+     JupyterHub and JupyterLab
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-1-verify-python-3-is-the-default-version-python">
+       Step 1. Verify Python 3 is the default version Python.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-install-packages">
+       Step 2. Install packages
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-3-setup-the-configuration-file-for-jupyterhub">
+       Step 3. Setup the configuration file for JupyterHub
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-4-setup-and-start-jupyterhub-as-a-service">
+       Step 4. Setup and start JupyterHub as a service.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-5-setup-jupyterlab">
+       Step 5. Setup JupyterLab
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-6-test">
+       Step 6. Test
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Setting up the Raspberry Pi for Lab Use</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-procedures">
+   Setup Procedures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-0-learn-some-simple-linux-commands">
+     Step 0. Learn some Simple Linux Commands
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1-create-an-os-image">
+     Step 1. Create an OS Image
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2-assemble-case-hardware">
+     Step 2. Assemble Case Hardware
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-3-initial-configuration">
+     Step 3. Initial Configuration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-4-update-installed-packages">
+     Step 4. Update Installed Packages
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-5-configure-options">
+   Step 5. Configure Options
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-6-ssh-connectivity">
+     Step 6. SSH Connectivity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-7-vnc-connectivity">
+     Step 7. VNC Connectivity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-8-other-software-installations">
+     Step 8. Other Software Installations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#waveforms-digilent">
+       WaveForms (Digilent)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-libraries">
+       Python Libraries
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#imagej-not-working">
+       ImageJ (Not working!)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyterhub-and-jupyterlab">
+     JupyterHub and JupyterLab
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-1-verify-python-3-is-the-default-version-python">
+       Step 1. Verify Python 3 is the default version Python.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-install-packages">
+       Step 2. Install packages
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-3-setup-the-configuration-file-for-jupyterhub">
+       Step 3. Setup the configuration file for JupyterHub
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-4-setup-and-start-jupyterhub-as-a-service">
+       Step 4. Setup and start JupyterHub as a service.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-5-setup-jupyterlab">
+       Step 5. Setup JupyterLab
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-6-test">
+       Step 6. Test
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="setting-up-the-raspberry-pi-for-lab-use">
+<h1>Setting up the Raspberry Pi for Lab Use<a class="headerlink" href="#setting-up-the-raspberry-pi-for-lab-use" title="Permalink to this headline">¶</a></h1>
+<section id="setup-procedures">
+<h2>Setup Procedures<a class="headerlink" href="#setup-procedures" title="Permalink to this headline">¶</a></h2>
+<section id="step-0-learn-some-simple-linux-commands">
+<h3>Step 0. Learn some Simple Linux Commands<a class="headerlink" href="#step-0-learn-some-simple-linux-commands" title="Permalink to this headline">¶</a></h3>
+<p>The Raspberry Pi OS is a version of Linux maintained by the Raspberry Pi Foundation for use on the systems they produce. <a class="reference external" href="https://en.wikipedia.org/wiki/Linux">Linux</a> is open-source family of Unix-like operating systems that has been ported to a wide variety of systems, ranging from Android phones, personal computers, on up to large server clusters.</p>
+<p>Linux systems share a common set of simple commands that can be run from a terminal window. While these commands may seem terse and cryptic at first, if you learn to use them you will find them to be quick, powerful productivity tools. The following steps, for example, make use of these commands to set up a Raspberry Pi for use. If you are not already familiar the basic Linux commands, a short summary of the most useful commands is <a class="reference external" href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">Basic Linux Commands for Beginners</a>.</p>
+</section>
+<section id="step-1-create-an-os-image">
+<h3>Step 1. Create an OS Image<a class="headerlink" href="#step-1-create-an-os-image" title="Permalink to this headline">¶</a></h3>
+<p>The download and imaging of the microSD card takes a while, up to an hour or two. So start this step and let it proceed while you move on to other things.</p>
+<ol class="simple">
+<li><p>Download and install <a class="reference external" href="https://www.raspberrypi.com/software/">Raspberry Pi Imager</a> on your laptop.</p></li>
+<li><p>Mount the microSD card onto your laptop (typically using a USB microSD card reader).</p></li>
+<li><p>Select a Raspberry Pi OS and write the image to the microSD card.</p></li>
+</ol>
+</section>
+<section id="step-2-assemble-case-hardware">
+<h3>Step 2. Assemble Case Hardware<a class="headerlink" href="#step-2-assemble-case-hardware" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="step-3-initial-configuration">
+<h3>Step 3. Initial Configuration<a class="headerlink" href="#step-3-initial-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The initial bootup sequence will include a number of configuration steps. You will need to attach a USB keyboard and mouse to complete these steps.</p>
+<ul class="simple">
+<li><p>Country: United States</p></li>
+<li><p>Language: American English</p></li>
+<li><p>Timezone: Eastern</p></li>
+<li><p>Check “Use English Language”</p></li>
+<li><p>Check “Use US keyboard”</p></li>
+</ul>
+<p>The default user is “pi”.  We will provide you with a class specific password to use with these devices.</p>
+<p>If the setup process doesn’t successfully connect to the local wifi, skip those steps. After the boot process is complete, you can try to connect to wifi again through the taskbar.</p>
+</section>
+<section id="step-4-update-installed-packages">
+<h3>Step 4. Update Installed Packages<a class="headerlink" href="#step-4-update-installed-packages" title="Permalink to this headline">¶</a></h3>
+<p>It’s important to keep your device updated with the latest release of software updates. Open a terminal window and update all installed packages.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt full-upgrade
+sudo reboot
+sudo apt autoremove
+sudo apt clean
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-5-configure-options">
+<h2>Step 5. Configure Options<a class="headerlink" href="#step-5-configure-options" title="Permalink to this headline">¶</a></h2>
+<p>In a terminal window, run the command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo raspi-config
+</pre></div>
+</div>
+<p>Options to change:</p>
+<ul class="simple">
+<li><p>Display Options</p>
+<ul>
+<li><p>D5: Set VNC resolution to 1024x768 or higher</p></li>
+</ul>
+</li>
+<li><p>Interface Options</p>
+<ul>
+<li><p>P1: Enable RPI camera</p></li>
+<li><p>P2: Enable SSH</p></li>
+<li><p>P3: Enable VNC</p></li>
+<li><p>Consider enabling other options as needed for laboratory interfacing</p></li>
+</ul>
+</li>
+<li><p>Performance Options</p>
+<ul>
+<li><p>P2: Increase GPU memory to 256 MB</p></li>
+</ul>
+</li>
+</ul>
+<p>Reboot when finished.</p>
+<section id="step-6-ssh-connectivity">
+<h3>Step 6. SSH Connectivity<a class="headerlink" href="#step-6-ssh-connectivity" title="Permalink to this headline">¶</a></h3>
+<p>Remote connection from your laptop to a Raspberry Pi if often useful. To proceed you will need to be on the same network, and need the IP address of the Raspberry Pi.  You can find the IP address from the VNC icon on the task bar, or typing <code class="docutils literal notranslate"><span class="pre">hostname</span> <span class="pre">-I</span></code> in a terminal window, or by executing <code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">-c</span> <span class="pre">1</span> <span class="pre">raspberrypi</span></code> on the remote device.</p>
+<p>For SSH connection, open a terminal window on your laptop and use the following command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssh pi@xxx.xxx.xxx.xxx
+</pre></div>
+</div>
+<p>This should open a terminal window to your Raspberry Pi.</p>
+</section>
+<section id="step-7-vnc-connectivity">
+<h3>Step 7. VNC Connectivity<a class="headerlink" href="#step-7-vnc-connectivity" title="Permalink to this headline">¶</a></h3>
+<p>VNC provides remote access to the full desktop of the Raspberry Pi. If you haven’t already done so, install <a class="reference external" href="https://www.realvnc.com/en/connect/download/viewer/">RealVNC Viewer</a> on your laptop.</p>
+<p>You will need to know the IP address for the Raspberry Pi. This available by opening the VNC Viewer on the Raspberry Pi, or by executing <code class="docutils literal notranslate"><span class="pre">hostname</span> <span class="pre">-I</span></code> in a terminal window on the Raspberry Pi, or by executing <code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">-c</span> <span class="pre">1</span> <span class="pre">raspberrypi</span></code> on the remote device.</p>
+<p>Then open a terminal window and setup an additional vncserver with the command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>vncserver -geometry 1600x900
+</pre></div>
+</div>
+<p>using whatever resolution may be appropriate for your laptop. The command will return a new IP/port address you can use to open an additional desktop window to the Raspberry Pi.</p>
+<p>At this stage you may find it convenient to operate the Raspberry Pi in `headless’ mode.</p>
+</section>
+<section id="step-8-other-software-installations">
+<h3>Step 8. Other Software Installations<a class="headerlink" href="#step-8-other-software-installations" title="Permalink to this headline">¶</a></h3>
+<section id="waveforms-digilent">
+<h4>WaveForms (Digilent)<a class="headerlink" href="#waveforms-digilent" title="Permalink to this headline">¶</a></h4>
+<p>Use the Raspberry Pi web browser to download and install the ADEPT runtime and WaveForms application.</p>
+</section>
+<section id="python-libraries">
+<h4>Python Libraries<a class="headerlink" href="#python-libraries" title="Permalink to this headline">¶</a></h4>
+<p>The default distribution of Raspberry Pi OS includes the core Python libraries that are used for many routine calculations, including Numpy, SciPy, and Matplotlib. These libraries, however, do not take full advantage of the Raspberry Pi’s multiple cores or the <a class="reference external" href="https://tttapa.github.io/Pages/Raspberry-Pi/NEON/index.html">NEON SIMD unit</a> incorporated into modern versions of the device. The following installs remove the default libraries, installs a modern BLAS to use the available hardware, and reinstalls core libraries with versions that can use the BLAS.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt remove python3-numpy
+sudo apt-get install libopenblas-dev
+sudo apt-get install python3-numpy
+sudo apt-get install python3-matplotlib
+sudo apt-get install python3-scipy
+</pre></div>
+</div>
+<p>Image processing</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python3-opencv
+</pre></div>
+</div>
+<p>Qt Windowing</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python3-pyqt5
+</pre></div>
+</div>
+</section>
+<section id="imagej-not-working">
+<h4><a class="reference external" href="https://imagej.net/platforms/pi">ImageJ</a> (Not working!)<a class="headerlink" href="#imagej-not-working" title="Permalink to this headline">¶</a></h4>
+<p>The following commands were an attempt to install ImageJ. Unfortunately, the resulting application is, at best, unresponsive and difficult to use. More work will be needed to produce a useable installation.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install openjdk-8-jre
+sudo update-alternatives --config java
+java -version
+cd Downloads
+wget downloads.imagej.net/fiji/latest/fiji-nojre.zip
+unzip fiji-nojre.zip
+wget raw.githubusercontent.com/imagej/imagej2/master/bin/ImageJ.sh
+</pre></div>
+</div>
+</section>
+</section>
+<section id="jupyterhub-and-jupyterlab">
+<h3>JupyterHub and JupyterLab<a class="headerlink" href="#jupyterhub-and-jupyterlab" title="Permalink to this headline">¶</a></h3>
+<p>JupyterHub provides a JupyterLab environment that can be accessed locally or remotely through a web browswer. JupyterHub provides a notebook server for every user, a IPython console, and a terminal window. JupyterLab adds additional functionality corresponding to the latest notebook IDE. Together, these package provide a remarkably useful tool for accessing Raspberry Pi devices.</p>
+<p>The following installation instructions are adapted from <a class="reference external" href="https://towardsdatascience.com/setup-your-home-jupyterhub-on-a-raspberry-pi-7ad32e20eed">https://towardsdatascience.com/setup-your-home-jupyterhub-on-a-raspberry-pi-7ad32e20eed</a> for the latest version of Raspberry Pi OS (Bulleye).</p>
+<section id="step-1-verify-python-3-is-the-default-version-python">
+<h4>Step 1. Verify Python 3 is the default version Python.<a class="headerlink" href="#step-1-verify-python-3-is-the-default-version-python" title="Permalink to this headline">¶</a></h4>
+<p>Verify that you have Python 3 installed as the default version of Python</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python --version
+</pre></div>
+</div>
+<p>If this is reporting a version earlier than Python 3, then go no further without first upgrading the OS to the current version of Raspberry Pi OS, Bullseye or later.</p>
+</section>
+<section id="step-2-install-packages">
+<h4>Step 2. Install packages<a class="headerlink" href="#step-2-install-packages" title="Permalink to this headline">¶</a></h4>
+<p>The next three commands install the services necessary to provide the JupyterHub service, and jupyterhub itself.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install npm 
+sudo npm install -g configurable-http-proxy
+sudo -H pip3 install notebook jupyterhub
+</pre></div>
+</div>
+</section>
+<section id="step-3-setup-the-configuration-file-for-jupyterhub">
+<h4>Step 3. Setup the configuration file for JupyterHub<a class="headerlink" href="#step-3-setup-the-configuration-file-for-jupyterhub" title="Permalink to this headline">¶</a></h4>
+<p>JupyterHub requires a configuration file. This step creates a configuration file, makes changes to the file, then moves the file to the root directory so that it can be accessed by all users.  First, be sure we’re working in our own home directory.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ~
+</pre></div>
+</div>
+<p>Next, create the configuration file <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> in the home directory.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyterhub --generate-config
+</pre></div>
+</div>
+<p>Two changes to this file will adapt its use for the Raspberry Pi. The first is to change the default port from 8000 to 8888 which is more commmonly used for JupyterHub services. Open the file <code class="docutils literal notranslate"><span class="pre">jupyterhub_config.py</span></code> using a text editor of your choice (for example, Thonny or nano on the Raspberry Pi).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nano jupyterhub_config.py
+</pre></div>
+</div>
+<p>Search for a comment line containing <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">c.JupyterHub.bind_url</span> <span class="pre">=</span> <span class="pre">'http://:8000'</span></code>. Change the line to read</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>c.JupyterHub.bind_url = &#39;http://:8888&#39;
+</pre></div>
+</div>
+<p>to enable use of the port 8888. To support JupyterLab, search for a comment line containing <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">c.Spawner.default_url</span> <span class="pre">=</span> <span class="pre">'/user/:username/lab'</span></code>. Change the line to read</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>c.Spawner.default_url = &#39;/lab&#39;
+</pre></div>
+</div>
+<p>then save the file. Next, move the file to the root directory</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo mv jupyter_config.py /root
+</pre></div>
+</div>
+<p>That completes setup and installation of the JupyterHub configuration file.</p>
+</section>
+<section id="step-4-setup-and-start-jupyterhub-as-a-service">
+<h4>Step 4. Setup and start JupyterHub as a service.<a class="headerlink" href="#step-4-setup-and-start-jupyterhub-as-a-service" title="Permalink to this headline">¶</a></h4>
+<p>Create the jupyterhub.service file, and open for editing</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo touch /lib/systemd/system/jupyterhub.service
+sudo nano /lib/systemd/system/jupyterhub.service
+</pre></div>
+</div>
+<p>Add the following lines, write, and close the file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Unit] 
+Description=JupyterHub Service 
+After=multi-user.target
+
+[Service] 
+User=root 
+ExecStart=/usr/local/bin/jupyterhub --config=/root/jupyterhub_config.py 
+Restart=on-failure
+
+[Install] 
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<p>Next start the service and setup to restart on reboot</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl daemon-reload 
+sudo systemctl start jupyterhub 
+sudo systemctl enable jupyterhub 
+</pre></div>
+</div>
+<p>Confirm the JupyterHub service is active</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl status jupyterhub.service
+</pre></div>
+</div>
+</section>
+<section id="step-5-setup-jupyterlab">
+<h4>Step 5. Setup JupyterLab<a class="headerlink" href="#step-5-setup-jupyterlab" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo -H pip3 install jupyterlab  
+sudo jupyter serverextension enable --py jupyterlab --system
+</pre></div>
+</div>
+</section>
+<section id="step-6-test">
+<h4>Step 6. Test<a class="headerlink" href="#step-6-test" title="Permalink to this headline">¶</a></h4>
+<p>On Chromium browswer on Raspberry Pi, start a JupyterLab session with the link</p>
+<p><code class="docutils literal notranslate"><span class="pre">http://localhost:8888</span></code></p>
+<p>From a remote web server, first verify that the Raspberry Pi can be located on the same network. In a terminal window, <code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">-c</span> <span class="pre">1</span> <span class="pre">raspberrypi</span></code> to locate the IP address. Given the IP address, start a JupyterLab session <code class="docutils literal notranslate"><span class="pre">http://xxx.xxx.xxx.xxx:8888</span></code>.</p>
+<p>Alternatively, a remote session can be started in a VNC session, then executing</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter lab
+</pre></div>
+</div>
+<p>in a terminal window.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="08.00-Raspberry-Pi.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Raspberry Pi</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="08.02-rpi-test-libraries.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RPI Library tests</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jeffrey C. Kantor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

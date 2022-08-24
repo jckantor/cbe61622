@@ -1,0 +1,1184 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting Started with Pymata4 &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scheduling Real-Time Events with Simpy" href="A.04-Scheduling-Real-Time-Events-with-Simpy.html" />
+    <link rel="prev" title="Downloading Python source files from github" href="A.02-Downloading_Python_source_files_from_github.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CBE 41622/61622 Laboratory Instrumentation and Measurement</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   CBE 61622 Laboratory Measurement and Instrumentation
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.01-Configuring-a-Workstation.html">
+   Configuring a Workstation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.10-Workstation-Learning-Exercises.html">
+   Workstation Learning Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.20-Projects.html">
+   Semester Projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.00-Analog-Circuits-and-Signals.html">
+   Analog Circuits and Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.08-Linear-DC-Circuits.html">
+   Basics of Linear DC Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.10-Operational-Amplifiers.html">
+   Operational Amplifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.00-Analog-Measurement.html">
+   Analog Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.01-Low-Level-Measurment.html">
+   Low-Level Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.02-Sampling-Continuous-Time-Signals.html">
+   Sampling Continuous Time Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.00-Chemical_Instrumentation.html">
+   Chemical Instrumentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.10-Potentiostats-and-Galvanostats.html">
+   Potentiostats and Galvanostats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.00-Raspberry-Pi-Pico.html">
+   Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.02-Seeed_Grove_Pico_Starter_Kit.html">
+   Grove Starter Kit for Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.03-LCD1602.html">
+   LCD1602
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.00-Coding-for-Device-Control.html">
+   Device Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.01-Simple_Event_Loop.html">
+   Managing Multiple Devices with an Event Loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.02-Coding-Paradigms.html">
+   Coding for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.03-Coding-Paradigms.html">
+   Coding Paradigms for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.04-Event-Driven-Programming.html">
+   Event Driven Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.05-PIO-Programming.html">
+   PIO Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.00-Interfacing_with_Laboratory_Equipment.html">
+   Interfacing with Laboratory Equipment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.01-Stepper-Motors.html">
+   Stepper Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.02-Stepper_Motor_Control_via_I2C.html">
+   Stepper Motor Control via I2C
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.03-Wifi-with-ESP-01.html">
+   Wifi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.00-Raspberry-Pi.html">
+   Raspberry Pi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.01-Raspberry-Pi-Setup.html">
+   Setting up the Raspberry Pi for Lab Use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.02-rpi-test-libraries.html">
+   RPI Library tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.03-rpi-picamera_test.html">
+   RPI Camera Module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.00-Enabling_the_Internet_of_Things.html">
+   Enabling the Internet of Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.01-Publishing_an_Experiment_via_MQTT.html">
+   Publishing an Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.02-Accessing_a_Remote_Experiment_via_MQTT.html">
+   Accessing a Remote Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.03-Miscellaneous_Notes.html">
+   Accessing MQTT Devices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.00-Computer-Vision.html">
+   Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.01-rpi-image-capture.html">
+   Image Capture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.02-Machine-Vision.html">
+   Machine Vision Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.10-Case-Study-Particle-Counting.html">
+   Case Study: Particle Counting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.11-Experiments-with-Computer-Vision.html">
+   Experiments with Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.12-Test-Driven-Development.html">
+   Test Driven Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.13-Computer-Vision-Application.html">
+   Computer Vision Case Study: Creating an Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.00-Appendices.html">
+   Python Source Library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.01-Resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.02-Downloading_Python_source_files_from_github.html">
+   Downloading Python source files from github
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Getting Started with Pymata4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.04-Scheduling-Real-Time-Events-with-Simpy.html">
+   Scheduling Real-Time Events with Simpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.00-Working_with_Particle.html">
+   Working with Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.01-Particle_CLI.html">
+   Particle Command Line Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.02-Particle_Coding.html">
+   Coding for Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.03-Particle-CLI.html">
+   Particle Command Line Interface (CLI)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.04-Ultrasonic_Distance_Ranger.html">
+   Ultrasonic Distance Ranger
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.05-Simple_Stop_Watch_using_Interrupts.html">
+   Simple Stop Watch using Interrupts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.06-Communicating%20_via_TCP.html">
+   Communicating via TCP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/A.03-Getting-Started-with-Pymata4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jckantor/cbe61622"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/A.03-Getting-Started-with-Pymata4.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/A.03-Getting-Started-with-Pymata4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/A.03-Getting-Started-with-Pymata4.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hardware-setup-and-software-installations">
+   Hardware Setup and Software Installations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-usage">
+   Basic Usage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#blinker">
+   Blinker
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#handling-a-keyboard-interrupt">
+   Handling a Keyboard Interrupt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-information-about-the-arduino">
+   Getting Information about the Arduino
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temperature-control-lab-shield">
+   Temperature Control Lab Shield
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Getting Started with Pymata4</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hardware-setup-and-software-installations">
+   Hardware Setup and Software Installations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-usage">
+   Basic Usage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#blinker">
+   Blinker
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#handling-a-keyboard-interrupt">
+   Handling a Keyboard Interrupt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-information-about-the-arduino">
+   Getting Information about the Arduino
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temperature-control-lab-shield">
+   Temperature Control Lab Shield
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-pymata4">
+<h1>Getting Started with Pymata4<a class="headerlink" href="#getting-started-with-pymata4" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://github.com/MrYsLab/pymata4">Pymata4</a> is a Python library that allows you to monitor and control Arduino hardware from a host computer. The library uses the Firmata protocol for communicating with the Arduino hardware. Pymata4 supports the StandardFirmata server included with the Arduino IDE, and also StandardFirmataWiFi, and an enhanced server FirmataExpress distributed with Pymata4.</p>
+<p>Pymata4 uses <a class="reference external" href="https://mryslab.github.io/pymata4/concurrency/">concurrent Python threads</a> to manage interaction with the Arduino. The concurrency model enables development of performant and interactive Arduino applications using Python on a host computer. Changes in the status of an Arduino pin can be processed with callbacks. It’s sibling, <a class="reference external" href="https://github.com/MrYsLab/pymata-express">pymata-express</a>, is available using the <a class="reference external" href="https://docs.python.org/3/library/asyncio.html">Python asyncio package</a>.</p>
+<p>Support for common <span class="math notranslate nohighlight">\(I^2C\)</span> devices, including stepper motors, is included in FirmataExpress. Applications using unsupported <span class="math notranslate nohighlight">\(I^2C\)</span> devices may require <a class="reference external" href="https://www.instructables.com/Going-Beyond-StandardFirmata-Adding-New-Device-Sup/">modifications to the Firmata server sketch</a>.</p>
+<p>Useful links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/MrYsLab/pymata4/master/html/pymata4/index.html">Pymata4 API documentation</a></p></li>
+</ul>
+<section id="hardware-setup-and-software-installations">
+<h2>Hardware Setup and Software Installations<a class="headerlink" href="#hardware-setup-and-software-installations" title="Permalink to this headline">¶</a></h2>
+<p>The Arduino must be attached to the host by USB with either the StandardFirmata or Firmata-express sketch installed using the Arduino IDE. For use with WiFi, install StandardFirmataWiFi.</p>
+<p>The Python pymata4 package can be installed with pip.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install pymata4
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymata4 in /Users/jeff/opt/anaconda3/lib/python3.8/site-packages (1.10)
+Requirement already satisfied: pyserial in /Users/jeff/opt/anaconda3/lib/python3.8/site-packages (from pymata4) (3.5)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pymata4.Pymata()
+board.shutdown()
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+
+<span class="c1"># create a board instance</span>
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
+
+<span class="c1"># remember to shutdown</span>
+<span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pymata4:  Version 1.10
+
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="blinker">
+<h2>Blinker<a class="headerlink" href="#blinker" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>board.digital_write(pin, value)
+</pre></div>
+</div>
+<p>Pymata4 has two methods for writing a 1 or a 0 to a digital output.  <code class="docutils literal notranslate"><span class="pre">digital_write(pin,</span> <span class="pre">value)</span></code> hides details of the Firmata protocol from the user. The user can refer to digital pins just as they would in standard Arduino coding. A second method, <code class="docutils literal notranslate"><span class="pre">digital_pin_write(pin,</span> <span class="pre">value)</span></code> allows writing to multiples at the same time, but requires the user to understand further details of the Firmata protocol.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">13</span>
+
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
+
+<span class="c1"># set the pin mode</span>
+<span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_digital_output</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LED ON&quot;</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LED OFF&quot;</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pymata4:  Version 1.10
+
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
+
+LED ON
+LED OFF
+LED ON
+LED OFF
+LED ON
+LED OFF
+LED ON
+LED OFF
+LED ON
+LED OFF
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="handling-a-keyboard-interrupt">
+<h2>Handling a Keyboard Interrupt<a class="headerlink" href="#handling-a-keyboard-interrupt" title="Permalink to this headline">¶</a></h2>
+<p>Pymata4 sets up multiple concurrent processes upon opening connection to the Arduino hardware. If Python execution is interrupted, it isimportant to catch the interrupt and shutdown the board before exiting the code. Otherwise the Arduino may continue to stream data requiring the Arduino to be reset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">blink</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">pin</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_digital_output</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+    
+<span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span> 
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">blink</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">LED_PIN</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operation interrupted. Shutting down board.&quot;</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pymata4:  Version 1.10
+
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14201
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14201
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
+
+Operation interrupted. Shutting down board.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-information-about-the-arduino">
+<h2>Getting Information about the Arduino<a class="headerlink" href="#getting-information-about-the-arduino" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/firmata/protocol/blob/master/protocol.md">Firmata protocol</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Board Report&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Firmware version: </span><span class="si">{</span><span class="n">board</span><span class="o">.</span><span class="n">get_firmware_version</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Protocol version: </span><span class="si">{</span><span class="n">board</span><span class="o">.</span><span class="n">get_protocol_version</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pymata version: </span><span class="si">{</span><span class="n">board</span><span class="o">.</span><span class="n">get_pymata_version</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">print_analog_map</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
+    <span class="n">analog_map</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_analog_map</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">pin</span><span class="p">,</span> <span class="n">apin</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">analog_map</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">apin</span> <span class="o">&lt;</span> <span class="mi">127</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pin </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">: analog channel = </span><span class="si">{</span><span class="n">apin</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">print_pin_state_report</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
+    <span class="n">pin_modes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mh">0x00</span><span class="p">:</span> <span class="s2">&quot;INPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x01</span><span class="p">:</span> <span class="s2">&quot;OUTPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x02</span><span class="p">:</span> <span class="s2">&quot;ANALOG INPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x03</span><span class="p">:</span> <span class="s2">&quot;PWM OUTPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x04</span><span class="p">:</span> <span class="s2">&quot;SERVO OUTPUT&quot;</span><span class="p">,</span>
+        <span class="mh">0x06</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span>
+        <span class="mh">0x08</span><span class="p">:</span> <span class="s2">&quot;STEPPER&quot;</span><span class="p">,</span>
+        <span class="mh">0x0b</span><span class="p">:</span> <span class="s2">&quot;PULLUP&quot;</span><span class="p">,</span>
+        <span class="mh">0x0c</span><span class="p">:</span> <span class="s2">&quot;SONAR&quot;</span><span class="p">,</span>
+        <span class="mh">0x0d</span><span class="p">:</span> <span class="s2">&quot;TONE&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">analog_map</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_analog_map</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">analog_map</span><span class="p">)):</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_pin_state</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pin </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">pin_modes</span><span class="p">[</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="si">:</span><span class="s2">&gt;15s</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="n">print_pin_state_report</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+<span class="n">board</span><span class="o">.</span><span class="n">digital_write</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">print_pin_state_report</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+<span class="n">print_analog_map</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+
+<span class="n">capability_report</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_capability_report</span><span class="p">()</span>
+
+<span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+<span class="c1"># get capability report</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Capability Report&quot;</span><span class="p">)</span>
+<span class="n">modes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mh">0x00</span><span class="p">:</span> <span class="s2">&quot;DIN&quot;</span><span class="p">,</span>  <span class="c1"># digital input</span>
+    <span class="mh">0x01</span><span class="p">:</span> <span class="s2">&quot;DO&quot;</span><span class="p">,</span>   <span class="c1"># digital output</span>
+    <span class="mh">0x02</span><span class="p">:</span> <span class="s2">&quot;AIN&quot;</span><span class="p">,</span>  <span class="c1"># analog input</span>
+    <span class="mh">0x03</span><span class="p">:</span> <span class="s2">&quot;PWM&quot;</span><span class="p">,</span>  <span class="c1"># pwm output</span>
+    <span class="mh">0x04</span><span class="p">:</span> <span class="s2">&quot;SRV&quot;</span><span class="p">,</span>  <span class="c1"># servo output</span>
+    <span class="mh">0x05</span><span class="p">:</span> <span class="s2">&quot;SFT&quot;</span><span class="p">,</span>  <span class="c1"># shift</span>
+    <span class="mh">0x06</span><span class="p">:</span> <span class="s2">&quot;I2C&quot;</span><span class="p">,</span>  <span class="c1"># I2C</span>
+    <span class="mh">0x07</span><span class="p">:</span> <span class="s2">&quot;WIR&quot;</span><span class="p">,</span>  <span class="c1"># ONEWIRE</span>
+    <span class="mh">0x08</span><span class="p">:</span> <span class="s2">&quot;STP&quot;</span><span class="p">,</span>  <span class="c1"># STEPPER</span>
+    <span class="mh">0x09</span><span class="p">:</span> <span class="s2">&quot;ENC&quot;</span><span class="p">,</span>  <span class="c1"># ENCODER</span>
+    <span class="mh">0x0A</span><span class="p">:</span> <span class="s2">&quot;SRL&quot;</span><span class="p">,</span>  <span class="c1"># SERIAL</span>
+    <span class="mh">0x0B</span><span class="p">:</span> <span class="s2">&quot;INP&quot;</span><span class="p">,</span>  <span class="c1"># INPUT_PULLUP</span>
+<span class="p">}</span>
+
+<span class="n">pin_report</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">pin</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">capability_report</span><span class="p">):</span>
+    <span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">while</span> <span class="n">capability_report</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">127</span><span class="p">:</span>
+        <span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">][</span><span class="n">modes</span><span class="p">[</span><span class="n">capability_report</span><span class="p">[</span><span class="n">k</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">capability_report</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">k</span> <span class="o">+=</span> <span class="mi">2</span>
+    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">pin</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">mode_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">mode</span> <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">pin_report</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;        &quot;</span> <span class="o">+</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">mode</span><span class="si">:</span><span class="s2">&gt;3s</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">mode_set</span><span class="p">)]))</span>
+<span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">pin_report</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Pin </span><span class="si">{</span><span class="n">pin</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">:&quot;</span>
+    <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">mode_set</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">][</span><span class="n">mode</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;3d</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">pin_report</span><span class="p">[</span><span class="n">pin</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot; &quot;</span><span class="o">*</span><span class="mi">5</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pymata4:  Version 1.10
+
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
+
+Board Report
+Firmware version: 2.5 StandardFirmata.ino
+Protocol version: 2.5
+Pymata version: 1.10
+Pin  0:          OUTPUT = 0
+Pin  1:          OUTPUT = 0
+Pin  2:          OUTPUT = 0
+Pin  3:          OUTPUT = 0
+Pin  4:          OUTPUT = 0
+Pin  5:          OUTPUT = 0
+Pin  6:          OUTPUT = 0
+Pin  7:          OUTPUT = 0
+Pin  8:          OUTPUT = 0
+Pin  9:          OUTPUT = 0
+Pin 10:          OUTPUT = 0
+Pin 11:          OUTPUT = 0
+Pin 12:          OUTPUT = 0
+Pin 13:          OUTPUT = 0
+Pin 14:          OUTPUT = 0
+Pin 15:          OUTPUT = 0
+Pin 16:          OUTPUT = 0
+Pin 17:          OUTPUT = 0
+Pin 18:    ANALOG INPUT = 0
+Pin 19:    ANALOG INPUT = 0
+Pin 20:    ANALOG INPUT = 0
+Pin 21:    ANALOG INPUT = 0
+Pin 22:    ANALOG INPUT = 0
+Pin 23:    ANALOG INPUT = 0
+Pin 24:    ANALOG INPUT = 0
+Pin 25:    ANALOG INPUT = 0
+Pin 26:    ANALOG INPUT = 0
+Pin 27:    ANALOG INPUT = 0
+Pin 28:    ANALOG INPUT = 0
+Pin 29:    ANALOG INPUT = 0
+Pin  0:          OUTPUT = 0
+Pin  1:          OUTPUT = 0
+Pin  2:          OUTPUT = 0
+Pin  3:          OUTPUT = 0
+Pin  4:          OUTPUT = 0
+Pin  5:          OUTPUT = 0
+Pin  6:          OUTPUT = 0
+Pin  7:          OUTPUT = 0
+Pin  8:          OUTPUT = 0
+Pin  9:          OUTPUT = 0
+Pin 10:          OUTPUT = 0
+Pin 11:          OUTPUT = 0
+Pin 12:          OUTPUT = 0
+Pin 13:          OUTPUT = 1
+Pin 14:          OUTPUT = 0
+Pin 15:          OUTPUT = 0
+Pin 16:          OUTPUT = 0
+Pin 17:          OUTPUT = 0
+Pin 18:    ANALOG INPUT = 0
+Pin 19:    ANALOG INPUT = 0
+Pin 20:    ANALOG INPUT = 0
+Pin 21:    ANALOG INPUT = 0
+Pin 22:    ANALOG INPUT = 0
+Pin 23:    ANALOG INPUT = 0
+Pin 24:    ANALOG INPUT = 0
+Pin 25:    ANALOG INPUT = 0
+Pin 26:    ANALOG INPUT = 0
+Pin 27:    ANALOG INPUT = 0
+Pin 28:    ANALOG INPUT = 0
+Pin 29:    ANALOG INPUT = 0
+Pin 18: analog channel = 0
+Pin 19: analog channel = 1
+Pin 20: analog channel = 2
+Pin 21: analog channel = 3
+Pin 22: analog channel = 4
+Pin 23: analog channel = 5
+Pin 24: analog channel = 6
+Pin 25: analog channel = 7
+Pin 26: analog channel = 8
+Pin 27: analog channel = 9
+Pin 28: analog channel = 10
+Pin 29: analog channel = 11
+
+Capability Report
+Pin   :AINDINDOI2CINPPWMSRV
+Pin  0:                1        1                 1                14 
+Pin  1:                1        1                 1                14 
+Pin  2:                1        1        1        1                14 
+Pin  3:                1        1        1        1        8       14 
+Pin  4:                1        1                 1                14 
+Pin  5:                1        1                 1        8       14 
+Pin  6:                1        1                 1        8       14 
+Pin  7:                1        1                 1                14 
+Pin  8:                1        1                 1                14 
+Pin  9:                1        1                 1        8       14 
+Pin 10:                1        1                 1        8       14 
+Pin 11:                1        1                 1        8       14 
+Pin 12:                1        1                 1                14 
+Pin 13:                1        1                 1        8       14 
+Pin 14:                1        1                 1                14 
+Pin 15:                1        1                 1                14 
+Pin 16:                1        1                 1                14 
+Pin 17:                1        1                 1                14 
+Pin 18:      10        1        1                 1                14 
+Pin 19:      10        1        1                 1                14 
+Pin 20:      10        1        1                 1                14 
+Pin 21:      10        1        1                 1                14 
+Pin 22:      10        1        1                 1                14 
+Pin 23:      10        1        1                 1                14 
+Pin 24:      10        1        1                 1                14 
+Pin 25:      10        1        1                 1                14 
+Pin 26:      10        1        1                 1                14 
+Pin 27:      10        1        1                 1                14 
+Pin 28:      10        1        1                 1                14 
+Pin 29:      10        1        1                 1                14 
+         AIN  DIN   DO  I2C  INP  PWM  SRV 
+Pin  0:        1    1         1        14 
+Pin  1:        1    1         1        14 
+Pin  2:        1    1    1    1        14 
+Pin  3:        1    1    1    1    8   14 
+Pin  4:        1    1         1        14 
+Pin  5:        1    1         1    8   14 
+Pin  6:        1    1         1    8   14 
+Pin  7:        1    1         1        14 
+Pin  8:        1    1         1        14 
+Pin  9:        1    1         1    8   14 
+Pin 10:        1    1         1    8   14 
+Pin 11:        1    1         1    8   14 
+Pin 12:        1    1         1        14 
+Pin 13:        1    1         1    8   14 
+Pin 14:        1    1         1        14 
+Pin 15:        1    1         1        14 
+Pin 16:        1    1         1        14 
+Pin 17:        1    1         1        14 
+Pin 18:  10    1    1         1        14 
+Pin 19:  10    1    1         1        14 
+Pin 20:  10    1    1         1        14 
+Pin 21:  10    1    1         1        14 
+Pin 22:  10    1    1         1        14 
+Pin 23:  10    1    1         1        14 
+Pin 24:  10    1    1         1        14 
+Pin 25:  10    1    1         1        14 
+Pin 26:  10    1    1         1        14 
+Pin 27:  10    1    1         1        14 
+Pin 28:  10    1    1         1        14 
+Pin 29:  10    1    1         1        14 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="temperature-control-lab-shield">
+<h2>Temperature Control Lab Shield<a class="headerlink" href="#temperature-control-lab-shield" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">tclab</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span> <span class="o">=</span> <span class="n">pymata4</span><span class="o">.</span><span class="n">Pymata4</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">9</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q1_PIN</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q2_PIN</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T1_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T2_PIN</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_pwm_output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LED_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_pwm_output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q1_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_pwm_output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q2_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_analog_input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T1_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">set_pin_mode_analog_input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T2_PIN</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Q1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+    
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">read_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pin</span><span class="p">):</span>
+        <span class="c1"># firmata doesn&#39;t provide a means to use the 3.3 volt reference</span>
+        <span class="n">adc</span><span class="p">,</span> <span class="n">ts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">analog_read</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">adc</span><span class="o">*</span><span class="mi">513</span><span class="o">/</span><span class="mi">1024</span> <span class="o">-</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">Q1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">pwm_write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q1_PIN</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">Q2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">pwm_write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q2_PIN</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">T1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_temperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T1_PIN</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">T2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_temperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T2_PIN</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">LED</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="n">val</span><span class="o">/</span><span class="mi">100</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">pwm_write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        
+<span class="k">with</span> <span class="n">tclab</span><span class="p">()</span> <span class="k">as</span> <span class="n">lab</span><span class="p">:</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">lab</span><span class="o">.</span><span class="n">T1</span><span class="p">(),</span> <span class="n">lab</span><span class="o">.</span><span class="n">T2</span><span class="p">())</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">lab</span><span class="o">.</span><span class="n">LED</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">Q1</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">lab</span><span class="o">.</span><span class="n">Q2</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pymata4:  Version 1.10
+
+Copyright (c) 2020 Alan Yorinks All Rights Reserved.
+
+Opening all potential serial ports...
+	/dev/cu.usbmodem14301
+
+Waiting 4 seconds(arduino_wait) for Arduino devices to reset...
+
+Searching for an Arduino configured with an arduino_instance = 1
+Arduino compatible device found and connected to /dev/cu.usbmodem14301
+
+Retrieving Arduino Firmware ID...
+Arduino Firmware ID: 2.5 StandardFirmata.ino
+
+Retrieving analog map...
+Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
+
+
+22.6 22.1
+23.1 22.6
+23.1 22.1
+23.1 22.1
+23.1 22.6
+23.1 22.6
+22.6 22.6
+23.1 22.1
+23.1 22.6
+23.1 22.1
+22.6 22.6
+23.1 22.6
+23.1 22.6
+22.6 22.1
+23.1 22.6
+23.1 22.6
+22.6 22.6
+23.1 22.1
+22.6 22.6
+22.6 22.1
+23.1 22.6
+23.1 22.6
+22.6 22.1
+23.1 22.1
+23.1 22.6
+22.6 22.6
+23.1 22.1
+23.1 22.6
+23.1 22.1
+23.1 22.6
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="A.02-Downloading_Python_source_files_from_github.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Downloading Python source files from github</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="A.04-Scheduling-Real-Time-Events-with-Simpy.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Scheduling Real-Time Events with Simpy</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jeffrey C. Kantor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

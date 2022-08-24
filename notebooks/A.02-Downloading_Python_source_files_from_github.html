@@ -1,0 +1,961 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Downloading Python source files from github &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting Started with Pymata4" href="A.03-Getting-Started-with-Pymata4.html" />
+    <link rel="prev" title="Resources" href="A.01-Resources.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CBE 41622/61622 Laboratory Instrumentation and Measurement</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   CBE 61622 Laboratory Measurement and Instrumentation
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.01-Configuring-a-Workstation.html">
+   Configuring a Workstation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.10-Workstation-Learning-Exercises.html">
+   Workstation Learning Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.20-Projects.html">
+   Semester Projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.00-Analog-Circuits-and-Signals.html">
+   Analog Circuits and Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.08-Linear-DC-Circuits.html">
+   Basics of Linear DC Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.10-Operational-Amplifiers.html">
+   Operational Amplifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.00-Analog-Measurement.html">
+   Analog Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.01-Low-Level-Measurment.html">
+   Low-Level Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.02-Sampling-Continuous-Time-Signals.html">
+   Sampling Continuous Time Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.00-Chemical_Instrumentation.html">
+   Chemical Instrumentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.10-Potentiostats-and-Galvanostats.html">
+   Potentiostats and Galvanostats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.00-Raspberry-Pi-Pico.html">
+   Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.02-Seeed_Grove_Pico_Starter_Kit.html">
+   Grove Starter Kit for Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.03-LCD1602.html">
+   LCD1602
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.00-Coding-for-Device-Control.html">
+   Device Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.01-Simple_Event_Loop.html">
+   Managing Multiple Devices with an Event Loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.02-Coding-Paradigms.html">
+   Coding for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.03-Coding-Paradigms.html">
+   Coding Paradigms for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.04-Event-Driven-Programming.html">
+   Event Driven Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.05-PIO-Programming.html">
+   PIO Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.00-Interfacing_with_Laboratory_Equipment.html">
+   Interfacing with Laboratory Equipment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.01-Stepper-Motors.html">
+   Stepper Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.02-Stepper_Motor_Control_via_I2C.html">
+   Stepper Motor Control via I2C
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.03-Wifi-with-ESP-01.html">
+   Wifi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.00-Raspberry-Pi.html">
+   Raspberry Pi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.01-Raspberry-Pi-Setup.html">
+   Setting up the Raspberry Pi for Lab Use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.02-rpi-test-libraries.html">
+   RPI Library tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.03-rpi-picamera_test.html">
+   RPI Camera Module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.00-Enabling_the_Internet_of_Things.html">
+   Enabling the Internet of Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.01-Publishing_an_Experiment_via_MQTT.html">
+   Publishing an Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.02-Accessing_a_Remote_Experiment_via_MQTT.html">
+   Accessing a Remote Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.03-Miscellaneous_Notes.html">
+   Accessing MQTT Devices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.00-Computer-Vision.html">
+   Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.01-rpi-image-capture.html">
+   Image Capture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.02-Machine-Vision.html">
+   Machine Vision Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.10-Case-Study-Particle-Counting.html">
+   Case Study: Particle Counting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.11-Experiments-with-Computer-Vision.html">
+   Experiments with Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.12-Test-Driven-Development.html">
+   Test Driven Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.13-Computer-Vision-Application.html">
+   Computer Vision Case Study: Creating an Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.00-Appendices.html">
+   Python Source Library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.01-Resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Downloading Python source files from github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.03-Getting-Started-with-Pymata4.html">
+   Getting Started with Pymata4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.04-Scheduling-Real-Time-Events-with-Simpy.html">
+   Scheduling Real-Time Events with Simpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.00-Working_with_Particle.html">
+   Working with Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.01-Particle_CLI.html">
+   Particle Command Line Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.02-Particle_Coding.html">
+   Coding for Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.03-Particle-CLI.html">
+   Particle Command Line Interface (CLI)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.04-Ultrasonic_Distance_Ranger.html">
+   Ultrasonic Distance Ranger
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.05-Simple_Stop_Watch_using_Interrupts.html">
+   Simple Stop Watch using Interrupts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.06-Communicating%20_via_TCP.html">
+   Communicating via TCP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/A.02-Downloading_Python_source_files_from_github.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jckantor/cbe61622"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/A.02-Downloading_Python_source_files_from_github.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/A.02-Downloading_Python_source_files_from_github.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/A.02-Downloading_Python_source_files_from_github.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method-1-downloading-individual-python-files-with-wget">
+   Method 1. Downloading individual Python files with wget
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method-2-cloning-a-git-repository">
+   Method 2. Cloning a git repository
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#commit-and-push-changes">
+     Commit and push changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method-3-using-pip-to-install-from-a-github-repository">
+   Method 3. Using pip to install from a github repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-and-recommended-practices">
+   Summary and recommended practices
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Downloading Python source files from github</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method-1-downloading-individual-python-files-with-wget">
+   Method 1. Downloading individual Python files with wget
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method-2-cloning-a-git-repository">
+   Method 2. Cloning a git repository
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#commit-and-push-changes">
+     Commit and push changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method-3-using-pip-to-install-from-a-github-repository">
+   Method 3. Using pip to install from a github repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-and-recommended-practices">
+   Summary and recommended practices
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="downloading-python-source-files-from-github">
+<h1>Downloading Python source files from github<a class="headerlink" href="#downloading-python-source-files-from-github" title="Permalink to this headline">¶</a></h1>
+<p>This project incorporates Python modules and functions that are used in multiple notebooks. Most of these are  simple convenience functions for accessing device hardware. But whatever the use, repeating the same source code in multiple notebooks complicates maintenance and has little value for the reader. For these reasons, it is much better to maintain code in the project’s repository and import as needed for use in the notebooks.</p>
+<p>Unfortunately, Github stores code files in an a database for which the standard API does not provide direct access to whole directories. There are libraries circulating in the Python community designed to circumvent this limitation.</p>
+<p>Here we demonstrate three techniques:</p>
+<ol class="simple">
+<li><p>Use of <code class="docutils literal notranslate"><span class="pre">wget</span></code> to selectively download individual Python source files to the current working directory.</p></li>
+<li><p>The use of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> to download the entire repository and then add a Python source directory to the import path. Changes to the code can be committed and pushed back to the git repository.</p></li>
+<li><p>Use of <code class="docutils literal notranslate"><span class="pre">pip</span>&#160; <span class="pre">install</span></code> to install python packages from a githb repository. This is convenient for the notebook user, but requires a properly configured <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> in the repository.</p></li>
+</ol>
+<section id="method-1-downloading-individual-python-files-with-wget">
+<h2>Method 1. Downloading individual Python files with wget<a class="headerlink" href="#method-1-downloading-individual-python-files-with-wget" title="Permalink to this headline">¶</a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">hello_world.py</span></code> is located in the top-level <code class="docutils literal notranslate"><span class="pre">src</span></code> directory of a github repository. To access the file, use the shell command <code class="docutils literal notranslate"><span class="pre">wget</span></code> with an <code class="docutils literal notranslate"><span class="pre">https</span></code> link to the raw content of the main branch. The prefix exclamation/bang symbol <code class="docutils literal notranslate"><span class="pre">!</span></code> causes the following line to be executed by the system command line rather than the Python kernal. The <code class="docutils literal notranslate"><span class="pre">--no-cache</span></code> option ensures the latest version is downloaded.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--backups=1</span></code> option saves any prior version of the same code file to a backup.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;jckantor&quot;</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="s2">&quot;cbe-virtual-laboratory&quot;</span>
+<span class="n">src_dir</span> <span class="o">=</span> <span class="s2">&quot;src&quot;</span>
+<span class="n">pyfile</span> <span class="o">=</span> <span class="s2">&quot;hello_world.py&quot;</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://raw.githubusercontent.com/</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">repo</span><span class="si">}</span><span class="s2">/main/</span><span class="si">{</span><span class="n">src_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">pyfile</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="o">!</span>wget --no-cache --backups<span class="o">=</span><span class="m">1</span> <span class="o">{</span>url<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2020-11-01 19:11:46--  https://raw.githubusercontent.com/jckantor/cbe-virtual-laboratory/main/src/hello_world.py
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 123 [text/plain]
+Saving to: ‘hello_world.py’
+
+hello_world.py      100%[===================&gt;]     123  --.-KB/s    in 0s      
+
+2020-11-01 19:11:46 (8.21 MB/s) - ‘hello_world.py’ saved [123/123]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;wget&quot;</span><span class="p">,</span> <span class="s2">&quot;--no-cache&quot;</span><span class="p">,</span> <span class="s2">&quot;--backups=1&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">],</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2020-11-01 19:11:46--  https://raw.githubusercontent.com/jckantor/cbe-virtual-laboratory/main/src/hello_world.py
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 123 [text/plain]
+Saving to: ‘hello_world.py’
+
+     0K                                                       100% 7.32M=0s
+
+2020-11-01 19:11:46 (7.32 MB/s) - ‘hello_world.py’ saved [123/123]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s make a listing of the file’s content.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pyfile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>def hello():
+    &quot;&quot;&quot;Print hello, world to demonstrate use of the source library.&quot;&quot;&quot;
+    print(&quot;Hello, World&quot;)
+    return
+  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s import the file as a Python module and use the embedded functions. If the name of the file is fixed and known, then the usual Python <code class="docutils literal notranslate"><span class="pre">import</span></code> statement will do the job.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hello_world</span>
+<span class="n">help</span><span class="p">(</span><span class="n">hello_world</span><span class="p">)</span>
+<span class="n">hello_world</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on module hello_world:
+
+NAME
+    hello_world
+
+FUNCTIONS
+    hello()
+        Print hello, world to demonstrate use of the source library.
+
+FILE
+    /content/hello_world.py
+
+
+Hello, World
+</pre></div>
+</div>
+</div>
+</div>
+<p>If the name of the python file is given as the value of a Python string variable then the standard library <code class="docutils literal notranslate"><span class="pre">importlib</span></code> may be used. Note the need to strip any suffix from a file name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
+<span class="n">mymodule</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">pyfile</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">))</span>
+<span class="n">help</span><span class="p">(</span><span class="n">mymodule</span><span class="p">)</span>
+<span class="n">mymodule</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on module hello_world:
+
+NAME
+    hello_world
+
+FUNCTIONS
+    hello()
+        Print hello, world to demonstrate use of the source library.
+
+FILE
+    /content/hello_world.py
+
+
+Hello, World
+</pre></div>
+</div>
+</div>
+</div>
+<p>For platforms where the shell escape <code class="docutils literal notranslate"><span class="pre">!</span></code> might fail, an alternative is to use the standard Python <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> library.</p>
+</section>
+<section id="method-2-cloning-a-git-repository">
+<h2>Method 2. Cloning a git repository<a class="headerlink" href="#method-2-cloning-a-git-repository" title="Permalink to this headline">¶</a></h2>
+<p>Downloading a collection of files from a git repository with <code class="docutils literal notranslate"><span class="pre">wget</span></code> (or <code class="docutils literal notranslate"><span class="pre">curl</span></code>) can be cumbersome, particularly if the names of the individual files are unknown or subject to change. And, unfortunately, Github does not provide an API for accessing a folder of files.</p>
+<p>For these situations, an alternative is to simply clone the git repository to to a local directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;jckantor&quot;</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="s2">&quot;cbe-virtual-laboratory&quot;</span>
+
+<span class="c1"># remove local directory if it already exists</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">repo</span><span class="p">):</span>
+    <span class="o">!</span>rm -rf <span class="o">{</span>repo<span class="o">}</span>
+
+<span class="o">!</span>git clone https://github.com/<span class="o">{</span>user<span class="o">}</span>/<span class="o">{</span>repo<span class="o">}</span>.git
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;cbe-virtual-laboratory&#39;...
+remote: Enumerating objects: 518, done.
+remote: Counting objects: 100% (518/518), done.
+remote: Compressing objects: 100% (286/286), done.
+remote: Total 518 (delta 407), reused 318 (delta 221), pack-reused 0
+Receiving objects: 100% (518/518), 406.64 KiB | 2.01 MiB/s, done.
+Resolving deltas: 100% (407/407), done.
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the repository cloned to a local subdirectory of the same name, there are several useful strategies for importing from the source directory. The following cell demonstrates how to insert a repository source directory in Python path (if it doesn’t appear already).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">src_dir</span> <span class="o">=</span> <span class="s2">&quot;src&quot;</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">repo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">src_dir</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># list all directories in the Python path</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&#39;
+&#39;cbe-virtual-laboratory/src&#39;
+&#39;/env/python&#39;
+&#39;/usr/lib/python36.zip&#39;
+&#39;/usr/lib/python3.6&#39;
+&#39;/usr/lib/python3.6/lib-dynload&#39;
+&#39;/usr/local/lib/python3.6/dist-packages&#39;
+&#39;/usr/lib/python3/dist-packages&#39;
+&#39;/usr/local/lib/python3.6/dist-packages/IPython/extensions&#39;
+&#39;/root/.ipython&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next stop is to import a python module from inside the library</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">src_dir</span> <span class="o">=</span> <span class="s2">&quot;src&quot;</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">repo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">src_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">hello_world</span>
+<span class="n">hello_world</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, World
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following cell summaries these steps into a single cell that can be copied into a new notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">importlib</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;jckantor&quot;</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="s2">&quot;cbe-virtual-laboratory&quot;</span>
+<span class="n">src_dir</span> <span class="o">=</span> <span class="s2">&quot;src&quot;</span>
+<span class="n">pyfile</span> <span class="o">=</span> <span class="s2">&quot;hello_world.py&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">repo</span><span class="p">):</span>
+    <span class="o">!</span>rm -rf <span class="o">{</span>repo<span class="o">}</span>
+
+<span class="o">!</span>git clone https://github.com/<span class="o">{</span>user<span class="o">}</span>/<span class="o">{</span>repo<span class="o">}</span>.git
+
+<span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">repo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">src_dir</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="n">mymodule</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">pyfile</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">))</span>
+<span class="n">help</span><span class="p">(</span><span class="n">mymodule</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;cbe-virtual-laboratory&#39;...
+remote: Enumerating objects: 518, done.
+remote: Counting objects: 100% (518/518), done.
+remote: Compressing objects: 100% (286/286), done.
+remote: Total 518 (delta 407), reused 318 (delta 221), pack-reused 0
+Receiving objects: 100% (518/518), 406.64 KiB | 2.15 MiB/s, done.
+Resolving deltas: 100% (407/407), done.
+Help on module hello_world:
+
+NAME
+    hello_world
+
+FUNCTIONS
+    hello()
+        Print hello, world to demonstrate use of the source library.
+
+FILE
+    /content/hello_world.py
+</pre></div>
+</div>
+</div>
+</div>
+<section id="commit-and-push-changes">
+<h3>Commit and push changes<a class="headerlink" href="#commit-and-push-changes" title="Permalink to this headline">¶</a></h3>
+<p>A potential use case for cloning a repository is to allow for editing the source code directly from a Jupyter notebook. In this case, the code can be committed and pushed back to the reposity using standard <code class="docutils literal notranslate"><span class="pre">git</span></code> commands.</p>
+<p>Be sure you know what you’re doing before attempting this. This code has been commented out to avoid inadvertent changes to this repository’s source code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+
+<span class="c1">#password = getpass(&#39;Password: &#39;)</span>
+<span class="c1">#password = urllib.parse.quote(password)</span>
+
+<span class="c1">#cmd_str = f&quot;git -C https://{user}:{password}@github.com/{user}/{repo} push&quot;</span>
+<span class="c1">#os.system(cmd_string)</span>
+
+<span class="c1">#!git -C /content/cbe-virtual-laboratory commit -m &quot;update&quot;</span>
+<span class="c1">#!git -C /content/cbe-virtual-laboratory push</span>
+
+<span class="c1">#cmd_str, password = &quot;&quot;, &quot;&quot; # removing the password from the variable</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="method-3-using-pip-to-install-from-a-github-repository">
+<h2>Method 3. Using pip to install from a github repository<a class="headerlink" href="#method-3-using-pip-to-install-from-a-github-repository" title="Permalink to this headline">¶</a></h2>
+<p>The methods presented above assume the user has detailed knowledge of how functions have been organized into modules in the repository’s source directory. For simple applications, that may be satisfactory and those methods are fast and can work well. For more complex applications, however, it will be helpful to use common methods for creating Python software packages.</p>
+<p>For this case we assume a file <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> has been included in the top-level directory of the repository that specifies how packages have been organized into source directories following using the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/">setuptools</a> library.</p>
+<p>Assuming <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> is present and that the usual conventions for creating Python packages have been followed, the packages can be loaded directory from github as shown in the following cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;jckantor&#39;</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="s1">&#39;cbe-virtual-laboratory&#39;</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;git+https://github.com/</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">repo</span><span class="si">}</span><span class="s2">.git&quot;</span>
+<span class="o">!</span>pip install --upgrade <span class="o">{</span>url<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/jckantor/cbe-virtual-laboratory.git
+  Cloning https://github.com/jckantor/cbe-virtual-laboratory.git to /tmp/pip-req-build-4g0kdhj4
+  Running command git clone -q https://github.com/jckantor/cbe-virtual-laboratory.git /tmp/pip-req-build-4g0kdhj4
+Building wheels for collected packages: cbelaboratory
+  Building wheel for cbelaboratory (setup.py) ... ?25l?25hdone
+  Created wheel for cbelaboratory: filename=cbelaboratory-0.0.0-cp36-none-any.whl size=2347 sha256=0246cdb88b2feb591c7b95ccdbb82e1a043f9fa7cfba4a03a8a4950c91028554
+  Stored in directory: /tmp/pip-ephem-wheel-cache-jbbfspkb/wheels/c9/9d/5c/f86f44683b875e91e4843a17cfa5b3f69cbf419d35ca09f247
+Successfully built cbelaboratory
+Installing collected packages: cbelaboratory
+  Found existing installation: cbelaboratory 0.0.0
+    Uninstalling cbelaboratory-0.0.0:
+      Successfully uninstalled cbelaboratory-0.0.0
+Successfully installed cbelaboratory-0.0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cbelaboratory.hello_world</span> <span class="kn">import</span> <span class="n">hello</span>
+<span class="n">hello</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, World
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-and-recommended-practices">
+<h2>Summary and recommended practices<a class="headerlink" href="#summary-and-recommended-practices" title="Permalink to this headline">¶</a></h2>
+<p>Which of these methods should one use? While there is overlap in the functionality, there are some recommendations that can be make.</p>
+<ul class="simple">
+<li><p>If you need to import just a few python files, the <code class="docutils literal notranslate"><span class="pre">wget</span></code> methd is easy to use and minimizes the amount of transmitted data.</p></li>
+<li><p>If you wish to import a whole folders of source code, creating a local clone of the repository is easy to code with <code class="docutils literal notranslate"><span class="pre">git</span></code>. Moveover, it is possible to edit, commit, and push code back to the repository directory from a notebook.</p></li>
+<li><p>For more complex projects where organization of the source code should decoupled from it’s use, the conventional packaging methods of Python should be used. The packages can be install from the github repository using <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="A.01-Resources.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Resources</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="A.03-Getting-Started-with-Pymata4.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting Started with Pymata4</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jeffrey C. Kantor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

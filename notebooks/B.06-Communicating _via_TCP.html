@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Communicating via TCP &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="Untitled.html" />
+    <link rel="prev" title="Simple Stop Watch using Interrupts" href="B.05-Simple_Stop_Watch_using_Interrupts.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CBE 41622/61622 Laboratory Instrumentation and Measurement</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   CBE 61622 Laboratory Measurement and Instrumentation
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.01-Configuring-a-Workstation.html">
+   Configuring a Workstation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.10-Workstation-Learning-Exercises.html">
+   Workstation Learning Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.20-Projects.html">
+   Semester Projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.00-Analog-Circuits-and-Signals.html">
+   Analog Circuits and Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.08-Linear-DC-Circuits.html">
+   Basics of Linear DC Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.10-Operational-Amplifiers.html">
+   Operational Amplifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.00-Analog-Measurement.html">
+   Analog Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.01-Low-Level-Measurment.html">
+   Low-Level Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.02-Sampling-Continuous-Time-Signals.html">
+   Sampling Continuous Time Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.00-Chemical_Instrumentation.html">
+   Chemical Instrumentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.10-Potentiostats-and-Galvanostats.html">
+   Potentiostats and Galvanostats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.00-Raspberry-Pi-Pico.html">
+   Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.02-Seeed_Grove_Pico_Starter_Kit.html">
+   Grove Starter Kit for Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.03-LCD1602.html">
+   LCD1602
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.00-Coding-for-Device-Control.html">
+   Device Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.01-Simple_Event_Loop.html">
+   Managing Multiple Devices with an Event Loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.02-Coding-Paradigms.html">
+   Coding for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.03-Coding-Paradigms.html">
+   Coding Paradigms for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.04-Event-Driven-Programming.html">
+   Event Driven Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.05-PIO-Programming.html">
+   PIO Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.00-Interfacing_with_Laboratory_Equipment.html">
+   Interfacing with Laboratory Equipment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.01-Stepper-Motors.html">
+   Stepper Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.02-Stepper_Motor_Control_via_I2C.html">
+   Stepper Motor Control via I2C
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.03-Wifi-with-ESP-01.html">
+   Wifi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.00-Raspberry-Pi.html">
+   Raspberry Pi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.01-Raspberry-Pi-Setup.html">
+   Setting up the Raspberry Pi for Lab Use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.02-rpi-test-libraries.html">
+   RPI Library tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.03-rpi-picamera_test.html">
+   RPI Camera Module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.00-Enabling_the_Internet_of_Things.html">
+   Enabling the Internet of Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.01-Publishing_an_Experiment_via_MQTT.html">
+   Publishing an Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.02-Accessing_a_Remote_Experiment_via_MQTT.html">
+   Accessing a Remote Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.03-Miscellaneous_Notes.html">
+   Accessing MQTT Devices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.00-Computer-Vision.html">
+   Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.01-rpi-image-capture.html">
+   Image Capture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.02-Machine-Vision.html">
+   Machine Vision Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.10-Case-Study-Particle-Counting.html">
+   Case Study: Particle Counting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.11-Experiments-with-Computer-Vision.html">
+   Experiments with Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.12-Test-Driven-Development.html">
+   Test Driven Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.13-Computer-Vision-Application.html">
+   Computer Vision Case Study: Creating an Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.00-Appendices.html">
+   Python Source Library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.01-Resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.02-Downloading_Python_source_files_from_github.html">
+   Downloading Python source files from github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.03-Getting-Started-with-Pymata4.html">
+   Getting Started with Pymata4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.04-Scheduling-Real-Time-Events-with-Simpy.html">
+   Scheduling Real-Time Events with Simpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.00-Working_with_Particle.html">
+   Working with Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.01-Particle_CLI.html">
+   Particle Command Line Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.02-Particle_Coding.html">
+   Coding for Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.03-Particle-CLI.html">
+   Particle Command Line Interface (CLI)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.04-Ultrasonic_Distance_Ranger.html">
+   Ultrasonic Distance Ranger
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.05-Simple_Stop_Watch_using_Interrupts.html">
+   Simple Stop Watch using Interrupts
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Communicating via TCP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/B.06-Communicating _via_TCP.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jckantor/cbe61622"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/B.06-Communicating _via_TCP.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/B.06-Communicating _via_TCP.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/B.06-Communicating _via_TCP.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#particle-cli">
+   Particle CLI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation">
+     Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utility-functions">
+     Utility functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#login-to-particle">
+     Login to Particle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#select-a-device">
+     Select a device
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-considerations">
+   Project Considerations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation">
+   Implementation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-project">
+     Create Project
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-working-directory">
+     Change working directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-source-file">
+     Create source file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compiling">
+     Compiling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flash-firmware">
+     Flash firmware
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Communicating via TCP</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#particle-cli">
+   Particle CLI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation">
+     Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utility-functions">
+     Utility functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#login-to-particle">
+     Login to Particle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#select-a-device">
+     Select a device
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-considerations">
+   Project Considerations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation">
+   Implementation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-project">
+     Create Project
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-working-directory">
+     Change working directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-source-file">
+     Create source file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compiling">
+     Compiling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flash-firmware">
+     Flash firmware
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="communicating-via-tcp">
+<h1>Communicating via TCP<a class="headerlink" href="#communicating-via-tcp" title="Permalink to this headline">¶</a></h1>
+<p>This notebook shows how to implement a TCP Server on Particle Argon and communicate with the server from a laptop using a <code class="docutils literal notranslate"><span class="pre">netcat</span></code> utility.</p>
+<section id="particle-cli">
+<h2>Particle CLI<a class="headerlink" href="#particle-cli" title="Permalink to this headline">¶</a></h2>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!bash &lt;( curl -sL https://particle.io/install-cli )
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="utility-functions">
+<h3>Utility functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="c1"># regular expression to strip ansi control characters</span>
+<span class="n">ansi</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\x1B(?:[@-Z</span><span class="se">\\</span><span class="s1">-_]|\[[0-?]*[ -/]*[@-~])&#39;</span><span class="p">)</span>
+
+<span class="c1"># decode byte string and strip ansi control characters</span>
+<span class="k">def</span> <span class="nf">decode_bytes</span><span class="p">(</span><span class="n">byte_string</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">byte_string</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">byte_string</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ansi</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+
+<span class="c1"># streamline call to the particle-cli</span>
+<span class="k">def</span> <span class="nf">particle</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">particle_cli</span><span class="o">=</span><span class="s2">&quot;/root/bin/particle&quot;</span><span class="p">):</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">,</span>
+                             <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                             <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">decode_bytes</span><span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">process</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="login-to-particle">
+<h3>Login to Particle<a class="headerlink" href="#login-to-particle" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="select-a-device">
+<h3>Select a device<a class="headerlink" href="#select-a-device" title="Permalink to this headline">¶</a></h3>
+<p>The following cell downloads a list of all user devices and creates a list of device names. Here we choose the first name in the list for the rest of this notebook. If this is not the device to be used, then modify this cell accordingly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
+
+<span class="c1"># prompt for username and password</span>
+<span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Username: &quot;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Password: &quot;</span><span class="p">)</span>
+
+<span class="c1"># attempt login</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;login&quot;</span><span class="p">,</span> <span class="s2">&quot;--username&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="s2">&quot;--password&quot;</span><span class="p">,</span> <span class="n">password</span><span class="p">])</span>
+
+<span class="c1"># report results</span>
+<span class="k">if</span> <span class="n">output</span><span class="o">.</span><span class="n">returncode</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Return code = </span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Username: ··········
+Password: ··········
+&gt; Successfully completed login!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
+<span class="n">device_name</span> <span class="o">=</span> <span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jck_argon_01 [e00fce68eaceb1faa7cf7193] (Argon) is online
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="project-considerations">
+<h2>Project Considerations<a class="headerlink" href="#project-considerations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>MacOS</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nc -4 -n 192.168.xxx.xxx pppp
+</pre></div>
+</div>
+<section id="create-project">
+<h3>Create Project<a class="headerlink" href="#create-project" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing project in directory myproject...
+&gt; A new project has been initialized in directory myproject
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="change-working-directory">
+<h3>Change working directory<a class="headerlink" href="#change-working-directory" title="Permalink to this headline">¶</a></h3>
+<p>The Particle CLI assumes one is working in the top  project directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/myproject
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/myproject
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-source-file">
+<h3>Create source file<a class="headerlink" href="#create-source-file" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> src/myproject.ino
+
+<span class="o">/*</span> 
+<span class="n">Demonstrate</span> <span class="n">bidirectional</span> <span class="n">communication</span> <span class="k">with</span> <span class="n">Particle</span> <span class="n">using</span> <span class="n">TCPServer</span> <span class="ow">and</span>
+<span class="n">client</span><span class="o">.</span> <span class="n">After</span> <span class="n">flashing</span> <span class="n">this</span> <span class="n">firmware</span><span class="p">,</span> <span class="n">check</span> <span class="n">the</span> <span class="n">Particle</span> <span class="n">console</span> <span class="k">for</span> <span class="n">the</span> <span class="n">local</span>
+<span class="n">IP</span> <span class="n">address</span><span class="o">.</span> <span class="n">Connect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">local</span> <span class="n">IP</span> <span class="n">address</span> <span class="n">using</span> <span class="n">netcat</span>
+
+    <span class="n">nc</span> <span class="o">-</span><span class="mi">4</span> <span class="o">-</span><span class="n">n</span> <span class="mf">192.168</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span> <span class="mi">23</span>
+
+<span class="n">Type</span> <span class="n">H</span> <span class="ow">and</span> <span class="n">L</span> <span class="n">will</span> <span class="n">turn</span> <span class="n">the</span> <span class="n">on</span><span class="o">-</span><span class="n">board</span> <span class="n">LED</span> <span class="n">on</span> <span class="ow">and</span> <span class="n">off</span><span class="o">.</span>
+<span class="o">*/</span>
+
+<span class="n">TCPServer</span> <span class="n">server</span> <span class="o">=</span> <span class="n">TCPServer</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
+<span class="n">TCPClient</span> <span class="n">client</span><span class="p">;</span>
+
+<span class="n">const</span> <span class="nb">int</span> <span class="n">led</span> <span class="o">=</span> <span class="n">D7</span><span class="p">;</span>
+<span class="n">long</span> <span class="nb">int</span> <span class="n">timeout</span><span class="p">;</span>
+<span class="n">char</span> <span class="n">c</span><span class="p">;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
+    <span class="n">Particle</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;Server IP&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">localIP</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">PRIVATE</span><span class="p">);</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n">long</span> <span class="nb">int</span> <span class="n">begin</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">timeout</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
+            <span class="o">/*</span> <span class="n">get</span> <span class="nb">next</span> <span class="n">char</span> <span class="o">*/</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">read</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;H&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Turn LED on.&quot;</span><span class="p">);</span>
+                <span class="n">timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5000</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;L&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Turn LED off.&quot;</span><span class="p">);</span>
+                <span class="n">timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;S&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">led</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;LED is on.&quot;</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;LED is off.&quot;</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;X&#39;</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Close client connection.&quot;</span><span class="p">);</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">stop</span><span class="p">();</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">get</span> <span class="nb">next</span> <span class="n">client</span> <span class="o">*/</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">available</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">connected</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Enter: &quot;</span><span class="p">);</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   H to turn LED on for 5 seconds&quot;</span><span class="p">);</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   L to turn LED off&quot;</span><span class="p">);</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   S for LED status&quot;</span><span class="p">);</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;   X to close client connection&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting src/myproject.ino
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compiling">
+<h3>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compiling code for argon
+
+Including:
+    src/myproject.ino
+    project.properties
+
+attempting to compile firmware
+downloading binary from: /v1/binaries/5f97068ce15235e4909ac925
+saving to: myproject.bin
+Memory use:
+   text	   data	    bss	    dec	    hex	filename
+  11852	    108	   1148	  13108	   3334	/workspace/target/workspace.elf
+
+Compile succeeded.
+Saved firmware to: /content/myproject/myproject.bin
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="flash-firmware">
+<h3>Flash firmware<a class="headerlink" href="#flash-firmware" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;myproject.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Including:
+    myproject.bin
+
+attempting to flash firmware to your device jck_argon_01
+Flash device OK: Update started
+
+Flash success!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="B.05-Simple_Stop_Watch_using_Interrupts.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Simple Stop Watch using Interrupts</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Untitled.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jeffrey C. Kantor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
