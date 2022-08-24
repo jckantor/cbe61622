@@ -3,8 +3,9 @@
 format: jb-book
 root: README.md
 chapters:
-- file: notebooks/01/01-Configuring-a-Workstation.ipynb
+- file: 00-CBE_61622.ipynb
   sections:
+  - file: notebooks/01/01-Configuring-a-Workstation.ipynb
   - file: notebooks/01/10-Workstation-Learning-Exercises.ipynb
   - file: notebooks/01/20-Projects.ipynb
 - file: notebooks/02.00-Analog-Circuits-and-Signals.ipynb
