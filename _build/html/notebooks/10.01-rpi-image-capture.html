@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Image Capture &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Machine Vision Applications" href="10.02-Machine-Vision.html" />
+    <link rel="prev" title="Computer Vision" href="10.00-Computer-Vision.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CBE 41622/61622 Laboratory Instrumentation and Measurement</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   CBE 61622 Laboratory Measurement and Instrumentation
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.01-Configuring-a-Workstation.html">
+   Configuring a Workstation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.10-Workstation-Learning-Exercises.html">
+   Workstation Learning Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01.20-Projects.html">
+   Semester Projects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.00-Analog-Circuits-and-Signals.html">
+   Analog Circuits and Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.08-Linear-DC-Circuits.html">
+   Basics of Linear DC Circuits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02.10-Operational-Amplifiers.html">
+   Operational Amplifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.00-Analog-Measurement.html">
+   Analog Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.01-Low-Level-Measurment.html">
+   Low-Level Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03.02-Sampling-Continuous-Time-Signals.html">
+   Sampling Continuous Time Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.00-Chemical_Instrumentation.html">
+   Chemical Instrumentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.10-Potentiostats-and-Galvanostats.html">
+   Potentiostats and Galvanostats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.00-Raspberry-Pi-Pico.html">
+   Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.02-Seeed_Grove_Pico_Starter_Kit.html">
+   Grove Starter Kit for Raspberry Pi Pico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.03-LCD1602.html">
+   LCD1602
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.00-Coding-for-Device-Control.html">
+   Device Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.01-Simple_Event_Loop.html">
+   Managing Multiple Devices with an Event Loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.02-Coding-Paradigms.html">
+   Coding for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.03-Coding-Paradigms.html">
+   Coding Paradigms for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.04-Event-Driven-Programming.html">
+   Event Driven Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06.05-PIO-Programming.html">
+   PIO Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.00-Interfacing_with_Laboratory_Equipment.html">
+   Interfacing with Laboratory Equipment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.01-Stepper-Motors.html">
+   Stepper Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.02-Stepper_Motor_Control_via_I2C.html">
+   Stepper Motor Control via I2C
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07.03-Wifi-with-ESP-01.html">
+   Wifi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.00-Raspberry-Pi.html">
+   Raspberry Pi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.01-Raspberry-Pi-Setup.html">
+   Setting up the Raspberry Pi for Lab Use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.02-rpi-test-libraries.html">
+   RPI Library tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08.03-rpi-picamera_test.html">
+   RPI Camera Module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.00-Enabling_the_Internet_of_Things.html">
+   Enabling the Internet of Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.01-Publishing_an_Experiment_via_MQTT.html">
+   Publishing an Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.02-Accessing_a_Remote_Experiment_via_MQTT.html">
+   Accessing a Remote Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09.03-Miscellaneous_Notes.html">
+   Accessing MQTT Devices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.00-Computer-Vision.html">
+   Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Image Capture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.02-Machine-Vision.html">
+   Machine Vision Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.10-Case-Study-Particle-Counting.html">
+   Case Study: Particle Counting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.11-Experiments-with-Computer-Vision.html">
+   Experiments with Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.12-Test-Driven-Development.html">
+   Test Driven Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.13-Computer-Vision-Application.html">
+   Computer Vision Case Study: Creating an Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.00-Appendices.html">
+   Python Source Library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.01-Resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.02-Downloading_Python_source_files_from_github.html">
+   Downloading Python source files from github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.03-Getting-Started-with-Pymata4.html">
+   Getting Started with Pymata4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A.04-Scheduling-Real-Time-Events-with-Simpy.html">
+   Scheduling Real-Time Events with Simpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.00-Working_with_Particle.html">
+   Working with Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.01-Particle_CLI.html">
+   Particle Command Line Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.02-Particle_Coding.html">
+   Coding for Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.03-Particle-CLI.html">
+   Particle Command Line Interface (CLI)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.04-Ultrasonic_Distance_Ranger.html">
+   Ultrasonic Distance Ranger
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.05-Simple_Stop_Watch_using_Interrupts.html">
+   Simple Stop Watch using Interrupts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="B.06-Communicating%20_via_TCP.html">
+   Communicating via TCP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/10.01-rpi-image-capture.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jckantor/cbe61622"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/10.01-rpi-image-capture.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/10.01-rpi-image-capture.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/10.01-rpi-image-capture.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#light">
+   Light
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perception">
+   Perception
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#color-gamut">
+     Color Gamut
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lens-and-aperture">
+     Lens and Aperture
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#etendue">
+       Etendue
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#simple-lenses">
+       Simple Lenses
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#complex-lenses">
+       Complex lenses
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sensor">
+     Sensor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#camera-as-a-system">
+     Camera as a System
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#software-tools">
+   Software Tools
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Image Capture</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#light">
+   Light
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perception">
+   Perception
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#color-gamut">
+     Color Gamut
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lens-and-aperture">
+     Lens and Aperture
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#etendue">
+       Etendue
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#simple-lenses">
+       Simple Lenses
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#complex-lenses">
+       Complex lenses
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sensor">
+     Sensor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#camera-as-a-system">
+     Camera as a System
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#software-tools">
+   Software Tools
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="image-capture">
+<h1>Image Capture<a class="headerlink" href="#image-capture" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Great minds discuss ideas; average minds discuss events; small minds discuss people.</p>
+<p><em>Eleanor Roosevelt</em></p>
+</div></blockquote>
+<p>Let’s get the ideas in order before discussing equipment and processes.</p>
+<p><img alt="" src="https://i.pinimg.com/originals/ef/57/92/ef579242f3a4c24fe01d543f04a656b7.jpg" /></p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Main Reference</p>
+<ul class="simple">
+<li><p>Miikki, K; Karakoc, A. et al. An open-source camera system for experimental measurements, SoftwareX, 2021, 14, 100688 (freely accessible &#64;  <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2352711021000339#appA">https://www.sciencedirect.com/science/article/pii/S2352711021000339#appA</a>) <a href="https://doi.org/10.5281/zenodo.4300692"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4300692.svg" alt="DOI"></a>  Also see <a class="reference external" href="https://github.com/kmiikki/rpi-camera">rpi-camera github repository</a>.</p></li>
+</ul>
+<p>Secondary References</p>
+<ul class="simple">
+<li><p>Wilkes, Thomas C., et al. “Ultraviolet imaging with low cost smartphone sensors: Development and application of a raspberry Pi-based UV camera.” Sensors 16.10 (2016): 1649. (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5087437/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5087437/</a>) <a class="reference external" href="https://core.ac.uk/download/pdf/46565912.pdf">pdf</a></p></li>
+<li><p>Deep Ultraviolet Imaging Using the Raspberry Pi HQ Camera <a class="reference external" href="https://stereopi.com/blog/deep-ultraviolet-imaging-using-raspberry-pi-hq-camera">Steropi Blog</a></p></li>
+<li><p>Raspberry Pi Documentation: Camera (<a class="reference external" href="https://www.raspberrypi.com/documentation/accessories/camera.html">https://www.raspberrypi.com/documentation/accessories/camera.html</a>)</p></li>
+<li><p><a class="reference external" href="https://youtu.be/r8ByyJzSKG8">Giving Linux a Camera Stack: libcamera’s 3 Years Journey and Exciting Future</a> (YouTube video)</p></li>
+</ul>
+</section>
+<section id="light">
+<h2>Light<a class="headerlink" href="#light" title="Permalink to this headline">¶</a></h2>
+<p>Radiometry vs Photometry</p>
+<ul class="simple">
+<li><p><strong>Radiometry</strong>: Measuring light in any portion of the electromagnetic spectrum, typically infrared, visible, ultraviolet</p></li>
+<li><p><strong>Photometry</strong>: Measuring light in units weighted by sensitivity of the human eye.</p></li>
+</ul>
+<p>SI Units for Photometry</p>
+<ul class="simple">
+<li><p>Candela (cd): SI unit of luminous intensity</p></li>
+<li><p>Luminous power per unit solid angle emitted by a point light source. 1 cd = 1 lumen/SR</p></li>
+<li><p>1 candela is approximately equal to light emitted by a common wax candle</p></li>
+<li><p>Luminous intensity is weighted to match human perception.</p></li>
+</ul>
+<p>More on Lumens, Lux, and Nits: <a class="reference external" href="https://www.konicaminolta.com/instruments/knowledge/light/concepts/04.html">https://www.konicaminolta.com/instruments/knowledge/light/concepts/04.html</a></p>
+</section>
+<section id="perception">
+<h2>Perception<a class="headerlink" href="#perception" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.olympus-lifescience.com/en/microscope-resource/primer/lightandcolor/humanvisionintro/">https://www.olympus-lifescience.com/en/microscope-resource/primer/lightandcolor/humanvisionintro/</a></p>
+<p><img alt="" src="http://hci.cs.siue.edu/NSF/Files/Semester/Week9-2/PPT-Text/images/Image13.png" /></p>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/CIE_1931_Luminosity.png/640px-CIE_1931_Luminosity.png" /></p>
+<ul class="simple">
+<li><p>Human Perception</p></li>
+</ul>
+<p><a class="reference external" href="https://www.olympus-lifescience.com/en/microscope-resource/primer/lightandcolor/humanvisionintro/">https://www.olympus-lifescience.com/en/microscope-resource/primer/lightandcolor/humanvisionintro/</a></p>
+<p><img alt="" src="https://static3.olympus-lifescience.com/data/olympusmicro/primer/lightandcolor/images/humanvisionfigure6.jpg?rev=63C6" /></p>
+<p><img alt="" src="https://www.ecse.rpi.edu/~schubert/Light-Emitting-Diodes-dot-org/chap16/F16-02%20Photopic%20mesopic%20scotopic%20vision.jpg" /></p>
+<ul class="simple">
+<li><p>Representing images</p>
+<ul>
+<li><p>Gamma</p></li>
+<li><p>RGB, CYMK, YUV, etc</p></li>
+<li><p>Color spaces</p></li>
+<li><p>Color management and calibration</p></li>
+<li><p>Gamma</p></li>
+<li><p>Histograms</p></li>
+</ul>
+</li>
+</ul>
+<section id="color-gamut">
+<h3>Color Gamut<a class="headerlink" href="#color-gamut" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cie_Chart_with_sRGB_gamut_by_spigget.png/430px-Cie_Chart_with_sRGB_gamut_by_spigget.png" /></p>
+</section>
+<section id="lens-and-aperture">
+<h3>Lens and Aperture<a class="headerlink" href="#lens-and-aperture" title="Permalink to this headline">¶</a></h3>
+<section id="etendue">
+<h4>Etendue<a class="headerlink" href="#etendue" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Property of light in an optical system</p></li>
+<li><p>Area of the entrance pupil times solid angle the source subtends viewed from the pupil</p></li>
+<li><p>Etendue is like entropy, always increases in an optical system</p></li>
+</ul>
+</section>
+<section id="simple-lenses">
+<h4>Simple Lenses<a class="headerlink" href="#simple-lenses" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Lens">https://en.wikipedia.org/wiki/Lens</a></p>
+<ul class="simple">
+<li><p>Simple lenses</p></li>
+<li><p>Focal length, refraction, and the Lensmaker’s equation</p></li>
+<li><p>Real and Virtual image</p></li>
+<li><p>Magnification</p></li>
+<li><p>Abberations</p></li>
+</ul>
+</section>
+<section id="complex-lenses">
+<h4>Complex lenses<a class="headerlink" href="#complex-lenses" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>microscopes (<a class="reference external" href="https://www.ccmr.cornell.edu/wp-content/uploads/sites/2/2018/03/Reading_-How-do-the-lenses-in-a-microscope-work_.pdf">https://www.ccmr.cornell.edu/wp-content/uploads/sites/2/2018/03/Reading_-How-do-the-lenses-in-a-microscope-work_.pdf</a>)
+<img alt="" src="https://image1.slideserve.com/2952580/slide8-l.jpg" /></p></li>
+<li><p>4f systems and fourier optics</p></li>
+<li><p>telecentric lenses</p></li>
+<li><p>epi-lighting schemes</p></li>
+</ul>
+</section>
+</section>
+<section id="sensor">
+<h3>Sensor<a class="headerlink" href="#sensor" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="https://static.techspot.com/articles-info/850/images/CMOS-j_1100.webp" /></p>
+<p>IR/UV/Anti-Aliasing/Microlens/Color Filter Array</p>
+<p><img alt="" src="https://www.arducam.com/wp-content/uploads/2020/11/sony-image-sensor-back-illuminated-and-front-illuminated-22.jpg" /></p>
+<p><img alt="" src="https://static.techspot.com/articles-info/850/images/Module-GS5-S-j_1100.webp" /></p>
+<ul class="simple">
+<li><p>Sensor 2. Electronics</p>
+<ul>
+<li><p><a class="reference external" href="https://www.uctronics.com/download/cam_module/OV5642DS.pdf">OV5642 Data Sheet</a>
+<img alt="" src="https://www.arducam.com/wp-content/uploads/2019/04/ov5642_diagram.jpg" /></p></li>
+<li><p><a class="reference external" href="https://www.arducam.com/sony/imx477/">IMX477 Data Sheet</a>
+<img alt="" src="https://www.arducam.com/wp-content/uploads/2020/11/BLOCK-DIAGRAM-1024x564.png" /></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="camera-as-a-system">
+<h3>Camera as a System<a class="headerlink" href="#camera-as-a-system" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Feedback</p>
+<ul>
+<li><p>Exposure control</p></li>
+<li><p>Automatic white balance</p></li>
+<li><p>Autofocus</p></li>
+</ul>
+</li>
+<li><p>Equivalence</p></li>
+</ul>
+<p><img alt="" src="https://www.raspberrypi.com/app/uploads/2020/05/Libcamera-Diagrams-01-500x334.jpg" /></p>
+<p><img alt="" src="https://www.raspberrypi.com/app/uploads/2020/05/Libcamera-Diagrams-02-500x334.jpg" /></p>
+</section>
+</section>
+<section id="software-tools">
+<h2>Software Tools<a class="headerlink" href="#software-tools" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>libcamera + qcam</p></li>
+<li><p>OpenCV</p></li>
+<li><p>RawTherapee <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">rawtherapee</span></code></p></li>
+<li><p>imageio</p></li>
+<li><p>ImageJ</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="10.00-Computer-Vision.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Computer Vision</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="10.02-Machine-Vision.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Machine Vision Applications</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jeffrey C. Kantor<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
