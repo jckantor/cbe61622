@@ -8,8 +8,9 @@
 
     <title>Basics of Linear DC Circuits &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -40,12 +37,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -67,7 +65,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -91,14 +104,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   CBE 61622 Laboratory Measurement and Instrumentation
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    CBE 61622 Laboratory Measurement and Instrumentation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02.00-Analog-Circuits-and-Signals.html">
    Analog Circuits and Signals
@@ -137,21 +151,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="04.10-Potentiostats-and-Galvanostats.html">
    Potentiostats and Galvanostats
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05.00-Raspberry-Pi-Pico.html">
-   Raspberry Pi Pico
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05.02-Seeed_Grove_Pico_Starter_Kit.html">
-   Grove Starter Kit for Raspberry Pi Pico
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05.03-LCD1602.html">
-   LCD1602
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,112 +341,227 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/02.08-Linear-DC-Circuits.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/jckantor/cbe61622"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.08-Linear-DC-Circuits.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/02.08-Linear-DC-Circuits.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/02.08-Linear-DC-Circuits.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/02.08-Linear-DC-Circuits.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/02.08-Linear-DC-Circuits.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jckantor/cbe61622"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02.08-Linear-DC-Circuits.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/02.08-Linear-DC-Circuits.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dimensions-and-units">
    Dimensions and Units
@@ -492,12 +606,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Basics of Linear DC Circuits</h1>
@@ -558,13 +671,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="basics-of-linear-dc-circuits">
-<h1>Basics of Linear DC Circuits<a class="headerlink" href="#basics-of-linear-dc-circuits" title="Permalink to this headline">¶</a></h1>
+<h1>Basics of Linear DC Circuits<a class="headerlink" href="#basics-of-linear-dc-circuits" title="Permalink to this headline">#</a></h1>
 <section id="dimensions-and-units">
-<h2>Dimensions and Units<a class="headerlink" href="#dimensions-and-units" title="Permalink to this headline">¶</a></h2>
+<h2>Dimensions and Units<a class="headerlink" href="#dimensions-and-units" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>Ampere (A)</strong> In November 2018, several of the SI base units were redefined in terms that finally eliminated the use of artifacts. In the new system, the Ampere is the flow of one Coulomb <span class="math notranslate nohighlight">\(C\)</span> per second, where the numerical value of elementary charge <span class="math notranslate nohighlight">\(e\)</span> of an electron is fixed as <span class="math notranslate nohighlight">\(1.602176634 \times 10 ^{-19}\)</span>C</p></li>
 <li><p><strong>Volt (V)</strong> An electric field exerts force on an electric charge, therefore work is being done when a current passes through an electric field. Volts measure the magnitude of an electric field such that one volt is the potential field that produces 1 Watt of power for an electric current of 1 Ampere.</p></li>
@@ -574,7 +688,7 @@ const thebe_selector_output = ".output, .cell_output"
 \[ P = V \times I \]</div>
 </section>
 <section id="kirchhoff-s-rules">
-<h2>Kirchhoff’s rules<a class="headerlink" href="#kirchhoff-s-rules" title="Permalink to this headline">¶</a></h2>
+<h2>Kirchhoff’s rules<a class="headerlink" href="#kirchhoff-s-rules" title="Permalink to this headline">#</a></h2>
 <p>The circuits used in laboratory instrumentation are comprised of lumped elements such as conductors, resistors, capacitors, inductors, and various semiconductor components. Kirchhoff’s rules are the foundation of circuit analysis for lumped elements. There are two basic rules:</p>
 <ul class="simple">
 <li><p><strong>Kirchhoff’s current rule.</strong> Given a node in a circuit, the algebraic sum of currents is zero. That is,
@@ -587,7 +701,7 @@ where \)</span>V_n$ is the signed (i.e, positive or negative) potential differen
 <p>These rules are the foundation for circuit analysis, but do depend on several key assumptions that do not hold in for all laboratory situations. In particular, these rules assume a circuit can be modeled as lumped elements that do not interact through electric or magnetic fields. These assumptions may be violated, for example, in high frequency transmission lines where charge density may be oscillating, or where there is significant interaction of electrical or magnetic fields with the surrounding environment. Since these types of interactions can occur in a laboratory setting, one needs to be aware of the limits of basic circuit analysis.</p>
 </section>
 <section id="ohm-s-law">
-<h2>Ohm’s law<a class="headerlink" href="#ohm-s-law" title="Permalink to this headline">¶</a></h2>
+<h2>Ohm’s law<a class="headerlink" href="#ohm-s-law" title="Permalink to this headline">#</a></h2>
 <p>Ohm’s law is a linear consituitive equation describing the relationship between current density <span class="math notranslate nohighlight">\(\bf j\)</span>, electric field <span class="math notranslate nohighlight">\(\bf e\)</span>, and magnetic flux density <span class="math notranslate nohighlight">\(\bf b\)</span> for a bulk conductors. In vector notation</p>
 <div class="math notranslate nohighlight">
 \[{\bf j} = \sigma({\bf e} + {\bf v}\times {\bf b}) + {\bf j}_s\]</div>
@@ -610,7 +724,7 @@ For a device with cross-sectional area <span class="math notranslate nohighlight
 \[V = I \times R\]</div>
 </section>
 <section id="ideal-voltage-and-current-sources">
-<h2>Ideal Voltage and Current Sources<a class="headerlink" href="#ideal-voltage-and-current-sources" title="Permalink to this headline">¶</a></h2>
+<h2>Ideal Voltage and Current Sources<a class="headerlink" href="#ideal-voltage-and-current-sources" title="Permalink to this headline">#</a></h2>
 <p>An <strong>ideal voltage source</strong> is a device that maintains a fixed voltage regardless of the current required by the load.</p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Ohms_law_voltage_source.svg/200px-Ohms_law_voltage_source.svg.png" /></p>
 <p>Given <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(R\)</span>, the current flow <span class="math notranslate nohighlight">\(I = V/R\)</span>, and power is <span class="math notranslate nohighlight">\(P = V I = V^2/R\)</span>. Obviously this idealization breaks down in the limit <span class="math notranslate nohighlight">\(R = 0\)</span> which would require an infinite and therefore infeasible amount of current.</p>
@@ -620,10 +734,10 @@ For a device with cross-sectional area <span class="math notranslate nohighlight
 <p>Most common power supplies are set up as voltage sources with some sort of current limit.</p>
 </section>
 <section id="resistor-networks">
-<h2>Resistor Networks<a class="headerlink" href="#resistor-networks" title="Permalink to this headline">¶</a></h2>
+<h2>Resistor Networks<a class="headerlink" href="#resistor-networks" title="Permalink to this headline">#</a></h2>
 <p>Systems comprised of interconnected resistors can be analyzed using the Kirchhoff circuit laws.</p>
 <section id="voltage-divider">
-<h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">¶</a></h3>
+<h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">#</a></h3>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Resistive_divider2.svg/200px-Resistive_divider2.svg.png" /></p>
 <p>\begin{align*}
 V_{in} &amp; = V_1 + V_2  \
@@ -636,7 +750,7 @@ V_{in} &amp; = V_1 + V_2  \
 </section>
 </section>
 <section id="capacitors">
-<h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline">¶</a></h2>
+<h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline">#</a></h2>
 <p>An ideal capacitor</p>
 <div class="math notranslate nohighlight">
 \[ I = C \frac{dV}{dt}\]</div>
@@ -651,7 +765,7 @@ V_{in} &amp; = V_1 + V_2  \
 <p>Drawing a parallel with Ohm’s law, we see that <span class="math notranslate nohighlight">\(\frac{1}{Cs}\)</span> is the complex impedence of a capacitor.</p>
 </section>
 <section id="inductors">
-<h2>Inductors<a class="headerlink" href="#inductors" title="Permalink to this headline">¶</a></h2>
+<h2>Inductors<a class="headerlink" href="#inductors" title="Permalink to this headline">#</a></h2>
 <p>An ideal inductor creates a counter potential as a result of increasing current.</p>
 <div class="math notranslate nohighlight">
 \[ V = - L \frac{dI}{dt} \]</div>
@@ -683,9 +797,11 @@ V_{in} &amp; = V_1 + V_2  \
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="02.00-Analog-Circuits-and-Signals.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -701,24 +817,28 @@ V_{in} &amp; = V_1 + V_2  \
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jeffrey C. Kantor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Jeffrey C. Kantor<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
