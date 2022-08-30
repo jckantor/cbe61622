@@ -3,17 +3,18 @@
 format: jb-book
 root: README.md
 chapters:
-- file: 00-CBE_61622.ipynb
+- file: notebooks/01/00-CBE_61622.ipynb
   sections:
   - file: notebooks/01/01-Configuring-a-Workstation.ipynb
   - file: notebooks/01/10-Workstation-Learning-Exercises.ipynb
   - file: notebooks/01/20-Projects.ipynb
   
-- file: notebooks/02/00-00-Raspberry-Pi-Pico.ipynb
+- file: notebooks/02/00-Raspberry-Pi-Pico.ipynb
   sections:
   - file: notebooks/02/01-Getting_Started.ipynb
   - file: notebooks/02/02-Seeed_Grove_Pico_Starter_Kit.ipynb
   - file: notebooks/02/03-LCD1602.ipynb
+  - file: notebooks/02/04-Project-01.ipynb
   
 - file: notebooks/02.00-Analog-Circuits-and-Signals.ipynb
 - file: notebooks/02.08-Linear-DC-Circuits.ipynb
