@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Project 01 - Detecting the Laboratory Environment" href="04-Project-01.html" />
+    <link rel="next" title="Analog Circuits and Signals" href="../03/00-Analog-Circuits-and-Signals.html" />
     <link rel="prev" title="Grove Starter Kit for Raspberry Pi Pico" href="02-Seeed_Grove_Pico_Starter_Kit.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -163,32 +163,34 @@ const thebe_selector_output = ".output, .cell_output"
      LCD1602
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/00-Analog-Circuits-and-Signals.html">
+   Analog Circuits and Signals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="04-Project-01.html">
-     Project 01 - Detecting the Laboratory Environment
+    <a class="reference internal" href="../03/01-Linear-DC-Circuits.html">
+     Basics of Linear DC Circuits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/02-Operational-Amplifiers.html">
+     Operational Amplifiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/03-Analog-Measurement.html">
+     Analog Measurement
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02.00-Analog-Circuits-and-Signals.html">
-   Analog Circuits and Signals
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02.08-Linear-DC-Circuits.html">
-   Basics of Linear DC Circuits
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02.10-Operational-Amplifiers.html">
-   Operational Amplifiers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03.00-Analog-Measurement.html">
-   Analog Measurement
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../03.01-Low-Level-Measurment.html">
@@ -790,8 +792,28 @@ lcd.update(&quot;Hello&quot;,&quot;World&quot;)
 <div class="highlight-micropython notranslate"><div class="highlight"><pre><span></span>import machine
 import time
 
+class LCD16x2():
+    
+    def __init__(self, i2c):
+        self.i2c = i2c
+        self.d = LCD1602(i2c, 2, 16)
+        self.d.clear()
+        self.lines = [&quot; &quot;*16, &quot; &quot;*16]
+        
+    def update(self, line1=None, line2=None):
+        self.update_line(0, line1)
+        self.update_line(1, line2)
+        
+    def update_line(self, j, line):
+        line = &quot;{:16s}&quot;.format(line)
+        if line != self.lines[j]:
+            for i, char in enumerate(line):
+                self.d.setCursor(i, j)
+                self.d.write(ord(char))
+            self.lines[j] = line
+
 # set Rp2 real time clock
-machine.RTC().datetime((2021, 10, 4, 0, 13, 2, 0, 0))
+machine.RTC().datetime((2022, 8, 30, 0, 16, 25, 0, 0))
 
 # Clock display
 month = {1:&quot;Jan&quot;, 2:&quot;Feb&quot;, 3:&quot;Mar&quot;, 4:&quot;Apr&quot;, 5:&quot;May&quot;, 6:&quot;Jun&quot;,
@@ -853,10 +875,10 @@ timer = machine.Timer(freq=10, mode=machine.Timer.PERIODIC, callback=display_dat
             <p class="prev-next-title">Grove Starter Kit for Raspberry Pi Pico</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="04-Project-01.html" title="next page">
+    <a class='right-next' id="next-link" href="../03/00-Analog-Circuits-and-Signals.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Project 01 - Detecting the Laboratory Environment</p>
+        <p class="prev-next-title">Analog Circuits and Signals</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

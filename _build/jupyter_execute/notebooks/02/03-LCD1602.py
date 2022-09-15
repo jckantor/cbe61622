@@ -53,8 +53,28 @@ lcd.update("Hello","World")
 import machine
 import time
 
+class LCD16x2():
+    
+    def __init__(self, i2c):
+        self.i2c = i2c
+        self.d = LCD1602(i2c, 2, 16)
+        self.d.clear()
+        self.lines = [" "*16, " "*16]
+        
+    def update(self, line1=None, line2=None):
+        self.update_line(0, line1)
+        self.update_line(1, line2)
+        
+    def update_line(self, j, line):
+        line = "{:16s}".format(line)
+        if line != self.lines[j]:
+            for i, char in enumerate(line):
+                self.d.setCursor(i, j)
+                self.d.write(ord(char))
+            self.lines[j] = line
+
 # set Rp2 real time clock
-machine.RTC().datetime((2021, 10, 4, 0, 13, 2, 0, 0))
+machine.RTC().datetime((2022, 8, 30, 0, 16, 25, 0, 0))
 
 # Clock display
 month = {1:"Jan", 2:"Feb", 3:"Mar", 4:"Apr", 5:"May", 6:"Jun",

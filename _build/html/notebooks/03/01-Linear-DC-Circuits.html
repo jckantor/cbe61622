@@ -1,0 +1,905 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Basics of Linear DC Circuits &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Operational Amplifiers" href="02-Operational-Amplifiers.html" />
+    <link rel="prev" title="Analog Circuits and Signals" href="00-Analog-Circuits-and-Signals.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CBE 41622/61622 Laboratory Instrumentation and Measurement</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    CBE 61622 Laboratory Measurement and Instrumentation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/00-CBE_61622.html">
+   CBE 61622
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/01-Configuring-a-Workstation.html">
+     Configuring a Workstation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/10-Workstation-Learning-Exercises.html">
+     Workstation Learning Exercises
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/20-Projects.html">
+     Semester Projects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/00-Raspberry-Pi-Pico.html">
+   Raspberry Pi Pico
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/01-Getting_Started.html">
+     Interfacing with Micropython on the Raspberry Pi Pico
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/02-Seeed_Grove_Pico_Starter_Kit.html">
+     Grove Starter Kit for Raspberry Pi Pico
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/03-LCD1602.html">
+     LCD1602
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-Analog-Circuits-and-Signals.html">
+   Analog Circuits and Signals
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Basics of Linear DC Circuits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-Operational-Amplifiers.html">
+     Operational Amplifiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-Analog-Measurement.html">
+     Analog Measurement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03.01-Low-Level-Measurment.html">
+   Low-Level Measurement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03.02-Sampling-Continuous-Time-Signals.html">
+   Sampling Continuous Time Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04.00-Chemical_Instrumentation.html">
+   Chemical Instrumentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04.10-Potentiostats-and-Galvanostats.html">
+   Potentiostats and Galvanostats
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06.00-Coding-for-Device-Control.html">
+   Device Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06.01-Simple_Event_Loop.html">
+   Managing Multiple Devices with an Event Loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06.02-Coding-Paradigms.html">
+   Coding for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06.03-Coding-Paradigms.html">
+   Coding Paradigms for Device Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06.04-Event-Driven-Programming.html">
+   Event Driven Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06.05-PIO-Programming.html">
+   PIO Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07.00-Interfacing_with_Laboratory_Equipment.html">
+   Interfacing with Laboratory Equipment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07.01-Stepper-Motors.html">
+   Stepper Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07.02-Stepper_Motor_Control_via_I2C.html">
+   Stepper Motor Control via I2C
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07.03-Wifi-with-ESP-01.html">
+   Wifi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08.00-Raspberry-Pi.html">
+   Raspberry Pi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08.01-Raspberry-Pi-Setup.html">
+   Setting up the Raspberry Pi for Lab Use
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08.02-rpi-test-libraries.html">
+   RPI Library tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08.03-rpi-picamera_test.html">
+   RPI Camera Module
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09.00-Enabling_the_Internet_of_Things.html">
+   Enabling the Internet of Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09.01-Publishing_an_Experiment_via_MQTT.html">
+   Publishing an Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09.02-Accessing_a_Remote_Experiment_via_MQTT.html">
+   Accessing a Remote Experiment via MQTT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09.03-Miscellaneous_Notes.html">
+   Accessing MQTT Devices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.00-Computer-Vision.html">
+   Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.01-rpi-image-capture.html">
+   Image Capture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.02-Machine-Vision.html">
+   Machine Vision Applications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.10-Case-Study-Particle-Counting.html">
+   Case Study: Particle Counting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.11-Experiments-with-Computer-Vision.html">
+   Experiments with Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.12-Test-Driven-Development.html">
+   Test Driven Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10.13-Computer-Vision-Application.html">
+   Computer Vision Case Study: Creating an Application
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../A.00-Appendices.html">
+   Python Source Library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../A.01-Resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../A.02-Downloading_Python_source_files_from_github.html">
+   Downloading Python source files from github
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../A.03-Getting-Started-with-Pymata4.html">
+   Getting Started with Pymata4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../A.04-Scheduling-Real-Time-Events-with-Simpy.html">
+   Scheduling Real-Time Events with Simpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../B.00-Working_with_Particle.html">
+   Working with Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../B.01-Particle_CLI.html">
+   Particle Command Line Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../B.02-Particle_Coding.html">
+   Coding for Particle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../B.03-Particle-CLI.html">
+   Particle Command Line Interface (CLI)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../B.04-Ultrasonic_Distance_Ranger.html">
+   Ultrasonic Distance Ranger
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../B.05-Simple_Stop_Watch_using_Interrupts.html">
+   Simple Stop Watch using Interrupts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../B.06-Communicating%20_via_TCP.html">
+   Communicating via TCP
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/03/01-Linear-DC-Circuits.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/03/01-Linear-DC-Circuits.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jckantor/cbe61622"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/03/01-Linear-DC-Circuits.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/03/01-Linear-DC-Circuits.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dimensions-and-units">
+   Dimensions and Units
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kirchhoff-s-rules">
+   Kirchhoff’s rules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ohm-s-law">
+   Ohm’s law
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ideal-voltage-and-current-sources">
+   Ideal Voltage and Current Sources
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resistor-networks">
+   Resistor Networks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#voltage-divider">
+     Voltage Divider
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capacitors">
+   Capacitors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inductors">
+   Inductors
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Basics of Linear DC Circuits</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dimensions-and-units">
+   Dimensions and Units
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kirchhoff-s-rules">
+   Kirchhoff’s rules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ohm-s-law">
+   Ohm’s law
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ideal-voltage-and-current-sources">
+   Ideal Voltage and Current Sources
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resistor-networks">
+   Resistor Networks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#voltage-divider">
+     Voltage Divider
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capacitors">
+   Capacitors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inductors">
+   Inductors
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="basics-of-linear-dc-circuits">
+<h1>Basics of Linear DC Circuits<a class="headerlink" href="#basics-of-linear-dc-circuits" title="Permalink to this headline">#</a></h1>
+<section id="dimensions-and-units">
+<h2>Dimensions and Units<a class="headerlink" href="#dimensions-and-units" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Ampere (A)</strong> In November 2018, several of the SI base units were redefined in terms that finally eliminated the use of artifacts. In the new system, the Ampere is the flow of one Coulomb <span class="math notranslate nohighlight">\(C\)</span> per second, where the numerical value of elementary charge <span class="math notranslate nohighlight">\(e\)</span> of an electron is fixed as <span class="math notranslate nohighlight">\(1.602176634 \times 10 ^{-19}\)</span>C</p></li>
+<li><p><strong>Volt (V)</strong> An electric field exerts force on an electric charge, therefore work is being done when a current passes through an electric field. Volts measure the magnitude of an electric field such that one volt is the potential field that produces 1 Watt of power for an electric current of 1 Ampere.</p></li>
+<li><p><strong>Power (P)</strong> Power, measued in units of Watts, is the amount of work done per unit time. By definition of Volt,</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ P = V \times I \]</div>
+</section>
+<section id="kirchhoff-s-rules">
+<h2>Kirchhoff’s rules<a class="headerlink" href="#kirchhoff-s-rules" title="Permalink to this headline">#</a></h2>
+<p>The circuits used in laboratory instrumentation are comprised of lumped elements such as conductors, resistors, capacitors, inductors, and various semiconductor components. Kirchhoff’s rules are the foundation of circuit analysis for lumped elements. There are two basic rules:</p>
+<ul class="simple">
+<li><p><strong>Kirchhoff’s current rule.</strong> Given a node in a circuit, the algebraic sum of currents is zero. That is,
+$<span class="math notranslate nohighlight">\(\sum_{n=1}^N I_n = 0\)</span><span class="math notranslate nohighlight">\(
+where \)</span>I_n<span class="math notranslate nohighlight">\( is the signed (i.e., positive or negative) current in the \)</span>n^{th}$ branch of the node.</p></li>
+<li><p><strong>Kirchoff’s voltage rule.</strong> The sum of potential differences is zero around any closed loop. That is
+$<span class="math notranslate nohighlight">\(\sum_{n=1}^NV_n = 0\)</span><span class="math notranslate nohighlight">\(
+where \)</span>V_n$ is the signed (i.e, positive or negative) potential difference across each device in the closed loop.</p></li>
+</ul>
+<p>These rules are the foundation for circuit analysis, but do depend on several key assumptions that do not hold in for all laboratory situations. In particular, these rules assume a circuit can be modeled as lumped elements that do not interact through electric or magnetic fields. These assumptions may be violated, for example, in high frequency transmission lines where charge density may be oscillating, or where there is significant interaction of electrical or magnetic fields with the surrounding environment. Since these types of interactions can occur in a laboratory setting, one needs to be aware of the limits of basic circuit analysis.</p>
+</section>
+<section id="ohm-s-law">
+<h2>Ohm’s law<a class="headerlink" href="#ohm-s-law" title="Permalink to this headline">#</a></h2>
+<p>Ohm’s law is a linear consituitive equation describing the relationship between current density <span class="math notranslate nohighlight">\(\bf j\)</span>, electric field <span class="math notranslate nohighlight">\(\bf e\)</span>, and magnetic flux density <span class="math notranslate nohighlight">\(\bf b\)</span> for a bulk conductors. In vector notation</p>
+<div class="math notranslate nohighlight">
+\[{\bf j} = \sigma({\bf e} + {\bf v}\times {\bf b}) + {\bf j}_s\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bf v\)</span> is velocity and <span class="math notranslate nohighlight">\({\bf j}_s\)</span> is any current source imposed independently of an electromagnetic field. In this case <span class="math notranslate nohighlight">\(\sigma\)</span> is a conductivity tensor for anisotropic materials.</p>
+<p>For isotopic conductors where there is no motion relative to a magnetic field, and no other current flux imposed independently of an electric field, Ohm’s law simplifies to the scalar equation</p>
+<div class="math notranslate nohighlight">
+\[{j} = \sigma {e}\]</div>
+<p>where the parameter <span class="math notranslate nohighlight">\(\sigma\)</span> is a scalar conductivity measured in units of Siemens/meter (S/m), <span class="math notranslate nohighlight">\(e\)</span> is electric field measured in volts/meter, and <span class="math notranslate nohighlight">\(j\)</span> is current density measured in Amperes per square meter. The resistivity <span class="math notranslate nohighlight">\(\rho\)</span> of the material is</p>
+<div class="math notranslate nohighlight">
+\[\rho = \frac{1}{\sigma}\]</div>
+<p>which has units of ohms per meters.</p>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/6/68/Resistivity_geometry.png" />
+<a href="https://commons.wikimedia.org/w/index.php?curid=1699802">Link</a></p></p>
+<p>When working with electronic components we are working with specimens of a particular material.
+For a device with cross-sectional area <span class="math notranslate nohighlight">\(A\)</span> and length <span class="math notranslate nohighlight">\(l\)</span>, the resistance of the specimen is given by Pouillet’s law</p>
+<div class="math notranslate nohighlight">
+\[R = \rho \frac{l}{A}\]</div>
+<p>which has units of <span class="math notranslate nohighlight">\(ohms\)</span>. Defining current as <span class="math notranslate nohighlight">\(I = j A\)</span> and electric field as <span class="math notranslate nohighlight">\(e = V/l\)</span> results in Ohm’s law as it is commonly encountered in electronic circuit analysis.</p>
+<div class="math notranslate nohighlight">
+\[V = I \times R\]</div>
+</section>
+<section id="ideal-voltage-and-current-sources">
+<h2>Ideal Voltage and Current Sources<a class="headerlink" href="#ideal-voltage-and-current-sources" title="Permalink to this headline">#</a></h2>
+<p>An <strong>ideal voltage source</strong> is a device that maintains a fixed voltage regardless of the current required by the load.</p>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Ohms_law_voltage_source.svg/200px-Ohms_law_voltage_source.svg.png" /></p>
+<p>Given <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(R\)</span>, the current flow <span class="math notranslate nohighlight">\(I = V/R\)</span>, and power is <span class="math notranslate nohighlight">\(P = V I = V^2/R\)</span>. Obviously this idealization breaks down in the limit <span class="math notranslate nohighlight">\(R = 0\)</span> which would require an infinite and therefore infeasible amount of current.</p>
+<p>An <strong>ideal current source</strong> is a device providing a fixed current regardless of the load or resistance imposed on the source.</p>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ohms_law_current_source.svg/200px-Ohms_law_current_source.svg.png" /></p>
+<p>Given <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(R\)</span>, the voltage is <span class="math notranslate nohighlight">\(V = I R\)</span> and power is <span class="math notranslate nohighlight">\(P = V I = I^2 R\)</span>. This idealization breaks down in the limit <span class="math notranslate nohighlight">\(R = \infty\)</span> which would require infinite voltage to impose a finite current.</p>
+<p>Most common power supplies are set up as voltage sources with some sort of current limit.</p>
+</section>
+<section id="resistor-networks">
+<h2>Resistor Networks<a class="headerlink" href="#resistor-networks" title="Permalink to this headline">#</a></h2>
+<p>Systems comprised of interconnected resistors can be analyzed using the Kirchhoff circuit laws.</p>
+<section id="voltage-divider">
+<h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Resistive_divider2.svg/200px-Resistive_divider2.svg.png" /></p>
+<p>\begin{align*}
+V_{in} &amp; = V_1 + V_2  \
+&amp; = I R_1 + I R_2 \
+\end{align*}</p>
+<div class="math notranslate nohighlight">
+\[\implies I = \frac{V_{in}}{R_1 + R_2}\]</div>
+<div class="math notranslate nohighlight">
+\[V_{out} = \frac{R_1}{R_1 + R_2} V_{in}\]</div>
+</section>
+</section>
+<section id="capacitors">
+<h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline">#</a></h2>
+<p>An ideal capacitor</p>
+<div class="math notranslate nohighlight">
+\[ I = C \frac{dV}{dt}\]</div>
+<p>where <span class="math notranslate nohighlight">\(C\)</span> is capacitance measured in Farads. A current of 1 ampere would produce a 1 volt/sec increase in voltage for a 1 Farad capacitor.  1 Farad is a lot of capacitance!</p>
+<p>Alternatively,</p>
+<div class="math notranslate nohighlight">
+\[V(t) = V_0 + \frac{1}{C} \int_0^t I(t') dt'\]</div>
+<p>From this we see that a capacitor stores charge. The voltage increases as more charge is stored. The units of farads are coulombs per volt.</p>
+<p>Using Laplace transforms with zero initial conditions,</p>
+<div class="math notranslate nohighlight">
+\[\bar{V}(s) = \frac{1}{C s} \bar{I}(s)\]</div>
+<p>Drawing a parallel with Ohm’s law, we see that <span class="math notranslate nohighlight">\(\frac{1}{Cs}\)</span> is the complex impedence of a capacitor.</p>
+</section>
+<section id="inductors">
+<h2>Inductors<a class="headerlink" href="#inductors" title="Permalink to this headline">#</a></h2>
+<p>An ideal inductor creates a counter potential as a result of increasing current.</p>
+<div class="math notranslate nohighlight">
+\[ V = - L \frac{dI}{dt} \]</div>
+<p>In a qualititative sense, an inductor resists a change in current. The work being done on the inductor to move current through the device is being stored in the magnetic field. The energy stored in the electric field is returned to the circuit when vol</p>
+<div class="math notranslate nohighlight">
+\[ \bar{V}(s) = - \frac{L}{s} \bar{I}(s)\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="00-Analog-Circuits-and-Signals.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Analog Circuits and Signals</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02-Operational-Amplifiers.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Operational Amplifiers</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jeffrey C. Kantor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

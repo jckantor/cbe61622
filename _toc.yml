@@ -16,10 +16,13 @@ chapters:
   - file: notebooks/02/03-LCD1602.ipynb
   - file: notebooks/02/04-Project-01.ipynb
   
-- file: notebooks/02.00-Analog-Circuits-and-Signals.ipynb
-- file: notebooks/02.08-Linear-DC-Circuits.ipynb
-- file: notebooks/02.10-Operational-Amplifiers.ipynb
-- file: notebooks/03.00-Analog-Measurement.ipynb
+- file: notebooks/03/00-Analog-Circuits-and-Signals.ipynb
+  sections:
+  - file: notebooks/03/01-Linear-DC-Circuits.ipynb
+  - file: notebooks/03/02-Operational-Amplifiers.ipynb
+  - file: notebooks/03/03-Analog-Measurement.ipynb
+
+  
 - file: notebooks/03.01-Low-Level-Measurment.ipynb
 - file: notebooks/03.02-Sampling-Continuous-Time-Signals.ipynb
 - file: notebooks/04.00-Chemical_Instrumentation.ipynb
