@@ -624,6 +624,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readings">
+   Readings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#laboratory-exercises">
+   Laboratory Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#familiarization-with-operational-amplifiers">
+     1. Familiarization with Operational Amplifiers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#laboratory-testing">
+     2. Laboratory Testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#feedback">
    Feedback
   </a>
@@ -648,6 +670,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readings">
+   Readings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#laboratory-exercises">
+   Laboratory Exercises
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#familiarization-with-operational-amplifiers">
+     1. Familiarization with Operational Amplifiers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#laboratory-testing">
+     2. Laboratory Testing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#feedback">
    Feedback
   </a>
@@ -664,19 +708,49 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="operational-amplifiers">
 <h1>Operational Amplifiers<a class="headerlink" href="#operational-amplifiers" title="Permalink to this headline">#</a></h1>
-<p>(Harvey Mudd) <img alt="" src="http://fourier.eng.hmc.edu/e84/lectures/figures/OpAmp0.gif" /></p>
+<section id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="laboratory-exercises">
+<h2>Laboratory Exercises<a class="headerlink" href="#laboratory-exercises" title="Permalink to this headline">#</a></h2>
+<section id="familiarization-with-operational-amplifiers">
+<h3>1. Familiarization with Operational Amplifiers<a class="headerlink" href="#familiarization-with-operational-amplifiers" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>In the Analog Devices ADALP2000 kit, locate</p>
 <ul class="simple">
-<li><p>[Input impedance]</p></li>
-<li><p>[Output impedance]</p></li>
-<li><p>[Open-circuit gain]</p></li>
+<li><p>OP27 Low Noise, Precision Operational Amplifier</p></li>
+<li><p>OP37 Precision Operational Amplifier</p></li>
+<li><p>OP97 Low Noise, Precision Operational Amplifier</p></li>
+<li><p>OP482 High Speed JFET Op Amp</p></li>
+<li><p>OP484 Precision Rail-to-Rail Op Amp</p></li>
+<li><p>AD8226 Instrumentation Amplifier</p></li>
+<li><p>AD8542 CMOS Rail-to-Rail Op Amp</p></li>
+<li><p>ADLT082 JFET Op Amp</p></li>
 </ul>
-<p>An approximate equation for the output voltage is</p>
-<div class="math notranslate nohighlight">
-\[V_{out} = A_d (V_+ - V_-) + A_c(V_+ + V_-)\]</div>
-<p>where <span class="math notranslate nohighlight">\(A_d\)</span> is the differential gain and <span class="math notranslate nohighlight">\(A_c\)</span> is the common-mode gain. Normally we seek very high values for <span class="math notranslate nohighlight">\(A_d\)</span> and very low values for <span class="math notranslate nohighlight">\(A_c\)</span>. The common-mode rejection ratio is</p>
-<div class="math notranslate nohighlight">
-\[CMRR = 20 \log_{10}\frac{A_d}{A_c}\]</div>
-<p>Typical values of <span class="math notranslate nohighlight">\(CCMR\)</span> are 100db or greater indicating <span class="math notranslate nohighlight">\(A_d &gt; 10^5A_c\)</span></p>
+</li>
+<li><p>For each Op Amp above, locate (2) data sheet and (2) unit price. For each, write one sentence describing describing what makes that op amp unique from the others.</p></li>
+</ol>
+</section>
+<section id="laboratory-testing">
+<h3>2. Laboratory Testing<a class="headerlink" href="#laboratory-testing" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Using the OP27</p>
+<ul class="simple">
+<li><p>Setup +/- 12 volt power</p></li>
+<li><p>Use a 10K potentiometer to create an adjustable voltage divider. Use as the input to the Op-amp according to Fig 8.7 and 8.8 of the text. Can you estimate the gain <span class="math notranslate nohighlight">\(A_0\)</span>?</p></li>
+</ul>
+</li>
+<li><p>Buffer Circuit (Unity Gain)</p></li>
+<li><p>Inverting Amplifier</p></li>
+<li><p>Non-inverting Amplifier</p></li>
+<li><p>Current-to-Voltage Converter</p>
+<ul class="simple">
+<li><p>Locate the phototransistor in the ADALP2000 kit. Locate the data sheet. Set up a current to voltage converter (see Figure 8.41 for ideas) and verify measurement of a light source.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
 <section id="feedback">
 <h2>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">#</a></h2>
 </section>
