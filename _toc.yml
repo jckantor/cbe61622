@@ -21,51 +21,57 @@ chapters:
   - file: notebooks/03/01-Linear-DC-Circuits.ipynb
   - file: notebooks/03/02-Operational-Amplifiers.ipynb
   - file: notebooks/03/03-Analog-Measurement.ipynb
-
   
-- file: notebooks/03.01-Low-Level-Measurment.ipynb
-- file: notebooks/03.02-Sampling-Continuous-Time-Signals.ipynb
-- file: notebooks/04.00-Chemical_Instrumentation.ipynb
-- file: notebooks/04.10-Potentiostats-and-Galvanostats.ipynb
-- file: notebooks/05.00-Raspberry-Pi-Pico.ipynb
-- file: notebooks/05.02-Seeed_Grove_Pico_Starter_Kit.ipynb
-- file: notebooks/05.03-LCD1602.ipynb
-- file: notebooks/06.00-Coding-for-Device-Control.ipynb
-- file: notebooks/06.01-Simple_Event_Loop.ipynb
-- file: notebooks/06.02-Coding-Paradigms.ipynb
-- file: notebooks/06.03-Coding-Paradigms.ipynb
-- file: notebooks/06.04-Event-Driven-Programming.ipynb
-- file: notebooks/06.05-PIO-Programming.ipynb
-- file: notebooks/07.00-Interfacing_with_Laboratory_Equipment.ipynb
-- file: notebooks/07.01-Stepper-Motors.ipynb
-- file: notebooks/07.02-Stepper_Motor_Control_via_I2C.ipynb
-- file: notebooks/07.03-Wifi-with-ESP-01.ipynb
-- file: notebooks/08.00-Raspberry-Pi.ipynb
-- file: notebooks/08.01-Raspberry-Pi-Setup.ipynb
-- file: notebooks/08.02-rpi-test-libraries.ipynb
-- file: notebooks/08.03-rpi-picamera_test.ipynb
-- file: notebooks/09.00-Enabling_the_Internet_of_Things.ipynb
-- file: notebooks/09.01-Publishing_an_Experiment_via_MQTT.ipynb
-- file: notebooks/09.02-Accessing_a_Remote_Experiment_via_MQTT.ipynb
-- file: notebooks/09.03-Miscellaneous_Notes.ipynb
-- file: notebooks/10.00-Computer-Vision.ipynb
-- file: notebooks/10.01-rpi-image-capture.ipynb
-- file: notebooks/10.02-Machine-Vision.ipynb
-- file: notebooks/10.10-Case-Study-Particle-Counting.ipynb
-- file: notebooks/10.11-Experiments-with-Computer-Vision.ipynb
-- file: notebooks/10.12-Test-Driven-Development.ipynb
-- file: notebooks/10.13-Computer-Vision-Application.ipynb
-- file: notebooks/A.00-Appendices.ipynb
-- file: notebooks/A.01-Resources.ipynb
-- file: notebooks/A.02-Downloading_Python_source_files_from_github.ipynb
-- file: notebooks/A.03-Getting-Started-with-Pymata4.ipynb
-- file: notebooks/A.04-Scheduling-Real-Time-Events-with-Simpy.ipynb
-- file: notebooks/B.00-Working_with_Particle.ipynb
-- file: notebooks/B.01-Particle_CLI.ipynb
-- file: notebooks/B.02-Particle_Coding.ipynb
-- file: notebooks/B.03-Particle-CLI.ipynb
-- file: notebooks/B.04-Ultrasonic_Distance_Ranger.ipynb
-- file: notebooks/B.05-Simple_Stop_Watch_using_Interrupts.ipynb
-- file: notebooks/B.06-Communicating _via_TCP.ipynb
-- file: notebooks/Untitled.ipynb
-- file: notebooks/Untitled1.ipynb
+- file: notebooks/04/08.00-Raspberry-Pi.ipynb
+  sections:
+  - file: notebooks/04/08.01-Raspberry-Pi-Setup.ipynb
+  - file: notebooks/04/08.02-rpi-test-libraries.ipynb
+  - file: notebooks/04/08.03-rpi-picamera_test.ipynb
+  
+- file: notebooks/05/05.00.md
+  sections:
+  - file: notebooks/05/10.00-Computer-Vision.ipynb
+  - file: notebooks/05/10.01-rpi-image-capture.ipynb
+  - file: notebooks/05/10.02-Machine-Vision.ipynb
+  - file: notebooks/05/10.10-Case-Study-Particle-Counting.ipynb
+  - file: notebooks/05/10.11-Experiments-with-Computer-Vision.ipynb
+  - file: notebooks/05/10.12-Test-Driven-Development.ipynb
+  - file: notebooks/05/10.13-Computer-Vision-Application.ipynb
+  
+- file: notebooks/00/00.md
+  sections:
+  - file: notebooks/00/03.01-Low-Level-Measurment.ipynb
+  - file: notebooks/00/03.02-Sampling-Continuous-Time-Signals.ipynb
+  - file: notebooks/00/04.00-Chemical_Instrumentation.ipynb
+  - file: notebooks/00/04.10-Potentiostats-and-Galvanostats.ipynb
+  - file: notebooks/00/05.00-Raspberry-Pi-Pico.ipynb
+  - file: notebooks/00/05.02-Seeed_Grove_Pico_Starter_Kit.ipynb
+  - file: notebooks/00/05.03-LCD1602.ipynb
+  - file: notebooks/00/06.00-Coding-for-Device-Control.ipynb
+  - file: notebooks/00/06.01-Simple_Event_Loop.ipynb
+  - file: notebooks/00/06.02-Coding-Paradigms.ipynb
+  - file: notebooks/00/06.03-Coding-Paradigms.ipynb
+  - file: notebooks/00/06.04-Event-Driven-Programming.ipynb
+  - file: notebooks/00/06.05-PIO-Programming.ipynb
+  - file: notebooks/00/07.00-Interfacing_with_Laboratory_Equipment.ipynb
+  - file: notebooks/00/07.01-Stepper-Motors.ipynb
+  - file: notebooks/00/07.02-Stepper_Motor_Control_via_I2C.ipynb
+  - file: notebooks/00/07.03-Wifi-with-ESP-01.ipynb
+  - file: notebooks/00/09.00-Enabling_the_Internet_of_Things.ipynb
+  - file: notebooks/00/09.01-Publishing_an_Experiment_via_MQTT.ipynb
+  - file: notebooks/00/09.02-Accessing_a_Remote_Experiment_via_MQTT.ipynb
+  - file: notebooks/00/09.03-Miscellaneous_Notes.ipynb
+  - file: notebooks/00/A.00-Appendices.ipynb
+  - file: notebooks/00/A.01-Resources.ipynb
+  - file: notebooks/00/A.02-Downloading_Python_source_files_from_github.ipynb
+  - file: notebooks/00/A.03-Getting-Started-with-Pymata4.ipynb
+  - file: notebooks/00/A.04-Scheduling-Real-Time-Events-with-Simpy.ipynb
+  - file: notebooks/00/B.00-Working_with_Particle.ipynb
+  - file: notebooks/00/B.01-Particle_CLI.ipynb
+  - file: notebooks/00/B.02-Particle_Coding.ipynb
+  - file: notebooks/00/B.03-Particle-CLI.ipynb
+  - file: notebooks/00/B.04-Ultrasonic_Distance_Ranger.ipynb
+  - file: notebooks/00/B.05-Simple_Stop_Watch_using_Interrupts.ipynb
+  - file: notebooks/00/B.06-Communicating _via_TCP.ipynb
+  - file: notebooks/00/Untitled.ipynb
+  - file: notebooks/00/Untitled1.ipynb
