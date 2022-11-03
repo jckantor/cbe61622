@@ -5,25 +5,29 @@
 
 # ## Setup Procedures
 
-# ### Step 0. Learn some Simple Linux Commands
+# The Raspberry Pi OS is a version of Linux maintained by the Raspberry Pi Foundation for use on the systems they produce. [Linux](https://en.wikipedia.org/wiki/Linux) is open-source family of Unix-like operating systems that has been ported to a wide variety of systems, ranging from Android phones, personal computers, on up to large server clusters.
 # 
-# The Raspberry Pi OS is a version of Linux maintained by the Raspberry Pi Foundation for use on the systems they produce. [Linux](https://en.wikipedia.org/wiki/Linux) is open-source family of Unix-like operating systems that has been ported to a wide variety of systems, ranging from Android phones, personal computers, on up to large server clusters.  
+# Linux systems share a common set of simple commands that can be run from a terminal window. While these commands appear terse and cryptic at first, you will eventually find them to be powerful productivity tools. A short summary of the most useful commands is [Basic Linux Commands for Beginners](https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners).
 # 
-# Linux systems share a common set of simple commands that can be run from a terminal window. While these commands may seem terse and cryptic at first, if you learn to use them you will find them to be quick, powerful productivity tools. The following steps, for example, make use of these commands to set up a Raspberry Pi for use. If you are not already familiar the basic Linux commands, a short summary of the most useful commands is [Basic Linux Commands for Beginners](https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners).
+# The following steps will make use of Linux commands to set up a Raspberry Pi. 
 
-# ### Step 1. Create an OS Image
+# ### Step 1. Create an OS Image on a microSD card
 # 
-# The download and imaging of the microSD card takes a while, up to an hour or two. So start this step and let it proceed while you move on to other things.
+# The download and imaging of the microSD card takes some time, perhaps up to an hour or two. So start this step and let it proceed while you move on to other things.
 # 
-# 1. Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/) on your laptop.
-# 2. Mount the microSD card onto your laptop (typically using a USB microSD card reader).
-# 3. Select a Raspberry Pi OS and write the image to the microSD card. 
+# 1. Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) application on your laptop. You will be prompted with options for MacOS, Windows, Ubuntu, and even Raspberry Pi OS. Choose a version appropriate for your laptop.
+# 2. Mount the microSD card onto your laptop. If your laptop doesn't have a microSD card slot, use  a USB microSD card reader such as [this](https://www.amazon.com/uni-Adapter-Supports-Compatible-MacBook/dp/B081VHSB2V/).
+# 3. Open the Raspberry Pi Imager application. Select a Raspberry Pi OS and write the image to the microSD card. Choose **Raspberry Pi OS (64-bit)**  for installations on recent models of the Raspberry Pi hardware with 4GB or more of memory. Select the microSD card for storage, then press **Write**. This step will take from a few to many minutes to complete depending on your internet connection, laptop, and microSD card.
 
 # ### Step 2. Assemble Case Hardware
+# 
+# Assemble the case hardware. Install the Raspberry Pi board, and attach a keyboard, mouse, power supply and monitor. While it is possible to configure a new Raspberry Pi device wirelessly, it is much simpler and easier to debug using a keyboard, mouse, and monitor. Install the microSD card into the Raspberry Pi.
 
 # ### Step 3. Initial Configuration
 # 
-# The initial bootup sequence will include a number of configuration steps. You will need to attach a USB keyboard and mouse to complete these steps.
+# The initial bootup sequence will include a number of configuration steps. You will need to attach a USB keyboard and mouse to complete these steps. A menu system will guide you through these steps.
+# 
+# **Set Country**
 # 
 # * Country: United States
 # * Language: American English
@@ -31,11 +35,31 @@
 # * Check "Use English Language"
 # * Check "Use US keyboard"
 # 
-# The default user is "pi".  We will provide you with a class specific password to use with these devices.
+# **Create User**
 # 
-# If the setup process doesn't successfully connect to the local wifi, skip those steps. After the boot process is complete, you can try to connect to wifi again through the taskbar.
+# The default user is "pi". In this screen create a new user. The user name should be lower case characters.  We will provide you with a class specific password to use with these devices.
+# 
+# **Set Up Screen**
+# 
+# Choose to reduce the desktop size only if the desktop doesn't fit onto the monitor screen.
+# 
+# **Select WiFi Network**
+# 
+# Wait for he network list to populate. Choose your WiFi network, enter the password, and attempt to connect. If the setup process doesn't successfully connect to the local WiFi, skip those steps. After the boot process is complete you can try to connect to WiFi again through the taskbar.
+# 
+# **Update Software**
+# 
+# Generally you can skip this step. Software updates will be handled in the next series of instructions.
+# 
+# **Reboot**
+# 
+# At this point the initial configuration is complete. Choose the option to reboot. A fresh desktop should appear on your monitor.
 
-# ### Step 4. Update Installed Packages
+# ### Step 4. Getting Started with the Desktop
+# 
+# The first thing to check is that you're properly logged in with the user name specified in the previous step. Open the file browser window.  A directory should appear with your user name.
+# 
+# If necessary, use the taskbar to log in to the local WiFi network. The "Pre-Shared Key" is your network password.
 # 
 # It's important to keep your device updated with the latest release of software updates. Open a terminal window and update all installed packages.
 # 
@@ -44,8 +68,7 @@
 #     sudo reboot
 #     sudo apt autoremove
 #     sudo apt clean
-#     
-#  
+# 
 
 # ## Step 5. Configure Options
 # 
@@ -53,15 +76,14 @@
 # 
 #     sudo raspi-config
 #     
-# Options to change:
+# Use the up/down arrows to select options. Use left/right arrows to choose actions at the bottom of the screen. Options to change:
 # 
 # * Display Options
-#     * D5: Set VNC resolution to 1024x768 or higher
+#     * D5: Set VNC resolution to 1024x768 or higher. This will be the size of a remote window on your laptop. Choose this to be a convenient size for your laptop.
 # * Interface Options
-#     * P1: Enable RPI camera
-#     * P2: Enable SSH
-#     * P3: Enable VNC
-#     * Consider enabling other options as needed for laboratory interfacing
+#     * I2: Enable SSH
+#     * I3: Enable VNC
+#     * Consider enabling other options (SPI, I2C, etc.) as needed for laboratory interfacing
 # * Performance Options
 #     * P2: Increase GPU memory to 256 MB
 #     
@@ -69,13 +91,17 @@
 
 # ### Step 6. SSH Connectivity
 # 
-# Remote connection from your laptop to a Raspberry Pi if often useful. To proceed you will need to be on the same network, and need the IP address of the Raspberry Pi.  You can find the IP address from the VNC icon on the task bar, or typing ``hostname -I`` in a terminal window, or by executing ``ping -c 1 raspberrypi`` on the remote device.
+# Remote connection from your laptop to a Raspberry Pi if often useful. To proceed you will need to be on the same network, and need the IP address of the Raspberry Pi.  You can find the IP from 
+# 
+# * address from the VNC icon on the Raspberry pi task bar
+# * typing ``hostname -I`` in Raspberry pi terminal window
+# * executing ``ping -c 1 raspberrypi`` on your laptop
 # 
 # For SSH connection, open a terminal window on your laptop and use the following command
 # 
-#     ssh pi@xxx.xxx.xxx.xxx
+#     ssh your_user_name@xxx.xxx.xxx.xxx
 #     
-# This should open a terminal window to your Raspberry Pi.  
+# Use your password to login. This should open a terminal window to your Raspberry Pi.  
 
 # ### Step 7. VNC Connectivity
 # 
@@ -110,10 +136,7 @@
 # Image processing
 # 
 #     sudo apt-get install python3-opencv
-#     
-# Qt Windowing
-#    
-#     sudo apt-get install python3-pyqt5
+# 
 #   
 
 # #### [ImageJ](https://imagej.net/platforms/pi) (Not working!)
