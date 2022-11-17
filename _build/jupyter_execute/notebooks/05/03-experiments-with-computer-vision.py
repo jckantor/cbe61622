@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Experiments with Computer Vision
+# # Computer Vision Workflow
 
 # ## Developing a Process
 # 
