@@ -28,12 +28,13 @@ chapters:
   - file: notebooks/04/08.02-rpi-test-libraries.ipynb
   - file: notebooks/04/08.03-rpi-picamera_test.ipynb
   
-- file: notebooks/05/05.00.md
+- file: notebooks/05/00-computer-vision-applications.md
   sections:
-  - file: notebooks/05/10.00-Computer-Vision.ipynb
+  - file: notebooks/05/01-Computer-Vision.ipynb
+  - file: notebooks/05/02-getting-image-data.ipynb
+  - file: notebooks/05/03-experiments-with-computer-vision.ipynb
   - file: notebooks/05/10.01-rpi-image-capture.ipynb
   - file: notebooks/05/10.02-Machine-Vision.ipynb
-  - file: notebooks/05/10.10-Case-Study-Particle-Counting.ipynb
   - file: notebooks/05/10.11-Experiments-with-Computer-Vision.ipynb
   - file: notebooks/05/10.12-Test-Driven-Development.ipynb
   - file: notebooks/05/10.13-Computer-Vision-Application.ipynb

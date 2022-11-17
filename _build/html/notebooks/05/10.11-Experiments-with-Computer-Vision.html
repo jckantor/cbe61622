@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Test Driven Development" href="10.12-Test-Driven-Development.html" />
-    <link rel="prev" title="Case Study: Particle Counting" href="10.10-Case-Study-Particle-Counting.html" />
+    <link rel="prev" title="Machine Vision Applications" href="10.02-Machine-Vision.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -217,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="05.00.html">
+  <a class="reference internal" href="00-computer-vision-applications.html">
    Computer Vision Applications
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -227,8 +227,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="10.00-Computer-Vision.html">
+    <a class="reference internal" href="01-Computer-Vision.html">
      Computer Vision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-getting-image-data.html">
+     Getting Image Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-experiments-with-computer-vision.html">
+     Experiments with Computer Vision
     </a>
    </li>
    <li class="toctree-l2">
@@ -239,11 +249,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="10.02-Machine-Vision.html">
      Machine Vision Applications
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10.10-Case-Study-Particle-Counting.html">
-     Case Study: Particle Counting
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -879,9 +884,24 @@ title="Print to PDF"
 <p>We track overall code dependencies by consolidating imports into this cell. Note that we’ll be using elements from multiple packages by relying on the underlying NumPy representation of images to hold the current state of the process.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-
-<span class="c1"># standard Python libraries</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install opencv-python --upgrade
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting opencv-python
+  Downloading opencv_python-4.6.0.66-cp36-abi3-macosx_10_15_x86_64.whl (46.4 MB)
+     |████████████████████████████████| 46.4 MB 5.5 MB/s eta 0:00:01
+?25hRequirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib/python3.9/site-packages (from opencv-python) (1.21.2)
+Installing collected packages: opencv-python
+Successfully installed opencv-python-4.6.0.66
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># standard Python libraries</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
@@ -905,7 +925,9 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;data/25-miniM.tif&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;image_data/Jiang Photos/&quot;</span>
+
+<span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;image_data/25-miniM.tif&quot;</span>
 
 <span class="c1"># read color image with OpenCV</span>
 <span class="n">img_bgr</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
@@ -939,7 +961,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;A BGR image incorrectly shown as RGB&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_6_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_6_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_7_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_7_1.png" />
 </div>
 </div>
 <p>Observations:</p>
@@ -962,7 +984,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff08dcb9b50&gt;
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_9_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_9_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_10_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_10_1.png" />
 </div>
 </div>
 </section>
@@ -1021,10 +1043,10 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff08d6a4340&gt;
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_13_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_13_1.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_13_2.png" src="../../_images/10.11-Experiments-with-Computer-Vision_13_2.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_13_3.png" src="../../_images/10.11-Experiments-with-Computer-Vision_13_3.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_13_4.png" src="../../_images/10.11-Experiments-with-Computer-Vision_13_4.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_14_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_14_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_14_2.png" src="../../_images/10.11-Experiments-with-Computer-Vision_14_2.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_14_3.png" src="../../_images/10.11-Experiments-with-Computer-Vision_14_3.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_14_4.png" src="../../_images/10.11-Experiments-with-Computer-Vision_14_4.png" />
 </div>
 </div>
 </section>
@@ -1050,8 +1072,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_16_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_16_0.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_16_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_16_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_17_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_17_0.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_17_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_17_1.png" />
 </div>
 </div>
 </section>
@@ -1067,7 +1089,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_18_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_18_0.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_19_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_19_0.png" />
 </div>
 </div>
 <p>Observations</p>
@@ -1090,7 +1112,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_21_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_21_0.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_22_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_22_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1102,7 +1124,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_22_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_22_0.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_23_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_23_0.png" />
 </div>
 </div>
 </section>
@@ -1127,7 +1149,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Threshold = 89.0
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_24_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_24_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_25_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_25_1.png" />
 </div>
 </div>
 </section>
@@ -1153,7 +1175,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff08e7080a0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_26_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_26_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_27_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_27_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1176,7 +1198,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff08debfbb0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_27_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_27_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_28_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_28_1.png" />
 </div>
 </div>
 </section>
@@ -1200,7 +1222,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;29 particles labeled&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_29_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_29_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_30_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_30_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1221,7 +1243,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff07befd460&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_30_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_30_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_31_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_31_1.png" />
 </div>
 </div>
 </section>
@@ -1251,7 +1273,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_32_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_32_0.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_33_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_33_0.png" />
 </div>
 </div>
 </section>
@@ -1279,7 +1301,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_34_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_34_0.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_35_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_35_0.png" />
 </div>
 </div>
 </section>
@@ -1531,12 +1553,12 @@ class Channel(builtins.object)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_39_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_39_1.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_39_2.png" src="../../_images/10.11-Experiments-with-Computer-Vision_39_2.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_39_3.png" src="../../_images/10.11-Experiments-with-Computer-Vision_39_3.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_39_4.png" src="../../_images/10.11-Experiments-with-Computer-Vision_39_4.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_39_5.png" src="../../_images/10.11-Experiments-with-Computer-Vision_39_5.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_39_6.png" src="../../_images/10.11-Experiments-with-Computer-Vision_39_6.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_40_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_40_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_40_2.png" src="../../_images/10.11-Experiments-with-Computer-Vision_40_2.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_40_3.png" src="../../_images/10.11-Experiments-with-Computer-Vision_40_3.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_40_4.png" src="../../_images/10.11-Experiments-with-Computer-Vision_40_4.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_40_5.png" src="../../_images/10.11-Experiments-with-Computer-Vision_40_5.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_40_6.png" src="../../_images/10.11-Experiments-with-Computer-Vision_40_6.png" />
 </div>
 </div>
 </section>
@@ -1554,7 +1576,7 @@ class Channel(builtins.object)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_41_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_41_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_42_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_42_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1578,7 +1600,7 @@ class Channel(builtins.object)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Threshold = 80.0&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_42_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_42_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_43_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_43_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1618,7 +1640,7 @@ class Channel(builtins.object)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34
 </pre></div>
 </div>
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_43_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_43_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_44_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_44_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1635,10 +1657,10 @@ class Channel(builtins.object)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_44_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_44_0.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_44_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_44_1.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_44_2.png" src="../../_images/10.11-Experiments-with-Computer-Vision_44_2.png" />
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_44_3.png" src="../../_images/10.11-Experiments-with-Computer-Vision_44_3.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_45_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_45_0.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_45_1.png" src="../../_images/10.11-Experiments-with-Computer-Vision_45_1.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_45_2.png" src="../../_images/10.11-Experiments-with-Computer-Vision_45_2.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_45_3.png" src="../../_images/10.11-Experiments-with-Computer-Vision_45_3.png" />
 </div>
 </div>
 <section id="thresholding">
@@ -1665,7 +1687,7 @@ class Channel(builtins.object)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/10.11-Experiments-with-Computer-Vision_46_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_46_0.png" />
+<img alt="../../_images/10.11-Experiments-with-Computer-Vision_47_0.png" src="../../_images/10.11-Experiments-with-Computer-Vision_47_0.png" />
 </div>
 </div>
 </section>
@@ -1699,11 +1721,11 @@ class Channel(builtins.object)
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="10.10-Case-Study-Particle-Counting.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="10.02-Machine-Vision.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Case Study: Particle Counting</p>
+            <p class="prev-next-title">Machine Vision Applications</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="10.12-Test-Driven-Development.html" title="next page">

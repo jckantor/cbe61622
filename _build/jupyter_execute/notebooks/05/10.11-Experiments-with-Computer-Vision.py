@@ -23,10 +23,14 @@
 # 
 # We track overall code dependencies by consolidating imports into this cell. Note that we'll be using elements from multiple packages by relying on the underlying NumPy representation of images to hold the current state of the process.
 
+# In[2]:
+
+
+get_ipython().system('pip install opencv-python --upgrade')
+
+
 # In[3]:
 
-
-get_ipython().run_line_magic('matplotlib', 'inline')
 
 # standard Python libraries
 import numpy as np
@@ -48,10 +52,12 @@ import cv2 as cv2
 # * If $d$ is 3, then typically it is an RGB image with the channels repesenting R, G, and B colors. Note that OpenCV orders the channels as BGR.
 # * If $d$ is 4, the image could be RGBA where A refers to an alpha transparency channel, or a CYMK encoded color image.
 
-# In[4]:
+# In[5]:
 
 
-filepath = "data/25-miniM.tif"
+path = "image_data/Jiang Photos/"
+
+file = "image_data/25-miniM.tif"
 
 # read color image with OpenCV
 img_bgr = cv2.imread(filepath)

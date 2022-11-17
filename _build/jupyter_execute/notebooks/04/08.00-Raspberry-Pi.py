@@ -6,6 +6,8 @@
 # The Raspberry Pi ecosystem is full of options for adapting the device to a range of laboratory applications. The recommendations given below are intended to get you started with an initial build for learning what the Raspberry Pi can do for your applications. Experienced builders may select different configurations and device better suited for specific applications.
 
 # ## Documents
+# 
+# 
 
 # ## Recommended Hardware
 # 

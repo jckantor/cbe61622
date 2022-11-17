@@ -215,7 +215,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05/05.00.html">
+  <a class="reference internal" href="../05/00-computer-vision-applications.html">
    Computer Vision Applications
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -225,8 +225,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/10.00-Computer-Vision.html">
+    <a class="reference internal" href="../05/01-Computer-Vision.html">
      Computer Vision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02-getting-image-data.html">
+     Getting Image Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
+     Experiments with Computer Vision
     </a>
    </li>
    <li class="toctree-l2">
@@ -237,11 +247,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.02-Machine-Vision.html">
      Machine Vision Applications
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05/10.10-Case-Study-Particle-Counting.html">
-     Case Study: Particle Counting
     </a>
    </li>
    <li class="toctree-l2">
@@ -1064,12 +1069,12 @@ sudo -H pip3 install notebook jupyterhub
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>c.JupyterHub.bind_url = &#39;http://:8888&#39;
 </pre></div>
 </div>
-<p>to enable use of the port 8888. To support JupyterLab, search for a comment line containing <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">c.Spawner.default_url</span> <span class="pre">=</span> <span class="pre">'/user/:username/lab'</span></code>. Change the line to read</p>
+<p>to enable use of the port 8888. To support JupyterLab, search for a comment line containing <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">c.Spawner.default_url</span> <span class="pre">=</span> <span class="pre">''</span></code>. Change the line to read</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>c.Spawner.default_url = &#39;/lab&#39;
 </pre></div>
 </div>
 <p>then save the file. Next, move the file to the root directory</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo mv jupyter_config.py /root
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo mv jupyterhub_config.py /root
 </pre></div>
 </div>
 <p>That completes setup and installation of the JupyterHub configuration file.</p>

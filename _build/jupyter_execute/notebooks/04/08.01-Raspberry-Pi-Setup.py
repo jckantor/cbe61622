@@ -192,13 +192,13 @@
 # 
 #     c.JupyterHub.bind_url = 'http://:8888'
 #     
-# to enable use of the port 8888. To support JupyterLab, search for a comment line containing ``# c.Spawner.default_url = '/user/:username/lab'``. Change the line to read
+# to enable use of the port 8888. To support JupyterLab, search for a comment line containing ``# c.Spawner.default_url = ''``. Change the line to read
 # 
 #     c.Spawner.default_url = '/lab'
 # 
 # then save the file. Next, move the file to the root directory
 # 
-#     sudo mv jupyter_config.py /root
+#     sudo mv jupyterhub_config.py /root
 #     
 # That completes setup and installation of the JupyterHub configuration file.
 #     
