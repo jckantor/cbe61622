@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>PIO Programming &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Interfacing with Laboratory Equipment" href="07.00-Interfacing_with_Laboratory_Equipment.html" />
     <link rel="prev" title="Event Driven Programming" href="06.04-Event-Driven-Programming.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -712,14 +718,14 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="pio-programming">
-<h1>PIO Programming<a class="headerlink" href="#pio-programming" title="Permalink to this headline">#</a></h1>
+<h1>PIO Programming<a class="headerlink" href="#pio-programming" title="Permalink to this heading">#</a></h1>
 <p>Resources:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf">RP2040 Datasheet Section 3.4</a></p></li>
 </ul>
 <p>Life with David</p>
 <section id="setting-multiple-pins-from-python">
-<h2>Setting multiple pins from Python<a class="headerlink" href="#setting-multiple-pins-from-python" title="Permalink to this headline">#</a></h2>
+<h2>Setting multiple pins from Python<a class="headerlink" href="#setting-multiple-pins-from-python" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-micropython notranslate"><div class="highlight"><pre><span></span>%serialconnect
@@ -761,7 +767,7 @@ Found serial ports: /dev/cu.usbmodem14101, /dev/cu.Bluetooth-Incoming-Port
 </div>
 </section>
 <section id="writing-stepper-steps-to-pins">
-<h2>Writing Stepper Steps to pins<a class="headerlink" href="#writing-stepper-steps-to-pins" title="Permalink to this headline">#</a></h2>
+<h2>Writing Stepper Steps to pins<a class="headerlink" href="#writing-stepper-steps-to-pins" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-micropython notranslate"><div class="highlight"><pre><span></span>%serialconnect
@@ -915,7 +921,7 @@ Found serial ports: /dev/cu.usbmodem14101, /dev/cu.Bluetooth-Incoming-Port
 </div>
 </section>
 <section id="interacting-pio-programs">
-<h2>Interacting PIO programs<a class="headerlink" href="#interacting-pio-programs" title="Permalink to this headline">#</a></h2>
+<h2>Interacting PIO programs<a class="headerlink" href="#interacting-pio-programs" title="Permalink to this heading">#</a></h2>
 <p>Section 3.2.7 of the RP2040 data sheet describes how interactions between state machines on the same PIO processor can be managed. Here will demonstrate this in a few steps. For the first step, we create a counter that accepts an integer from the FIFO buffer, then blinks an led a fixed number of times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

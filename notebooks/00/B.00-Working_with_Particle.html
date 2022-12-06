@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Working with Particle &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Particle Command Line Interface" href="B.01-Particle_CLI.html" />
     <link rel="prev" title="Scheduling Real-Time Events with Simpy" href="A.04-Scheduling-Real-Time-Events-with-Simpy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -702,9 +708,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="working-with-particle">
-<h1>Working with Particle<a class="headerlink" href="#working-with-particle" title="Permalink to this headline">#</a></h1>
+<h1>Working with Particle<a class="headerlink" href="#working-with-particle" title="Permalink to this heading">#</a></h1>
 <section id="why-particle">
-<h2>Why Particle?<a class="headerlink" href="#why-particle" title="Permalink to this headline">#</a></h2>
+<h2>Why Particle?<a class="headerlink" href="#why-particle" title="Permalink to this heading">#</a></h2>
 <p>Many notebooks in this repository demonstrate the use of devices from <span class="xref myst">Particle.io</span>, a company that produces devices and services for the <em>Internet of Things</em> (IoT) industry.</p>
 <p>The IoT is evolving quickly with many participants, ranging from <span class="xref myst">Arduino.cc</span> founded in 2005 for purpose of bringing to market new devices based on easy-to-use hardware and software, to long-established companies like Intel and Texas Instruments entering new markets, and to companies like <a class="reference external" href="https://blog.particle.io/spark-is-now-particle/">Particle founded in 2012</a> intending to share in the growth of a new industry.</p>
 <p>There are other devices on the market that would support the educational purposes of these notebooks. The attractive features of Particle for this project include:</p>
@@ -714,7 +720,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="particle-argon">
-<h2>Particle Argon<a class="headerlink" href="#particle-argon" title="Permalink to this headline">#</a></h2>
+<h2>Particle Argon<a class="headerlink" href="#particle-argon" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://docs.particle.io/datasheets/wi-fi/argon-datasheet/">hardware datasheet</a></p>
 <p><a class="reference external" href="https://docs.particle.io/reference/device-os/firmware/argon/">Device OS API</a></p>
 <p><img alt="" src="https://docs.particle.io/assets/images/argon/argon-top.png" /></p>

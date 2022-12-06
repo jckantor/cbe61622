@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Managing Multiple Devices with an Event Loop &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Coding for Device Control" href="06.02-Coding-Paradigms.html" />
     <link rel="prev" title="Device Coding" href="06.00-Coding-for-Device-Control.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -692,7 +698,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="managing-multiple-devices-with-an-event-loop">
-<h1>Managing Multiple Devices with an Event Loop<a class="headerlink" href="#managing-multiple-devices-with-an-event-loop" title="Permalink to this headline">#</a></h1>
+<h1>Managing Multiple Devices with an Event Loop<a class="headerlink" href="#managing-multiple-devices-with-an-event-loop" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-micropython notranslate"><div class="highlight"><pre><span></span>%serialconnect
@@ -777,7 +783,7 @@ timer = machine.Timer(freq=100, mode=machine.Timer.PERIODIC, callback=main)
 </div>
 </div>
 <section id="activity">
-<h2>Activity<a class="headerlink" href="#activity" title="Permalink to this headline">#</a></h2>
+<h2>Activity<a class="headerlink" href="#activity" title="Permalink to this heading">#</a></h2>
 <ol class="simple">
 <li><p>Use the oscilloscope and logic analyzer to verify …</p>
 <ul class="simple">

@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Workstation Learning Exercises &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -59,7 +60,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Semester Projects" href="20-Projects.html" />
     <link rel="prev" title="Configuring a Workstation" href="01-Configuring-a-Workstation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -238,9 +239,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -266,18 +284,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -704,16 +710,16 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="workstation-learning-exercises">
-<h1>Workstation Learning Exercises<a class="headerlink" href="#workstation-learning-exercises" title="Permalink to this headline">#</a></h1>
+<h1>Workstation Learning Exercises<a class="headerlink" href="#workstation-learning-exercises" title="Permalink to this heading">#</a></h1>
 <section id="understanding-pwm">
-<h2>Understanding PWM<a class="headerlink" href="#understanding-pwm" title="Permalink to this headline">#</a></h2>
+<h2>Understanding PWM<a class="headerlink" href="#understanding-pwm" title="Permalink to this heading">#</a></h2>
 <ol class="simple">
 <li><p>Using the pins on an MCU, use the oscilloscope to observe PWM signals and how they respond to Python commands.</p></li>
 <li><p>Attach a servo, and observe the response of the servo to a PWM command.</p></li>
 </ol>
 </section>
 <section id="characterizing-noise-in-a-mems-device">
-<h2>Characterizing noise in a MEMS device.<a class="headerlink" href="#characterizing-noise-in-a-mems-device" title="Permalink to this headline">#</a></h2>
+<h2>Characterizing noise in a MEMS device.<a class="headerlink" href="#characterizing-noise-in-a-mems-device" title="Permalink to this heading">#</a></h2>
 <p>Accelerometers are MEMS devices with inherent noise characteristics. This exercise explores the noise characteristics of this device. The learning goals are to understand typical types of noise encountered in sensors.</p>
 <p>Mount the ADXL327 3-axis accelerometer on ADS breadboard. Apply 3.3v power supply and ground. Using the datasheet, select capacitors to provide maximum bandwidth on each axis. Using the spectrum analyzer, identify the noise characteristics of the sensor.</p>
 <p>Assume for each axis,</p>

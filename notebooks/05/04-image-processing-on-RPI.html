@@ -1,0 +1,1157 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Installing an Image Processing Toolkit on Raspberry Pi &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Works in Progress" href="../00/00.html" />
+    <link rel="prev" title="Computer Vision Workflow" href="03-experiments-with-computer-vision.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CBE 41622/61622 Laboratory Instrumentation and Measurement</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    CBE 61622 Laboratory Measurement and Instrumentation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/00-CBE_61622.html">
+   CBE 61622
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/01-Configuring-a-Workstation.html">
+     Configuring a Workstation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/10-Workstation-Learning-Exercises.html">
+     Workstation Learning Exercises
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/20-Projects.html">
+     Semester Projects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/00-Raspberry-Pi-Pico.html">
+   Raspberry Pi Pico
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/01-Getting_Started.html">
+     Interfacing with Micropython on the Raspberry Pi Pico
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/02-Seeed_Grove_Pico_Starter_Kit.html">
+     Grove Starter Kit for Raspberry Pi Pico
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/03-LCD1602.html">
+     LCD1602
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03/00-Analog-Circuits-and-Signals.html">
+   Analog Circuits and Signals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/01-Linear-DC-Circuits.html">
+     Basics of Linear DC Circuits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03/02-Operational-Amplifiers.html">
+     Operational Amplifiers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/08.00-Raspberry-Pi.html">
+   Raspberry Pi
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/08.01-Raspberry-Pi-Setup.html">
+     Setting up the Raspberry Pi for Lab Use
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/08.02-rpi-test-libraries.html">
+     RPI Library tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/08.03-rpi-picamera_test.html">
+     RPI Camera Module
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-computer-vision-applications.html">
+   Computer Vision Applications
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-Computer-Vision.html">
+     Computer Vision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-getting-image-data.html">
+     Getting Image Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-experiments-with-computer-vision.html">
+     Computer Vision Workflow
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10.01-rpi-image-capture.html">
+     Image Capture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10.02-Machine-Vision.html">
+     Machine Vision Applications
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10.11-Experiments-with-Computer-Vision.html">
+     Experiments with Computer Vision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10.12-Test-Driven-Development.html">
+     Test Driven Development
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10.13-Computer-Vision-Application.html">
+     Computer Vision Case Study: Creating an Application
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
+     Low-Level Measurement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/03.02-Sampling-Continuous-Time-Signals.html">
+     Sampling Continuous Time Signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/04.00-Chemical_Instrumentation.html">
+     Chemical Instrumentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/04.10-Potentiostats-and-Galvanostats.html">
+     Potentiostats and Galvanostats
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/06.00-Coding-for-Device-Control.html">
+     Device Coding
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/06.01-Simple_Event_Loop.html">
+     Managing Multiple Devices with an Event Loop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/06.02-Coding-Paradigms.html">
+     Coding for Device Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/06.03-Coding-Paradigms.html">
+     Coding Paradigms for Device Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/06.04-Event-Driven-Programming.html">
+     Event Driven Programming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/06.05-PIO-Programming.html">
+     PIO Programming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/07.00-Interfacing_with_Laboratory_Equipment.html">
+     Interfacing with Laboratory Equipment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/07.01-Stepper-Motors.html">
+     Stepper Motors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/07.02-Stepper_Motor_Control_via_I2C.html">
+     Stepper Motor Control via I2C
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/07.03-Wifi-with-ESP-01.html">
+     Wifi
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/09.00-Enabling_the_Internet_of_Things.html">
+     Enabling the Internet of Things
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/09.01-Publishing_an_Experiment_via_MQTT.html">
+     Publishing an Experiment via MQTT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/09.02-Accessing_a_Remote_Experiment_via_MQTT.html">
+     Accessing a Remote Experiment via MQTT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/09.03-Miscellaneous_Notes.html">
+     Accessing MQTT Devices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/A.00-Appendices.html">
+     Python Source Library
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/A.01-Resources.html">
+     Resources
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/A.02-Downloading_Python_source_files_from_github.html">
+     Downloading Python source files from github
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/A.03-Getting-Started-with-Pymata4.html">
+     Getting Started with Pymata4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/A.04-Scheduling-Real-Time-Events-with-Simpy.html">
+     Scheduling Real-Time Events with Simpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/B.00-Working_with_Particle.html">
+     Working with Particle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/B.01-Particle_CLI.html">
+     Particle Command Line Interface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/B.02-Particle_Coding.html">
+     Coding for Particle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/B.03-Particle-CLI.html">
+     Particle Command Line Interface (CLI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/B.04-Ultrasonic_Distance_Ranger.html">
+     Ultrasonic Distance Ranger
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/B.05-Simple_Stop_Watch_using_Interrupts.html">
+     Simple Stop Watch using Interrupts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00/B.06-Communicating%20_via_TCP.html">
+     Communicating via TCP
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/05/04-image-processing-on-RPI.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/05/04-image-processing-on-RPI.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jckantor/cbe61622"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/04-image-processing-on-RPI.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/05/04-image-processing-on-RPI.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-miniconda-on-raspberry-pi-64-bit">
+   1. Installing Miniconda on Raspberry Pi (64 bit)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-and-installation">
+     Download and Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-jupyter">
+     Install Jupyter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-jupyter-remotely">
+     Accessing Jupyter Remotely
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-capture">
+   Image Capture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-picamera2">
+     Installing PiCamera2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#capturing-images">
+     Capturing Images
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#camera-setup">
+       Camera Setup
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#capture-a-jpeg-with-libcamera-jpeg">
+       Capture a jpeg with libcamera-jpeg
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#capture-an-image-with-picamera">
+       Capture an Image with Picamera
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Installing an Image Processing Toolkit on Raspberry Pi</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-miniconda-on-raspberry-pi-64-bit">
+   1. Installing Miniconda on Raspberry Pi (64 bit)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-and-installation">
+     Download and Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-jupyter">
+     Install Jupyter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-jupyter-remotely">
+     Accessing Jupyter Remotely
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-capture">
+   Image Capture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-picamera2">
+     Installing PiCamera2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#capturing-images">
+     Capturing Images
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#camera-setup">
+       Camera Setup
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#capture-a-jpeg-with-libcamera-jpeg">
+       Capture a jpeg with libcamera-jpeg
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#capture-an-image-with-picamera">
+       Capture an Image with Picamera
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="installing-an-image-processing-toolkit-on-raspberry-pi">
+<h1>Installing an Image Processing Toolkit on Raspberry Pi<a class="headerlink" href="#installing-an-image-processing-toolkit-on-raspberry-pi" title="Permalink to this heading">#</a></h1>
+<p>The purpose of this notebook is to outline a workflow and toolkit for capturing and processing images forlaboratory use on the Raspberry Pi. There are, of course, a nearly limitless collection of tools that can be adapted for laboratory use, and numerous specialized software packages. The particular workflow desecribed below is oriented to the use of Jupyter notebooks to document the analysis of images, and the use of the most common image libraries in Python.</p>
+<ol class="simple">
+<li><p>Installing Jupyter Notebook</p>
+<ul class="simple">
+<li><p>Miniconda</p></li>
+</ul>
+</li>
+<li><p>Image Capture</p>
+<ul class="simple">
+<li><p>PiCamera 2</p></li>
+</ul>
+</li>
+<li><p>Image Processing Libraries</p>
+<ul class="simple">
+<li><p>PIL</p></li>
+<li><p>scipy ndimage</p></li>
+<li><p>OpenCV</p></li>
+<li><p>scikit-image</p></li>
+</ul>
+</li>
+<li><p>ML Libraries</p>
+<ul class="simple">
+<li><p>tensorflow</p></li>
+<li><p>scikit-learn</p></li>
+</ul>
+</li>
+</ol>
+<section id="installing-miniconda-on-raspberry-pi-64-bit">
+<h2>1. Installing Miniconda on Raspberry Pi (64 bit)<a class="headerlink" href="#installing-miniconda-on-raspberry-pi-64-bit" title="Permalink to this heading">#</a></h2>
+<section id="download-and-installation">
+<h3>Download and Installation<a class="headerlink" href="#download-and-installation" title="Permalink to this heading">#</a></h3>
+<p>Anaconda is a big package with a comprehensive set of Python libraries and application utilities. Miniconda is a smaller alternative that relies on user intervention for downloading needed libraries and applications.</p>
+<p>Go to this page for a version of Miniconda that works with RaspOS: <a class="reference external" href="https://github.com/conda-forge/miniforge">https://github.com/conda-forge/miniforge</a>. Download the version labeld “aarch64 (arm64)”. This is a large download and may take many minutes to complete.</p>
+<p>After the download is complete, open an terminal window, navigate to the Downloads directory, and execute the shell script.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls Downloads
+sh Miniforge3-Linux-aarch64.sh
+</pre></div>
+</div>
+<p>A new folder <code class="docutils literal notranslate"><span class="pre">miniforge3</span></code> will appear in the home directory. This is a long process requiring you to respond to various prompts. When complete, close and reopen the terminal window. If all went well, then command line</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda
+</pre></div>
+</div>
+<p>should return a help message. Executing</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda update conda 
+</pre></div>
+</div>
+<p>will bring the conda environment up to date.</p>
+</section>
+<section id="install-jupyter">
+<h3>Install Jupyter<a class="headerlink" href="#install-jupyter" title="Permalink to this heading">#</a></h3>
+<p>To install Jupyter, execute</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install jupyter
+</pre></div>
+</div>
+<p>You can test the Jupyter environment on the Raspberry Pi with</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter lab
+</pre></div>
+</div>
+<p>You may be asked for your password.</p>
+</section>
+<section id="accessing-jupyter-remotely">
+<h3>Accessing Jupyter Remotely<a class="headerlink" href="#accessing-jupyter-remotely" title="Permalink to this heading">#</a></h3>
+<p>One of the excellent features of Miniconda is that you can access the Jupyter server remotely. That is, you can be doing your typing, coding, and analysis remotely on your laptop while the Raspberry Pi server remains attached to your laboratory equipment. The following steps are adapted from <a class="reference external" href="https://towardsdatascience.com/remote-computing-with-jupyter-notebooks-5b2860f761e8">https://towardsdatascience.com/remote-computing-with-jupyter-notebooks-5b2860f761e8</a></p>
+<ol>
+<li><p>Confirm your laptop is on the same network.</p></li>
+<li><p>On your laptop, open a terminal or command window use ping to locate the Raspberry Pi. Note the IP address which will be in the form <a class="reference external" href="http://XXX.XXX.XXX.XXX">XXX.XXX.XXX.XXX</a></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> ping raspberrypi
+</pre></div>
+</div>
+</li>
+<li><p>From the laptop, open an <code class="docutils literal notranslate"><span class="pre">ssh</span></code> session. Follow prompts to login to the Raspberry Pi.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> ssh username@XXX.XXX.XXX.XXX
+</pre></div>
+</div>
+</li>
+<li><p>Open a jupyter session</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> jupyter lab --no-browser 
+</pre></div>
+</div>
+</li>
+<li><p>Redirect port traffic from the Raspberry Pi. Open another terminal or command window, and issue the command. Answer any prompts that may appear.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> ssh -N -L localhost:8890:localhost:8889 username@XXX.XXX.XXX.XXX
+</pre></div>
+</div>
+</li>
+<li><p>Finally, open a browser window on your laptop and open the following web address. You should now have a Jupyter lab session that is connected to the Raspberry Pi.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> localhost:8890/lab
+</pre></div>
+</div>
+</li>
+</ol>
+<p>From this point on you should be be able to use to the Raspberry Pi remotely.</p>
+</section>
+</section>
+<section id="image-capture">
+<h2>Image Capture<a class="headerlink" href="#image-capture" title="Permalink to this heading">#</a></h2>
+<p>Image capture refers to the capture of images using a connected camera. The workflow begins with the</p>
+<section id="installing-picamera2">
+<h3>Installing PiCamera2<a class="headerlink" href="#installing-picamera2" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install -y python3-picamera2
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>sudo apt install -y python3-picamera2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libfuse2 libmikmod3 libportmidi0 librtimulib-dev librtimulib-utils
+  librtimulib7 libsdl-mixer1.2 libsdl-ttf2.0-0 python3-rtimulib
+Use &#39;sudo apt autoremove&#39; to remove them.
+The following packages will be upgraded:
+  python3-picamera2
+1 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+Need to get 46.1 kB of archives.
+After this operation, 3,072 B of additional disk space will be used.
+Get:1 http://archive.raspberrypi.org/debian bullseye/main arm64 python3-picamera2 all 0.3.7-1 [46.1 kB]
+Fetched 46.1 kB in 1s (78.8 kB/s)          [0m[33m
+apt-listchanges: Reading changelogs...
+
+(Reading database ... 111885 files and directories currently installed.)
+Preparing to unpack .../python3-picamera2_0.3.7-1_all.deb ...
+7[24;0f[42m[30mProgress: [  0%][49m[39m [..........................................................] 87[24;0f[42m[30mProgress: [ 20%][49m[39m [###########...............................................] 8Unpacking python3-picamera2 (0.3.7-1) over (0.3.6-1) ...
+7[24;0f[42m[30mProgress: [ 40%][49m[39m [#######################...................................] 8Setting up python3-picamera2 (0.3.7-1) ...
+7[24;0f[42m[30mProgress: [ 60%][49m[39m [##################################........................] 87[24;0f[42m[30mProgress: [ 80%][49m[39m [##############################################............] 8
+7[0;24r8[1A[J
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="capturing-images">
+<h3>Capturing Images<a class="headerlink" href="#capturing-images" title="Permalink to this heading">#</a></h3>
+<p>We will assume you have a compatible camera connected to the Raspberry Pi using the standard ribbon cables.</p>
+<section id="camera-setup">
+<h4>Camera Setup<a class="headerlink" href="#camera-setup" title="Permalink to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">libcamera</span></code> utilities a good place to get started with use of the Raspberry Pi camera system.  From a terminal window on the Raspberry Pi, issue the following command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    libcamera-hello -t 0
+</pre></div>
+</div>
+<p>to open a realtime preview from the camera. Use this as an opportunity to frame the scene, adjust lighting, focus the lens if necessary. Close the preview window when finished.</p>
+</section>
+<section id="capture-a-jpeg-with-libcamera-jpeg">
+<h4>Capture a jpeg with libcamera-jpeg<a class="headerlink" href="#capture-a-jpeg-with-libcamera-jpeg" title="Permalink to this heading">#</a></h4>
+<p>The simplest way to capture an image is using <code class="docutils literal notranslate"><span class="pre">libcamera-jpeg</span></code>. For a list of all options execute</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    !libcamera-jpeg --help
+</pre></div>
+</div>
+<p>from a cell in a Jupyter notebook. A typical use of is shown in the next cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>libcamera-jpeg -o test.jpeg
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preview window unavailable
+[1:11:26.454421067] [3069] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">Camera </span><span class=" -Color -Color-Bold -Color-Bold-Blue">camera_manager.cpp:293 </span>libcamera v0.0.1+54-d528119f
+[1:11:26.493288732] [3070] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">RPI </span><span class=" -Color -Color-Bold -Color-Bold-Blue">raspberrypi.cpp:1414 </span>Registered camera /base/soc/i2c0mux/i2c@1/imx477@1a to Unicam device /dev/media1 and ISP device /dev/media2
+[1:11:26.497514394] [3069] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">Camera </span><span class=" -Color -Color-Bold -Color-Bold-Blue">camera.cpp:1026 </span>configuring streams: (0) 2028x1520-YUV420
+[1:11:26.498257047] [3070] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">RPI </span><span class=" -Color -Color-Bold -Color-Bold-Blue">raspberrypi.cpp:800 </span>Sensor: /base/soc/i2c0mux/i2c@1/imx477@1a - Selected sensor format: 2028x1520-SBGGR12_1X12 - Selected unicam format: 2028x1520-pBCC
+[1:11:32.060990973] [3069] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">Camera </span><span class=" -Color -Color-Bold -Color-Bold-Blue">camera.cpp:1026 </span>configuring streams: (0) 4056x3040-YUV420 (1) 4056x3040-SBGGR12_CSI2P
+[1:11:32.062529947] [3070] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">RPI </span><span class=" -Color -Color-Bold -Color-Bold-Blue">raspberrypi.cpp:800 </span>Sensor: /base/soc/i2c0mux/i2c@1/imx477@1a - Selected sensor format: 4056x3040-SBGGR12_1X12 - Selected unicam format: 4056x3040-pBCC
+Still capture image received
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>01-image-processing-on-RPI.ipynb   Downloads			Public
+1108172419.jpg			   intro-computer-vision.ipynb	test2.jpeg
+1108172714.jpg			   miniforge3			test.h264
+Bookshelf			   Music			test.jpeg
+command-line-libcamera-tool.ipynb  OpenCV-4-5-5.sh		test.jpeg.pp3
+Desktop				   opencv.ipynb			test.jpg
+Documents			   Pictures			Videos
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;test.jpeg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f6bd03b50&gt;
+</pre></div>
+</div>
+<img alt="../../_images/04-image-processing-on-RPI_10_1.png" src="../../_images/04-image-processing-on-RPI_10_1.png" />
+</div>
+</div>
+</section>
+<section id="capture-an-image-with-picamera">
+<h4>Capture an Image with Picamera<a class="headerlink" href="#capture-an-image-with-picamera" title="Permalink to this heading">#</a></h4>
+<p>A common use case is using a Python script to capture an image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">picamera2</span> <span class="kn">import</span> <span class="n">Picamera2</span><span class="p">,</span> <span class="n">Preview</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">picam2</span> <span class="o">=</span> <span class="n">Picamera2</span><span class="p">()</span>
+
+<span class="n">camera_config</span> <span class="o">=</span> <span class="n">picam2</span><span class="o">.</span><span class="n">create_still_configuration</span><span class="p">(</span><span class="n">main</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">)})</span>
+<span class="n">picam2</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">camera_config</span><span class="p">)</span>
+<span class="n">picam2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">exif</span> <span class="o">=</span> <span class="n">picam2</span><span class="o">.</span><span class="n">capture_file</span><span class="p">(</span><span class="s2">&quot;test.jpg&quot;</span><span class="p">)</span>
+<span class="n">picam2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">exif</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1:20:28.509894146] [3125] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">Camera </span><span class=" -Color -Color-Bold -Color-Bold-Blue">camera_manager.cpp:293 </span>libcamera v0.0.1+54-d528119f
+[1:20:28.575917556] [3180] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">RPI </span><span class=" -Color -Color-Bold -Color-Bold-Blue">raspberrypi.cpp:1414 </span>Registered camera /base/soc/i2c0mux/i2c@1/imx477@1a to Unicam device /dev/media1 and ISP device /dev/media2
+[1:20:28.588821282] [3125] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">Camera </span><span class=" -Color -Color-Bold -Color-Bold-Blue">camera.cpp:1026 </span>configuring streams: (0) 1920x1080-BGR888
+[1:20:28.589414549] [3180] <span class=" -Color -Color-Bold -Color-Bold-Green"> INFO </span><span class=" -Color -Color-Bold -Color-Bold-White">RPI </span><span class=" -Color -Color-Bold -Color-Bold-Blue">raspberrypi.cpp:800 </span>Sensor: /base/soc/i2c0mux/i2c@1/imx477@1a - Selected sensor format: 2028x1080-SBGGR12_1X12 - Selected unicam format: 2028x1080-pBCC
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SensorTimestamp : 4829372504000
+ExposureTime : 66657
+SensorTemperature : 22.0
+FocusFoM : 608
+ColourCorrectionMatrix : (1.9913883209228516, -0.8442877531051636, -0.14709094166755676, -0.26623067259788513, 1.7305384874343872, -0.4643173813819885, -0.09931771457195282, -0.4772596061229706, 1.5765773057937622)
+FrameDuration : 66991
+AeLocked : False
+AnalogueGain : 7.474452495574951
+ColourGains : (3.1889021396636963, 1.532944917678833)
+DigitalGain : 1.0704489946365356
+ColourTemperature : 6050
+Lux : 9.540560722351074
+SensorBlackLevels : (4096, 4096, 4096, 4096)
+ScalerCrop : (108, 440, 3840, 2160)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;test.jpg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f7065f7c0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/04-image-processing-on-RPI_13_1.png" src="../../_images/04-image-processing-on-RPI_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mail --help
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: line 1: mail: command not found
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="03-experiments-with-computer-vision.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Computer Vision Workflow</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../00/00.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Works in Progress</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jeffrey C. Kantor<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

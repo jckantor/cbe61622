@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Basics of Linear DC Circuits &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -59,7 +60,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Operational Amplifiers" href="02-Operational-Amplifiers.html" />
     <link rel="prev" title="Analog Circuits and Signals" href="00-Analog-Circuits-and-Signals.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -238,9 +239,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -266,18 +284,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -768,9 +774,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="basics-of-linear-dc-circuits">
-<h1>Basics of Linear DC Circuits<a class="headerlink" href="#basics-of-linear-dc-circuits" title="Permalink to this headline">#</a></h1>
+<h1>Basics of Linear DC Circuits<a class="headerlink" href="#basics-of-linear-dc-circuits" title="Permalink to this heading">#</a></h1>
 <section id="dimensions-and-units">
-<h2>Dimensions and Units<a class="headerlink" href="#dimensions-and-units" title="Permalink to this headline">#</a></h2>
+<h2>Dimensions and Units<a class="headerlink" href="#dimensions-and-units" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Ampere (A)</strong> In November 2018, several of the SI base units were redefined in terms that finally eliminated the use of artifacts. In the new system, the Ampere is the flow of one Coulomb <span class="math notranslate nohighlight">\(C\)</span> per second, where the numerical value of elementary charge <span class="math notranslate nohighlight">\(e\)</span> of an electron is fixed as <span class="math notranslate nohighlight">\(1.602176634 \times 10 ^{-19}\)</span>C</p></li>
 <li><p><strong>Volt (V)</strong> An electric field exerts force on an electric charge, therefore work is being done when a current passes through an electric field. Volts measure the magnitude of an electric field such that one volt is the potential field that produces 1 Watt of power for an electric current of 1 Ampere.</p></li>
@@ -780,7 +786,7 @@ title="Print to PDF"
 \[ P = V \times I \]</div>
 </section>
 <section id="kirchhoff-s-rules">
-<h2>Kirchhoff’s rules<a class="headerlink" href="#kirchhoff-s-rules" title="Permalink to this headline">#</a></h2>
+<h2>Kirchhoff’s rules<a class="headerlink" href="#kirchhoff-s-rules" title="Permalink to this heading">#</a></h2>
 <p>The circuits used in laboratory instrumentation are comprised of lumped elements such as conductors, resistors, capacitors, inductors, and various semiconductor components. Kirchhoff’s rules are the foundation of circuit analysis for lumped elements. There are two basic rules:</p>
 <ul class="simple">
 <li><p><strong>Kirchhoff’s current rule.</strong> Given a node in a circuit, the algebraic sum of currents is zero. That is,
@@ -793,7 +799,7 @@ where \)</span>V_n$ is the signed (i.e, positive or negative) potential differen
 <p>These rules are the foundation for circuit analysis, but do depend on several key assumptions that do not hold in for all laboratory situations. In particular, these rules assume a circuit can be modeled as lumped elements that do not interact through electric or magnetic fields. These assumptions may be violated, for example, in high frequency transmission lines where charge density may be oscillating, or where there is significant interaction of electrical or magnetic fields with the surrounding environment. Since these types of interactions can occur in a laboratory setting, one needs to be aware of the limits of basic circuit analysis.</p>
 </section>
 <section id="ohm-s-law">
-<h2>Ohm’s law<a class="headerlink" href="#ohm-s-law" title="Permalink to this headline">#</a></h2>
+<h2>Ohm’s law<a class="headerlink" href="#ohm-s-law" title="Permalink to this heading">#</a></h2>
 <p>Ohm’s law is a linear consituitive equation describing the relationship between current density <span class="math notranslate nohighlight">\(\bf j\)</span>, electric field <span class="math notranslate nohighlight">\(\bf e\)</span>, and magnetic flux density <span class="math notranslate nohighlight">\(\bf b\)</span> for a bulk conductors. In vector notation</p>
 <div class="math notranslate nohighlight">
 \[{\bf j} = \sigma({\bf e} + {\bf v}\times {\bf b}) + {\bf j}_s\]</div>
@@ -816,7 +822,7 @@ For a device with cross-sectional area <span class="math notranslate nohighlight
 \[V = I \times R\]</div>
 </section>
 <section id="ideal-voltage-and-current-sources">
-<h2>Ideal Voltage and Current Sources<a class="headerlink" href="#ideal-voltage-and-current-sources" title="Permalink to this headline">#</a></h2>
+<h2>Ideal Voltage and Current Sources<a class="headerlink" href="#ideal-voltage-and-current-sources" title="Permalink to this heading">#</a></h2>
 <p>An <strong>ideal voltage source</strong> is a device that maintains a fixed voltage regardless of the current required by the load.</p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Ohms_law_voltage_source.svg/200px-Ohms_law_voltage_source.svg.png" /></p>
 <p>Given <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(R\)</span>, the current flow <span class="math notranslate nohighlight">\(I = V/R\)</span>, and power is <span class="math notranslate nohighlight">\(P = V I = V^2/R\)</span>. Obviously this idealization breaks down in the limit <span class="math notranslate nohighlight">\(R = 0\)</span> which would require an infinite and therefore infeasible amount of current.</p>
@@ -826,10 +832,10 @@ For a device with cross-sectional area <span class="math notranslate nohighlight
 <p>Most common power supplies are set up as voltage sources with some sort of current limit.</p>
 </section>
 <section id="resistor-networks">
-<h2>Resistor Networks<a class="headerlink" href="#resistor-networks" title="Permalink to this headline">#</a></h2>
+<h2>Resistor Networks<a class="headerlink" href="#resistor-networks" title="Permalink to this heading">#</a></h2>
 <p>Systems comprised of interconnected resistors can be analyzed using the Kirchhoff circuit laws.</p>
 <section id="voltage-divider">
-<h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">#</a></h3>
+<h3>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this heading">#</a></h3>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Resistive_divider2.svg/200px-Resistive_divider2.svg.png" /></p>
 <p>\begin{align*}
 V_{in} &amp; = V_1 + V_2  \
@@ -842,7 +848,7 @@ V_{in} &amp; = V_1 + V_2  \
 </section>
 </section>
 <section id="capacitors">
-<h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline">#</a></h2>
+<h2>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this heading">#</a></h2>
 <p>An ideal capacitor</p>
 <div class="math notranslate nohighlight">
 \[ I = C \frac{dV}{dt}\]</div>
@@ -857,7 +863,7 @@ V_{in} &amp; = V_1 + V_2  \
 <p>Drawing a parallel with Ohm’s law, we see that <span class="math notranslate nohighlight">\(\frac{1}{Cs}\)</span> is the complex impedence of a capacitor.</p>
 </section>
 <section id="inductors">
-<h2>Inductors<a class="headerlink" href="#inductors" title="Permalink to this headline">#</a></h2>
+<h2>Inductors<a class="headerlink" href="#inductors" title="Permalink to this heading">#</a></h2>
 <p>An ideal inductor creates a counter potential as a result of increasing current.</p>
 <div class="math notranslate nohighlight">
 \[ V = - L \frac{dI}{dt} \]</div>

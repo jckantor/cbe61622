@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Coding Paradigms for Device Control &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Event Driven Programming" href="06.04-Event-Driven-Programming.html" />
     <link rel="prev" title="Coding for Device Control" href="06.02-Coding-Paradigms.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -722,7 +728,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="coding-paradigms-for-device-control">
-<h1>Coding Paradigms for Device Control<a class="headerlink" href="#coding-paradigms-for-device-control" title="Permalink to this headline">#</a></h1>
+<h1>Coding Paradigms for Device Control<a class="headerlink" href="#coding-paradigms-for-device-control" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-micropython notranslate"><div class="highlight"><pre><span></span>%serialconnect
@@ -739,7 +745,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="the-coding-challenge">
-<h2>The Coding Challenge<a class="headerlink" href="#the-coding-challenge" title="Permalink to this headline">#</a></h2>
+<h2>The Coding Challenge<a class="headerlink" href="#the-coding-challenge" title="Permalink to this heading">#</a></h2>
 <p>PD control for a Ball on beam device. The device is to sense the position of a ball on a 50cm beam, compare to a setpoint, and adjust beam position with servo motor. The setpoint and control constant is to be given by the device user. Display all relevant data. Use a button to start and stop operation.</p>
 <p>Devices:</p>
 <ul class="simple">
@@ -761,7 +767,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="coding-paradigms">
-<h2>Coding Paradigms<a class="headerlink" href="#coding-paradigms" title="Permalink to this headline">#</a></h2>
+<h2>Coding Paradigms<a class="headerlink" href="#coding-paradigms" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Single threaded, imperative coding</p></li>
 <li><p>Python classes</p>
@@ -789,7 +795,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="single-threaded-imperative-coding">
-<h2>Single threaded, imperative coding<a class="headerlink" href="#single-threaded-imperative-coding" title="Permalink to this headline">#</a></h2>
+<h2>Single threaded, imperative coding<a class="headerlink" href="#single-threaded-imperative-coding" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-micropython notranslate"><div class="highlight"><pre><span></span>from machine import Pin, PWM
@@ -1209,7 +1215,7 @@ servo.off()
 </div>
 </section>
 <section id="discuss">
-<h2>Discuss<a class="headerlink" href="#discuss" title="Permalink to this headline">#</a></h2>
+<h2>Discuss<a class="headerlink" href="#discuss" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Does this code provide a working prototype?</p></li>
 <li><p>Is this code maintaina</p></li>

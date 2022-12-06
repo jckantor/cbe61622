@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Test Driven Development &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Computer Vision Case Study: Creating an Application" href="10.13-Computer-Vision-Application.html" />
     <link rel="prev" title="Experiments with Computer Vision" href="10.11-Experiments-with-Computer-Vision.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -214,16 +215,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="00-computer-vision-applications.html">
    Computer Vision Applications
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="01-Computer-Vision.html">
      Computer Vision
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -814,9 +820,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="test-driven-development">
-<h1>Test Driven Development<a class="headerlink" href="#test-driven-development" title="Permalink to this headline">#</a></h1>
+<h1>Test Driven Development<a class="headerlink" href="#test-driven-development" title="Permalink to this heading">#</a></h1>
 <section id="what-did-we-learn-about-our-application">
-<h2>What did we learn about our application?<a class="headerlink" href="#what-did-we-learn-about-our-application" title="Permalink to this headline">#</a></h2>
+<h2>What did we learn about our application?<a class="headerlink" href="#what-did-we-learn-about-our-application" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Image Capture</p>
 <ul>
@@ -845,7 +851,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="test-driven-development-or-festina-lente-make-haste-slowly">
-<h2>Test Driven Development, or <em>Festina Lente</em> (“make haste, slowly”)<a class="headerlink" href="#test-driven-development-or-festina-lente-make-haste-slowly" title="Permalink to this headline">#</a></h2>
+<h2>Test Driven Development, or <em>Festina Lente</em> (“make haste, slowly”)<a class="headerlink" href="#test-driven-development-or-festina-lente-make-haste-slowly" title="Permalink to this heading">#</a></h2>
 <p>Our goal is to create a Python module for particle labeling and counting. We anticipate testing the approach using representative images taken under different conditions, then embedding the code into a user application, perhaps with a GUI interface, running on a microcontroller with integrated camera.</p>
 <p>For these purposes, we will create several Python classes to streamline the workflow. It’s important for the workflow to be flexible and adaptable to accomodate experimentation.</p>
 <p><strong>Test Driven Development</strong></p>
@@ -872,7 +878,7 @@ title="Print to PDF"
 <li><p>Keep the number classes, methods, and lines of code to a minimum.</p></li>
 </ul>
 <section id="labeler-class">
-<h3>Labeler Class<a class="headerlink" href="#labeler-class" title="Permalink to this headline">#</a></h3>
+<h3>Labeler Class<a class="headerlink" href="#labeler-class" title="Permalink to this heading">#</a></h3>
 <p>The Labeler class will be the primary interface to the application. When working from the Python console, the user use Labeler class to create labelers that locate and label particles in one or more images. Typical usage would be</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>labeler = Labeler(parameter1, parameter2, ...)
 </pre></div>
@@ -963,7 +969,7 @@ labeler.show(ax)
 </div>
 </section>
 <section id="loading-image-files">
-<h3>Loading image files<a class="headerlink" href="#loading-image-files" title="Permalink to this headline">#</a></h3>
+<h3>Loading image files<a class="headerlink" href="#loading-image-files" title="Permalink to this heading">#</a></h3>
 <p>We will read files in RGB format and convert to numpy ndarray. We’ll create tests that verify the images are correctly load, and then write code until the tests succeed. We will save the filepath to label plots, and save the image data as a NumPy array in RGB format.</p>
 <p>Note that in this cell we cheat a bit on TDD, doing a bit of iteration between the tests and application code. The goal is to end up the desired features and test code that completely covers the application code.</p>
 <div class="cell docutils container">
@@ -1014,7 +1020,7 @@ labeler.show(ax)
 </div>
 </section>
 <section id="image-rescaling-and-cropping">
-<h3>Image Rescaling and Cropping<a class="headerlink" href="#image-rescaling-and-cropping" title="Permalink to this headline">#</a></h3>
+<h3>Image Rescaling and Cropping<a class="headerlink" href="#image-rescaling-and-cropping" title="Permalink to this heading">#</a></h3>
 <p>The test images show the images appear with different sizes, and extraneous information at the boundaries.  In this cell we add functions to rescale and crop the image. The display is changed to more clearly label the coordinate system. The Python native <code class="docutils literal notranslate"><span class="pre">slice()</span></code> function is used to specify the crop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1093,7 +1099,7 @@ labeler.show(ax)
 </div>
 </section>
 <section id="channel-class">
-<h3>Channel Class<a class="headerlink" href="#channel-class" title="Permalink to this headline">#</a></h3>
+<h3>Channel Class<a class="headerlink" href="#channel-class" title="Permalink to this heading">#</a></h3>
 <p>The next steps of the workflow involve the creation of new images through affine combination of the image channels and various filtering and morphological transformations. For this purpose we create a <code class="docutils literal notranslate"><span class="pre">Channel</span></code> class to represent these derivative images. We will assume</p>
 <ul class="simple">
 <li><p>Channels have the same height and width as the images from which they are derived.</p></li>
@@ -1206,7 +1212,7 @@ channel.show_histogram(ax, color)  # show the histogram on a specified axis
 </div>
 </section>
 <section id="integrating-channels-into-labeler">
-<h3>Integrating Channels into Labeler<a class="headerlink" href="#integrating-channels-into-labeler" title="Permalink to this headline">#</a></h3>
+<h3>Integrating Channels into Labeler<a class="headerlink" href="#integrating-channels-into-labeler" title="Permalink to this heading">#</a></h3>
 <p>Next we use the Channels object inside Labeler. The functionality we seek is to create channels from the core image. A channel is create upon first reference. For example, to create a gray scalel approximation to the reference image.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>r, g, b = labeler.img
 labeler.channels[&#39;k&#39;]((r + g + b)/3)
@@ -1312,7 +1318,7 @@ labeler.channels[&#39;k&#39;]((r + g + b)/3)
 </div>
 </section>
 <section id="additional-channel-methods">
-<h3>Additional Channel Methods<a class="headerlink" href="#additional-channel-methods" title="Permalink to this headline">#</a></h3>
+<h3>Additional Channel Methods<a class="headerlink" href="#additional-channel-methods" title="Permalink to this heading">#</a></h3>
 <p>Most of the processing work will be done with Channels. Following the experimental explorations, at a minimum we know we’ll need</p>
 <ul class="simple">
 <li><p>treshhold</p></li>
@@ -1529,7 +1535,7 @@ labeler.channels[&#39;k&#39;]((r + g + b)/3)
 </section>
 </section>
 <section id="particle-class">
-<h2>Particle Class<a class="headerlink" href="#particle-class" title="Permalink to this headline">#</a></h2>
+<h2>Particle Class<a class="headerlink" href="#particle-class" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Particle</span><span class="p">():</span>
@@ -1597,7 +1603,7 @@ labeler.channels[&#39;k&#39;]((r + g + b)/3)
 </div>
 </section>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h2>
 <p>How can we break this application down into classes?</p>
 <p>What kinds of coding objects do work with?</p>
 <p>Main application class: Labeler</p>
@@ -1609,7 +1615,7 @@ labeler.channels[&#39;k&#39;]((r + g + b)/3)
 </ul>
 </section>
 <section id="particle-labeling-classes">
-<h2>Particle Labeling Classes<a class="headerlink" href="#particle-labeling-classes" title="Permalink to this headline">#</a></h2>
+<h2>Particle Labeling Classes<a class="headerlink" href="#particle-labeling-classes" title="Permalink to this heading">#</a></h2>
 <p>To facilitate embedded use in a device, the next step is to consolidate these procedures into a class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1841,7 +1847,7 @@ class Channel(builtins.object)
 </div>
 </section>
 <section id="demonstrations">
-<h2>Demonstrations<a class="headerlink" href="#demonstrations" title="Permalink to this headline">#</a></h2>
+<h2>Demonstrations<a class="headerlink" href="#demonstrations" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labeler</span> <span class="o">=</span> <span class="n">ParticleLabeler</span><span class="p">()</span>

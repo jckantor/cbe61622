@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Grove Starter Kit for Raspberry Pi Pico &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="LCD1602" href="03-LCD1602.html" />
     <link rel="prev" title="Interfacing with Micropython on the Raspberry Pi Pico" href="01-Getting_Started.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -712,13 +718,13 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="grove-starter-kit-for-raspberry-pi-pico">
-<h1>Grove Starter Kit for Raspberry Pi Pico<a class="headerlink" href="#grove-starter-kit-for-raspberry-pi-pico" title="Permalink to this headline">#</a></h1>
+<h1>Grove Starter Kit for Raspberry Pi Pico<a class="headerlink" href="#grove-starter-kit-for-raspberry-pi-pico" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.seeedstudio.com/Grove-Starter-Kit-for-Raspberry-Pi-Pico-p-4851.html">Grove Starter Kit for Raspberry Pi Pico</a> with Free Course – Product Page</p></li>
 <li><p><a class="reference external" href="https://wiki.seeedstudio.com/Grove_Shield_for_Pi_Pico_V1.0/">Wiki for Grove Starter Kit for Raspberry Pi Pico</a></p></li>
 </ul>
 <section id="communication-methods">
-<h2>Communication methods<a class="headerlink" href="#communication-methods" title="Permalink to this headline">#</a></h2>
+<h2>Communication methods<a class="headerlink" href="#communication-methods" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>SPI (Serial Peripheral Interface)</strong>.  Developed by Motorola in the 1980’s for short distance communication in embedded systems. SPI typically operates at up to a few MHz with a single controller and one or more peripherals. It requires at least four wires and commonly used for SD cards and LCD displays.</p></li>
 <li><p><strong>I2C (Inter-Integrated Circuit)</strong>. A communication bus invented by Phillips Semiconductors in 1982. The purpose of the bus is to attach peripheral integrated circuits to processors over short distances. Unlike SPI, I2C can have multiple controllers and peripherals on the same bus. It has been widely adopted for embedded systems applications with data transfer requirements below about 400 kbit/second.</p></li>
@@ -727,7 +733,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="i2c-protocol">
-<h2>I2C Protocol<a class="headerlink" href="#i2c-protocol" title="Permalink to this headline">#</a></h2>
+<h2>I2C Protocol<a class="headerlink" href="#i2c-protocol" title="Permalink to this heading">#</a></h2>
 <p>I2C refers to Inter-Integrated Circuit, a communication bus invented by Phillips Semiconductors in 1982. The purpose of the bus is to attach peripheral integrated circuits to processors over short distances. It has been widely adopted for embedded systems applications with data transfer requirements below about 400 kbit/second. This is sufficient for many instrumentation requirements.</p>
 <p>The communications bus requires two signal lines designated SDA (data)and SCL (clock). Both are open-collector (or open-drain) lines requiring pull up resistors to maintain a quiescent high state. Typical voltages are +5 or +3.3 volts.</p>
 <p>An I2C bus can have multiple controllers and peripherals. A controller initiates a data transfer, the peripheral responds. A data transfer is performed as follows:</p>
@@ -737,12 +743,12 @@ title="Print to PDF"
 </ol>
 </section>
 <section id="i2c-pinout">
-<h2>I2C Pinout<a class="headerlink" href="#i2c-pinout" title="Permalink to this headline">#</a></h2>
+<h2>I2C Pinout<a class="headerlink" href="#i2c-pinout" title="Permalink to this heading">#</a></h2>
 <p>The Raspberry Pi Pico provides two independent I2C channels, numbered 0 and 1, that are accessible through the GPIO pins. The following table shows GPIO pin where I2C channel 0 and I2C channel 1 can be accessed.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>I2C0 SDA/SCL</p></th>
-<th class="text-align:center head"><p>I2C1 SDA/SCL</p></th>
+<tr class="row-odd"><th class="head text-align:center"><p>I2C0 SDA/SCL</p></th>
+<th class="head text-align:center"><p>I2C1 SDA/SCL</p></th>
 </tr>
 </thead>
 <tbody>

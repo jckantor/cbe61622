@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Experiments with Computer Vision &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -59,7 +60,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Test Driven Development" href="10.12-Test-Driven-Development.html" />
     <link rel="prev" title="Machine Vision Applications" href="10.02-Machine-Vision.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -216,16 +217,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="00-computer-vision-applications.html">
    Computer Vision Applications
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="01-Computer-Vision.html">
      Computer Vision
@@ -238,9 +239,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="10.01-rpi-image-capture.html">
      Image Capture
@@ -266,18 +284,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -862,9 +868,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="experiments-with-computer-vision">
-<h1>Experiments with Computer Vision<a class="headerlink" href="#experiments-with-computer-vision" title="Permalink to this headline">#</a></h1>
+<h1>Experiments with Computer Vision<a class="headerlink" href="#experiments-with-computer-vision" title="Permalink to this heading">#</a></h1>
 <section id="developing-a-process">
-<h2>Developing a Process<a class="headerlink" href="#developing-a-process" title="Permalink to this headline">#</a></h2>
+<h2>Developing a Process<a class="headerlink" href="#developing-a-process" title="Permalink to this heading">#</a></h2>
 <p>Our approach …</p>
 <ul class="simple">
 <li><p>Read image</p></li>
@@ -880,7 +886,7 @@ title="Print to PDF"
 <li><p>Encapsulate as a Python Class</p></li>
 </ul>
 <section id="python-imports">
-<h3>Python Imports<a class="headerlink" href="#python-imports" title="Permalink to this headline">#</a></h3>
+<h3>Python Imports<a class="headerlink" href="#python-imports" title="Permalink to this heading">#</a></h3>
 <p>We track overall code dependencies by consolidating imports into this cell. Note that we’ll be using elements from multiple packages by relying on the underlying NumPy representation of images to hold the current state of the process.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -915,7 +921,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="reading-images">
-<h3>Reading images<a class="headerlink" href="#reading-images" title="Permalink to this headline">#</a></h3>
+<h3>Reading images<a class="headerlink" href="#reading-images" title="Permalink to this heading">#</a></h3>
 <p>As a first step, read the image, convert to rgb scale, and display. All of these packages have a means of reading raster file images in common formats. There are small (and sometimes frustrating) differences among them. Here we use the Matplotlib <code class="docutils literal notranslate"><span class="pre">imread()</span></code> method which reads and returns a numpy array.</p>
 <p>The array will typical have 2 or 3 dimensions <span class="math notranslate nohighlight">\((h, w, d)\)</span> where <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(w\)</span> are image height and width, and <span class="math notranslate nohighlight">\(d\)</span> is pixel depth.</p>
 <ul class="simple">
@@ -972,7 +978,7 @@ Successfully installed opencv-python-4.6.0.66
 </ul>
 </section>
 <section id="cropping">
-<h3>Cropping<a class="headerlink" href="#cropping" title="Permalink to this headline">#</a></h3>
+<h3>Cropping<a class="headerlink" href="#cropping" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span><span class="mi">2400</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -989,7 +995,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="channels-and-histograms">
-<h3>Channels and Histograms<a class="headerlink" href="#channels-and-histograms" title="Permalink to this headline">#</a></h3>
+<h3>Channels and Histograms<a class="headerlink" href="#channels-and-histograms" title="Permalink to this heading">#</a></h3>
 <p>An image is comprised of one or more channels</p>
 <ul class="simple">
 <li><p>Each channel can be treated as a gray scale image</p></li>
@@ -1051,7 +1057,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="creating-a-composite-channel">
-<h3>Creating a composite channel<a class="headerlink" href="#creating-a-composite-channel" title="Permalink to this headline">#</a></h3>
+<h3>Creating a composite channel<a class="headerlink" href="#creating-a-composite-channel" title="Permalink to this heading">#</a></h3>
 <p>We see the blue leds used to excite the flourophores bleed over into the green channel. It would be best if this could be corrected in the experiment, perhaps by positioning a bandpass filter in front of the leds. What we will attempt here is subtract a multiple of blue channel from the green channel, followed by exposure adjustments. The goal is to provide a cleaner image for doing particle labeling and counting.</p>
 <p>By trial and error, we find a weighted difference of the green and blue channels, and a rescaling of the tone curve that retains the particles and reduces background interference.</p>
 <div class="cell docutils container">
@@ -1078,7 +1084,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="histogram-equalization">
-<h3>Histogram equalization<a class="headerlink" href="#histogram-equalization" title="Permalink to this headline">#</a></h3>
+<h3>Histogram equalization<a class="headerlink" href="#histogram-equalization" title="Permalink to this heading">#</a></h3>
 <p>At this stage our composite image appears significantly underexposed. Looking at just the green channel, increasing the exposure 4x, or even 6x, would significantly brighten the particles that we’re seeking to detect. In future versions of the experiment it may be useful to experiment with signficantly brighter lenses, light sources, or longer exposures.</p>
 <p>In the meanwhile, the step in image processing is to equalize the histogram to improve opportunities for effective particle detection.</p>
 <div class="cell docutils container">
@@ -1099,7 +1105,7 @@ Successfully installed opencv-python-4.6.0.66
 </ul>
 </section>
 <section id="blur-filter">
-<h3>Blur filter<a class="headerlink" href="#blur-filter" title="Permalink to this headline">#</a></h3>
+<h3>Blur filter<a class="headerlink" href="#blur-filter" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kernel size (odd number)</span>
@@ -1129,7 +1135,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="thresholding-segmentation">
-<h3>Thresholding/Segmentation<a class="headerlink" href="#thresholding-segmentation" title="Permalink to this headline">#</a></h3>
+<h3>Thresholding/Segmentation<a class="headerlink" href="#thresholding-segmentation" title="Permalink to this heading">#</a></h3>
 <p>The purpose of threshold is to isolate the features of interest from background noise.</p>
 <p><a class="reference external" href="https://docs.opencv.org/3.4/d7/d4d/tutorial_py_thresholding.html">https://docs.opencv.org/3.4/d7/d4d/tutorial_py_thresholding.html</a></p>
 <div class="cell docutils container">
@@ -1154,7 +1160,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="morphological-transformation">
-<h3>Morphological Transformation<a class="headerlink" href="#morphological-transformation" title="Permalink to this headline">#</a></h3>
+<h3>Morphological Transformation<a class="headerlink" href="#morphological-transformation" title="Permalink to this heading">#</a></h3>
 <p>The next goal is to remove noise and to separate particles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1203,7 +1209,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="finding-objects">
-<h3>Finding Objects<a class="headerlink" href="#finding-objects" title="Permalink to this headline">#</a></h3>
+<h3>Finding Objects<a class="headerlink" href="#finding-objects" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="http://pageperso.lif.univ-mrs.fr/~francois.denis/IAAM1/scipy-html-1.0.0/tutorial/ndimage.html">http://pageperso.lif.univ-mrs.fr/~francois.denis/IAAM1/scipy-html-1.0.0/tutorial/ndimage.html</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1248,7 +1254,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="finding-and-displaying-particles">
-<h3>Finding and Displaying Particles<a class="headerlink" href="#finding-and-displaying-particles" title="Permalink to this headline">#</a></h3>
+<h3>Finding and Displaying Particles<a class="headerlink" href="#finding-and-displaying-particles" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the objects and place bounding boxes</span>
@@ -1278,7 +1284,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="creating-a-training-set">
-<h3>Creating a Training Set<a class="headerlink" href="#creating-a-training-set" title="Permalink to this headline">#</a></h3>
+<h3>Creating a Training Set<a class="headerlink" href="#creating-a-training-set" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kdx</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span> <span class="k">if</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">]</span>
@@ -1306,7 +1312,7 @@ Successfully installed opencv-python-4.6.0.66
 </div>
 </section>
 <section id="what-did-we-learn-about-our-application">
-<h3>What did we learn about our application?<a class="headerlink" href="#what-did-we-learn-about-our-application" title="Permalink to this headline">#</a></h3>
+<h3>What did we learn about our application?<a class="headerlink" href="#what-did-we-learn-about-our-application" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Improved Image Capture</p>
 <ul>
@@ -1331,7 +1337,7 @@ Successfully installed opencv-python-4.6.0.66
 </section>
 </section>
 <section id="particle-labeling-classes">
-<h2>Particle Labeling Classes<a class="headerlink" href="#particle-labeling-classes" title="Permalink to this headline">#</a></h2>
+<h2>Particle Labeling Classes<a class="headerlink" href="#particle-labeling-classes" title="Permalink to this heading">#</a></h2>
 <p>To facilitate embedded use in a device, the next step is to consolidate these procedures into a class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1563,7 +1569,7 @@ class Channel(builtins.object)
 </div>
 </section>
 <section id="demonstrations">
-<h2>Demonstrations<a class="headerlink" href="#demonstrations" title="Permalink to this headline">#</a></h2>
+<h2>Demonstrations<a class="headerlink" href="#demonstrations" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labeler</span> <span class="o">=</span> <span class="n">ParticleLabeler</span><span class="p">()</span>
@@ -1664,7 +1670,7 @@ class Channel(builtins.object)
 </div>
 </div>
 <section id="thresholding">
-<h3>Thresholding<a class="headerlink" href="#thresholding" title="Permalink to this headline">#</a></h3>
+<h3>Thresholding<a class="headerlink" href="#thresholding" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circles</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">HoughCircles</span><span class="p">(</span><span class="n">timg</span><span class="p">,</span> 

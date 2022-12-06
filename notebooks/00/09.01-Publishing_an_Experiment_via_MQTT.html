@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Publishing an Experiment via MQTT &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Accessing a Remote Experiment via MQTT" href="09.02-Accessing_a_Remote_Experiment_via_MQTT.html" />
     <link rel="prev" title="Enabling the Internet of Things" href="09.00-Enabling_the_Internet_of_Things.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -726,12 +732,12 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="publishing-an-experiment-via-mqtt">
-<h1>Publishing an Experiment via MQTT<a class="headerlink" href="#publishing-an-experiment-via-mqtt" title="Permalink to this headline">#</a></h1>
+<h1>Publishing an Experiment via MQTT<a class="headerlink" href="#publishing-an-experiment-via-mqtt" title="Permalink to this heading">#</a></h1>
 <p>This notebook is part of a proof concept study regarding use of the Internet of Things (IoT) as infrastructure for engineering teaching laboratories.</p>
 <p>This notebook uses the <a class="reference external" href="https://simpy.readthedocs.io/en/latest/">SimPy</a> library a create real-time simulation of a hypothetical experiment. The experiment responds to inputs and publishes data to a remote user via an an MQTT broker. In actual use, the content of this notebook would be implemented in an attached device such as an Arduino, Particle, or Raspberry Pi, with attached sensors.</p>
 <p>The companion notebook ??? demonstrates how a remote client could interact with the experiment via MQTT.</p>
 <section id="installations">
-<h2>Installations<a class="headerlink" href="#installations" title="Permalink to this headline">#</a></h2>
+<h2>Installations<a class="headerlink" href="#installations" title="Permalink to this heading">#</a></h2>
 <p>The following installations are required for use on Google Colab.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -749,12 +755,12 @@ Requirement already satisfied: simpy in /Users/jeff/opt/anaconda3/lib/python3.7/
 </div>
 </section>
 <section id="publishing-a-real-time-simulation-via-mqtt">
-<h2>Publishing a real-time simulation via MQTT<a class="headerlink" href="#publishing-a-real-time-simulation-via-mqtt" title="Permalink to this headline">#</a></h2>
+<h2>Publishing a real-time simulation via MQTT<a class="headerlink" href="#publishing-a-real-time-simulation-via-mqtt" title="Permalink to this heading">#</a></h2>
 <p>Topics:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p>topic</p></th>
-<th class="text-align:left head"><p>messages</p></th>
+<tr class="row-odd"><th class="head text-align:left"><p>topic</p></th>
+<th class="head text-align:left"><p>messages</p></th>
 </tr>
 </thead>
 <tbody>
@@ -767,7 +773,7 @@ Requirement already satisfied: simpy in /Users/jeff/opt/anaconda3/lib/python3.7/
 </tbody>
 </table>
 <section id="proof-of-concept">
-<h3>Proof of Concept<a class="headerlink" href="#proof-of-concept" title="Permalink to this headline">#</a></h3>
+<h3>Proof of Concept<a class="headerlink" href="#proof-of-concept" title="Permalink to this heading">#</a></h3>
 <p>Here we experiment with encapsulating the experiment as a standalone class. This is set up so that upon receiving an appropriate message from the remote user, a new instance of the experiment is created and run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -883,7 +889,7 @@ Loop Stopped: &lt;__main__.CBEClient object at 0x7fe572670e10&gt;
 </section>
 </section>
 <section id="version-1">
-<h2>Version 1<a class="headerlink" href="#version-1" title="Permalink to this headline">#</a></h2>
+<h2>Version 1<a class="headerlink" href="#version-1" title="Permalink to this heading">#</a></h2>
 <p>T</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

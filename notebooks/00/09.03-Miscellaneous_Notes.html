@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Accessing MQTT Devices &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Python Source Library" href="A.00-Appendices.html" />
     <link rel="prev" title="Accessing a Remote Experiment via MQTT" href="09.02-Accessing_a_Remote_Experiment_via_MQTT.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -712,9 +718,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="accessing-mqtt-devices">
-<h1>Accessing MQTT Devices<a class="headerlink" href="#accessing-mqtt-devices" title="Permalink to this headline">#</a></h1>
+<h1>Accessing MQTT Devices<a class="headerlink" href="#accessing-mqtt-devices" title="Permalink to this heading">#</a></h1>
 <section id="installing-paho-mqtt-library">
-<h2>Installing paho-mqtt library<a class="headerlink" href="#installing-paho-mqtt-library" title="Permalink to this headline">#</a></h2>
+<h2>Installing paho-mqtt library<a class="headerlink" href="#installing-paho-mqtt-library" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install paho-mqtt
@@ -729,7 +735,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="particle-argon">
-<h2>Particle Argon<a class="headerlink" href="#particle-argon" title="Permalink to this headline">#</a></h2>
+<h2>Particle Argon<a class="headerlink" href="#particle-argon" title="Permalink to this heading">#</a></h2>
 <p>The following code is flashed to the Particle Argon using the Particle Web IDE.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Report</span> <span class="n">temperature</span> <span class="ow">and</span> <span class="n">humidity</span> <span class="n">sensor</span><span class="o">.</span> <span class="n">Provide</span> <span class="n">a</span> <span class="n">short</span> <span class="n">blink</span> <span class="n">of</span> <span class="n">D7</span>
 <span class="o">//</span> <span class="n">to</span> <span class="n">indicate</span> <span class="n">an</span> <span class="n">temperture</span><span class="o">/</span><span class="n">humidity</span> <span class="n">update</span><span class="o">.</span>
@@ -772,7 +778,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="receiving-data-from-particle-argon-device">
-<h2>Receiving data from Particle Argon device<a class="headerlink" href="#receiving-data-from-particle-argon-device" title="Permalink to this headline">#</a></h2>
+<h2>Receiving data from Particle Argon device<a class="headerlink" href="#receiving-data-from-particle-argon-device" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="k">as</span> <span class="nn">mqtt</span>

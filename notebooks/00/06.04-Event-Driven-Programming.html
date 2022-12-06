@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Event Driven Programming &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="PIO Programming" href="06.05-PIO-Programming.html" />
     <link rel="prev" title="Coding Paradigms for Device Control" href="06.03-Coding-Paradigms.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -750,7 +756,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="event-driven-programming">
-<h1>Event Driven Programming<a class="headerlink" href="#event-driven-programming" title="Permalink to this headline">#</a></h1>
+<h1>Event Driven Programming<a class="headerlink" href="#event-driven-programming" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-micropython notranslate"><div class="highlight"><pre><span></span>%serialconnect
@@ -767,7 +773,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="project-idea-ultra-low-cost-syring-pump">
-<h2>Project Idea: Ultra Low-Cost Syring Pump<a class="headerlink" href="#project-idea-ultra-low-cost-syring-pump" title="Permalink to this headline">#</a></h2>
+<h2>Project Idea: Ultra Low-Cost Syring Pump<a class="headerlink" href="#project-idea-ultra-low-cost-syring-pump" title="Permalink to this heading">#</a></h2>
 <p>Syringe pumps provide a convenient means of metering flows in microfluidic experiments. Conventional laboratory-grade syringe pumps are expensive, on the order of several hundreds to several thousand dollars, which stands in the way of using microfluidics as a platform for low-cost experimentation.</p>
 <p>In the last decade there have been many reports of open-source, low-cost syringe pumps. Typically these employ NEMA 17 stepper motors, an Arduino microcontroller, and 3D printed components and off-the-shelf hardware.</p>
 <p>Here we explore the possibiity of even lower cost devices based on 28BYJ-48 stepper motors and Raspberry Pi Pico. Would it be possible to build a viable syringe pump for less than, say, $50?</p>
@@ -792,9 +798,9 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="button">
-<h2>Button<a class="headerlink" href="#button" title="Permalink to this headline">#</a></h2>
+<h2>Button<a class="headerlink" href="#button" title="Permalink to this heading">#</a></h2>
 <section id="polling">
-<h3>Polling<a class="headerlink" href="#polling" title="Permalink to this headline">#</a></h3>
+<h3>Polling<a class="headerlink" href="#polling" title="Permalink to this heading">#</a></h3>
 <p>As our first attempt at building a class for button, let’s consider a simple polling loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -830,7 +836,7 @@ Found serial ports: /dev/cu.usbmodem14301, /dev/cu.Bluetooth-Incoming-Port
 </ul>
 </section>
 <section id="timer">
-<h3>Timer<a class="headerlink" href="#timer" title="Permalink to this headline">#</a></h3>
+<h3>Timer<a class="headerlink" href="#timer" title="Permalink to this heading">#</a></h3>
 <p>Microcontroller boards typically have timers to assist with coding time dependent operations. The Raspberry Pi Pico has a particularly effective implementation offering an unlimited number of timers based on a global microsecond timebase.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -989,7 +995,7 @@ btn2 = 1
 </section>
 </section>
 <section id="interrupt-requests-and-service-routines-irq-isr">
-<h2>Interrupt Requests and Service Routines: IRQ/ISR<a class="headerlink" href="#interrupt-requests-and-service-routines-irq-isr" title="Permalink to this headline">#</a></h2>
+<h2>Interrupt Requests and Service Routines: IRQ/ISR<a class="headerlink" href="#interrupt-requests-and-service-routines-irq-isr" title="Permalink to this heading">#</a></h2>
 <p>Microcontrollers often incorporate hardware mechanisms to interrupt normal execution to service “interrupts”. The Raspberry Pi Pico supports a number of different interrupts, and the MicroPython interpreter provides simplified access that makes them relatively easy and safe to use.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.micropython.org/en/latest/reference/isr_rules.html">Writing interrupt handlers</a></p></li>
@@ -1077,7 +1083,7 @@ btn21.irq(btn21_isr, trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING)
 </div>
 </div>
 <section id="capturing-data-via-irq-isr-s">
-<h3>Capturing data via IRQ/ISR’s<a class="headerlink" href="#capturing-data-via-irq-isr-s" title="Permalink to this headline">#</a></h3>
+<h3>Capturing data via IRQ/ISR’s<a class="headerlink" href="#capturing-data-via-irq-isr-s" title="Permalink to this heading">#</a></h3>
 <p>There are many tricky issues involved with capturing data through the IRQ/ISR mechanism. This is partly due to Python’s mechanism for creating and updating objects. Interrupting Python at precisely the moment new objects are being created can lead to data or memory corruption.</p>
 <p>One useful technique is to use IRQ/ISR within the context of an object class.</p>
 <div class="cell docutils container">

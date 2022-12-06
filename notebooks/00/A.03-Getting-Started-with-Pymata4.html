@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Getting Started with Pymata4 &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -59,7 +60,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Scheduling Real-Time Events with Simpy" href="A.04-Scheduling-Real-Time-Events-with-Simpy.html" />
     <link rel="prev" title="Downloading Python source files from github" href="A.02-Downloading_Python_source_files_from_github.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -238,9 +239,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -266,18 +284,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -744,7 +750,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-pymata4">
-<h1>Getting Started with Pymata4<a class="headerlink" href="#getting-started-with-pymata4" title="Permalink to this headline">#</a></h1>
+<h1>Getting Started with Pymata4<a class="headerlink" href="#getting-started-with-pymata4" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://github.com/MrYsLab/pymata4">Pymata4</a> is a Python library that allows you to monitor and control Arduino hardware from a host computer. The library uses the Firmata protocol for communicating with the Arduino hardware. Pymata4 supports the StandardFirmata server included with the Arduino IDE, and also StandardFirmataWiFi, and an enhanced server FirmataExpress distributed with Pymata4.</p>
 <p>Pymata4 uses <a class="reference external" href="https://mryslab.github.io/pymata4/concurrency/">concurrent Python threads</a> to manage interaction with the Arduino. The concurrency model enables development of performant and interactive Arduino applications using Python on a host computer. Changes in the status of an Arduino pin can be processed with callbacks. It’s sibling, <a class="reference external" href="https://github.com/MrYsLab/pymata-express">pymata-express</a>, is available using the <a class="reference external" href="https://docs.python.org/3/library/asyncio.html">Python asyncio package</a>.</p>
 <p>Support for common <span class="math notranslate nohighlight">\(I^2C\)</span> devices, including stepper motors, is included in FirmataExpress. Applications using unsupported <span class="math notranslate nohighlight">\(I^2C\)</span> devices may require <a class="reference external" href="https://www.instructables.com/Going-Beyond-StandardFirmata-Adding-New-Device-Sup/">modifications to the Firmata server sketch</a>.</p>
@@ -753,7 +759,7 @@ title="Print to PDF"
 <li><p><a class="reference external" href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/MrYsLab/pymata4/master/html/pymata4/index.html">Pymata4 API documentation</a></p></li>
 </ul>
 <section id="hardware-setup-and-software-installations">
-<h2>Hardware Setup and Software Installations<a class="headerlink" href="#hardware-setup-and-software-installations" title="Permalink to this headline">#</a></h2>
+<h2>Hardware Setup and Software Installations<a class="headerlink" href="#hardware-setup-and-software-installations" title="Permalink to this heading">#</a></h2>
 <p>The Arduino must be attached to the host by USB with either the StandardFirmata or Firmata-express sketch installed using the Arduino IDE. For use with WiFi, install StandardFirmataWiFi.</p>
 <p>The Python pymata4 package can be installed with pip.</p>
 <div class="cell docutils container">
@@ -771,7 +777,7 @@ Requirement already satisfied: pyserial in /Users/jeff/opt/anaconda3/lib/python3
 </div>
 </section>
 <section id="basic-usage">
-<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">#</a></h2>
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">#</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pymata4.Pymata()
 board.shutdown()
 </pre></div>
@@ -812,7 +818,7 @@ Auto-discovery complete. Found 30 Digital Pins and 12 Analog Pins
 </div>
 </section>
 <section id="blinker">
-<h2>Blinker<a class="headerlink" href="#blinker" title="Permalink to this headline">#</a></h2>
+<h2>Blinker<a class="headerlink" href="#blinker" title="Permalink to this heading">#</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>board.digital_write(pin, value)
 </pre></div>
 </div>
@@ -878,7 +884,7 @@ LED OFF
 </div>
 </section>
 <section id="handling-a-keyboard-interrupt">
-<h2>Handling a Keyboard Interrupt<a class="headerlink" href="#handling-a-keyboard-interrupt" title="Permalink to this headline">#</a></h2>
+<h2>Handling a Keyboard Interrupt<a class="headerlink" href="#handling-a-keyboard-interrupt" title="Permalink to this heading">#</a></h2>
 <p>Pymata4 sets up multiple concurrent processes upon opening connection to the Arduino hardware. If Python execution is interrupted, it isimportant to catch the interrupt and shutdown the board before exiting the code. Otherwise the Arduino may continue to stream data requiring the Arduino to be reset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -932,7 +938,7 @@ Operation interrupted. Shutting down board.
 </div>
 </section>
 <section id="getting-information-about-the-arduino">
-<h2>Getting Information about the Arduino<a class="headerlink" href="#getting-information-about-the-arduino" title="Permalink to this headline">#</a></h2>
+<h2>Getting Information about the Arduino<a class="headerlink" href="#getting-information-about-the-arduino" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://github.com/firmata/protocol/blob/master/protocol.md">Firmata protocol</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1183,7 +1189,7 @@ Pin 29:  10    1    1         1        14
 </div>
 </section>
 <section id="temperature-control-lab-shield">
-<h2>Temperature Control Lab Shield<a class="headerlink" href="#temperature-control-lab-shield" title="Permalink to this headline">#</a></h2>
+<h2>Temperature Control Lab Shield<a class="headerlink" href="#temperature-control-lab-shield" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>

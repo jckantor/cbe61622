@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Raspberry Pi &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Setting up the Raspberry Pi for Lab Use" href="08.01-Raspberry-Pi-Setup.html" />
     <link rel="prev" title="Operational Amplifiers" href="../03/02-Operational-Amplifiers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -770,15 +776,15 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="raspberry-pi">
-<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this headline">#</a></h1>
+<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this heading">#</a></h1>
 <p>The Raspberry Pi ecosystem is full of options for adapting the device to a range of laboratory applications. The recommendations given below are intended to get you started with an initial build for learning what the Raspberry Pi can do for your applications. Experienced builders may select different configurations and device better suited for specific applications.</p>
 <section id="documents">
-<h2>Documents<a class="headerlink" href="#documents" title="Permalink to this headline">#</a></h2>
+<h2>Documents<a class="headerlink" href="#documents" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="recommended-hardware">
-<h2>Recommended Hardware<a class="headerlink" href="#recommended-hardware" title="Permalink to this headline">#</a></h2>
+<h2>Recommended Hardware<a class="headerlink" href="#recommended-hardware" title="Permalink to this heading">#</a></h2>
 <section id="core-requirements">
-<h3>Core Requirements<a class="headerlink" href="#core-requirements" title="Permalink to this headline">#</a></h3>
+<h3>Core Requirements<a class="headerlink" href="#core-requirements" title="Permalink to this heading">#</a></h3>
 <p>The core components of any build is a CPU module, power supply, and micro SD card.</p>
 <ul class="simple">
 <li><p><strong>Raspberry Pi 4 B (4 or 8 GB preferred)</strong> [<a class="reference external" href="https://www.adafruit.com/product/4564">Adafruit</a>] [<a class="reference external" href="https://www.amazon.com/Raspberry-Model-2019-Quad-Bluetooth/dp/B07TC2BK1X/">Amazon</a>] Raspberry Pi boards are in short supply and often sold out.</p></li>
@@ -787,7 +793,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="keyboard-mouse">
-<h3>Keyboard/Mouse<a class="headerlink" href="#keyboard-mouse" title="Permalink to this headline">#</a></h3>
+<h3>Keyboard/Mouse<a class="headerlink" href="#keyboard-mouse" title="Permalink to this heading">#</a></h3>
 <p>A Raspberry Pi can be operated in a “headless” mode that uses a laptop for display, keyboard, and mouse/trackpad. But setting up such a system for a first time user can be challenging. It is helpful to have a wired USB connected keyboard and mouse to diagnose set up problems, especially for first time builders.</p>
 <ul class="simple">
 <li><p><strong>Raspberry Pi Keyboard</strong> [<a class="reference external" href="https://vilros.com/products/raspberry-pi-keyboard-and-hub">Vilros</a>]</p></li>
@@ -795,9 +801,9 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="case-display-options">
-<h3>Case/Display Options<a class="headerlink" href="#case-display-options" title="Permalink to this headline">#</a></h3>
+<h3>Case/Display Options<a class="headerlink" href="#case-display-options" title="Permalink to this heading">#</a></h3>
 <section id="option-1-hdmi-monitor-and-case">
-<h4>Option 1. HDMI Monitor and Case<a class="headerlink" href="#option-1-hdmi-monitor-and-case" title="Permalink to this headline">#</a></h4>
+<h4>Option 1. HDMI Monitor and Case<a class="headerlink" href="#option-1-hdmi-monitor-and-case" title="Permalink to this heading">#</a></h4>
 <p>The first option is generally the easiest way to set up a Raspberry Pi. What you need is a standard HDMI monitor and cable. The Raspberry Pi can be mounted in a case to sit on the lab bench.</p>
 <ul class="simple">
 <li><p><strong>HDMI Monitor</strong> There innumerable choices.</p></li>
@@ -806,7 +812,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="options-2-raspberry-pi-display-with-integrated-case">
-<h4>Options 2. Raspberry Pi Display with Integrated Case<a class="headerlink" href="#options-2-raspberry-pi-display-with-integrated-case" title="Permalink to this headline">#</a></h4>
+<h4>Options 2. Raspberry Pi Display with Integrated Case<a class="headerlink" href="#options-2-raspberry-pi-display-with-integrated-case" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Raspberry Pi 7” Touch Screen</strong> [<a class="reference external" href="https://vilros.com/collections/raspberry-pi-accessories/products/raspberry-pi-7-touchscreen-lcd-display">Vilros</a>]</p>
 <ul>
@@ -821,7 +827,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="cameras">
-<h2>Cameras<a class="headerlink" href="#cameras" title="Permalink to this headline">#</a></h2>
+<h2>Cameras<a class="headerlink" href="#cameras" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Raspberry Pi Camera Module V2</strong> [<span class="xref myst"></span>]</p></li>
 <li><p><strong>Raspberry Pi HQ Camera</strong> [<a class="reference external" href="https://vilros.com/products/official-raspberry-pi-4-hq-camera">Vilros</a>]</p></li>
