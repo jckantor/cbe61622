@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Coding for Particle &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Particle Command Line Interface (CLI)" href="B.03-Particle-CLI.html" />
     <link rel="prev" title="Particle Command Line Interface" href="B.01-Particle_CLI.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -746,9 +752,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="coding-for-particle">
-<h1>Coding for Particle<a class="headerlink" href="#coding-for-particle" title="Permalink to this headline">#</a></h1>
+<h1>Coding for Particle<a class="headerlink" href="#coding-for-particle" title="Permalink to this heading">#</a></h1>
 <section id="installation-of-the-particle-command-line-interface">
-<h2>Installation of the Particle command line interface<a class="headerlink" href="#installation-of-the-particle-command-line-interface" title="Permalink to this headline">#</a></h2>
+<h2>Installation of the Particle command line interface<a class="headerlink" href="#installation-of-the-particle-command-line-interface" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%capture
@@ -759,7 +765,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="login-to-particle">
-<h2>Login to Particle<a class="headerlink" href="#login-to-particle" title="Permalink to this headline">#</a></h2>
+<h2>Login to Particle<a class="headerlink" href="#login-to-particle" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
@@ -802,9 +808,9 @@ jck_argon_01 [e00fce68eaceb1faa7cf7193] (Argon) is online
 </div>
 </section>
 <section id="blinking-led-demo">
-<h2>Blinking LED Demo<a class="headerlink" href="#blinking-led-demo" title="Permalink to this headline">#</a></h2>
+<h2>Blinking LED Demo<a class="headerlink" href="#blinking-led-demo" title="Permalink to this heading">#</a></h2>
 <section id="blinking-led-code">
-<h3>Blinking LED Code<a class="headerlink" href="#blinking-led-code" title="Permalink to this headline">#</a></h3>
+<h3>Blinking LED Code<a class="headerlink" href="#blinking-led-code" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">writefile</span> <span class="n">blink</span><span class="o">.</span><span class="n">ino</span>
@@ -832,7 +838,7 @@ jck_argon_01 [e00fce68eaceb1faa7cf7193] (Argon) is online
 </div>
 </section>
 <section id="compiling">
-<h3>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">#</a></h3>
+<h3>Compiling<a class="headerlink" href="#compiling" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">,</span> <span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;blink.ino&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;blink.bin&quot;</span><span class="p">],</span> 
@@ -862,7 +868,7 @@ Saved firmware to: /content/blink.bin
 </div>
 </section>
 <section id="flashing-binary-to-device">
-<h3>Flashing binary to device<a class="headerlink" href="#flashing-binary-to-device" title="Permalink to this headline">#</a></h3>
+<h3>Flashing binary to device<a class="headerlink" href="#flashing-binary-to-device" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">particle_cli</span><span class="p">,</span> <span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;blink.bin&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>

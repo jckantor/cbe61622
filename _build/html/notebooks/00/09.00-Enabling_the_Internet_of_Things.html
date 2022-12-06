@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Enabling the Internet of Things &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Publishing an Experiment via MQTT" href="09.01-Publishing_an_Experiment_via_MQTT.html" />
     <link rel="prev" title="Wifi" href="07.03-Wifi-with-ESP-01.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -712,11 +718,11 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="enabling-the-internet-of-things">
-<h1>Enabling the Internet of Things<a class="headerlink" href="#enabling-the-internet-of-things" title="Permalink to this headline">#</a></h1>
+<h1>Enabling the Internet of Things<a class="headerlink" href="#enabling-the-internet-of-things" title="Permalink to this heading">#</a></h1>
 <p>MQTT is a lightweight protocol for delivering messages between devices through an intermediate broker. Senders declare a ‘topic’ and ‘publish’ messages to the broker. Receivers ‘subscribe’ to particular topics on the broker to receive a copy of all messages pertaining to that topic. Connections between a device and broker are typically over a TCP/IP network, but other transport mediums are in common use. This robust and flexible ‘hub-and-spoke’ architecture has been widely adopted for ‘Internet of Things’ (IoT) applications.</p>
 <p>The MQTT acronym was orginally an abbreviation for Message Queuing Telemetry Transport that was developed by individuals at IBM and Cirrus Link (later Eurotech) for monitoring pipeline by satellite in remote locations. IBM later submitted the protocol to the global standards body, OASIS and ISO, where they are now maintained as open standards.</p>
 <section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
 <p>Descriptions</p>
 <ul class="simple">
 <li><p><span class="xref myst">MQTT.org</span></p></li>
@@ -738,7 +744,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="implementation-for-cbe-virtual-laboratory">
-<h2>Implementation for CBE-Virtual-Laboratory<a class="headerlink" href="#implementation-for-cbe-virtual-laboratory" title="Permalink to this headline">#</a></h2>
+<h2>Implementation for CBE-Virtual-Laboratory<a class="headerlink" href="#implementation-for-cbe-virtual-laboratory" title="Permalink to this heading">#</a></h2>
 <p>For the purposes of the CBE-Virtual-Laboratory, we propose a topic naming scheme that will enable bidirectional communication between devices, and provide for the setup and tear down of applications and connections.</p>
 <ul>
 <li><p>The highest level to the topic is assigned <code class="docutils literal notranslate"><span class="pre">cbe-virtual-laboratory</span></code>.</p></li>
@@ -755,7 +761,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="useful-apps-and-links">
-<h2>Useful Apps and Links<a class="headerlink" href="#useful-apps-and-links" title="Permalink to this headline">#</a></h2>
+<h2>Useful Apps and Links<a class="headerlink" href="#useful-apps-and-links" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>MQTTBox</strong> A Windows/Linux/Mac App to create MTQQ clients and monitor the broker.</p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=AxC_ykketIg&amp;ab_channel=wcltalkstech">Reporting temperature using our Particle Argon through MQTT and the TICK stack</a></p></li>

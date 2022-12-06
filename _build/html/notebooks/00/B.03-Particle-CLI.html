@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Particle Command Line Interface (CLI) &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Ultrasonic Distance Ranger" href="B.04-Ultrasonic_Distance_Ranger.html" />
     <link rel="prev" title="Coding for Particle" href="B.02-Particle_Coding.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -840,7 +846,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="particle-command-line-interface-cli">
-<h1>Particle Command Line Interface (CLI)<a class="headerlink" href="#particle-command-line-interface-cli" title="Permalink to this headline">#</a></h1>
+<h1>Particle Command Line Interface (CLI)<a class="headerlink" href="#particle-command-line-interface-cli" title="Permalink to this heading">#</a></h1>
 <p>This notebook demonstrates the use of the <a class="reference external" href="https://docs.particle.io/reference/developer-tools/cli/">Particle command line interface</a> to</p>
 <ul class="simple">
 <li><p>login and access a device,</p></li>
@@ -852,9 +858,9 @@ title="Print to PDF"
 </ul>
 <p>This notebook is designed to be opened and run on Google Colab. Several modifications will be needed to run in another environment.</p>
 <section id="particle-cli">
-<h2>Particle CLI<a class="headerlink" href="#particle-cli" title="Permalink to this headline">#</a></h2>
+<h2>Particle CLI<a class="headerlink" href="#particle-cli" title="Permalink to this heading">#</a></h2>
 <section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h3>
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
@@ -875,7 +881,7 @@ particle_cli = &quot;/root/bin/particle&quot;
 </div>
 </section>
 <section id="utility-functions">
-<h3>Utility functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">#</a></h3>
+<h3>Utility functions<a class="headerlink" href="#utility-functions" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -968,7 +974,7 @@ For more information, visit our documentation at https://docs.particle.io
 </div>
 </section>
 <section id="login-to-particle">
-<h3>Login to Particle<a class="headerlink" href="#login-to-particle" title="Permalink to this headline">#</a></h3>
+<h3>Login to Particle<a class="headerlink" href="#login-to-particle" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
@@ -1002,7 +1008,7 @@ Password:  ·······
 </div>
 </section>
 <section id="select-a-device">
-<h3>Select a device<a class="headerlink" href="#select-a-device" title="Permalink to this headline">#</a></h3>
+<h3>Select a device<a class="headerlink" href="#select-a-device" title="Permalink to this heading">#</a></h3>
 <p>The following cell downloads a list of all user devices and creates a list of device names. Here we choose the first name in the list for the rest of this notebook. If this is not the device to be used, then modify this cell accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1021,25 +1027,25 @@ Password:  ·······
 </section>
 </section>
 <section id="project-timer-display">
-<h2>Project: Timer display<a class="headerlink" href="#project-timer-display" title="Permalink to this headline">#</a></h2>
+<h2>Project: Timer display<a class="headerlink" href="#project-timer-display" title="Permalink to this heading">#</a></h2>
 <p>To demonstrate use of the Paricle CLI, for this project we will create a simple timer display using the <a class="reference external" href="https://wiki.seeedstudio.com/Grove-4-Digit_Display/">Grove 4-Digit Display</a> that is shipped with the <a class="reference external" href="https://store.particle.io/collections/prototyping-hardware/products/iot-starter-kit">Argon Starter Kit</a> available from <a class="reference external" href="http://Particle.io">Particle.io</a>. The goal of the project is to display time since start device startup measure in seconds. The display will show seconds to two decimal digits for up to 100 seconds. The timer and display will roll over after 100 seconds.</p>
 <section id="particle-argon">
-<h3>Particle Argon<a class="headerlink" href="#particle-argon" title="Permalink to this headline">#</a></h3>
+<h3>Particle Argon<a class="headerlink" href="#particle-argon" title="Permalink to this heading">#</a></h3>
 <p><img alt="" src="https://docs.particle.io/assets/images/argon/argon-pin-markings.png" /></p>
 </section>
 <section id="grove-4-digit-display">
-<h3>Grove 4-Digit Display<a class="headerlink" href="#grove-4-digit-display" title="Permalink to this headline">#</a></h3>
+<h3>Grove 4-Digit Display<a class="headerlink" href="#grove-4-digit-display" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://wiki.seeedstudio.com/Grove-4-Digit_Display/">Grove 4-Digit Display</a></p>
 <p><a class="reference external" href="https://github.com/Seeed-Studio/Grove_4Digital_Display">Documentation</a></p>
 <p><img alt="" src="https://files.seeedstudio.com/wiki/Grove-4-Digit_Display/img/Grove-4_digit_display.jpg" /></p>
 </section>
 <section id="grove-shield-feeatherwing">
-<h3>Grove Shield FeeatherWing<a class="headerlink" href="#grove-shield-feeatherwing" title="Permalink to this headline">#</a></h3>
+<h3>Grove Shield FeeatherWing<a class="headerlink" href="#grove-shield-feeatherwing" title="Permalink to this heading">#</a></h3>
 <p>Connect the Grove 4-digit display to connector D2 on the Grove Shield FeatherWing adapater.</p>
 <p><img alt="" src="https://cdn-shop.adafruit.com/1200x900/4309-05.jpg" /></p>
 </section>
 <section id="create-project">
-<h3>Create Project<a class="headerlink" href="#create-project" title="Permalink to this headline">#</a></h3>
+<h3>Create Project<a class="headerlink" href="#create-project" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;create&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="s2">&quot;display4&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -1055,7 +1061,7 @@ Password:  ·······
 </div>
 </section>
 <section id="change-working-directory">
-<h3>Change working directory<a class="headerlink" href="#change-working-directory" title="Permalink to this headline">#</a></h3>
+<h3>Change working directory<a class="headerlink" href="#change-working-directory" title="Permalink to this heading">#</a></h3>
 <p>The Particle CLI assumes one is working in the top  project directory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1071,7 +1077,7 @@ Password:  ·······
 </div>
 </section>
 <section id="add-relevant-libraries">
-<h3>Add relevant libraries<a class="headerlink" href="#add-relevant-libraries" title="Permalink to this headline">#</a></h3>
+<h3>Add relevant libraries<a class="headerlink" href="#add-relevant-libraries" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">library</span> <span class="o">=</span> <span class="s2">&quot;Grove_4Digit_Display&quot;</span>
@@ -1088,7 +1094,7 @@ Password:  ·······
 </div>
 </section>
 <section id="create-source-file">
-<h3>Create source file<a class="headerlink" href="#create-source-file" title="Permalink to this headline">#</a></h3>
+<h3>Create source file<a class="headerlink" href="#create-source-file" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> src/display4.ino
@@ -1136,7 +1142,7 @@ Password:  ·······
 </div>
 </section>
 <section id="compiling">
-<h3>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">#</a></h3>
+<h3>Compiling<a class="headerlink" href="#compiling" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;compile&quot;</span><span class="p">,</span> <span class="s2">&quot;argon&quot;</span><span class="p">,</span> <span class="s2">&quot;--saveTo&quot;</span><span class="p">,</span> <span class="s2">&quot;display4.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
@@ -1165,7 +1171,7 @@ Saved firmware to: /content/display4/display4.bin
 </div>
 </section>
 <section id="flash-firmware">
-<h3>Flash firmware<a class="headerlink" href="#flash-firmware" title="Permalink to this headline">#</a></h3>
+<h3>Flash firmware<a class="headerlink" href="#flash-firmware" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particle</span><span class="p">([</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="s2">&quot;display4.bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>

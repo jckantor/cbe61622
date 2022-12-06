@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Downloading Python source files from github &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Getting Started with Pymata4" href="A.03-Getting-Started-with-Pymata4.html" />
     <link rel="prev" title="Resources" href="A.01-Resources.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -736,7 +742,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="downloading-python-source-files-from-github">
-<h1>Downloading Python source files from github<a class="headerlink" href="#downloading-python-source-files-from-github" title="Permalink to this headline">#</a></h1>
+<h1>Downloading Python source files from github<a class="headerlink" href="#downloading-python-source-files-from-github" title="Permalink to this heading">#</a></h1>
 <p>This project incorporates Python modules and functions that are used in multiple notebooks. Most of these are  simple convenience functions for accessing device hardware. But whatever the use, repeating the same source code in multiple notebooks complicates maintenance and has little value for the reader. For these reasons, it is much better to maintain code in the project’s repository and import as needed for use in the notebooks.</p>
 <p>Unfortunately, Github stores code files in an a database for which the standard API does not provide direct access to whole directories. There are libraries circulating in the Python community designed to circumvent this limitation.</p>
 <p>Here we demonstrate three techniques:</p>
@@ -746,7 +752,7 @@ title="Print to PDF"
 <li><p>Use of <code class="docutils literal notranslate"><span class="pre">pip</span>&#160; <span class="pre">install</span></code> to install python packages from a githb repository. This is convenient for the notebook user, but requires a properly configured <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> in the repository.</p></li>
 </ol>
 <section id="method-1-downloading-individual-python-files-with-wget">
-<h2>Method 1. Downloading individual Python files with wget<a class="headerlink" href="#method-1-downloading-individual-python-files-with-wget" title="Permalink to this headline">#</a></h2>
+<h2>Method 1. Downloading individual Python files with wget<a class="headerlink" href="#method-1-downloading-individual-python-files-with-wget" title="Permalink to this heading">#</a></h2>
 <p>The file <code class="docutils literal notranslate"><span class="pre">hello_world.py</span></code> is located in the top-level <code class="docutils literal notranslate"><span class="pre">src</span></code> directory of a github repository. To access the file, use the shell command <code class="docutils literal notranslate"><span class="pre">wget</span></code> with an <code class="docutils literal notranslate"><span class="pre">https</span></code> link to the raw content of the main branch. The prefix exclamation/bang symbol <code class="docutils literal notranslate"><span class="pre">!</span></code> causes the following line to be executed by the system command line rather than the Python kernal. The <code class="docutils literal notranslate"><span class="pre">--no-cache</span></code> option ensures the latest version is downloaded.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--backups=1</span></code> option saves any prior version of the same code file to a backup.</p>
 <div class="cell docutils container">
@@ -878,7 +884,7 @@ Hello, World
 <p>For platforms where the shell escape <code class="docutils literal notranslate"><span class="pre">!</span></code> might fail, an alternative is to use the standard Python <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> library.</p>
 </section>
 <section id="method-2-cloning-a-git-repository">
-<h2>Method 2. Cloning a git repository<a class="headerlink" href="#method-2-cloning-a-git-repository" title="Permalink to this headline">#</a></h2>
+<h2>Method 2. Cloning a git repository<a class="headerlink" href="#method-2-cloning-a-git-repository" title="Permalink to this heading">#</a></h2>
 <p>Downloading a collection of files from a git repository with <code class="docutils literal notranslate"><span class="pre">wget</span></code> (or <code class="docutils literal notranslate"><span class="pre">curl</span></code>) can be cumbersome, particularly if the names of the individual files are unknown or subject to change. And, unfortunately, Github does not provide an API for accessing a folder of files.</p>
 <p>For these situations, an alternative is to simply clone the git repository to to a local directory.</p>
 <div class="cell docutils container">
@@ -1006,7 +1012,7 @@ FILE
 </div>
 </div>
 <section id="commit-and-push-changes">
-<h3>Commit and push changes<a class="headerlink" href="#commit-and-push-changes" title="Permalink to this headline">#</a></h3>
+<h3>Commit and push changes<a class="headerlink" href="#commit-and-push-changes" title="Permalink to this heading">#</a></h3>
 <p>A potential use case for cloning a repository is to allow for editing the source code directly from a Jupyter notebook. In this case, the code can be committed and pushed back to the reposity using standard <code class="docutils literal notranslate"><span class="pre">git</span></code> commands.</p>
 <p>Be sure you know what you’re doing before attempting this. This code has been commented out to avoid inadvertent changes to this repository’s source code.</p>
 <div class="cell docutils container">
@@ -1032,7 +1038,7 @@ FILE
 </section>
 </section>
 <section id="method-3-using-pip-to-install-from-a-github-repository">
-<h2>Method 3. Using pip to install from a github repository<a class="headerlink" href="#method-3-using-pip-to-install-from-a-github-repository" title="Permalink to this headline">#</a></h2>
+<h2>Method 3. Using pip to install from a github repository<a class="headerlink" href="#method-3-using-pip-to-install-from-a-github-repository" title="Permalink to this heading">#</a></h2>
 <p>The methods presented above assume the user has detailed knowledge of how functions have been organized into modules in the repository’s source directory. For simple applications, that may be satisfactory and those methods are fast and can work well. For more complex applications, however, it will be helpful to use common methods for creating Python software packages.</p>
 <p>For this case we assume a file <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> has been included in the top-level directory of the repository that specifies how packages have been organized into source directories following using the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/">setuptools</a> library.</p>
 <p>Assuming <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> is present and that the usual conventions for creating Python packages have been followed, the packages can be loaded directory from github as shown in the following cell.</p>
@@ -1079,7 +1085,7 @@ Successfully installed cbelaboratory-0.0.0
 </div>
 </section>
 <section id="summary-and-recommended-practices">
-<h2>Summary and recommended practices<a class="headerlink" href="#summary-and-recommended-practices" title="Permalink to this headline">#</a></h2>
+<h2>Summary and recommended practices<a class="headerlink" href="#summary-and-recommended-practices" title="Permalink to this heading">#</a></h2>
 <p>Which of these methods should one use? While there is overlap in the functionality, there are some recommendations that can be make.</p>
 <ul class="simple">
 <li><p>If you need to import just a few python files, the <code class="docutils literal notranslate"><span class="pre">wget</span></code> methd is easy to use and minimizes the amount of transmitted data.</p></li>

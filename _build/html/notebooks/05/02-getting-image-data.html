@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Getting Image Data &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -54,10 +55,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Experiments with Computer Vision" href="03-experiments-with-computer-vision.html" />
+    <link rel="next" title="Computer Vision Workflow" href="03-experiments-with-computer-vision.html" />
     <link rel="prev" title="Computer Vision" href="01-Computer-Vision.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -750,11 +756,11 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="getting-image-data">
-<h1>Getting Image Data<a class="headerlink" href="#getting-image-data" title="Permalink to this headline">#</a></h1>
+<h1>Getting Image Data<a class="headerlink" href="#getting-image-data" title="Permalink to this heading">#</a></h1>
 <p>The goal of this notebook is to develop a python class for the purpose of counting and labeling flourescent particles captured in images from a prototype for a low-cost medical diagnostic device.</p>
 <p>In this notebook we’ll consider traditional image processing techniques .. i.e., those that directly operate on an image to extract scientific information without resort to machine learning techniques. We’ll save that imoportant discussion for another time.</p>
 <section id="books-and-references">
-<h2>Books and References<a class="headerlink" href="#books-and-references" title="Permalink to this headline">#</a></h2>
+<h2>Books and References<a class="headerlink" href="#books-and-references" title="Permalink to this heading">#</a></h2>
 <p><strong>Computer Vision Textbooks</strong></p>
 <p>Nixon, Mark, and Alberto Aguado. Feature extraction and image processing for computer vision. Academic press, 2019. <a class="reference external" href="https://www.elsevier.com/books/feature-extraction-and-image-processing-for-computer-vision/nixon/978-0-12-814976-8?countrycode=US&amp;format=print&amp;utm_source=google_ads&amp;utm_medium=paid_search&amp;utm_campaign=usashoppinglr&amp;gclid=Cj0KCQiA7oyNBhDiARIsADtGRZYaMYLGnWyLuobOVDBjKabaFfe8nSTA5m2zmH0BYBN_AFdnKwpU_jkaArGkEALw_wcB&amp;gclsrc=aw.ds">link</a></p>
 <p>Szeliski, Richard. Computer vision: algorithms and applications. Springer Science &amp; Business Media, 2010. [<a class="reference external" href="https://link-springer-com.proxy.library.nd.edu/book/10.1007%2F978-1-84882-935-0">Hesburgh Library</a>][<a class="reference external" href="https://szeliski.org/Book/">Szeliski Web Page and Materials</a>][<a class="reference external" href="https://www.dropbox.com/s/8bf4feleifhrvl6/SzeliskiBookDraft_20210930.pdf?dl=0">Preprint of 2nd Edition</a>]</p>
@@ -779,7 +785,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="python-packages-for-computer-vision">
-<h2>Python Packages for Computer Vision<a class="headerlink" href="#python-packages-for-computer-vision" title="Permalink to this headline">#</a></h2>
+<h2>Python Packages for Computer Vision<a class="headerlink" href="#python-packages-for-computer-vision" title="Permalink to this heading">#</a></h2>
 <p>See <a class="reference external" href="https://www.analyticsvidhya.com/blog/2021/04/top-python-libraries-for-image-processing-in-2021/">https://www.analyticsvidhya.com/blog/2021/04/top-python-libraries-for-image-processing-in-2021/</a> for a survey of Python libraries for image processing.</p>
 <p><strong>Standard Python Libaries</strong></p>
 <p>One of the very nice aspects of image processing with Python is the wide adoption of basic NumPy arrays to represent image data. This facilitates the use of methods from multiple packages for a particular project.</p>
@@ -813,7 +819,7 @@ title="Print to PDF"
 <li><p><a class="reference external" href="http://simplecv.org/">SimpleCV</a> An open source Python library based on OpenCV designed for rapid development of cmputer vision applications, with accompanying book from Reilly Media. There’s no evidence of continued development, and not compatible with recent versions of Python 3.</p></li>
 </ul>
 <section id="file-formats">
-<h3>File Formats<a class="headerlink" href="#file-formats" title="Permalink to this headline">#</a></h3>
+<h3>File Formats<a class="headerlink" href="#file-formats" title="Permalink to this heading">#</a></h3>
 <p>For this case study we will be developing techniques to analyze images stored as computer files. Later we may consider applying these techniques to a live video stream, but for now we’ll use stored images.</p>
 <p>Things to know about image files.</p>
 <ul class="simple">
@@ -845,7 +851,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="image-metadata">
-<h2>Image Metadata<a class="headerlink" href="#image-metadata" title="Permalink to this headline">#</a></h2>
+<h2>Image Metadata<a class="headerlink" href="#image-metadata" title="Permalink to this heading">#</a></h2>
 <p>Image files also carry <em>meta-data</em> providing additional information about the image. There several different standards for meta data, the most common being <em>exif</em> data embedded in the image file, or a companion <em>.xmp</em> file hold data in the <a class="reference external" href="https://en.wikipedia.org/wiki/Exif">Extensible Image File Format</a>  Metadata Platform format. <strong>exiftool</strong> is a command line tool included with many operating systems.</p>
 <p><a class="reference external" href="https://www.media.mit.edu/pia/Research/deepview/exif.html">Description of Exif file format</a></p>
 <div class="cell docutils container">
@@ -860,7 +866,22 @@ title="Print to PDF"
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
     
-<span class="c1"># get all files in directory</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>./image_data/Jiang Photos/meso Si Camera Ceta 13000 x 20220311 1544.tif
+./image_data/Jiang Photos/meso Si Camera Ceta 21500 x 20220311 1539.tif
+./image_data/Jiang Photos/Gold STEM HAADF 59000 x 20220318 1542.tif
+./image_data/Jiang Photos/Picture3.tif
+./image_data/Jiang Photos/Picture2.tif
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get all files in directory</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">):</span>
     
     <span class="c1"># display thumbnail </span>
@@ -879,15 +900,9 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>./image_data/Jiang Photos/meso Si Camera Ceta 13000 x 20220311 1544.tif
-./image_data/Jiang Photos/meso Si Camera Ceta 21500 x 20220311 1539.tif
-./image_data/Jiang Photos/Gold STEM HAADF 59000 x 20220318 1542.tif
-./image_data/Jiang Photos/Picture3.tif
-./image_data/Jiang Photos/Picture2.tif
-
-./image_data/Jiang Photos/meso Si Camera Ceta 13000 x 20220311 1544.tif
 </pre></div>
 </div>
-<img alt="../../_images/02-getting-image-data_5_1.png" src="../../_images/02-getting-image-data_5_1.png" />
+<img alt="../../_images/02-getting-image-data_6_1.png" src="../../_images/02-getting-image-data_6_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ImageWidth: 1024
 ImageLength: 1024
 BitsPerSample: (8, 8, 8, 8)
@@ -906,7 +921,7 @@ PlanarConfiguration: 1
 ./image_data/Jiang Photos/meso Si Camera Ceta 21500 x 20220311 1539.tif
 </pre></div>
 </div>
-<img alt="../../_images/02-getting-image-data_5_3.png" src="../../_images/02-getting-image-data_5_3.png" />
+<img alt="../../_images/02-getting-image-data_6_3.png" src="../../_images/02-getting-image-data_6_3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ImageWidth: 1024
 ImageLength: 1024
 BitsPerSample: (8, 8, 8, 8)
@@ -925,7 +940,7 @@ PlanarConfiguration: 1
 ./image_data/Jiang Photos/Gold STEM HAADF 59000 x 20220318 1542.tif
 </pre></div>
 </div>
-<img alt="../../_images/02-getting-image-data_5_5.png" src="../../_images/02-getting-image-data_5_5.png" />
+<img alt="../../_images/02-getting-image-data_6_5.png" src="../../_images/02-getting-image-data_6_5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ImageWidth: 2048
 ImageLength: 2048
 BitsPerSample: (8, 8, 8, 8)
@@ -944,7 +959,7 @@ PlanarConfiguration: 1
 ./image_data/Jiang Photos/Picture3.tif
 </pre></div>
 </div>
-<img alt="../../_images/02-getting-image-data_5_7.png" src="../../_images/02-getting-image-data_5_7.png" />
+<img alt="../../_images/02-getting-image-data_6_7.png" src="../../_images/02-getting-image-data_6_7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ImageWidth: 613
 ImageLength: 613
 BitsPerSample: (8, 8, 8, 8)
@@ -965,7 +980,7 @@ NewSubfileType: 0
 ./image_data/Jiang Photos/Picture2.tif
 </pre></div>
 </div>
-<img alt="../../_images/02-getting-image-data_5_9.png" src="../../_images/02-getting-image-data_5_9.png" />
+<img alt="../../_images/02-getting-image-data_6_9.png" src="../../_images/02-getting-image-data_6_9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ImageWidth: 685
 ImageLength: 651
 BitsPerSample: (8, 8, 8, 8)
@@ -988,7 +1003,7 @@ NewSubfileType: 0
 </div>
 </section>
 <section id="more-examples-of-image-metadata">
-<h2>More Examples of Image Metadata<a class="headerlink" href="#more-examples-of-image-metadata" title="Permalink to this headline">#</a></h2>
+<h2>More Examples of Image Metadata<a class="headerlink" href="#more-examples-of-image-metadata" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;image_data/25-miniM.tif&quot;</span><span class="p">)</span>
@@ -1378,7 +1393,7 @@ Light Value                     : 12.3
 </div>
 </div>
 <section id="calibrating-monitors">
-<h3>Calibrating Monitors<a class="headerlink" href="#calibrating-monitors" title="Permalink to this headline">#</a></h3>
+<h3>Calibrating Monitors<a class="headerlink" href="#calibrating-monitors" title="Permalink to this heading">#</a></h3>
 <p>Accurate color reproduction requires color management from source to display. At each Color management is now a standard part of most operating systems</p>
 </section>
 </section>
@@ -1421,7 +1436,7 @@ Light Value                     : 12.3
     <a class='right-next' id="next-link" href="03-experiments-with-computer-vision.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Experiments with Computer Vision</p>
+        <p class="prev-next-title">Computer Vision Workflow</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

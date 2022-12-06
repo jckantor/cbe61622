@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Scheduling Real-Time Events with Simpy &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Working with Particle" href="B.00-Working_with_Particle.html" />
     <link rel="prev" title="Getting Started with Pymata4" href="A.03-Getting-Started-with-Pymata4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -702,7 +708,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="scheduling-real-time-events-with-simpy">
-<h1>Scheduling Real-Time Events with Simpy<a class="headerlink" href="#scheduling-real-time-events-with-simpy" title="Permalink to this headline">#</a></h1>
+<h1>Scheduling Real-Time Events with Simpy<a class="headerlink" href="#scheduling-real-time-events-with-simpy" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://simpy.readthedocs.io/en/latest/index.html">Simpy</a> is a Python package for discrete-event simulation in Python. Simpy includes a provision for <a class="reference external" href="https://simpy.readthedocs.io/en/latest/topical_guides/real-time-simulations.html">real-time simulation</a> which provides an potentially useful tool for coding laboratory experiments with complex scheduling requirements.</p>
 <p>Keep in mind that Python is not a designed for real-time use, and Simpy should not be trusted for applications requiring time accuracy tighter than, say, 100ms. Futher, it is not an asynchronous implementation, so your interpreter will be blocked during the course of the experiment. But for quick-and-dirty applications with modest performance requirements, Simpy real-time may be a simple solution.</p>
 <div class="cell docutils container">
@@ -718,7 +724,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="blinkers">
-<h2>Blinkers<a class="headerlink" href="#blinkers" title="Permalink to this headline">#</a></h2>
+<h2>Blinkers<a class="headerlink" href="#blinkers" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pymata4</span> <span class="kn">import</span> <span class="n">pymata4</span>
@@ -817,7 +823,7 @@ led  9 off at 19.407
 </div>
 </section>
 <section id="asyncio">
-<h2>Asyncio<a class="headerlink" href="#asyncio" title="Permalink to this headline">#</a></h2>
+<h2>Asyncio<a class="headerlink" href="#asyncio" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>

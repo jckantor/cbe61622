@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>LCD1602 &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Analog Circuits and Signals" href="../03/00-Analog-Circuits-and-Signals.html" />
     <link rel="prev" title="Grove Starter Kit for Raspberry Pi Pico" href="02-Seeed_Grove_Pico_Starter_Kit.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -726,7 +732,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="lcd1602">
-<h1>LCD1602<a class="headerlink" href="#lcd1602" title="Permalink to this headline">#</a></h1>
+<h1>LCD1602<a class="headerlink" href="#lcd1602" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-micropython notranslate"><div class="highlight"><pre><span></span>%serialconnect
@@ -745,7 +751,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="using-the-lcd-16x2-display">
-<h2>Using the LCD 16x2 display<a class="headerlink" href="#using-the-lcd-16x2-display" title="Permalink to this headline">#</a></h2>
+<h2>Using the LCD 16x2 display<a class="headerlink" href="#using-the-lcd-16x2-display" title="Permalink to this heading">#</a></h2>
 <p>The basic <a class="reference external" href="http://lcd1602.py">lcd1602.py</a> library provides access to the many functions of the <a class="reference external" href="https://wiki.seeedstudio.com/Grove-16x2_LCD_Series/">Seeed Grove 16x2 display</a>. The library is available here <a class="reference external" href="http://47.106.166.129/Embeded/pico-micropython-grove/blob/master/I2C/lcd1602.py">lcd1602.py</a> and needs to be downloaded to the Pico in a subdirectory that should be named <code class="docutils literal notranslate"><span class="pre">/lib</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -771,14 +777,14 @@ d.print(&quot;GO IRISH!&quot;)
 </div>
 </div>
 <section id="exercises">
-<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h3>
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h3>
 <ol class="simple">
 <li><p>Use a logic analyzer to probe I2C communcations between the Raspberry Pi Pico and the display. Compare the observed data exchange with the library code and with the requirements specified in the <a class="reference external" href="https://github.com/SeeedDocument/Grove-16x2_LCD_Series/raw/master/res/JDH_1804_Datasheet.pdf">datasheet</a>.</p></li>
 </ol>
 </section>
 </section>
 <section id="a-simplified-lcd16x2-class">
-<h2>A simplified LCD16x2 class<a class="headerlink" href="#a-simplified-lcd16x2-class" title="Permalink to this headline">#</a></h2>
+<h2>A simplified LCD16x2 class<a class="headerlink" href="#a-simplified-lcd16x2-class" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-micropython notranslate"><div class="highlight"><pre><span></span>import machine
@@ -818,7 +824,7 @@ lcd.update(&quot;Hello&quot;,&quot;World&quot;)
 </div>
 </section>
 <section id="a-simple-clock">
-<h2>A Simple Clock<a class="headerlink" href="#a-simple-clock" title="Permalink to this headline">#</a></h2>
+<h2>A Simple Clock<a class="headerlink" href="#a-simple-clock" title="Permalink to this heading">#</a></h2>
 <p>The Raspberry Pi Pico has an on-board real time clock. Unfortunately, Pico does not come with a battery backup for the real time clock, therefore the clock must be set on each reboot. Thonny does this automatically. This notebook cell includes a line demonstrating how to set the clock manually.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

@@ -17,18 +17,19 @@
 # * Use Morphology Transforms to isolate objects
 # * Locate Objects - Blobs vs Hough Transforms
 # * Prepare a Report
+# 
 
-# ### Python Imports
+# ## Python Imports
 # 
 # We track overall code dependencies by consolidating imports into this cell. Note that we'll be using elements from multiple packages by relying on the underlying NumPy representation of images to hold the current state of the process.
 
-# In[17]:
+# In[5]:
 
 
 get_ipython().system('pip install opencv-python --upgrade')
 
 
-# In[18]:
+# In[7]:
 
 
 # standard Python libraries
@@ -51,22 +52,24 @@ import cv2 as cv2
 # * If $d$ is 3, then typically it is an RGB image with the channels repesenting R, G, and B colors. Note that OpenCV orders the channels as BGR.
 # * If $d$ is 4, the image could be RGBA where A refers to an alpha transparency channel, or a CYMK encoded color image.
 
-# In[23]:
+# In[54]:
 
 
-path = "image_data/"
-file = "25-miniM.tif"
-
-path = "image_data/Jiang Photos/"
+path = "image_data/Burchett Photos/"
 file = "Gold STEM HAADF 59000 x 20220318 1542.tif"
+
+path = "image_data/Burchett Photos/"
+file = "lowadhesionF_5x_adjustedbrightness-sb.jpg"
 
 # read color image with OpenCV
 img_bgr = cv2.imread(path + file)
-print(img.shape)
+print(img_bgr.shape)
 
 
-# In[24]:
+# In[55]:
 
+
+get_ipython().run_line_magic('matplotlib', 'inline')
 
 # convert to RGB
 img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
@@ -81,16 +84,26 @@ ax[1].imshow(img_bgr)
 ax[1].set_title("A BGR image incorrectly shown as RGB")
 
 
+# In[56]:
+
+
+img = img_rgb[20:1000, :, :]
+plt.imshow(img)
+
+
 # Observations:
 # 
 # * There are extraneous elements at the edges of the image
 
 # ### Cropping
 
-# In[25]:
+# In[58]:
 
 
 img = img_rgb[0:1800, :, :].copy()
+plt.imshow(img)
+
+img = img_rgb[20:1000, :, :]
 plt.imshow(img)
 
 
@@ -107,15 +120,19 @@ plt.imshow(img)
 #     
 # 
 
-# In[26]:
+# In[59]:
 
 
 r, g, b = cv2.split(img)
 
+r[r <= 50] = 0
+
+plt.imshow(b, cmap="gray")
+
 
 # Histograms are a tool for analyzing the distribution of gray levels in a channel. It's a powerful tool for controlling exposure and processing images for presentation.
 
-# In[30]:
+# In[60]:
 
 
 def histogram(channel, bp=3, wp=252):
@@ -148,13 +165,11 @@ ax[1].legend()
 # 
 # This image shows very little difference among the color channels. 
 
-# In[33]:
+# In[62]:
 
 
 # subtract blue channel from green channel
-blue_weight = 0.58
-offset = -20
-cimg = (0.33*r + 0.34*g + 0.33*b)
+cimg = (0.5*r + 0.5*g)
 
 # convert to integer
 cimg = cimg.astype(np.uint8)
@@ -167,7 +182,7 @@ display_channel(cimg, "particle channel zero threshold")
 # 
 # In the meanwhile, the step in image processing is to equalize the histogram to improve opportunities for effective particle detection.
 
-# In[66]:
+# In[63]:
 
 
 himg = cv2.equalizeHist(cimg)
@@ -183,7 +198,7 @@ display_channel(himg, 'equalized')
 # ### Blur filter
 # 
 
-# In[67]:
+# In[52]:
 
 
 # kernel size (odd number)
@@ -208,10 +223,10 @@ display_channel(bimg, "Low Pass Filter")
 # 
 # https://docs.opencv.org/3.4/d7/d4d/tutorial_py_thresholding.html
 
-# In[69]:
+# In[67]:
 
 
-ret, timg = cv2.threshold(cimg, 128, 255, cv2.THRESH_BINARY)
+ret, timg = cv2.threshold(himg, 200, 255, cv2.THRESH_BINARY)
 display_channel(timg, 'equalized')
 
 

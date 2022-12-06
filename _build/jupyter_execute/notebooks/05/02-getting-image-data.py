@@ -128,7 +128,7 @@
 # 
 # [Description of Exif file format](https://www.media.mit.edu/pia/Research/deepview/exif.html)
 
-# In[36]:
+# In[1]:
 
 
 import glob
@@ -141,6 +141,11 @@ files = glob.glob(path + '*')
 for file in files:
     print(file)
     
+
+
+# In[2]:
+
+
 # get all files in directory
 for file in glob.glob(path + '*'):
     

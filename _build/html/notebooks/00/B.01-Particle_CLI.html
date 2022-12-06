@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Particle Command Line Interface &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Coding for Particle" href="B.02-Particle_Coding.html" />
     <link rel="prev" title="Working with Particle" href="B.00-Working_with_Particle.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -746,12 +752,12 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="particle-command-line-interface">
-<h1>Particle Command Line Interface<a class="headerlink" href="#particle-command-line-interface" title="Permalink to this headline">#</a></h1>
+<h1>Particle Command Line Interface<a class="headerlink" href="#particle-command-line-interface" title="Permalink to this heading">#</a></h1>
 <p>The Particle Argon is a microcontroller board similar to an Arduino in concept but with extended wifi and cloud support.</p>
 <p><img alt="Particle Argon" src="https://images.ctfassets.net/ity165ek7v1z/5x0EeKXhRxrgA2Ebgnqnik/654abeb410afd7f10fd3f99b5d871599/prototype.jpeg?w=510&amp;h=340&amp;q=80&amp;fm=webp" /></p>
 <p>The <a class="reference external" href="https://docs.particle.io/tutorials/developer-tools/cli/">Particle command line interface</a> provides is a javascript based library exposing much of the Particle device functionality. This notebook shows how the command line interface can be use within Google Colab notebook.</p>
 <section id="installation-of-the-particle-command-line-interface">
-<h2>Installation of the Particle command line interface<a class="headerlink" href="#installation-of-the-particle-command-line-interface" title="Permalink to this headline">#</a></h2>
+<h2>Installation of the Particle command line interface<a class="headerlink" href="#installation-of-the-particle-command-line-interface" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
@@ -762,7 +768,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="login-to-particle">
-<h2>Login to Particle<a class="headerlink" href="#login-to-particle" title="Permalink to this headline">#</a></h2>
+<h2>Login to Particle<a class="headerlink" href="#login-to-particle" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getpass</span>
@@ -803,9 +809,9 @@ jck_argon_01 [e00fce68eaceb1faa7cf7193] (Argon) is online
 </div>
 </section>
 <section id="demonstrations">
-<h2>Demonstrations<a class="headerlink" href="#demonstrations" title="Permalink to this headline">#</a></h2>
+<h2>Demonstrations<a class="headerlink" href="#demonstrations" title="Permalink to this heading">#</a></h2>
 <section id="flashing-tinker-firmware">
-<h3>Flashing Tinker firmware<a class="headerlink" href="#flashing-tinker-firmware" title="Permalink to this headline">#</a></h3>
+<h3>Flashing Tinker firmware<a class="headerlink" href="#flashing-tinker-firmware" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://docs.particle.io/tutorials/developer-tools/tinker/photon/">Tinker</a> is the default firmware that ships with Particle devices. The following cell restores the device to the factory default by flashing tinker.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -832,7 +838,7 @@ Flash success!
 </div>
 </section>
 <section id="toggle-on-board-led">
-<h3>Toggle on-board led<a class="headerlink" href="#toggle-on-board-led" title="Permalink to this headline">#</a></h3>
+<h3>Toggle on-board led<a class="headerlink" href="#toggle-on-board-led" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
@@ -860,7 +866,7 @@ Flash success!
 </div>
 </section>
 <section id="reading-grove-light-sensor-v1-2">
-<h3>Reading Grove Light Sensor V1.2<a class="headerlink" href="#reading-grove-light-sensor-v1-2" title="Permalink to this headline">#</a></h3>
+<h3>Reading Grove Light Sensor V1.2<a class="headerlink" href="#reading-grove-light-sensor-v1-2" title="Permalink to this heading">#</a></h3>
 <p>The Grove Light Sensor V1.2 to pin</p>
 <p><img alt="" src="https://static-cdn.seeedstudio.site/media/catalog/product/cache/9d0ce51a71ce6a79dfa2a98d65a0f0bd/h/t/httpsstatics3.seeedstudio.comseeedimg2016-10po8b7qd0xnlnchgogziq9g3d.jpg" /></p>
 <div class="cell docutils container">

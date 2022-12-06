@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>RPI Camera Module &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Computer Vision Applications" href="../05/00-computer-vision-applications.html" />
     <link rel="prev" title="RPI Library tests" href="08.02-rpi-test-libraries.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -748,11 +754,11 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="rpi-camera-module">
-<h1>RPI Camera Module<a class="headerlink" href="#rpi-camera-module" title="Permalink to this headline">#</a></h1>
+<h1>RPI Camera Module<a class="headerlink" href="#rpi-camera-module" title="Permalink to this heading">#</a></h1>
 <p>The Raspberry Pi Foundation provides support for the use of Raspberry Pi Camera modules on various devices, including the Raspberry Pi 4B. Documentation can be found <a class="reference external" href="https://www.raspberrypi.com/documentation/accessories/camera.html">here</a>.</p>
 <p>High resolution images require additional gpu_mem. This can be set using the command line <code class="docutils literal notranslate"><span class="pre">raspi-config</span></code> under performance options.</p>
 <section id="picamera">
-<h2>PiCamera<a class="headerlink" href="#picamera" title="Permalink to this headline">#</a></h2>
+<h2>PiCamera<a class="headerlink" href="#picamera" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://picamera.readthedocs.io/en/release-1.13/api_camera.html">PiCamera</a> is a pure Python library providing access to the Raspberry Pi Camera module. PiCamera is included in the default Raspbian distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -771,7 +777,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="camera-preview">
-<h3>Camera preview<a class="headerlink" href="#camera-preview" title="Permalink to this headline">#</a></h3>
+<h3>Camera preview<a class="headerlink" href="#camera-preview" title="Permalink to this heading">#</a></h3>
 <p>Camera preview combined with a digital zoom features provides a useful means of acheiving critical focus. Documentation for <code class="docutils literal notranslate"><span class="pre">PiCamera.zoom</span> <span class="pre">=</span> <span class="pre">(a,</span> <span class="pre">b,</span> <span class="pre">c,</span> <span class="pre">d)</span></code>, however, is sketchy. With a bit of experimentation, the parameters appear to represent</p>
 <ul class="simple">
 <li><p>a, b: Upper left corner of the zoom frame measured as fraction of the overall frame. Should be floating point numbers between 0 and 1.</p></li>
@@ -823,7 +829,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="capture-to-stream-and-display">
-<h3>Capture to stream and display<a class="headerlink" href="#capture-to-stream-and-display" title="Permalink to this headline">#</a></h3>
+<h3>Capture to stream and display<a class="headerlink" href="#capture-to-stream-and-display" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># capture high resolution image to a stream</span>
@@ -855,7 +861,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="camera-settings">
-<h3>Camera Settings<a class="headerlink" href="#camera-settings" title="Permalink to this headline">#</a></h3>
+<h3>Camera Settings<a class="headerlink" href="#camera-settings" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">picamera</span>
@@ -912,7 +918,7 @@ Shutter speed =  0.032979 secs
 </div>
 </section>
 <section id="capture-to-numpy-array">
-<h3>Capture to numpy array<a class="headerlink" href="#capture-to-numpy-array" title="Permalink to this headline">#</a></h3>
+<h3>Capture to numpy array<a class="headerlink" href="#capture-to-numpy-array" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
@@ -1003,7 +1009,7 @@ Shutter speed =  0.032979 secs
 </div>
 </div>
 <section id="id1">
-<h4><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<h4><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contours</span><span class="p">,</span> <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">thresh</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">RETR_TREE</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_NONE</span><span class="p">)</span>

@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Computer Vision Workflow &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -56,10 +57,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Image Capture" href="10.01-rpi-image-capture.html" />
+    <link rel="next" title="Installing an Image Processing Toolkit on Raspberry Pi" href="04-image-processing-on-RPI.html" />
     <link rel="prev" title="Getting Image Data" href="02-getting-image-data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -242,6 +243,23 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
     <a class="reference internal" href="10.01-rpi-image-capture.html">
      Image Capture
     </a>
@@ -266,18 +284,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -658,12 +664,12 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#developing-a-process">
    Developing a Process
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-imports">
+   Python Imports
+  </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python-imports">
-     Python Imports
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#reading-images">
      Reading images
@@ -749,12 +755,12 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#developing-a-process">
    Developing a Process
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-imports">
+   Python Imports
+  </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python-imports">
-     Python Imports
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#reading-images">
      Reading images
@@ -828,9 +834,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="computer-vision-workflow">
-<h1>Computer Vision Workflow<a class="headerlink" href="#computer-vision-workflow" title="Permalink to this headline">#</a></h1>
+<h1>Computer Vision Workflow<a class="headerlink" href="#computer-vision-workflow" title="Permalink to this heading">#</a></h1>
 <section id="developing-a-process">
-<h2>Developing a Process<a class="headerlink" href="#developing-a-process" title="Permalink to this headline">#</a></h2>
+<h2>Developing a Process<a class="headerlink" href="#developing-a-process" title="Permalink to this heading">#</a></h2>
 <p>Our approach …</p>
 <ul class="simple">
 <li><p>Read image</p></li>
@@ -844,8 +850,9 @@ title="Print to PDF"
 <li><p>Locate Objects - Blobs vs Hough Transforms</p></li>
 <li><p>Prepare a Report</p></li>
 </ul>
+</section>
 <section id="python-imports">
-<h3>Python Imports<a class="headerlink" href="#python-imports" title="Permalink to this headline">#</a></h3>
+<h2>Python Imports<a class="headerlink" href="#python-imports" title="Permalink to this heading">#</a></h2>
 <p>We track overall code dependencies by consolidating imports into this cell. Note that we’ll be using elements from multiple packages by relying on the underlying NumPy representation of images to hold the current state of the process.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -855,7 +862,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: opencv-python in /Users/jeff/opt/anaconda3/lib/python3.9/site-packages (4.6.0.66)
-Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib/python3.9/site-packages (from opencv-python) (1.21.2)
+Requirement already satisfied: numpy&gt;=1.17.3 in /Users/jeff/opt/anaconda3/lib/python3.9/site-packages (from opencv-python) (1.21.5)
 </pre></div>
 </div>
 </div>
@@ -874,9 +881,8 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 </div>
 </div>
 </div>
-</section>
 <section id="reading-images">
-<h3>Reading images<a class="headerlink" href="#reading-images" title="Permalink to this headline">#</a></h3>
+<h3>Reading images<a class="headerlink" href="#reading-images" title="Permalink to this heading">#</a></h3>
 <p>As a first step, read the image, convert to rgb scale, and display. All of these packages have a means of reading raster file images in common formats. There are small (and sometimes frustrating) differences among them. Here we use the Matplotlib <code class="docutils literal notranslate"><span class="pre">imread()</span></code> method which reads and returns a numpy array.</p>
 <p>The array will typical have 2 or 3 dimensions <span class="math notranslate nohighlight">\((h, w, d)\)</span> where <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(w\)</span> are image height and width, and <span class="math notranslate nohighlight">\(d\)</span> is pixel depth.</p>
 <ul class="simple">
@@ -886,27 +892,29 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;image_data/&quot;</span>
-<span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;25-miniM.tif&quot;</span>
-
-<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;image_data/Jiang Photos/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;image_data/Burchett Photos/&quot;</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;Gold STEM HAADF 59000 x 20220318 1542.tif&quot;</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;image_data/Burchett Photos/&quot;</span>
+<span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;lowadhesionF_5x_adjustedbrightness-sb.jpg&quot;</span>
 
 <span class="c1"># read color image with OpenCV</span>
 <span class="n">img_bgr</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">img_bgr</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2048, 2048, 3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1040, 1392, 3)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert to RGB</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># convert to RGB</span>
 <span class="n">img_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_bgr</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
 
 <span class="c1"># display images with Matploblib</span>
@@ -927,30 +935,47 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 <img alt="../../_images/03-experiments-with-computer-vision_7_1.png" src="../../_images/03-experiments-with-computer-vision_7_1.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc0d6f6fd90&gt;
+</pre></div>
+</div>
+<img alt="../../_images/03-experiments-with-computer-vision_8_1.png" src="../../_images/03-experiments-with-computer-vision_8_1.png" />
+</div>
+</div>
 <p>Observations:</p>
 <ul class="simple">
 <li><p>There are extraneous elements at the edges of the image</p></li>
 </ul>
 </section>
 <section id="cropping">
-<h3>Cropping<a class="headerlink" href="#cropping" title="Permalink to this headline">#</a></h3>
+<h3>Cropping<a class="headerlink" href="#cropping" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1800</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">img_rgb</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fbd868accd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc0d4bbc040&gt;
 </pre></div>
 </div>
-<img alt="../../_images/03-experiments-with-computer-vision_10_1.png" src="../../_images/03-experiments-with-computer-vision_10_1.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_11_1.png" src="../../_images/03-experiments-with-computer-vision_11_1.png" />
 </div>
 </div>
 </section>
 <section id="channels-and-histograms">
-<h3>Channels and Histograms<a class="headerlink" href="#channels-and-histograms" title="Permalink to this headline">#</a></h3>
+<h3>Channels and Histograms<a class="headerlink" href="#channels-and-histograms" title="Permalink to this heading">#</a></h3>
 <p>An image is comprised of one or more channels</p>
 <ul class="simple">
 <li><p>Each channel can be treated as a gray scale image</p></li>
@@ -966,8 +991,18 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="n">r</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc0d5340e20&gt;
+</pre></div>
+</div>
+<img alt="../../_images/03-experiments-with-computer-vision_13_1.png" src="../../_images/03-experiments-with-computer-vision_13_1.png" />
 </div>
 </div>
 <p>Histograms are a tool for analyzing the distribution of gray levels in a channel. It’s a powerful tool for controlling exposure and processing images for presentation.</p>
@@ -1001,25 +1036,23 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbd868d5670&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc0d7dde730&gt;
 </pre></div>
 </div>
-<img alt="../../_images/03-experiments-with-computer-vision_14_1.png" src="../../_images/03-experiments-with-computer-vision_14_1.png" />
-<img alt="../../_images/03-experiments-with-computer-vision_14_2.png" src="../../_images/03-experiments-with-computer-vision_14_2.png" />
-<img alt="../../_images/03-experiments-with-computer-vision_14_3.png" src="../../_images/03-experiments-with-computer-vision_14_3.png" />
-<img alt="../../_images/03-experiments-with-computer-vision_14_4.png" src="../../_images/03-experiments-with-computer-vision_14_4.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_15_1.png" src="../../_images/03-experiments-with-computer-vision_15_1.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_15_2.png" src="../../_images/03-experiments-with-computer-vision_15_2.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_15_3.png" src="../../_images/03-experiments-with-computer-vision_15_3.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_15_4.png" src="../../_images/03-experiments-with-computer-vision_15_4.png" />
 </div>
 </div>
 </section>
 <section id="creating-a-composite-channel">
-<h3>Creating a composite channel<a class="headerlink" href="#creating-a-composite-channel" title="Permalink to this headline">#</a></h3>
+<h3>Creating a composite channel<a class="headerlink" href="#creating-a-composite-channel" title="Permalink to this heading">#</a></h3>
 <p>This image shows very little difference among the color channels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subtract blue channel from green channel</span>
-<span class="n">blue_weight</span> <span class="o">=</span> <span class="mf">0.58</span>
-<span class="n">offset</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span>
-<span class="n">cimg</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.33</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mf">0.34</span><span class="o">*</span><span class="n">g</span> <span class="o">+</span> <span class="mf">0.33</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="n">cimg</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="p">)</span>
 
 <span class="c1"># convert to integer</span>
 <span class="n">cimg</span> <span class="o">=</span> <span class="n">cimg</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
@@ -1028,12 +1061,12 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03-experiments-with-computer-vision_16_0.png" src="../../_images/03-experiments-with-computer-vision_16_0.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_17_0.png" src="../../_images/03-experiments-with-computer-vision_17_0.png" />
 </div>
 </div>
 </section>
 <section id="histogram-equalization">
-<h3>Histogram equalization<a class="headerlink" href="#histogram-equalization" title="Permalink to this headline">#</a></h3>
+<h3>Histogram equalization<a class="headerlink" href="#histogram-equalization" title="Permalink to this heading">#</a></h3>
 <p>At this stage our composite image appears significantly underexposed. Looking at just the green channel, increasing the exposure 4x, or even 6x, would significantly brighten the particles that we’re seeking to detect. In future versions of the experiment it may be useful to experiment with signficantly brighter lenses, light sources, or longer exposures.</p>
 <p>In the meanwhile, the step in image processing is to equalize the histogram to improve opportunities for effective particle detection.</p>
 <div class="cell docutils container">
@@ -1044,7 +1077,7 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03-experiments-with-computer-vision_18_0.png" src="../../_images/03-experiments-with-computer-vision_18_0.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_19_0.png" src="../../_images/03-experiments-with-computer-vision_19_0.png" />
 </div>
 </div>
 <p>Observations</p>
@@ -1055,7 +1088,7 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 </ul>
 </section>
 <section id="blur-filter">
-<h3>Blur filter<a class="headerlink" href="#blur-filter" title="Permalink to this headline">#</a></h3>
+<h3>Blur filter<a class="headerlink" href="#blur-filter" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kernel size (odd number)</span>
@@ -1068,7 +1101,7 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03-experiments-with-computer-vision_21_0.png" src="../../_images/03-experiments-with-computer-vision_21_0.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_22_0.png" src="../../_images/03-experiments-with-computer-vision_22_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1080,23 +1113,23 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03-experiments-with-computer-vision_22_0.png" src="../../_images/03-experiments-with-computer-vision_22_0.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_23_0.png" src="../../_images/03-experiments-with-computer-vision_23_0.png" />
 </div>
 </div>
 </section>
 <section id="thresholding-segmentation">
-<h3>Thresholding/Segmentation<a class="headerlink" href="#thresholding-segmentation" title="Permalink to this headline">#</a></h3>
+<h3>Thresholding/Segmentation<a class="headerlink" href="#thresholding-segmentation" title="Permalink to this heading">#</a></h3>
 <p>The purpose of threshold is to isolate the features of interest from background noise.</p>
 <p><a class="reference external" href="https://docs.opencv.org/3.4/d7/d4d/tutorial_py_thresholding.html">https://docs.opencv.org/3.4/d7/d4d/tutorial_py_thresholding.html</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="p">,</span> <span class="n">timg</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">cimg</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="p">,</span> <span class="n">timg</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">himg</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
 <span class="n">display_channel</span><span class="p">(</span><span class="n">timg</span><span class="p">,</span> <span class="s1">&#39;equalized&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03-experiments-with-computer-vision_24_0.png" src="../../_images/03-experiments-with-computer-vision_24_0.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_25_0.png" src="../../_images/03-experiments-with-computer-vision_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1116,12 +1149,12 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Threshold = 0.0
 </pre></div>
 </div>
-<img alt="../../_images/03-experiments-with-computer-vision_25_1.png" src="../../_images/03-experiments-with-computer-vision_25_1.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_26_1.png" src="../../_images/03-experiments-with-computer-vision_26_1.png" />
 </div>
 </div>
 </section>
 <section id="morphological-transformation">
-<h3>Morphological Transformation<a class="headerlink" href="#morphological-transformation" title="Permalink to this headline">#</a></h3>
+<h3>Morphological Transformation<a class="headerlink" href="#morphological-transformation" title="Permalink to this heading">#</a></h3>
 <p>The next goal is to remove noise and to separate particles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1142,7 +1175,7 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fbd7290dc70&gt;
 </pre></div>
 </div>
-<img alt="../../_images/03-experiments-with-computer-vision_27_1.png" src="../../_images/03-experiments-with-computer-vision_27_1.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_28_1.png" src="../../_images/03-experiments-with-computer-vision_28_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1165,12 +1198,12 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fbd728ebac0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/03-experiments-with-computer-vision_28_1.png" src="../../_images/03-experiments-with-computer-vision_28_1.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_29_1.png" src="../../_images/03-experiments-with-computer-vision_29_1.png" />
 </div>
 </div>
 </section>
 <section id="finding-objects">
-<h3>Finding Objects<a class="headerlink" href="#finding-objects" title="Permalink to this headline">#</a></h3>
+<h3>Finding Objects<a class="headerlink" href="#finding-objects" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="http://pageperso.lif.univ-mrs.fr/~francois.denis/IAAM1/scipy-html-1.0.0/tutorial/ndimage.html">http://pageperso.lif.univ-mrs.fr/~francois.denis/IAAM1/scipy-html-1.0.0/tutorial/ndimage.html</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1193,7 +1226,7 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;40 particles labeled&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/03-experiments-with-computer-vision_30_2.png" src="../../_images/03-experiments-with-computer-vision_30_2.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_31_2.png" src="../../_images/03-experiments-with-computer-vision_31_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1214,12 +1247,12 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbd81a7d8e0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/03-experiments-with-computer-vision_31_1.png" src="../../_images/03-experiments-with-computer-vision_31_1.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_32_1.png" src="../../_images/03-experiments-with-computer-vision_32_1.png" />
 </div>
 </div>
 </section>
 <section id="finding-and-displaying-particles">
-<h3>Finding and Displaying Particles<a class="headerlink" href="#finding-and-displaying-particles" title="Permalink to this headline">#</a></h3>
+<h3>Finding and Displaying Particles<a class="headerlink" href="#finding-and-displaying-particles" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the objects and place bounding boxes</span>
@@ -1244,12 +1277,12 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03-experiments-with-computer-vision_33_0.png" src="../../_images/03-experiments-with-computer-vision_33_0.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_34_0.png" src="../../_images/03-experiments-with-computer-vision_34_0.png" />
 </div>
 </div>
 </section>
 <section id="creating-a-training-set">
-<h3>Creating a Training Set<a class="headerlink" href="#creating-a-training-set" title="Permalink to this headline">#</a></h3>
+<h3>Creating a Training Set<a class="headerlink" href="#creating-a-training-set" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kdx</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span> <span class="k">if</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">]</span>
@@ -1276,12 +1309,12 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
   ax[i].imshow(open_img[round_slice(a, 100), round_slice(b, 100)])
 </pre></div>
 </div>
-<img alt="../../_images/03-experiments-with-computer-vision_35_1.png" src="../../_images/03-experiments-with-computer-vision_35_1.png" />
+<img alt="../../_images/03-experiments-with-computer-vision_36_1.png" src="../../_images/03-experiments-with-computer-vision_36_1.png" />
 </div>
 </div>
 </section>
 <section id="what-did-we-learn-about-our-application">
-<h3>What did we learn about our application?<a class="headerlink" href="#what-did-we-learn-about-our-application" title="Permalink to this headline">#</a></h3>
+<h3>What did we learn about our application?<a class="headerlink" href="#what-did-we-learn-about-our-application" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Improved Image Capture</p>
 <ul>
@@ -1341,10 +1374,10 @@ Requirement already satisfied: numpy&gt;=1.19.3 in /Users/jeff/opt/anaconda3/lib
             <p class="prev-next-title">Getting Image Data</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="10.01-rpi-image-capture.html" title="next page">
+    <a class='right-next' id="next-link" href="04-image-processing-on-RPI.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Image Capture</p>
+        <p class="prev-next-title">Installing an Image Processing Toolkit on Raspberry Pi</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

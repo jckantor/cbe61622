@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Configuring a Workstation &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Workstation Learning Exercises" href="10-Workstation-Learning-Exercises.html" />
     <link rel="prev" title="CBE 61622" href="00-CBE_61622.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -854,13 +860,13 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="configuring-a-workstation">
-<h1>Configuring a Workstation<a class="headerlink" href="#configuring-a-workstation" title="Permalink to this headline">#</a></h1>
+<h1>Configuring a Workstation<a class="headerlink" href="#configuring-a-workstation" title="Permalink to this heading">#</a></h1>
 <section id="student-workstation">
-<h2>Student Workstation<a class="headerlink" href="#student-workstation" title="Permalink to this headline">#</a></h2>
+<h2>Student Workstation<a class="headerlink" href="#student-workstation" title="Permalink to this heading">#</a></h2>
 <p>The basic workstation for this course provides a student with the means to learn the foundations of analog instrumentation, digital interfacing, and enough experience to pursue independent projects.</p>
 </section>
 <section id="laboratory-workstation">
-<h2>Laboratory Workstation<a class="headerlink" href="#laboratory-workstation" title="Permalink to this headline">#</a></h2>
+<h2>Laboratory Workstation<a class="headerlink" href="#laboratory-workstation" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Digilent Analog Studio</p></li>
 <li><p>Raspberry Pi Pico with Grove interface board</p></li>
@@ -872,9 +878,9 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="raspberry-pi">
-<h2>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this headline">#</a></h2>
+<h2>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this heading">#</a></h2>
 <section id="assemble-a-raspberry-pi-workstation">
-<h3>Assemble a Raspberry Pi Workstation<a class="headerlink" href="#assemble-a-raspberry-pi-workstation" title="Permalink to this headline">#</a></h3>
+<h3>Assemble a Raspberry Pi Workstation<a class="headerlink" href="#assemble-a-raspberry-pi-workstation" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Raspberry Pi 4 Model B (4GB)</p></li>
 <li><p>Raspberry Pi 7” touchscreen</p></li>
@@ -885,7 +891,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="install-raspberry-pi-os">
-<h3>Install Raspberry Pi OS<a class="headerlink" href="#install-raspberry-pi-os" title="Permalink to this headline">#</a></h3>
+<h3>Install Raspberry Pi OS<a class="headerlink" href="#install-raspberry-pi-os" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Format a 16GB+ micro SD card using <a class="reference external" href="https://www.sdcard.org/downloads/formatter/">SD Card Formatter</a></p></li>
 <li><p>Install Raspberry Pi OS onto micro SD card using <a class="reference external" href="https://www.raspberrypi.org/software/">Raspberry Pi Imager</a></p></li>
@@ -893,14 +899,14 @@ title="Print to PDF"
 </section>
 </section>
 <section id="digilent-analog-discovery-studio">
-<h2>Digilent Analog Discovery Studio<a class="headerlink" href="#digilent-analog-discovery-studio" title="Permalink to this headline">#</a></h2>
+<h2>Digilent Analog Discovery Studio<a class="headerlink" href="#digilent-analog-discovery-studio" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="analog-devices-parts-kit-adalp2000">
-<h2>Analog Devices Parts Kit ADALP2000<a class="headerlink" href="#analog-devices-parts-kit-adalp2000" title="Permalink to this headline">#</a></h2>
+<h2>Analog Devices Parts Kit ADALP2000<a class="headerlink" href="#analog-devices-parts-kit-adalp2000" title="Permalink to this heading">#</a></h2>
 <section id="ic-s">
-<h3>IC’s<a class="headerlink" href="#ic-s" title="Permalink to this headline">#</a></h3>
+<h3>IC’s<a class="headerlink" href="#ic-s" title="Permalink to this heading">#</a></h3>
 <section id="amplifiers">
-<h4>Amplifiers<a class="headerlink" href="#amplifiers" title="Permalink to this headline">#</a></h4>
+<h4>Amplifiers<a class="headerlink" href="#amplifiers" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.analog.com/en/products/ad8226.html">AD8226 Instrumentation amp</a></p></li>
 <li><p><a class="reference external" href="https://www.analog.com/en/products/adtl082.html">ADTL082 JFET op amp</a></p></li>
@@ -914,7 +920,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="sensors">
-<h4>Sensors<a class="headerlink" href="#sensors" title="Permalink to this headline">#</a></h4>
+<h4>Sensors<a class="headerlink" href="#sensors" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.analog.com/en/products/ad8210.html">AD8210 current shunt monitor</a></p></li>
 <li><p><a class="reference external" href="https://www.analog.com/en/products/ad22151g.html">AD22151 magnetic field sensor</a></p></li>
@@ -928,7 +934,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="power">
-<h4>Power<a class="headerlink" href="#power" title="Permalink to this headline">#</a></h4>
+<h4>Power<a class="headerlink" href="#power" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.analog.com/en/products/lt3092.html">LT3092 programmable current source</a></p></li>
 <li><p><a class="reference external" href="https://www.analog.com/en/products/ltm8067.html">LTM8067 isolated dc-to-dc converter</a></p></li>
@@ -936,7 +942,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="data-conversion">
-<h4>Data Conversion<a class="headerlink" href="#data-conversion" title="Permalink to this headline">#</a></h4>
+<h4>Data Conversion<a class="headerlink" href="#data-conversion" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.analog.com/en/products/ad654.html">AD654 voltage-to-frequency converter</a></p></li>
 <li><p><a class="reference external" href="https://www.analog.com/en/products/ad5626.html">AD5626 12-bit nanoDAC</a></p></li>
@@ -944,17 +950,17 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="logic">
-<h4>Logic<a class="headerlink" href="#logic" title="Permalink to this headline">#</a></h4>
+<h4>Logic<a class="headerlink" href="#logic" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ti.com/product/SN74HC273">SN74HC273 octal flip-flop</a></p></li>
 </ul>
 </section>
 <section id="misc">
-<h4>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">#</a></h4>
+<h4>Misc<a class="headerlink" href="#misc" title="Permalink to this heading">#</a></h4>
 </section>
 </section>
 <section id="transistors">
-<h3>Transistors<a class="headerlink" href="#transistors" title="Permalink to this headline">#</a></h3>
+<h3>Transistors<a class="headerlink" href="#transistors" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.onsemi.com/pdf/datasheet/2n3903-d.pdf">2N3904 general purpose NPN BJT</a></p></li>
 <li><p><a class="reference external" href="https://www.onsemi.com/pdf/datasheet/2n3906-d.pdf">2N3906 general purpose PNP BJT</a></p></li>
@@ -966,7 +972,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="additional-components">
-<h2>Additional Components<a class="headerlink" href="#additional-components" title="Permalink to this headline">#</a></h2>
+<h2>Additional Components<a class="headerlink" href="#additional-components" title="Permalink to this heading">#</a></h2>
 <p>Motors and Actuators</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.amazon.com/ELEGOO-28BYJ-48-ULN2003-Stepper-Arduino/dp/B01CP18J4A">28BJY-48 Stepper Motors and ULN2003 Driver Board</a> These very low-cost, ubiquitous stepper motors can be run from a 5 volt power supply supplied from a USB powered device. With the Raspberry Pi Pico, for example, the VBUS or VSYS pins can supply the required power. The ULN2003 driver board can handle up to 12 volt power for applications required more torque.</p></li>

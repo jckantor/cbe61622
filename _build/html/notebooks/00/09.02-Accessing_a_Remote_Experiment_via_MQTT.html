@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Accessing a Remote Experiment via MQTT &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Accessing MQTT Devices" href="09.03-Miscellaneous_Notes.html" />
     <link rel="prev" title="Publishing an Experiment via MQTT" href="09.01-Publishing_an_Experiment_via_MQTT.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -712,9 +718,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="accessing-a-remote-experiment-via-mqtt">
-<h1>Accessing a Remote Experiment via MQTT<a class="headerlink" href="#accessing-a-remote-experiment-via-mqtt" title="Permalink to this headline">#</a></h1>
+<h1>Accessing a Remote Experiment via MQTT<a class="headerlink" href="#accessing-a-remote-experiment-via-mqtt" title="Permalink to this heading">#</a></h1>
 <section id="installations">
-<h2>Installations<a class="headerlink" href="#installations" title="Permalink to this headline">#</a></h2>
+<h2>Installations<a class="headerlink" href="#installations" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install paho-mqtt
@@ -729,7 +735,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="remote-operation-of-a-laboratory-experiment">
-<h2>Remote Operation of a Laboratory Experiment<a class="headerlink" href="#remote-operation-of-a-laboratory-experiment" title="Permalink to this headline">#</a></h2>
+<h2>Remote Operation of a Laboratory Experiment<a class="headerlink" href="#remote-operation-of-a-laboratory-experiment" title="Permalink to this heading">#</a></h2>
 <p>This cell establishes a connection to two topics on an MQTT server. The ‘command’ channel is used to publish a message to start a remote experiment for a duration given in seconds. A client is opened to listen to a ‘measurement’ channel.</p>
 <p>Before running this channel, start up up the companion notebook that simulates a remote experiment <a class="reference external" href="https://colab.research.google.com/drive/1cj9Y8IlVX2-ZMEMoVWi8G5WDKNr3gkr9?usp=sharing">https://colab.research.google.com/drive/1cj9Y8IlVX2-ZMEMoVWi8G5WDKNr3gkr9?usp=sharing</a></p>
 <div class="cell docutils container">
@@ -826,7 +832,7 @@ Loop Stopped: &lt;__main__.CBEClient object at 0x7ffb0c31fc50&gt;
 </div>
 </section>
 <section id="version-1">
-<h2>Version 1<a class="headerlink" href="#version-1" title="Permalink to this headline">#</a></h2>
+<h2>Version 1<a class="headerlink" href="#version-1" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline

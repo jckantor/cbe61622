@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Image Capture &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -55,9 +56,9 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Machine Vision Applications" href="10.02-Machine-Vision.html" />
-    <link rel="prev" title="Experiments with Computer Vision" href="03-experiments-with-computer-vision.html" />
+    <link rel="prev" title="Works in Progress" href="../00/00.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -214,16 +215,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="00-computer-vision-applications.html">
    Computer Vision Applications
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="01-Computer-Vision.html">
      Computer Vision
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -800,7 +806,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="image-capture">
-<h1>Image Capture<a class="headerlink" href="#image-capture" title="Permalink to this headline">#</a></h1>
+<h1>Image Capture<a class="headerlink" href="#image-capture" title="Permalink to this heading">#</a></h1>
 <blockquote>
 <div><p>Great minds discuss ideas; average minds discuss events; small minds discuss people.</p>
 <p><em>Eleanor Roosevelt</em></p>
@@ -808,7 +814,7 @@ title="Print to PDF"
 <p>Let’s get the ideas in order before discussing equipment and processes.</p>
 <p><img alt="" src="https://i.pinimg.com/originals/ef/57/92/ef579242f3a4c24fe01d543f04a656b7.jpg" /></p>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <p>Main Reference</p>
 <ul class="simple">
 <li><p>Miikki, K; Karakoc, A. et al. An open-source camera system for experimental measurements, SoftwareX, 2021, 14, 100688 (freely accessible &#64;  <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2352711021000339#appA">https://www.sciencedirect.com/science/article/pii/S2352711021000339#appA</a>) <a href="https://doi.org/10.5281/zenodo.4300692"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4300692.svg" alt="DOI"></a>  Also see <a class="reference external" href="https://github.com/kmiikki/rpi-camera">rpi-camera github repository</a>.</p></li>
@@ -822,7 +828,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="light">
-<h2>Light<a class="headerlink" href="#light" title="Permalink to this headline">#</a></h2>
+<h2>Light<a class="headerlink" href="#light" title="Permalink to this heading">#</a></h2>
 <p>Radiometry vs Photometry</p>
 <ul class="simple">
 <li><p><strong>Radiometry</strong>: Measuring light in any portion of the electromagnetic spectrum, typically infrared, visible, ultraviolet</p></li>
@@ -838,7 +844,7 @@ title="Print to PDF"
 <p>More on Lumens, Lux, and Nits: <a class="reference external" href="https://www.konicaminolta.com/instruments/knowledge/light/concepts/04.html">https://www.konicaminolta.com/instruments/knowledge/light/concepts/04.html</a></p>
 </section>
 <section id="perception">
-<h2>Perception<a class="headerlink" href="#perception" title="Permalink to this headline">#</a></h2>
+<h2>Perception<a class="headerlink" href="#perception" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.olympus-lifescience.com/en/microscope-resource/primer/lightandcolor/humanvisionintro/">https://www.olympus-lifescience.com/en/microscope-resource/primer/lightandcolor/humanvisionintro/</a></p>
 <p><img alt="" src="http://hci.cs.siue.edu/NSF/Files/Semester/Week9-2/PPT-Text/images/Image13.png" /></p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/CIE_1931_Luminosity.png/640px-CIE_1931_Luminosity.png" /></p>
@@ -861,13 +867,13 @@ title="Print to PDF"
 </li>
 </ul>
 <section id="color-gamut">
-<h3>Color Gamut<a class="headerlink" href="#color-gamut" title="Permalink to this headline">#</a></h3>
+<h3>Color Gamut<a class="headerlink" href="#color-gamut" title="Permalink to this heading">#</a></h3>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cie_Chart_with_sRGB_gamut_by_spigget.png/430px-Cie_Chart_with_sRGB_gamut_by_spigget.png" /></p>
 </section>
 <section id="lens-and-aperture">
-<h3>Lens and Aperture<a class="headerlink" href="#lens-and-aperture" title="Permalink to this headline">#</a></h3>
+<h3>Lens and Aperture<a class="headerlink" href="#lens-and-aperture" title="Permalink to this heading">#</a></h3>
 <section id="etendue">
-<h4>Etendue<a class="headerlink" href="#etendue" title="Permalink to this headline">#</a></h4>
+<h4>Etendue<a class="headerlink" href="#etendue" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Property of light in an optical system</p></li>
 <li><p>Area of the entrance pupil times solid angle the source subtends viewed from the pupil</p></li>
@@ -875,7 +881,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="simple-lenses">
-<h4>Simple Lenses<a class="headerlink" href="#simple-lenses" title="Permalink to this headline">#</a></h4>
+<h4>Simple Lenses<a class="headerlink" href="#simple-lenses" title="Permalink to this heading">#</a></h4>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Lens">https://en.wikipedia.org/wiki/Lens</a></p>
 <ul class="simple">
 <li><p>Simple lenses</p></li>
@@ -886,7 +892,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="complex-lenses">
-<h4>Complex lenses<a class="headerlink" href="#complex-lenses" title="Permalink to this headline">#</a></h4>
+<h4>Complex lenses<a class="headerlink" href="#complex-lenses" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>microscopes (<a class="reference external" href="https://www.ccmr.cornell.edu/wp-content/uploads/sites/2/2018/03/Reading_-How-do-the-lenses-in-a-microscope-work_.pdf">https://www.ccmr.cornell.edu/wp-content/uploads/sites/2/2018/03/Reading_-How-do-the-lenses-in-a-microscope-work_.pdf</a>)
 <img alt="" src="https://image1.slideserve.com/2952580/slide8-l.jpg" /></p></li>
@@ -897,7 +903,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="sensor">
-<h3>Sensor<a class="headerlink" href="#sensor" title="Permalink to this headline">#</a></h3>
+<h3>Sensor<a class="headerlink" href="#sensor" title="Permalink to this heading">#</a></h3>
 <p><img alt="" src="https://static.techspot.com/articles-info/850/images/CMOS-j_1100.webp" /></p>
 <p>IR/UV/Anti-Aliasing/Microlens/Color Filter Array</p>
 <p><img alt="" src="https://www.arducam.com/wp-content/uploads/2020/11/sony-image-sensor-back-illuminated-and-front-illuminated-22.jpg" /></p>
@@ -914,7 +920,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="camera-as-a-system">
-<h3>Camera as a System<a class="headerlink" href="#camera-as-a-system" title="Permalink to this headline">#</a></h3>
+<h3>Camera as a System<a class="headerlink" href="#camera-as-a-system" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Feedback</p>
 <ul>
@@ -930,7 +936,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="software-tools">
-<h2>Software Tools<a class="headerlink" href="#software-tools" title="Permalink to this headline">#</a></h2>
+<h2>Software Tools<a class="headerlink" href="#software-tools" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>libcamera + qcam</p></li>
 <li><p>OpenCV</p></li>
@@ -968,11 +974,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="03-experiments-with-computer-vision.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../00/00.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Experiments with Computer Vision</p>
+            <p class="prev-next-title">Works in Progress</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="10.02-Machine-Vision.html" title="next page">

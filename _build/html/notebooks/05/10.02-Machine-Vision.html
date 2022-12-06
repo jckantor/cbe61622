@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Machine Vision Applications &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Experiments with Computer Vision" href="10.11-Experiments-with-Computer-Vision.html" />
     <link rel="prev" title="Image Capture" href="10.01-rpi-image-capture.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -214,16 +215,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="00-computer-vision-applications.html">
    Computer Vision Applications
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="01-Computer-Vision.html">
      Computer Vision
@@ -236,9 +237,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../00/00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="10.01-rpi-image-capture.html">
      Image Capture
@@ -264,18 +282,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../00/00.html">
-   Works in Progress
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../00/03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -780,7 +786,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="machine-vision-applications">
-<h1>Machine Vision Applications<a class="headerlink" href="#machine-vision-applications" title="Permalink to this headline">#</a></h1>
+<h1>Machine Vision Applications<a class="headerlink" href="#machine-vision-applications" title="Permalink to this heading">#</a></h1>
 <p>Examples of Machine Vision Requirements</p>
 <ul class="simple">
 <li><p>Visualize droplets ranging in size from 10 to 100 microns.</p></li>
@@ -816,9 +822,9 @@ Field width =  50.00000000000001 mm
 </div>
 </div>
 <section id="lenses">
-<h2>Lenses<a class="headerlink" href="#lenses" title="Permalink to this headline">#</a></h2>
+<h2>Lenses<a class="headerlink" href="#lenses" title="Permalink to this heading">#</a></h2>
 <section id="fixed-focal-length-lenses">
-<h3>Fixed focal length lenses<a class="headerlink" href="#fixed-focal-length-lenses" title="Permalink to this headline">#</a></h3>
+<h3>Fixed focal length lenses<a class="headerlink" href="#fixed-focal-length-lenses" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.arducam.com/best-m12-c-cs-mount-lenses/">Arducam</a></p></li>
 <li><p><a class="reference external" href="https://www.adafruit.com/product/4562">Raspberry Pi 16mm</a></p></li>
@@ -828,13 +834,13 @@ Field width =  50.00000000000001 mm
 <p>A 2/3” sensor has a diagonal of 7.85mm. An object field of 2cm corresponds to a magnification of 0.4x. A magnification range of 1.0x to 0.3x would seem about right.</p>
 </section>
 <section id="macro-and-variable-magnification-lenses">
-<h3>Macro and Variable Magnification Lenses<a class="headerlink" href="#macro-and-variable-magnification-lenses" title="Permalink to this headline">#</a></h3>
+<h3>Macro and Variable Magnification Lenses<a class="headerlink" href="#macro-and-variable-magnification-lenses" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.edmundoptics.com/p/infiniprobe-s-32-video-microscope-0-32x/15606/">Edmund Infiniprobe 0-3.2x</a></p></li>
 </ul>
 </section>
 <section id="telecentric-lenses">
-<h3>Telecentric Lenses<a class="headerlink" href="#telecentric-lenses" title="Permalink to this headline">#</a></h3>
+<h3>Telecentric Lenses<a class="headerlink" href="#telecentric-lenses" title="Permalink to this heading">#</a></h3>
 <p>Tutorials and general information:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=O-NeZcmYyJ4&amp;ab_channel=EdmundOptics">EO Imaging Lab 2.2: Telecentricity</a> Edmund Optics video explaining telecentricity and applications to machine vision.</p></li>
@@ -895,16 +901,16 @@ Field width =  50.00000000000001 mm
 </section>
 </section>
 <section id="sensing-design">
-<h2>Sensing Design<a class="headerlink" href="#sensing-design" title="Permalink to this headline">#</a></h2>
+<h2>Sensing Design<a class="headerlink" href="#sensing-design" title="Permalink to this heading">#</a></h2>
 <section id="raspberry-pi-hq-camera-sony-imx477">
-<h3>Raspberry Pi HQ Camera (Sony IMX477)<a class="headerlink" href="#raspberry-pi-hq-camera-sony-imx477" title="Permalink to this headline">#</a></h3>
+<h3>Raspberry Pi HQ Camera (Sony IMX477)<a class="headerlink" href="#raspberry-pi-hq-camera-sony-imx477" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.waveshare.com/raspberry-pi-hq-camera.htm">Waveshare</a></p></li>
 </ul>
 <p><img alt="Technical Drawing" src="https://www.waveshare.com/img/devkit/accBoard/Raspberry-Pi-HQ-Camera/Raspberry-Pi-HQ-Camera-details-15.jpg" /></p>
 </section>
 <section id="mm-optical-cage">
-<h3>30mm Optical Cage<a class="headerlink" href="#mm-optical-cage" title="Permalink to this headline">#</a></h3>
+<h3>30mm Optical Cage<a class="headerlink" href="#mm-optical-cage" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.thorlabs.com/navigation.cfm?guide_id=2004">Thor Labs 30mm Cage Components</a></p></li>
 </ul>
@@ -915,13 +921,13 @@ Field width =  50.00000000000001 mm
 </ul>
 </section>
 <section id="arducam">
-<h3>Arducam<a class="headerlink" href="#arducam" title="Permalink to this headline">#</a></h3>
+<h3>Arducam<a class="headerlink" href="#arducam" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.arducam.com/product-category/cameras-for-raspberrypi/raspberry-pi-camera-raspistill-raspvivid/raspberry-pi-high-quality-12mp-imx477-camera/">Sony IMX477</a> based camera modules.</p></li>
 </ul>
 </section>
 <section id="picamera">
-<h3>Picamera<a class="headerlink" href="#picamera" title="Permalink to this headline">#</a></h3>
+<h3>Picamera<a class="headerlink" href="#picamera" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 </section>

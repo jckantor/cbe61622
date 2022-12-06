@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Sampling Continuous Time Signals &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -59,7 +60,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Chemical Instrumentation" href="04.00-Chemical_Instrumentation.html" />
     <link rel="prev" title="Low-Level Measurement" href="03.01-Low-Level-Measurment.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -238,9 +239,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -266,18 +284,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="03.01-Low-Level-Measurment.html">
      Low-Level Measurement
@@ -832,9 +838,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="sampling-continuous-time-signals">
-<h1>Sampling Continuous Time Signals<a class="headerlink" href="#sampling-continuous-time-signals" title="Permalink to this headline">#</a></h1>
+<h1>Sampling Continuous Time Signals<a class="headerlink" href="#sampling-continuous-time-signals" title="Permalink to this heading">#</a></h1>
 <section id="sampling-signals">
-<h2>Sampling signals<a class="headerlink" href="#sampling-signals" title="Permalink to this headline">#</a></h2>
+<h2>Sampling signals<a class="headerlink" href="#sampling-signals" title="Permalink to this heading">#</a></h2>
 <p>Suppose we have a continuous time signal <span class="math notranslate nohighlight">\(y(t)\)</span> on an interval <span class="math notranslate nohighlight">\([0, T]\)</span> that we regularly sample at <span class="math notranslate nohighlight">\(t_n = n \delta\)</span>. where <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots, N\)</span> where <span class="math notranslate nohighlight">\(\delta = T/N\)</span>.</p>
 <p>Let’s look at a particular example. <span class="math notranslate nohighlight">\(T=300\)</span> and we try increasingly large values of <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <div class="cell docutils container">
@@ -881,7 +887,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="reconstruction">
-<h2>Reconstruction<a class="headerlink" href="#reconstruction" title="Permalink to this headline">#</a></h2>
+<h2>Reconstruction<a class="headerlink" href="#reconstruction" title="Permalink to this heading">#</a></h2>
 <p>Given a series of N samples <span class="math notranslate nohighlight">\(y[n] = y(n\delta)\)</span>, <span class="math notranslate nohighlight">\(n = 0, 1, \ldots N-1\)</span>, reconstruct a continuous function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -916,14 +922,14 @@ title="Print to PDF"
 </div>
 </div>
 <section id="anti-aliasing">
-<h3>Anti-aliasing<a class="headerlink" href="#anti-aliasing" title="Permalink to this headline">#</a></h3>
+<h3>Anti-aliasing<a class="headerlink" href="#anti-aliasing" title="Permalink to this heading">#</a></h3>
 <p>What we have to do is eliminate that part of the signal that gets aliased <strong>before</strong> the sampling. Because if don’t, the aliasing corrupts the signal in ways that can’t be fixed afterwards.</p>
 </section>
 </section>
 <section id="fourier-analysis">
-<h2>Fourier Analysis<a class="headerlink" href="#fourier-analysis" title="Permalink to this headline">#</a></h2>
+<h2>Fourier Analysis<a class="headerlink" href="#fourier-analysis" title="Permalink to this heading">#</a></h2>
 <section id="complex-sinusoids-as-an-orthonormal-basis">
-<h3>Complex sinusoids as an Orthonormal Basis<a class="headerlink" href="#complex-sinusoids-as-an-orthonormal-basis" title="Permalink to this headline">#</a></h3>
+<h3>Complex sinusoids as an Orthonormal Basis<a class="headerlink" href="#complex-sinusoids-as-an-orthonormal-basis" title="Permalink to this heading">#</a></h3>
 <p>Fourier analysis begins with specification of a set of countably infinite set of complex valued basis functions for the interval <span class="math notranslate nohighlight">\([0, T]\)</span></p>
 <div class="math notranslate nohighlight">
 \[\phi_k(t) = e^{2\pi i k t/T}\]</div>
@@ -957,7 +963,7 @@ title="Print to PDF"
 <p>which computes the <strong>Fourier Transform</strong> of <span class="math notranslate nohighlight">\(y(t)\)</span> at a countably infinite set of values <span class="math notranslate nohighlight">\(Y_k\)</span>.</p>
 </section>
 <section id="application-to-real-functions">
-<h3>Application to Real functions<a class="headerlink" href="#application-to-real-functions" title="Permalink to this headline">#</a></h3>
+<h3>Application to Real functions<a class="headerlink" href="#application-to-real-functions" title="Permalink to this heading">#</a></h3>
 <p>For real functions <span class="math notranslate nohighlight">\(\bar{y}(t) = y(t)\)</span>. As a consequence</p>
 <p>\begin{align*}
 \sum_k \overline{Y_k \phi_k} &amp; = \sum_{k’} Y_{k’} \phi_{k’} \
@@ -968,7 +974,7 @@ title="Print to PDF"
 <p>The practical consequence of this is that is not necessary to compute the Fourier coefficients for negative values of <span class="math notranslate nohighlight">\(k\)</span>.</p>
 </section>
 <section id="frequency-domain-interpretation">
-<h3>Frequency domain interpretation<a class="headerlink" href="#frequency-domain-interpretation" title="Permalink to this headline">#</a></h3>
+<h3>Frequency domain interpretation<a class="headerlink" href="#frequency-domain-interpretation" title="Permalink to this heading">#</a></h3>
 <p>The indices <span class="math notranslate nohighlight">\(k\)</span> can be associated with a frequency <span class="math notranslate nohighlight">\(f_k\)</span> where</p>
 <div class="math notranslate nohighlight">
 \[f_k  = \frac{k}{T}\]</div>
@@ -978,7 +984,7 @@ title="Print to PDF"
 <p>where <span class="math notranslate nohighlight">\(f_k = \frac{k}{T}\)</span> for <span class="math notranslate nohighlight">\(k = 0, \pm 1, \pm 2, \ldots\)</span></p>
 </section>
 <section id="application-to-sampled-data">
-<h3>Application to Sampled data<a class="headerlink" href="#application-to-sampled-data" title="Permalink to this headline">#</a></h3>
+<h3>Application to Sampled data<a class="headerlink" href="#application-to-sampled-data" title="Permalink to this heading">#</a></h3>
 <p>In most applications the function <span class="math notranslate nohighlight">\(f(t)\)</span> is evaluated at regular intervals of time <span class="math notranslate nohighlight">\(t_n = n\delta\)</span>. For <span class="math notranslate nohighlight">\(k = 0, \pm 1, \pm 2, \ldots\)</span></p>
 <p>\begin{align*}
 Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \
@@ -988,7 +994,7 @@ Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \
 </section>
 </section>
 <section id="numpy-fft">
-<h2>numpy.fft<a class="headerlink" href="#numpy-fft" title="Permalink to this headline">#</a></h2>
+<h2>numpy.fft<a class="headerlink" href="#numpy-fft" title="Permalink to this heading">#</a></h2>
 <p>The Numpy library provides a collection of functions to enable use of the Fourier tranform.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1024,7 +1030,7 @@ Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \
 </div>
 </section>
 <section id="examples-of-fourier-transforms">
-<h2>Examples of Fourier Transforms<a class="headerlink" href="#examples-of-fourier-transforms" title="Permalink to this headline">#</a></h2>
+<h2>Examples of Fourier Transforms<a class="headerlink" href="#examples-of-fourier-transforms" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -1104,17 +1110,17 @@ Y_k &amp; = \frac{1}{T} \int_0^T e^{-2\pi i k t/ T}y(t)\ dt \
 </div>
 </section>
 <section id="euler-s-formula">
-<h2>Euler’s Formula<a class="headerlink" href="#euler-s-formula" title="Permalink to this headline">#</a></h2>
+<h2>Euler’s Formula<a class="headerlink" href="#euler-s-formula" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[e^{2\pi ix} = \cos\left(2\pi x\right) + i \sin\left(2\pi x\right)\]</div>
 </section>
 <section id="sinusoidal-signals">
-<h2>Sinusoidal signals<a class="headerlink" href="#sinusoidal-signals" title="Permalink to this headline">#</a></h2>
+<h2>Sinusoidal signals<a class="headerlink" href="#sinusoidal-signals" title="Permalink to this heading">#</a></h2>
 <p>The complex function</p>
 <p>$$</p>
 </section>
 <section id="discrete-fourier-transform">
-<h2>Discrete Fourier Transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this headline">#</a></h2>
+<h2>Discrete Fourier Transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this heading">#</a></h2>
 <p>The Fourier transform is a linear operation <span class="math notranslate nohighlight">\(y = \cal{F}(x)\)</span> where</p>
 <p>\begin{align*}
 y[k] &amp; = \sum_{n=0}^{N-1}e^{-\frac{2\pi}{N} i k n} x[n] \
@@ -1153,7 +1159,7 @@ y[k] &amp; = \sum_{n=0}^{N-1}\left[\cos\left(\frac{2\pi}{N}kn\right) - i \sin\le
 </div>
 </section>
 <section id="inverse-discrete-fourier-transform">
-<h2>Inverse Discrete Fourier Transform<a class="headerlink" href="#inverse-discrete-fourier-transform" title="Permalink to this headline">#</a></h2>
+<h2>Inverse Discrete Fourier Transform<a class="headerlink" href="#inverse-discrete-fourier-transform" title="Permalink to this heading">#</a></h2>
 <p>The inverse transform is given by</p>
 <div class="math notranslate nohighlight">
 \[x[n] = \frac{1}{N}\sum_{k=0}^{N-1}e^{2\pi i k n/N} y[k]\]</div>

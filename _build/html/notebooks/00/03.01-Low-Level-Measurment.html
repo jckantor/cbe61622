@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Low-Level Measurement &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
@@ -34,6 +34,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -57,9 +58,9 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Sampling Continuous Time Signals" href="03.02-Sampling-Continuous-Time-Signals.html" />
-    <link rel="prev" title="Works in Progress" href="00.html" />
+    <link rel="prev" title="Computer Vision Case Study: Creating an Application" href="../05/10.13-Computer-Vision-Application.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -238,9 +239,26 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/03-experiments-with-computer-vision.html">
-     Experiments with Computer Vision
+     Computer Vision Workflow
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04-image-processing-on-RPI.html">
+     Installing an Image Processing Toolkit on Raspberry Pi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00.html">
+   Works in Progress
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../05/10.01-rpi-image-capture.html">
      Image Capture
@@ -266,18 +284,6 @@ const thebe_selector_output = ".output, .cell_output"
      Computer Vision Case Study: Creating an Application
     </a>
    </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00.html">
-   Works in Progress
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Low-Level Measurement
@@ -738,16 +744,16 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="low-level-measurement">
-<h1>Low-Level Measurement<a class="headerlink" href="#low-level-measurement" title="Permalink to this headline">#</a></h1>
+<h1>Low-Level Measurement<a class="headerlink" href="#low-level-measurement" title="Permalink to this heading">#</a></h1>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://download.tek.com/document/LowLevelHandbook_7Ed.pdf">Low Level Measurements Handbook - 7th Edition (Kiethley)</a></p></li>
 <li><p>[Art of Electronics, Chapter 8]</p></li>
 </ul>
 </section>
 <section id="limits-to-measurements">
-<h2>Limits to Measurements<a class="headerlink" href="#limits-to-measurements" title="Permalink to this headline">#</a></h2>
+<h2>Limits to Measurements<a class="headerlink" href="#limits-to-measurements" title="Permalink to this heading">#</a></h2>
 <p>Sources of noise</p>
 <p>White noise:</p>
 <ul class="simple">
@@ -760,7 +766,7 @@ title="Print to PDF"
 <li><p>…. and many more!</p></li>
 </ul>
 <section id="shot-noise">
-<h3>Shot Noise<a class="headerlink" href="#shot-noise" title="Permalink to this headline">#</a></h3>
+<h3>Shot Noise<a class="headerlink" href="#shot-noise" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Description and theory, Walter Schottky, 1918.</p></li>
 <li><p><a class="reference external" href="https://mathworld.wolfram.com/PoissonProcess.html">Poisson Process - Wolfram MathWorld</a></p></li>
@@ -862,7 +868,7 @@ expected number of electrons per step nu*h = 6.241509074
 </div>
 </section>
 <section id="johnson-nyquist-noise">
-<h3>Johnson-Nyquist Noise<a class="headerlink" href="#johnson-nyquist-noise" title="Permalink to this headline">#</a></h3>
+<h3>Johnson-Nyquist Noise<a class="headerlink" href="#johnson-nyquist-noise" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Discovered and measured by John B. Johnson, Bell Labs, 1926</p></li>
 <li><p>Explained by Harry Nyquist, Bell Labs, 1928.</p></li>
@@ -888,7 +894,7 @@ expected number of electrons per step nu*h = 6.241509074
 </section>
 </section>
 <section id="chemical-applications">
-<h2>Chemical Applications<a class="headerlink" href="#chemical-applications" title="Permalink to this headline">#</a></h2>
+<h2>Chemical Applications<a class="headerlink" href="#chemical-applications" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Electrochemical Measurements</p>
 <ul>
@@ -929,11 +935,11 @@ expected number of electrons per step nu*h = 6.241509074
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="00.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../05/10.13-Computer-Vision-Application.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Works in Progress</p>
+            <p class="prev-next-title">Computer Vision Case Study: Creating an Application</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="03.02-Sampling-Continuous-Time-Signals.html" title="next page">
