@@ -33,14 +33,17 @@ chapters:
   - file: notebooks/05/01-Computer-Vision.ipynb
   - file: notebooks/05/02-getting-image-data.ipynb
   - file: notebooks/05/03-experiments-with-computer-vision.ipynb
+  - file: notebooks/05/04-image-processing-on-RPI
+  
+
+
+- file: notebooks/00/00.md
+  sections:
   - file: notebooks/05/10.01-rpi-image-capture.ipynb
   - file: notebooks/05/10.02-Machine-Vision.ipynb
   - file: notebooks/05/10.11-Experiments-with-Computer-Vision.ipynb
   - file: notebooks/05/10.12-Test-Driven-Development.ipynb
   - file: notebooks/05/10.13-Computer-Vision-Application.ipynb
-  
-- file: notebooks/00/00.md
-  sections:
   - file: notebooks/00/03.01-Low-Level-Measurment.ipynb
   - file: notebooks/00/03.02-Sampling-Continuous-Time-Signals.ipynb
   - file: notebooks/00/04.00-Chemical_Instrumentation.ipynb
