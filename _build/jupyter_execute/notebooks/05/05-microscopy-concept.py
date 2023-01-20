@@ -28,3 +28,9 @@
 # * USB Web Cam would enable simple "plug-and-play" microscope use. https://github.com/geerlingguy/pi-webcam
 # 
 # 
+
+# In[ ]:
+
+
+
+
