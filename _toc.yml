@@ -34,9 +34,8 @@ chapters:
   - file: notebooks/05/02-getting-image-data.ipynb
   - file: notebooks/05/03-experiments-with-computer-vision.ipynb
   - file: notebooks/05/04-image-processing-on-RPI
+  - file: notebooks/05/05-microscopy-concept.ipynb
   
-
-
 - file: notebooks/00/00.md
   sections:
   - file: notebooks/05/10.01-rpi-image-capture.ipynb
