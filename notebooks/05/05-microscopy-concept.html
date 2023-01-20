@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Computer Vision Applications &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
+    <title>RPi Microscopy Ideas &#8212; CBE 41622/61622 Laboratory Instrumentation and Measurement</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Computer Vision" href="01-Computer-Vision.html" />
-    <link rel="prev" title="RPI Camera Module" href="../04/08.03-rpi-picamera_test.html" />
+    <link rel="next" title="Works in Progress" href="../00/00.html" />
+    <link rel="prev" title="Installing an Image Processing Toolkit on Raspberry Pi" href="04-image-processing-on-RPI.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -216,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="00-computer-vision-applications.html">
    Computer Vision Applications
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -224,7 +224,7 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01-Computer-Vision.html">
      Computer Vision
@@ -245,8 +245,8 @@ const thebe_selector_output = ".output, .cell_output"
      Installing an Image Processing Toolkit on Raspberry Pi
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05-microscopy-concept.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      RPi Microscopy Ideas
     </a>
    </li>
@@ -490,6 +490,53 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jckantor/cbe61622/main?urlpath=tree/notebooks/05/05-microscopy-concept.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jckantor/cbe61622/blob/main/notebooks/05/05-microscopy-concept.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -529,7 +576,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/00-computer-vision-applications.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jckantor/cbe61622/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05/05-microscopy-concept.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -557,7 +604,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/notebooks/05/00-computer-vision-applications.md"
+        <a href="../../_sources/notebooks/05/05-microscopy-concept.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -568,7 +615,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -594,23 +641,80 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-objectives">
+   Project Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commercial-devices">
+   Commercial Devices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#software-options">
+   Software Options
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Computer Vision Applications</h1>
+                <h1>RPi Microscopy Ideas</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-objectives">
+   Project Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commercial-devices">
+   Commercial Devices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#software-options">
+   Software Options
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -618,10 +722,35 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="computer-vision-applications">
-<h1>Computer Vision Applications<a class="headerlink" href="#computer-vision-applications" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="rpi-microscopy-ideas">
+<h1>RPi Microscopy Ideas<a class="headerlink" href="#rpi-microscopy-ideas" title="Permalink to this heading">#</a></h1>
+<section id="project-objectives">
+<h2>Project Objectives<a class="headerlink" href="#project-objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Low cost microscope for laboratory applications.</p></li>
+</ul>
+</section>
+<section id="commercial-devices">
+<h2>Commercial Devices<a class="headerlink" href="#commercial-devices" title="Permalink to this heading">#</a></h2>
+<p>Lens Options for C-mount HQ Camera</p>
+<ul class="simple">
+<li><p>Pimoroni .. <a class="reference external" href="https://shop.pimoroni.com/products/microscope-lens-0-12-1-8x?variant=31885093371987">https://shop.pimoroni.com/products/microscope-lens-0-12-1-8x?variant=31885093371987</a>. Review available here <a class="reference external" href="https://www.tomshardware.com/reviews/pimoroni-microscope-lens-for-raspberry-pi">https://www.tomshardware.com/reviews/pimoroni-microscope-lens-for-raspberry-pi</a> and <a class="reference external" href="https://www.youtube.com/watch?v=_lTzv5IwWNk&amp;ab_channel=PenguinTutor">https://www.youtube.com/watch?v=_lTzv5IwWNk&amp;ab_channel=PenguinTutor</a></p></li>
+<li><p>Seeed  <a class="reference external" href="https://www.electromaker.io/shop/product/microscope-camera-300x-c-mount-lens-for-raspberry-pi-high-quality-camera">https://www.electromaker.io/shop/product/microscope-camera-300x-c-mount-lens-for-raspberry-pi-high-quality-camera</a></p></li>
+</ul>
+<p>Stands</p>
+<ul class="simple">
+<li><p>Pimoroni .. <a class="reference external" href="https://shop.pimoroni.com/products/microscope-stand-with-0-12-1-8x-lens?variant=31885089046611">https://shop.pimoroni.com/products/microscope-stand-with-0-12-1-8x-lens?variant=31885089046611</a></p></li>
+<li><p>Adafruit lens mount for Pi-Zero and RPI 4</p></li>
+<li><p>Waveshare .. <a class="reference external" href="https://www.waveshare.com/pi4-microscope-kit.htm">https://www.waveshare.com/pi4-microscope-kit.htm</a></p></li>
+<li><p>Hayear .. <a class="reference external" href="https://www.amazon.com/HAYEAR-Industry-Stereo-Digital-Microscope/dp/B07GPCQWXK">https://www.amazon.com/HAYEAR-Industry-Stereo-Digital-Microscope/dp/B07GPCQWXK</a></p></li>
+</ul>
+</section>
+<section id="software-options">
+<h2>Software Options<a class="headerlink" href="#software-options" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>USB Web Cam would enable simple “plug-and-play” microscope use. <a class="reference external" href="https://github.com/geerlingguy/pi-webcam">https://github.com/geerlingguy/pi-webcam</a></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -651,17 +780,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../04/08.03-rpi-picamera_test.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04-image-processing-on-RPI.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">RPI Camera Module</p>
+            <p class="prev-next-title">Installing an Image Processing Toolkit on Raspberry Pi</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01-Computer-Vision.html" title="next page">
+    <a class='right-next' id="next-link" href="../00/00.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Computer Vision</p>
+        <p class="prev-next-title">Works in Progress</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
